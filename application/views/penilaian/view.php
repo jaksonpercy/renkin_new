@@ -37,6 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Realisasi</a></li>
 
 
 
@@ -175,6 +176,73 @@ Service desk +62 852-1654-1900 <br>
 
 					</tbody>
 				</table>
+
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-mitigasi">Nilai</button>
+
+                  </div>
+
+                  <div class="tab-pane" id="tab_4">
+                    <div class="col-sm-12">
+                			<table class="table table-bordered table-striped">
+                				<tbody>
+                					<tr>
+                						<td width="160"><strong>Nama Program/Kegiatan</strong>:</td>
+                						<td>Publikasi Layanan JakWifi</td>
+                					</tr>
+                          <tr>
+                            <td width="160"><strong>No Lampiran</strong>:</td>
+                            <td>Lamp-001</td>
+                          </tr>
+                          <tr>
+                            <td width="160"><strong>Nama Lampiran</strong>:</td>
+                            <td>Lampiran 1</td>
+                          </tr>
+                          <tr>
+                            <td width="160"><strong>Tanggal Lampiran</strong>:</td>
+                            <td>03-04-2023</td>
+                          </tr>
+                					<tr>
+                						<td><strong>Nota Dinas</strong>:</td>
+                					  <td> <a href="#">Download File Nota Dinas</a> </td>
+                					</tr>
+
+                				</tbody>
+                			</table>
+                		</div>
+
+                    <table id="dataTable1" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Tanggal Realisasi</th>
+                        <th>Judul</th>
+                        <th>Media dan Tautan</th>
+                        <th>Dokumentasi</th>
+                        <!-- <th><?php echo lang('action') ?></th> -->
+                      </tr>
+                      </thead>
+                   <tbody>
+
+
+                     <tr>
+                        <td>1</td>
+                        <td>5 Januari 2023</td>
+                        <td>Perubahan titik Jakwifi salah satunya didasari hasil survei</td>
+                        <td>Instagram : <br> Facebook : </td>
+                        <td></td>
+
+                        <!-- <td>
+                          <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-ubah"> <span class="pr-1"><i class="fa fa-edit"></i></span></button> -->
+                          <!-- <a href="<?php echo url('realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> -->
+                          <!-- <a href="<?php echo url('realisasi/realisasiview/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a> -->
+                          <!-- <a href="<?php echo url('realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a> -->
+
+                        <!-- </td> -->
+                     </tr>
+
+
+                   </tbody>
+                 </table>
 
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-mitigasi">Nilai</button>
 

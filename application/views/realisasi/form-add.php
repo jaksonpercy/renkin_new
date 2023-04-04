@@ -205,8 +205,31 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Address">Media dan Tautan*</label>
-                        <textarea type="text" class="form-control" name="mediatautan" id="formClient-Address" placeholder="Media dan Tautan" rows="5"></textarea>
+                        <label for="formClient-Address">Kanal Publikasi*</label>
+                        <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
+                          <option value="-">Pilih Kanal Publikasi</option>
+                          <option value="Publikasi Layanan JakWifi">TV</option>
+                          <option value="Publikasi Layanan JakWifi">Radio</option>
+                          <option value="Publikasi Layanan JakWifi">Media Cetak</option>
+                          <option value="Publikasi Layanan JakWifi">Instagram</option>
+                          <option value="Publikasi Layanan JakWifi">Facebook</option>
+                          <option value="Publikasi Layanan JakWifi">LinkedIn</option>
+                          <option value="Publikasi Layanan JakWifi">Rapat/Audiensi/Workshop/Bintek</option>
+
+                        </select>
+                      </div>
+
+                      <div class="form-group">
+                        <label for="formClient-Name">Link Tautan*</label>
+                        <input type="text" class="form-control" name="linktautan" id="formClient-Name" required placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                      </div>
+
+                      <div class="form-group">
+                        <label for="formClient-Name">Dokumentasi*</label>
+                        <div class="custom-file" style="margin-top:1%">
+                          <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
+                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                        </div>
                       </div>
 
 
@@ -273,10 +296,33 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </div>
 
                 <div class="form-group">
-                  <label for="formClient-Address">Media dan Tautan*</label>
-                  <textarea type="text" class="form-control" name="mediatautan" id="formClient-Address" placeholder="Media dan Tautan" rows="5"></textarea>
+                  <label for="formClient-Address">Kanal Publikasi*</label>
+                  <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
+                    <option value="-">Pilih Kanal Publikasi</option>
+                    <option value="Publikasi Layanan JakWifi">TV</option>
+                    <option value="Publikasi Layanan JakWifi">Radio</option>
+                    <option value="Publikasi Layanan JakWifi">Media Cetak</option>
+                    <option value="Publikasi Layanan JakWifi">Instagram</option>
+                    <option value="Publikasi Layanan JakWifi">Facebook</option>
+                    <option value="Publikasi Layanan JakWifi">LinkedIn</option>
+                    <option value="Publikasi Layanan JakWifi">Rapat/Audiensi/Workshop/Bintek</option>
+
+                  </select>
                 </div>
 
+                <div class="form-group">
+                  <label for="formClient-Name">Link Tautan*</label>
+                  <input type="text" class="form-control" name="linktautan" id="formClient-Name" required placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                </div>
+
+
+                                      <div class="form-group">
+                                        <label for="formClient-Name">Dokumentasi*</label>
+                                        <div class="custom-file" style="margin-top:1%">
+                                          <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
+                                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                                        </div>
+                                      </div>
 
              </div>
              <!-- /.card-body -->
