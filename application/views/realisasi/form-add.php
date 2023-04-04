@@ -80,25 +80,24 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="form-group">
           <label for="formClient-Name">Nota Dinas*</label>
-          <input type="text" class="form-control" name="notadinas" id="formClient-NotaDinas" required placeholder="Nota Dinas" onkeyup="$('#formClient-NotaDinas').val(createUsername(this.value))" autofocus />
-          <div class="custom-file" style="margin-top:1%">
-            <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
+           <div class="custom-file">
+            <input type="file" class="custom-file-input" name="file" accept=".pdf" required id="exampleInputFile">
             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="formClient-Contact">No Lampiran*</label>
+          <label for="formClient-Contact">No Nota Dinas / Surat*</label>
           <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" required placeholder="No Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
         <div class="form-group">
-          <label for="formClient-Contact">Nama Lampiran*</label>
+          <label for="formClient-Contact">Perihal Nota Dinas /Surat*</label>
           <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" required placeholder="Nama Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
         <div class="form-group">
-          <label for="formClient-Contact">Tanggal Lampiran*</label>
+          <label for="formClient-Contact">Tanggal Nota Dinas /Surat*</label>
           <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" required placeholder="Tanggal Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
@@ -137,7 +136,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <th>No</th>
                 <th>Tanggal Realisasi</th>
                 <th>Judul</th>
-                <th>Media dan Tautan</th>
+                <th>Kanal Publikasi</th>
+                <th>Link Tautan</th>
                 <th>Dokumentasi</th>
                 <th><?php echo lang('action') ?></th>
               </tr>
@@ -149,7 +149,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <td>1</td>
                 <td>5 Januari 2023</td>
                 <td>Perubahan titik Jakwifi salah satunya didasari hasil survei</td>
-                <td>Instagram : <br> Facebook : </td>
+                <td>Instagram </td>
+                <td><a href="#">http://www.google.com</a></td>
                 <td></td>
 
                 <td>
@@ -187,9 +188,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                    <div class="card-body">
 
                      <div class="form-group">
-                        <label for="formClient-Contact">Nama Rencana Kinerja*</label>
+                        <label for="formClient-Contact">Nama Judul Strategi Komunikasi*</label>
                         <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
-                          <option value="-">Pilih Rencana Kinerja</option>
+                          <option value="-">Pilih Judul Strategi Komunikasi</option>
                           <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
 
                         </select>
@@ -226,8 +227,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Name">Dokumentasi*</label>
-                        <div class="custom-file" style="margin-top:1%">
-                          <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="file" accept="image/*" required id="exampleInputFile">
                           <label class="custom-file-label" for="exampleInputFile">Choose file</label>
                         </div>
                       </div>
@@ -278,9 +279,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
              <div class="card-body">
 
                <div class="form-group">
-                  <label for="formClient-Contact">Nama Rencana Kinerja*</label>
+                  <label for="formClient-Contact">Judul Strategi Komunikasi*</label>
                   <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
-                    <option value="-">Pilih Rencana Kinerja</option>
+                    <option value="-">Pilih Judul Strategi Komunikasi</option>
                     <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
 
                   </select>
@@ -315,14 +316,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <input type="text" class="form-control" name="linktautan" id="formClient-Name" required placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                 </div>
 
-
-                                      <div class="form-group">
-                                        <label for="formClient-Name">Dokumentasi*</label>
-                                        <div class="custom-file" style="margin-top:1%">
-                                          <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
-                                          <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                                        </div>
-                                      </div>
+                <div class="form-group">
+                  <label for="formClient-Name">Dokumentasi*</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" name="file" accept="image/*" required id="exampleInputFile">
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                  </div>
+                </div>
 
              </div>
              <!-- /.card-body -->

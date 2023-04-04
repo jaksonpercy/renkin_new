@@ -35,8 +35,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Contact">List Prioritas*</label>
-            <select name="listPrioritas" id="listPrioritas" class="form-control select2" required>
+            <label for="formClient-Contact">Kategori Program*</label>
+            <select name="kategoriProgram" id="kategoriProgram" class="form-control" required>
               <option value="-">Pilih List Prioritas</option>
               <option value="Isu Prioritas">Isu Prioritas</option>
               <option value="KSD">KSD</option>
@@ -46,6 +46,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group" style="display:none" id="divNoKSD">
+            <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
+            <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
+              <option value="-">Pilih KSD</option>
+              <option value="Penanggulangan Banjir">001 - KSD 1 </option>
+              <option value="Penanganan Kemacetan">002 - KSD 2 </option>
+              <option value="Penanganan Stunting">003 - KSD 3</option>
+              <option value="Antisipasi Dampak Resesi Ekonomi">004 - KSD 04</option>
+
+            </select>
+          </div>
+
+          <!-- <div class="form-group" style="display:none" id="divNoKSD">
             <label for="formClient-Name">No KSD*</label>
             <input type="text" class="form-control" name="noKSD" id="formClient-noKSD" required placeholder="No KSD" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
           </div>
@@ -53,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group" style="display:none" id="divNamaKSD">
             <label for="formClient-Name">Nama KSD*</label>
             <input type="text" class="form-control" name="namaKSD" id="formClient-namaKSD" required placeholder="Nama KSD" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-          </div>
+          </div> -->
 
           <div class="form-group"  style="display:none" id="divNamaProgram">
             <label for="formClient-Name">Nama Program/Kegiatan*</label>
@@ -61,8 +73,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group"  style="display:none" id="divJenisProgram">
-            <label for="formClient-Contact">Jenis Program/Kegiatan*</label>
-            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required>
+            <label for="formClient-Contact" class="col-sm-12">Jenis Program/Kegiatan*</label>
+            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" style="width:100%" required>
               <option value="-">Pilih Jenis Kegiatan</option>
               <option value="Penanggulangan Banjir">Penanggulangan Banjir</option>
               <option value="Penanganan Kemacetan">Penanganan Kemacetan</option>
@@ -166,49 +178,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 <!-- /.content -->
-
-<script type="text/javascript">
-   const el = document.getElementById('listPrioritas');
-   const divNoKSD = document.getElementById('divNoKSD');
-   const divNamaKSD = document.getElementById('divNamaKSD');
-   const divNamaProgram = document.getElementById('divNamaProgram');
-   const divJenisProgram = document.getElementById('divJenisProgram');
-   const divNamaUnggulan = document.getElementById('divNamaUnggulan');
-   el.addEventListener('change', function handleChange(event) {
-      if (event.target.value == 'Isu Prioritas') {
-         divNamaProgram.style.display = 'block';
-          divJenisProgram.style.display = 'block';
-          document.getElementById('divNoKSD').style.display = 'none';
-           document.getElementById('divNamaKSD').style.display = 'none';
-      } else if (event.target.value == 'KSD') {
-        divNamaProgram.style.display = 'none';
-         divJenisProgram.style.display = 'none';
-        document.getElementById('divNoKSD').style.display = 'block';
-         document.getElementById('divNamaKSD').style.display = 'block';
-      } else if (event.target.value == 'Program Unggulan Perangkat Daerah') {
-        divNamaProgram.style.display = 'none';
-         divJenisProgram.style.display = 'none';
-        document.getElementById('divNoKSD').style.display = 'none';
-         document.getElementById('divNamaKSD').style.display = 'none';
-           divNamaUnggulan.style.display = 'block';
-      } else {
-        divNamaProgram.style.display = 'none';
-         divJenisProgram.style.display = 'none';
-         divNoKSD.style.display = 'none';
-          divNamaKSD.style.display = 'none';
-           divNamaUnggulan.style.display = 'none';
-      }
-   });
-</script>
-
 <script>
-  // $(document).ready(function() {
-  //   $('.form-validate').validate();
-  //
-  //     //Initialize Select2 Elements
-  //   $('.select2').select2()
-  //
-  // })
+  $(document).ready(function() {
+    $('.form-validate').validate();
+
+      // Initialize Select2 Elements
+    $('.select2').select2()
+
+  })
 
   function previewImage(input, previewDom) {
 
@@ -237,5 +214,41 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   }
 
 </script>
+
+<script type="text/javascript">
+   const el = document.getElementById('kategoriProgram');
+   const divNoKSD = document.getElementById('divNoKSD');
+   // const divNamaKSD = document.getElementById('divNamaKSD');
+   const divNamaProgram = document.getElementById('divNamaProgram');
+   const divJenisProgram = document.getElementById('divJenisProgram');
+   const divNamaUnggulan = document.getElementById('divNamaUnggulan');
+   el.addEventListener('change', function handleChange(event) {
+      if (event.target.value == 'Isu Prioritas') {
+         divNamaProgram.style.display = 'block';
+          divJenisProgram.style.display = 'block';
+          document.getElementById('divNoKSD').style.display = 'none';
+           // document.getElementById('divNamaKSD').style.display = 'none';
+      } else if (event.target.value == 'KSD') {
+        divNamaProgram.style.display = 'none';
+         divJenisProgram.style.display = 'none';
+        document.getElementById('divNoKSD').style.display = 'block';
+         // document.getElementById('divNamaKSD').style.display = 'block';
+      } else if (event.target.value == 'Program Unggulan Perangkat Daerah') {
+        divNamaProgram.style.display = 'none';
+         divJenisProgram.style.display = 'none';
+        document.getElementById('divNoKSD').style.display = 'none';
+         // document.getElementById('divNamaKSD').style.display = 'none';
+           divNamaUnggulan.style.display = 'block';
+      } else {
+        divNamaProgram.style.display = 'none';
+         divJenisProgram.style.display = 'none';
+         divNoKSD.style.display = 'none';
+          // divNamaKSD.style.display = 'none';
+           divNamaUnggulan.style.display = 'none';
+      }
+   });
+</script>
+
+
 
 <?php include viewPath('includes/footer'); ?>
