@@ -62,6 +62,60 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <?php echo form_open('adminlte/ci_examples/multi_file_uploads', [ 'id' => 'fileupload', 'enctype' => 'multipart/form-data' ])  ?>
 
 
+  <form action="" method="post" enctype="multipart/form-data">
+<div class="row">
+  <div class="col-sm-12">
+    <!-- Default card -->
+    <div class="card">
+
+      <div class="card-body">
+
+        <div class="form-group">
+          <label for="formClient-Contact">Nama Program/Kegiatan*</label>
+          <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required>
+            <option value="-">Pilih Program/Kegiatan</option>
+            <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="formClient-Name">Nota Dinas*</label>
+          <input type="text" class="form-control" name="notadinas" id="formClient-NotaDinas" required placeholder="Nota Dinas" onkeyup="$('#formClient-NotaDinas').val(createUsername(this.value))" autofocus />
+          <div class="custom-file" style="margin-top:1%">
+            <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
+            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="formClient-Contact">No Lampiran*</label>
+          <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" required placeholder="No Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+        </div>
+
+        <div class="form-group">
+          <label for="formClient-Contact">Nama Lampiran*</label>
+          <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" required placeholder="Nama Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+        </div>
+
+        <div class="form-group">
+          <label for="formClient-Contact">Tanggal Lampiran*</label>
+          <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" required placeholder="Tanggal Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+        </div>
+
+      </div>
+      <!-- /.card-body -->
+
+    </div>
+    <!-- /.card -->
+
+    <!-- Default card -->
+
+    <!-- /.card -->
+
+  </div>
+</div>
+</form>
+
   <div class="row">
     <div class="col-sm-12">
       <!-- Default card -->
@@ -69,68 +123,184 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="card-body">
           <div class="form-group">
-            <label for="formClient-Contact">Nama Rencana Kinerja*</label>
-            <select name="jenisKegiatan" id="formClient-Role" class="form-control select2" required>
-              <option value="-">Pilih Rencana Kinerja</option>
-              <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+            <div class="d-flex p-0">
+              <div class="ml-auto p-2">
 
-            </select>
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-tambah"> <span class="pr-1"><i class="fa fa-plus"></i></span>
+              Tambah Data
+            </button>
           </div>
-          <div class="form-group">
-            <label for="formClient-Name">Tanggal Realisasi*</label>
-            <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-          </div>
-
-          <div class="form-group">
-            <label for="formClient-Name">Judul*</label>
-            <input type="text" class="form-control" name="judul" id="formClient-Name" required placeholder="Judul" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-          </div>
-
-          <div class="form-group">
-            <label for="formClient-Address">Media dan Tautan*</label>
-            <textarea type="text" class="form-control" name="mediatautan" id="formClient-Address" placeholder="Media dan Tautan" rows="5"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="formClient-Address">Dokumentasi*</label>
-            <div id="dropzone" onclick="$('.fileinput-button input').click();" class="fade well">drag and drop files here</div>
-            <br>
-
-            <!-- The table listing the files available for upload/download -->
-            <table role="presentation" class="table table-striped">
-              <tbody class="files"></tbody>
-            </table>
-          </div>
-          <div class="card-footer">
-
-          <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
-          <div class="row fileupload-buttonbar">
-            <div class="col-lg-12">
-              <!-- The fileinput-button span is used to style the file input field as button -->
-              <span class="btn btn-success fileinput-button">
-                <i class="fa fa-plus"></i> &nbsp;&nbsp;
-                <span>Add files...</span>
-                <input type="file" name="files" multiple />
-              </span>
-              <button type="submit" class="btn btn-primary start">
-                <i class="fa fa-upload"></i> &nbsp;&nbsp;
-                <span>Start upload</span>
-              </button>
-              <button type="reset" class="btn btn-warning cancel">
-                <i class="fa fa-times"></i> &nbsp;&nbsp;
-                <span>Cancel upload</span>
-              </button>
-              <button type="button" class="btn btn-danger delete">
-                <i class="fa fa-trash"></i> &nbsp;&nbsp;
-                <span>Delete selected</span>
-              </button>
-              <input type="checkbox" class="toggle" />
-              <!-- The global file processing state -->
-              <span class="fileupload-process"></span>
             </div>
-          </div>
+            <table id="dataTable1" class="table table-bordered table-striped">
+              <thead>
+              <tr>
+                <th>No</th>
+                <th>Tanggal Realisasi</th>
+                <th>Judul</th>
+                <th>Media dan Tautan</th>
+                <th>Dokumentasi</th>
+                <th><?php echo lang('action') ?></th>
+              </tr>
+              </thead>
+           <tbody>
 
 
-          </div>
+             <tr>
+                <td>1</td>
+                <td>5 Januari 2023</td>
+                <td>Perubahan titik Jakwifi salah satunya didasari hasil survei</td>
+                <td>Instagram : <br> Facebook : </td>
+                <td></td>
+
+                <td>
+                  <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-ubah"> <span class="pr-1"><i class="fa fa-edit"></i></span></button>
+                  <!-- <a href="<?php echo url('realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> -->
+                  <!-- <a href="<?php echo url('realisasi/realisasiview/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a> -->
+                  <a href="<?php echo url('realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+
+                </td>
+             </tr>
+
+
+           </tbody>
+         </table>
+
+
+         <div class="modal fade" id="modal-tambah">
+     <div class="modal-dialog modal-lg">
+       <div class="modal-content">
+         <div class="modal-header">
+           <h4 class="modal-title">Tambah Data</h4>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="">
+           <?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+               <form action="" method="post" enctype="multipart/form-data">
+             <div class="row">
+               <div class="col-sm-12">
+                 <!-- Default card -->
+                 <div class="card">
+
+                   <div class="card-body">
+
+                     <div class="form-group">
+                        <label for="formClient-Contact">Nama Rencana Kinerja*</label>
+                        <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
+                          <option value="-">Pilih Rencana Kinerja</option>
+                          <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="formClient-Name">Tanggal Realisasi*</label>
+                        <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                      </div>
+
+                      <div class="form-group">
+                        <label for="formClient-Name">Judul*</label>
+                        <input type="text" class="form-control" name="judul" id="formClient-Name" required placeholder="Judul" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                      </div>
+
+                      <div class="form-group">
+                        <label for="formClient-Address">Media dan Tautan*</label>
+                        <textarea type="text" class="form-control" name="mediatautan" id="formClient-Address" placeholder="Media dan Tautan" rows="5"></textarea>
+                      </div>
+
+
+                   </div>
+                   <!-- /.card-body -->
+
+                 </div>
+                 <!-- /.card -->
+
+                 <!-- Default card -->
+
+                 <!-- /.card -->
+
+               </div>
+             </div>
+           </form>
+         </div>
+         <div class="modal-footer justify-content-between">
+           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           <button type="button" class="btn btn-primary">Submit</button>
+         </div>
+       </div>
+       <!-- /.modal-content -->
+     </div>
+     <!-- /.modal-dialog -->
+   </div>
+
+   <div class="modal fade" id="modal-ubah">
+<div class="modal-dialog modal-lg">
+ <div class="modal-content">
+   <div class="modal-header">
+     <h4 class="modal-title">Ubah Data</h4>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+       <span aria-hidden="true">&times;</span>
+     </button>
+   </div>
+   <div class="">
+     <?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+         <form action="" method="post" enctype="multipart/form-data">
+       <div class="row">
+         <div class="col-sm-12">
+           <!-- Default card -->
+           <div class="card">
+
+             <div class="card-body">
+
+               <div class="form-group">
+                  <label for="formClient-Contact">Nama Rencana Kinerja*</label>
+                  <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
+                    <option value="-">Pilih Rencana Kinerja</option>
+                    <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="formClient-Name">Tanggal Realisasi*</label>
+                  <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                </div>
+
+                <div class="form-group">
+                  <label for="formClient-Name">Judul*</label>
+                  <input type="text" class="form-control" name="judul" id="formClient-Name" required placeholder="Judul" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                </div>
+
+                <div class="form-group">
+                  <label for="formClient-Address">Media dan Tautan*</label>
+                  <textarea type="text" class="form-control" name="mediatautan" id="formClient-Address" placeholder="Media dan Tautan" rows="5"></textarea>
+                </div>
+
+
+             </div>
+             <!-- /.card-body -->
+
+           </div>
+           <!-- /.card -->
+
+           <!-- Default card -->
+
+           <!-- /.card -->
+
+         </div>
+       </div>
+     </form>
+   </div>
+   <div class="modal-footer justify-content-between">
+     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+     <button type="button" class="btn btn-primary">Submit</button>
+   </div>
+ </div>
+ <!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
         </div>
         <!-- /.card-body -->
 
@@ -141,6 +311,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <!-- /.card -->
 
     </div>
+  </div>
   </div>
 
   <!-- Default card -->
@@ -201,176 +372,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php include viewPath('includes/footer'); ?>
 
-<!-- jquery-validation -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-validation/jquery.validate.min.js"></script>
-    <script src="<?php echo $url->assets ?>plugins/jquery-validation/additional-methods.min.js"></script>
-
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/vendor/doka.polyfill.loader.js"></script>
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/vendor/doka.min.js"></script>
-
-    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/vendor/jquery.ui.widget.js"></script>
-
-    <!-- The Templates plugin is included to render the upload/download listings -->
-    <script src="https://blueimp.github.io/JavaScript-Templates/js/tmpl.min.js"></script>
-
-    <!-- The Load Image plugin is included for the preview images and image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Load-Image/js/load-image.all.min.js"></script>
-
-    <!-- The Canvas to Blob plugin is included for image resizing functionality -->
-    <script src="https://blueimp.github.io/JavaScript-Canvas-to-Blob/js/canvas-to-blob.min.js"></script>
-
-    <!-- blueimp Gallery script -->
-    <script src="https://blueimp.github.io/Gallery/js/jquery.blueimp-gallery.min.js"></script>
-
-    <!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.iframe-transport.js"></script>
-    <!-- The basic File Upload plugin -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.fileupload.js"></script>
-    <!-- The File Upload processing plugin -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.fileupload-process.js"></script>
-    <!-- The File Upload image preview & resize plugin -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.fileupload-image.js"></script>
-    <!-- The File Upload audio preview plugin -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.fileupload-audio.js"></script>
-    <!-- The File Upload video preview plugin -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.fileupload-video.js"></script>
-    <!-- The File Upload validation plugin -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
-    <!-- The File Upload user interface plugin -->
-    <script src="<?php echo $url->assets ?>plugins/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
-
-<script type="text/javascript">
-
-$(function () {
-  'use strict';
-
-      // Initialize the jQuery File Upload widget:
-      $('#fileupload').fileupload({
-        // Uncomment the following to send cross-domain cookies:
-        //xhrFields: {withCredentials: true},
-        url: $('#fileupload').attr('action'),
-        dropZone: $('#dropzone')
-      });
-
-      $(document).bind('dragover', function (e) {
-        var dropZones = $('#dropzone'),
-            timeout = window.dropZoneTimeout;
-        if (timeout) {
-            clearTimeout(timeout);
-        } else {
-            dropZones.addClass('in');
-        }
-        var hoveredDropZone = $(e.target).closest(dropZones);
-        dropZones.not(hoveredDropZone).removeClass('hover');
-        hoveredDropZone.addClass('hover');
-        window.dropZoneTimeout = setTimeout(function () {
-            window.dropZoneTimeout = null;
-            dropZones.removeClass('in hover');
-        }, 100);
-    });
-
-    // Load existing files:
-    $('#fileupload').addClass('fileupload-processing');
-    $.ajax({
-      // Uncomment the following to send cross-domain cookies:
-      //xhrFields: {withCredentials: true},
-      url:  "<?php echo url('/adminlte/ci_examples/multi_file_uploads_files') ?>",
-      dataType: 'json',
-      context: $('#fileupload')[0]
-    })
-      .always(function () {
-        $(this).removeClass('fileupload-processing');
-      })
-      .done(function (result) {
-        $(this)
-          .fileupload('option', 'done')
-          // eslint-disable-next-line new-cap
-          .call(this, $.Event('done'), { result: result });
-      });
-
-});
+<script>
+	$('#dataTable1').DataTable({
+    "order": []
+  });
 </script>
-
-
-    <!-- The template to display files available for upload -->
-    <script id="template-upload" type="text/x-tmpl">
-      {% for (var i=0, file; file=o.files[i]; i++) { %}
-          <tr class="template-upload {%=o.options.loadImageFileTypes.test(file.type)?' image':''%}">
-              <td>
-                  <span class="preview"></span>
-              </td>
-              <td>
-                  <p class="name">{%=file.name%}</p>
-                  <strong class="error text-danger"></strong>
-              </td>
-              <td>
-                  <p class="size">Processing...</p>
-                  <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
-              </td>
-              <td>
-                  {% if (!o.options.autoUpload && o.options.edit && o.options.loadImageFileTypes.test(file.type)) { %}
-                    <button class="btn btn-success edit" data-index="{%=i%}" disabled>
-                        <i class="fa fa-edit"></i>
-                        <span>Edit</span>
-                    </button>
-                  {% } %}
-                  {% if (!i && !o.options.autoUpload) { %}
-                      <button class="btn btn-primary start" disabled>
-                          <i class="fa fa-upload"></i>
-                          <span>Start</span>
-                      </button>
-                  {% } %}
-                  {% if (!i) { %}
-                      <button class="btn btn-warning cancel">
-                          <i class="fa fa-ban-circle"></i>
-                          <span>Cancel</span>
-                      </button>
-                  {% } %}
-              </td>
-          </tr>
-      {% } %}
-    </script>
-    <!-- The template to display files available for download -->
-    <script id="template-download" type="text/x-tmpl">
-      {% for (var i=0, file; file=o.files[i]; i++) { %}
-          <tr class="template-download {%=file.thumbnailUrl?' image':''%}">
-              <td>
-                  <span class="preview">
-                      {% if (file.thumbnailUrl) { %}
-                          <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" data-gallery><img src="{%=file.thumbnailUrl%}" width="100"></a>
-                      {% } %}
-                  </span>
-              </td>
-              <td>
-                  <p class="name">
-                      {% if (file.url) { %}
-                          <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
-                      {% } else { %}
-                          <span>{%=file.name%}</span>
-                      {% } %}
-                  </p>
-                  {% if (file.error) { %}
-                      <div><span class="label label-danger">Error</span> {%=file.error%}</div>
-                  {% } %}
-              </td>
-              <td>
-                  <span class="size">{%=o.formatFileSize(file.size)%}</span>
-              </td>
-              <td>
-                  {% if (file.deleteUrl) { %}
-                      <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
-                          <i class="glyphicon glyphicon-trash"></i>
-                          <span>Delete</span>
-                      </button>
-                      <input type="checkbox" name="delete" value="1" class="toggle">
-                  {% } else { %}
-                      <button class="btn btn-warning cancel">
-                          <i class="glyphicon glyphicon-ban-circle"></i>
-                          <span>Cancel</span>
-                      </button>
-                  {% } %}
-              </td>
-          </tr>
-      {% } %}
-    </script>

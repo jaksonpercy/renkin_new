@@ -51,6 +51,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td width="160"><strong>Nama Program/Kegiatan</strong>:</td>
       						<td>Publikasi Layanan JakWifi</td>
       					</tr>
+                <tr>
+                  <td width="160"><strong>No Lampiran</strong>:</td>
+                  <td>Lamp-001</td>
+                </tr>
+                <tr>
+                  <td width="160"><strong>Nama Lampiran</strong>:</td>
+                  <td>Lampiran 1</td>
+                </tr>
+                <tr>
+                  <td width="160"><strong>Tanggal Lampiran</strong>:</td>
+                  <td>03-04-2023</td>
+                </tr>
       					<tr>
       						<td><strong>Nota Dinas</strong>:</td>
       					  <td> <a href="#">Download File Nota Dinas</a> </td>
@@ -63,11 +75,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="tab_2">
-                    <div class="card-header d-flex p-0">
+                    <div class="d-flex p-0">
                     <div class="ml-auto p-2">
 
-                      <a href="<?php echo url('realisasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Realisasi</a>
-
+                      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-tambah"> <span class="pr-1"><i class="fa fa-plus"></i></span>
+                    Tambah Data
+                  </button>
                     </div>
                     </div>
 				  <table id="dataTable1" class="table table-bordered table-striped">
@@ -92,8 +105,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <td></td>
 
               <td>
-                <a href="<?php echo url('realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a>
-                <a href="<?php echo url('realisasi/realisasiview/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-ubah"> <span class="pr-1"><i class="fa fa-edit"></i></span></button>
+                <!-- <a href="<?php echo url('realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> -->
+                <!-- <a href="<?php echo url('realisasi/realisasiview/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a> -->
                 <a href="<?php echo url('realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
               </td>
@@ -115,6 +129,143 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <!-- /.col -->
+        </div>
+
+
+                 <div class="modal fade" id="modal-tambah">
+             <div class="modal-dialog modal-lg">
+               <div class="modal-content">
+                 <div class="modal-header">
+                   <h4 class="modal-title">Tambah Data</h4>
+                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                     <span aria-hidden="true">&times;</span>
+                   </button>
+                 </div>
+                 <div class="">
+                   <?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+                       <form action="" method="post" enctype="multipart/form-data">
+                     <div class="row">
+                       <div class="col-sm-12">
+                         <!-- Default card -->
+                         <div class="card">
+
+                           <div class="card-body">
+
+                             <div class="form-group">
+                                <label for="formClient-Contact">Nama Rencana Kinerja*</label>
+                                <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
+                                  <option value="-">Pilih Rencana Kinerja</option>
+                                  <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+
+                                </select>
+                              </div>
+                              <div class="form-group">
+                                <label for="formClient-Name">Tanggal Realisasi*</label>
+                                <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                              </div>
+
+                              <div class="form-group">
+                                <label for="formClient-Name">Judul*</label>
+                                <input type="text" class="form-control" name="judul" id="formClient-Name" required placeholder="Judul" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                              </div>
+
+                              <div class="form-group">
+                                <label for="formClient-Address">Media dan Tautan*</label>
+                                <textarea type="text" class="form-control" name="mediatautan" id="formClient-Address" placeholder="Media dan Tautan" rows="5"></textarea>
+                              </div>
+
+
+                           </div>
+                           <!-- /.card-body -->
+
+                         </div>
+                         <!-- /.card -->
+
+                         <!-- Default card -->
+
+                         <!-- /.card -->
+
+                       </div>
+                     </div>
+                   </form>
+                 </div>
+                 <div class="modal-footer justify-content-between">
+                   <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                   <button type="button" class="btn btn-primary">Submit</button>
+                 </div>
+               </div>
+               <!-- /.modal-content -->
+             </div>
+             <!-- /.modal-dialog -->
+           </div>
+
+           <div class="modal fade" id="modal-ubah">
+        <div class="modal-dialog modal-lg">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h4 class="modal-title">Ubah Data</h4>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="">
+             <?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+                 <form action="" method="post" enctype="multipart/form-data">
+               <div class="row">
+                 <div class="col-sm-12">
+                   <!-- Default card -->
+                   <div class="card">
+
+                     <div class="card-body">
+
+                       <div class="form-group">
+                          <label for="formClient-Contact">Nama Rencana Kinerja*</label>
+                          <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
+                            <option value="-">Pilih Rencana Kinerja</option>
+                            <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label for="formClient-Name">Tanggal Realisasi*</label>
+                          <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                        </div>
+
+                        <div class="form-group">
+                          <label for="formClient-Name">Judul*</label>
+                          <input type="text" class="form-control" name="judul" id="formClient-Name" required placeholder="Judul" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                        </div>
+
+                        <div class="form-group">
+                          <label for="formClient-Address">Media dan Tautan*</label>
+                          <textarea type="text" class="form-control" name="mediatautan" id="formClient-Address" placeholder="Media dan Tautan" rows="5"></textarea>
+                        </div>
+
+
+                     </div>
+                     <!-- /.card-body -->
+
+                   </div>
+                   <!-- /.card -->
+
+                   <!-- Default card -->
+
+                   <!-- /.card -->
+
+                 </div>
+               </div>
+             </form>
+           </div>
+           <div class="modal-footer justify-content-between">
+             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+             <button type="button" class="btn btn-primary">Submit</button>
+           </div>
+         </div>
+         <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
         </div>
         <!-- /.row -->
         <!-- END CUSTOM TABS -->

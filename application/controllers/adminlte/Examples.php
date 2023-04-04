@@ -36,7 +36,7 @@ class Examples extends MY_Controller {
 
 	public function invoice_print()
 	{
-		$this->view('invoice_print');
+		$this->view('invoice-print');
 	}
 
 	public function lockscreen()

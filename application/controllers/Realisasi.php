@@ -29,6 +29,12 @@ class Realisasi extends MY_Controller {
 
   }
 
+  public function printExport(){
+    // load view
+    $this->load->view('realisasi/export', $this->page_data);
+
+  }
+
   public function edit(){
     // load view
     $this->load->view('realisasi/form-edit', $this->page_data);
