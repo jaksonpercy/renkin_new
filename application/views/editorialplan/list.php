@@ -62,8 +62,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>Instagram</td>
                       <td>
                         <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit"><i class="fas fa-edit"></i></button>
-                        <a href="<?php echo url('editorialplan/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url('editorialplan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        <a href="<?php echo url('EditorialPlan/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
                       </td>
                     </tr>
@@ -153,13 +153,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-                        <input type="date" class="form-control" name="tanggalRencanaTayang[]" required placeholder="Tanggal Rencana Tayang" autofocus />
+                        <input type="date" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus />
                       </div>
 
 
                       <div class="form-group">
                         <label for="formClient-Contact">Produk Komunikasi*</label>
-                        <select name="produkKomunikasi[]" id="formClient-Produk" class="form-control select2" required>
+                        <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
                           <option value="-">Pilih Produk Komunikasi</option>
                           <option value="Artikel">Artikel</option>
                           <option value="Video">Video</option>
@@ -178,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Contact">Kanal Komunikasi*</label>
-                        <select name="kanalKomunikasi[]" id="formClient-Role" class="form-control select2" required>
+                        <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" required>
                           <option value="-">Pilih Kanal Komunikasi</option>
                           <option value="Instagram">Instagram</option>
                           <option value="Facebook">Facebook</option>
@@ -204,12 +204,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Address">Pesan Utama*</label>
-                        <textarea type="text" class="form-control" name="pesanUtama[]" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
+                        <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
                       </div>
 
                       <div class="form-group">
                         <label for="formClient-Address">Khalayak*</label>
-                        <textarea type="text" class="form-control" name="khalayak[]" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
+                        <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
                       </div>
 
                     </div>
@@ -259,13 +259,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </div>
                 <div class="form-group">
                   <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-                  <input type="date" class="form-control" name="tanggalRencanaTayang[]" required placeholder="Tanggal Rencana Tayang" autofocus />
+                  <input type="date" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus />
                 </div>
 
 
                 <div class="form-group">
                   <label for="formClient-Contact">Produk Komunikasi*</label>
-                  <select name="produkKomunikasi[]" id="formClient-Produk" class="form-control select2" required>
+                  <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
                     <option value="-">Pilih Produk Komunikasi</option>
                     <option value="Artikel">Artikel</option>
                     <option value="Video">Video</option>
@@ -284,7 +284,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 <div class="form-group">
                   <label for="formClient-Contact">Kanal Komunikasi*</label>
-                  <select name="kanalKomunikasi[]" id="formClient-Role" class="form-control select2" required>
+                  <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" required>
                     <option value="-">Pilih Kanal Komunikasi</option>
                     <option value="Instagram">Instagram</option>
                     <option value="Facebook">Facebook</option>
@@ -310,12 +310,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 <div class="form-group">
                   <label for="formClient-Address">Pesan Utama*</label>
-                  <textarea type="text" class="form-control" name="pesanUtama[]" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
+                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
                 </div>
 
                 <div class="form-group">
                   <label for="formClient-Address">Khalayak*</label>
-                  <textarea type="text" class="form-control" name="khalayak[]" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
+                  <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
                 </div>
 
               </div>

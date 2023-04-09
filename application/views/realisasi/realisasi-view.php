@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/realisasi') ?>">Realisasi</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/Realisasi') ?>">Realisasi</a></li>
               <li class="breadcrumb-item active"><?php echo $User->id ?></li>
             </ol>
           </div>
@@ -34,7 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <h3 class="card-title p-3">Detail</h3>
                 <ul class="nav nav-pills ml-auto p-2">
 
-            <li class="nav-item"><a class="nav-link" href="<?php echo url('realisasi/edit/'.$User->id) ?>">Edit</a></li>
+            <li class="nav-item"><a class="nav-link" href="<?php echo url('Realisasi/edit/'.$User->id) ?>">Edit</a></li>
 
 
               </div><!-- /.card-header -->

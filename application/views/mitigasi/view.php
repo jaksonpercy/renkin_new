@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/mitigasi') ?>">Uraian Materi Mitigasi Krisis</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/Mitigasi') ?>">Uraian Materi Mitigasi Krisis</a></li>
               <li class="breadcrumb-item active"><?php echo $User->id ?></li>
             </ol>
           </div>
@@ -35,7 +35,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <ul class="nav nav-pills ml-auto p-2">
 
 					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
-						<li class="nav-item"><a class="nav-link" href="<?php echo url('mitigasi/edit/'.$User->id) ?>">Edit</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo url('Mitigasi/edit/'.$User->id) ?>">Edit</a></li>
 
 
                 </ul>
@@ -95,7 +95,7 @@ Service desk +62 852-1654-1900
       	</div>
                   </div>
                   <!-- /.tab-pane -->
-                  <d
+                  <div>
 
                 </div>
                 <!-- /.tab-content -->

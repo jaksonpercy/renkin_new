@@ -16,7 +16,7 @@ class Login extends CI_Controller {
 		}
 
 		if(is_logged()){
-			redirect('dashboard','refresh');
+			redirect('Dashboard','refresh');
 		}
 
 		$this->data = [
@@ -175,7 +175,7 @@ class Login extends CI_Controller {
 
 		if(!$reset_token || !$user || empty($user)){
 			echo 'Invalid Request';
-			redirect('login/forget', 'refresh'); return;
+			redirect('Login/forget', 'refresh'); return;
 		}
 
 		$user = $user[0];
@@ -211,7 +211,7 @@ class Login extends CI_Controller {
 
 		$this->session->set_flashdata('message', 'New Password has been Updated, You can login now');
 		$this->session->set_flashdata('message_type', 'success');
-		redirect('login', 'refresh');
+		redirect('Login', 'refresh');
 
 	}
 

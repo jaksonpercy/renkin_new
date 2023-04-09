@@ -18,18 +18,18 @@ class MY_Controller extends CI_Controller {
 			$this->users_model->logout();
 			die('Database is not configured');
 		}
-		
+
 		date_default_timezone_set( setting('timezone') );
-		
-		$this->config->set_item('language', getUserlang()); 
+
+		$this->config->set_item('language', getUserlang());
 
 		$this->lang->load([
 			'basic',
-			
+
 		], getUserlang() );
 
 		if(!is_logged()){
-			redirect('login','refresh');
+			redirect('Login','refresh');
 		}
 
 		$this->page_data['url'] = (object) [

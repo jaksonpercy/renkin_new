@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
   * Function to create custom url
@@ -7,7 +7,7 @@
   * @param string $url any slug
   *
   * @return string site_url
-  * 
+  *
   */
 if (!function_exists('url')) {
 
@@ -21,16 +21,16 @@ if (!function_exists('url')) {
 /**
   * Function to get url of assets folder
   *
-  * @param string $url any slug 
+  * @param string $url any slug
   *
   * @return string url
-  * 
+  *
   */
 if (!function_exists('assets_url')) {
 
 	function assets_url($url='')
 	{
-		return base_url('assets/'.$url);
+		return str_replace("/index.php","", base_url('assets/'.$url));
 	}
 
 }
@@ -38,10 +38,10 @@ if (!function_exists('assets_url')) {
 /**
   * Function to get url of upload folder
   *
-  * @param string $url any slug 
+  * @param string $url any slug
   *
   * @return string url
-  * 
+  *
   */
 if (!function_exists('urlUpload')) {
 
@@ -58,7 +58,7 @@ if (!function_exists('urlUpload')) {
   * @param string $id - user id of the user
   *
   * @return string profile url
-  * 
+  *
   */
 if (!function_exists('userProfile')) {
 
@@ -84,8 +84,8 @@ if (!function_exists('userProfile')) {
   *
   * @param string $key - key to check in 'post' request
   *
-  * @return string value - uses codeigniter Input library 
-  * 
+  * @return string value - uses codeigniter Input library
+  *
   */
 if (!function_exists('post')) {
 
@@ -102,8 +102,8 @@ if (!function_exists('post')) {
   *
   * @param string $key - key to check in 'get' request
   *
-  * @return string value - uses codeigniter Input library 
-  * 
+  * @return string value - uses codeigniter Input library
+  *
   */
 if (!function_exists('get')) {
 
@@ -120,7 +120,7 @@ if (!function_exists('get')) {
   * Die/Stops the request if its not a 'post' requetst type
   *
   * @return boolean
-  * 
+  *
   */
 if (!function_exists('postAllowed')) {
 
@@ -147,7 +147,7 @@ if (!function_exists('postAllowed')) {
   * @param all $key - All Accepted - string,int,boolean,etc
   *
   * @return boolean
-  * 
+  *
   */
 if (!function_exists('dd')) {
 
@@ -165,7 +165,7 @@ if (!function_exists('dd')) {
   * Function to check if the user is loggedIn
   *
   * @return boolean
-  * 
+  *
   */
 if (!function_exists('is_logged')) {
 
@@ -202,7 +202,7 @@ if (!function_exists('is_logged')) {
   * @param string $key Any key/Column name that exists in users table
   *
   * @return boolean
-  * 
+  *
   */
 if (!function_exists('logged')) {
 
@@ -232,7 +232,7 @@ if (!function_exists('logged')) {
   * @param string $path - path/file info
   *
   * @return boolean
-  * 
+  *
   */
 if (!function_exists('viewPath')) {
 
@@ -250,7 +250,7 @@ if (!function_exists('viewPath')) {
   * @param string $date any format
   *
   * @return string date format Y-m-d that most mysql db supports
-  * 
+  *
   */
 if (!function_exists('DateFomatDb')) {
 
@@ -268,7 +268,7 @@ if (!function_exists('DateFomatDb')) {
   * @param int/float/string $amount
   *
   * @return string $amount formated amount with currency symbol
-  * 
+  *
   */
 if (!function_exists('currency')) {
 
@@ -286,7 +286,7 @@ if (!function_exists('currency')) {
   * @param string $key key which is used to check in db - Refrence: settings table - key column
   *
   * @return string/boolean $value if exists value else false
-  * 
+  *
   */
 if (!function_exists('setting')) {
 
@@ -304,7 +304,7 @@ if (!function_exists('setting')) {
   * Generates teh html for breadcrumb - Supports AdminLte
   *
   * @param array $args Array of values
-  * 
+  *
   */
 if (!function_exists('breadcrumb')) {
 
@@ -319,8 +319,8 @@ if (!function_exists('breadcrumb')) {
 				$html .= '<li class="active">'.$value.'</li>';
 			$i++;
 		}
-		    
-		    
+
+
 		$html .= '</ol>';
 		echo $html;
 	}
@@ -333,7 +333,7 @@ if (!function_exists('breadcrumb')) {
   * Finds and return the ipaddres of client user
   *
   * @param array $ipaddress IpAddress
-  * 
+  *
   */
 if (!function_exists('ip_address')) {
 
@@ -362,7 +362,7 @@ if (!function_exists('ip_address')) {
   * Provides the shortcodes which are available in any email template
   *
   * @return array $data Array of shortcodes
-  * 
+  *
   */
 if (!function_exists('getEmailShortCodes')) {
 
@@ -385,9 +385,9 @@ if (!function_exists('getEmailShortCodes')) {
   * Redirects with error if user doesnt have the permission to passed key/module
   *
   * @param string $code Code permissions
-  * 
+  *
   * @return boolean true/false
-  * 
+  *
   */
 if (!function_exists('ifPermissions')) {
 
@@ -413,9 +413,9 @@ if (!function_exists('ifPermissions')) {
   * Check and return boolean if user have the permission to passed key or not
   *
   * @param string $code Code permissions
-  * 
+  *
   * @return boolean true/false
-  * 
+  *
   */
 if (!function_exists('hasPermissions')) {
 
@@ -426,7 +426,7 @@ if (!function_exists('hasPermissions')) {
 		if ( !empty( $CI->role_permissions_model->getByWhere([ 'role' => logged('role'), 'permission' => $code ]) ) ) {
 
 			return true;
-			
+
 		}
 
 		return false;
@@ -439,9 +439,9 @@ if (!function_exists('hasPermissions')) {
   * Redirects with error if user doesnt have the permission to passed key/module
   *
   * @param string $code Code permissions
-  * 
+  *
   * @return boolean true/false
-  * 
+  *
   */
 if (!function_exists('notAllowedDemo')) {
 
@@ -462,10 +462,10 @@ if (!function_exists('notAllowedDemo')) {
 /**
   * Hides Some Characters in Email. Basically Used in Forget Password System
   *
-  * @param string $email Email 
-  * 
+  * @param string $email Email
+  *
   * @return string
-  * 
+  *
   */
 if (!function_exists('obfuscate_email')) {
 
@@ -475,8 +475,8 @@ if (!function_exists('obfuscate_email')) {
 	    $name = implode(array_slice($em, 0, count($em)-1), '@');
 	    $len  = floor(strlen($name)/2);
 
-	    return substr($name,0, $len) . str_repeat('*', $len) . "@" . end($em);  
-	
+	    return substr($name,0, $len) . str_repeat('*', $len) . "@" . end($em);
+
 	}
 
 }
@@ -486,14 +486,14 @@ if (!function_exists('obfuscate_email')) {
   * return language code
   *
   * @return string
-  * 
+  *
   */
   if (!function_exists('getUserlang')) {
 
 	function getUserlang() {
 
 	    return !empty( get_cookie('current_lang', true) ) ? get_cookie('current_lang', true) : setting('default_lang');
-	
+
 	}
 
 }
@@ -503,7 +503,7 @@ if (!function_exists('obfuscate_email')) {
   * return language code
   *
   * @return string
-  * 
+  *
   */
   if (!function_exists('setUserlang')) {
 
@@ -511,7 +511,7 @@ if (!function_exists('obfuscate_email')) {
 
 	    return set_cookie('current_lang', $code, 86400*30);
 		// set_cookie())
-	
+
 	}
 
 }
@@ -534,7 +534,7 @@ function supported_languages()
 			"nativeName":"हिन्दी"
 		}
 	}');
-	
+
 
 	$all_languages = json_decode('{
 		"ab":{

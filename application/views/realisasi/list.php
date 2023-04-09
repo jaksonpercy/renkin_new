@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <h3 class="card-title p-3">Realisasi</h3>
                 <div class="ml-auto p-2">
 
-                <a href="<?php echo url('realisasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Realisasi</a>
+                <a href="<?php echo url('Realisasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Realisasi</a>
                 </div>
               </div>
 
@@ -58,10 +58,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>03-04-2019</td>
                       <td> <a href="#">Download File Nota Dinas</a> </td>
                       <td>
-                        <a href="<?php echo url('realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <a href="<?php echo url('realisasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url('realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                        <a href="<?php echo url('realisasi/printExport/'.$row->id) ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                        <a href="<?php echo url('Realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                        <a href="<?php echo url('Realisasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo url('Realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        <a href="<?php echo url('Realisasi/printExport/'.$row->id) ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
                     </tr>

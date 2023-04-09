@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <h3 class="card-title p-3">Strakom Unggulan</h3>
                 <div class="ml-auto p-2">
 
-                      <a href="<?php echo url('strakomunggulan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Strakom Unggulan</a>
+                      <a href="<?php echo url('StrakomUnggulan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Strakom Unggulan</a>
 
                 </div>
               </div>
@@ -69,9 +69,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>1. Legislatif</td>
                       <td>1. Masyarakat terdampak</td>
                       <td>
-                        <a href="<?php echo url('strakomunggulan/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <a href="<?php echo url('strakomunggulan/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url('strakomunggulan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        <a href="<?php echo url('StrakomUnggulan/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                        <a href="<?php echo url('StrakomUnggulan/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo url('StrakomUnggulan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
                       </td>
                     </tr>

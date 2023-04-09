@@ -6,7 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 <li class="nav-item">
-    <a href="<?php echo url('dashboard') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>">
+    <a href="<?php echo url('Dashboard') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>">
       <p>
         <?php echo lang('dashboard') ?>
       </p>
@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </a>
   <ul class="nav nav-treeview">
   <li class="nav-item">
-    <a href="<?php echo url('strakomunggulan') ?>" class="nav-link <?php echo ($page->submenu=='strakom')?'active':'' ?>">
+    <a href="<?php echo url('StrakomUnggulan') ?>" class="nav-link <?php echo ($page->submenu=='strakom')?'active':'' ?>">
       <i class="nav-icon"></i>
       <p>
         Strategi Komunikasi <br>Unggulan
@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </a>
   </li>
   <li class="nav-item">
-    <a href="<?php echo url('editorialplan') ?>" class="nav-link <?php echo ($page->submenu=='editorialplan')?'active':'' ?>">
+    <a href="<?php echo url('EditorialPlan') ?>" class="nav-link <?php echo ($page->submenu=='editorialplan')?'active':'' ?>">
       <i class="nav-icon"></i>
       <p>
       Editorial Plan
@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </a>
   </li>
   <li class="nav-item">
-    <a href="<?php echo url('mitigasi') ?>" class="nav-link <?php echo ($page->submenu=='mitigasi')?'active':'' ?>">
+    <a href="<?php echo url('Mitigasi') ?>" class="nav-link <?php echo ($page->submenu=='mitigasi')?'active':'' ?>">
       <i class="nav-icon"></i>
       <p>
       Uraian Materi Mitigasi <br> Krisis
@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </a>
   </li>
   <li class="nav-item">
-    <a href="<?php echo url('realisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
+    <a href="<?php echo url('Realisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
       <i class="nav-icon"></i>
       <p>
       Realisasi
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </li>
 </ul>
 <li class="nav-item">
-  <a href="<?php echo url('pengaturan/general') ?>" class="nav-link <?php echo ($page->submenu=='general')?'active':'' ?>">
+  <a href="<?php echo url('Pengaturan/general') ?>" class="nav-link <?php echo ($page->submenu=='general')?'active':'' ?>">
 
     <p>
     Pengaturan
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </a>
   </li>
   <li class="nav-header">
-<a href="<?php echo url('/logout') ?>">
+<a href="<?php echo url('/Logout') ?>">
     <strong>  Keluar  </strong> &nbsp;</a>
   </li>
 

@@ -42,12 +42,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <?php endif; ?>
   <!-- /.login-logo -->
   <div class="" style="width:400px;">
-    <img src="<?php echo base_url('assets/img/bg-login.png')?>" width="404" height="100">
+    <img src="<?php echo str_replace("/index.php","", base_url('assets/img/bg-login.png'))?>" width="404" height="100">
     <div class="login-card-body">
 
       <p class="login-box-msg" style="display:none"><?php echo lang('sign_in_session') ?></p>
 
-      <?php echo form_open('/login/check', ['method' => 'POST', 'autocomplete' => 'off']); ?>
+      <?php echo form_open('/Login/check', ['method' => 'POST', 'autocomplete' => 'off']); ?>
       <div class="input-group mb-3">
           <input type="text" name="username" required class="form-control" placeholder="<?php echo lang('username_or_email') ?>" value="<?php echo post('username') ?>" autofocus>
           <div class="input-group-append">
@@ -131,10 +131,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 var hours = new Date().getHours();
 if (document.body) {
   if (5 <= hours && hours < 15) {
-      document.body.style.backgroundImage = "url(<?php echo base_url('assets/img/jakarta-pagi.jpg')?>)";
+      document.body.style.backgroundImage = "url(<?php echo str_replace("/index.php","", base_url('assets/img/jakarta-pagi.jpg'))?>)";
   }
   else {
-      document.body.style.backgroundImage = "url(<?php echo base_url('assets/img/jakarta-night.jpg')?>)";
+      document.body.style.backgroundImage = "url(<?php echo str_replace("/index.php","", base_url('assets/img/jakarta-night.jpg'))?>)";
   }
 }
 </script>

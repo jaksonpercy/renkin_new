@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/mitigasi') ?>">Uraian Materi Mitigasi Krisis</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/Mitigasi') ?>">Uraian Materi Mitigasi Krisis</a></li>
               <li class="breadcrumb-item active">Tambah</li>
             </ol>
           </div>
@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/strakomunggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <div class="col"><a href="<?php echo url('/Mitigasi') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>

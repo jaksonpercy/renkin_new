@@ -20,7 +20,7 @@ $data2 = "
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/editorialplan') ?>">Editorial Plan</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/EditorialPlan') ?>">Editorial Plan</a></li>
               <li class="breadcrumb-item active">Tambah</li>
             </ol>
           </div>
@@ -43,13 +43,13 @@ $data2 = "
 
           <div class="form-group">
             <label for="formClient-Name">Tanggal Rencana Tayang</label>
-            <input type="date" class="form-control" name="tanggalRencanaTayang[]" required placeholder="Tanggal Rencana Tayang" autofocus />
+            <input type="date" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus />
           </div>
 
 
           <div class="form-group">
             <label for="formClient-Contact">Produk Komunikasi</label>
-            <select name="produkKomunikasi[]" id="formClient-Produk" class="form-control select2" required>
+            <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
               <option value="-">Pilih Produk Komunikasi</option>
               <option value="Artikel">Artikel</option>
               <option value="Video">Video</option>
@@ -68,7 +68,7 @@ $data2 = "
 
           <div class="form-group">
             <label for="formClient-Contact">Kanal Komunikasi</label>
-            <select name="kanalKomunikasi[]" id="formClient-Role" class="form-control select2" required>
+            <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" required>
               <option value="-">Pilih Kanal Komunikasi</option>
               <option value="Instagram">Instagram</option>
               <option value="Facebook">Facebook</option>
@@ -94,12 +94,12 @@ $data2 = "
 
           <div class="form-group">
             <label for="formClient-Address">Pesan Utama</label>
-            <textarea type="text" class="form-control" name="pesanUtama[]" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
+            <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
           </div>
 
           <div class="form-group">
             <label for="formClient-Address">Khalayak</label>
-            <textarea type="text" class="form-control" name="khalayak[]" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
+            <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
           </div>
 
         </div>
@@ -114,7 +114,7 @@ $data2 = "
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/editorialplan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <div class="col"><a href="<?php echo url('/EditorialPlan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>

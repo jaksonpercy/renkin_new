@@ -101,7 +101,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>07 Maret 2023 11:00:00</td>
                       <td>Disetujui</td>
                       <td>
-                        <a href="<?php echo url('penilaian/view') ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
+                        <a href="<?php echo url('Penilaian/view') ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
                       </td>
                     </tr>
                   </tbody>

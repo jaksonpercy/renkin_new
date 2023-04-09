@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/strakomunggulan') ?>">Strategi Komunikasi Unggulan</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/StrakomUnggulan') ?>">Strategi Komunikasi Unggulan</a></li>
               <li class="breadcrumb-item active"><?php echo $User->id ?></li>
             </ol>
           </div>
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="<?php echo url('strakomunggulan/edit/'.$User->id) ?>">Edit</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$User->id) ?>">Edit</a></li>
 
 
                 </ul>
@@ -120,7 +120,7 @@ Kegiatan ini berjalan selama satu tahun anggaran, terus menerus dengan tujuan me
                   - Isu - isu politis</td>
               <td>Instagram</td>
 						<td>
-							<a href="<?php echo url('editorialplan/view/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+							<a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 						</td>
 						</tr>
 
@@ -160,7 +160,7 @@ Dema (Kasie ) 08161431790 <br>
 Service desk +62 852-1654-1900 <br>
 </td>
 						<td>
-							<a href="<?php echo url('mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+							<a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 						</td>
 						</tr>
 
