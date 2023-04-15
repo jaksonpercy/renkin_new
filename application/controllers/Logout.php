@@ -8,7 +8,7 @@ class Logout extends CI_Controller {
 		parent::__construct();
 
 		if(!is_logged()){
-			redirect('login','refresh');
+			redirect('Login','refresh');
 		}
 
 	}
@@ -20,7 +20,7 @@ class Logout extends CI_Controller {
 
 		$this->users_model->logout();
 
-		redirect('login','refresh');
+		redirect('Login','refresh');
 
 	}
 

@@ -66,10 +66,10 @@ if (!function_exists('userProfile')) {
 	{
 		$CI =& get_instance();
 
-		$url = urlUpload('users/'.$id.'.png?'.time());
+		$url = urlUpload('users/1.png?'.time());
 
-		if($id!='default')
-			$url = urlUpload('users/'.$id.'.'.$CI->users_model->getRowById($id, 'img_type').'?'.time());
+		// if($id!='default')
+		// 	$url = urlUpload('users/'.$id.'.'.$CI->users_model->getRowById($id, 'img_type').'?'.time());
 
 		return $url;
 	}
@@ -184,7 +184,7 @@ if (!function_exists('is_logged')) {
 		}
 
 		if($isLogged){
-			$user = $CI->users_model->getById( $CI->db->escape((int) $isLogged->id) );
+			$user = $CI->users_model->getById( $isLogged->id );
 			// verify login_token
 			$login_token_match = (sha1($user->id.$user->password.$isLogged->time) == $_token);
 		}

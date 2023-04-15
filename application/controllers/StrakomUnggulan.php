@@ -58,7 +58,7 @@ class StrakomUnggulan extends MY_Controller {
     // $this->session->set_flashdata('alert-type', 'success');
     // $this->session->set_flashdata('alert', 'User has been Deleted Successfully');
     //
-    redirect('strakomunggulan');
+    redirect('StrakomUnggulan');
 
   }
 

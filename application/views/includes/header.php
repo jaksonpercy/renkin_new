@@ -183,7 +183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <span class="float-right text-muted text-sm">2 days</span>
           </a>
           <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer"><?php echo lang('see_all_notifications') ?></a>
+          <a href="<?php echo url('Dashboard/notification') ?>" class="dropdown-item dropdown-footer"><?php echo lang('see_all_notifications') ?></a>
         </div>
       </li>
       <li class="nav-item">

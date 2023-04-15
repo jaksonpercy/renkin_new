@@ -110,15 +110,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!-- /.login-box -->
 
 
-<!-- jQuery -->
-<script src="<?php echo $assets ?>/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="<?php echo $assets ?>/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <!-- AdminLTE App -->
 <script src="<?php echo $assets ?>/js/adminlte.min.js"></script>
 
 
-<script>
+<!-- <script>
   $(function () {
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
@@ -126,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       increaseArea: '20%' /* optional */
     });
   });
-</script>
+</script> -->
 <script type="text/javascript">
 var hours = new Date().getHours();
 if (document.body) {

@@ -8,6 +8,12 @@ class Dashboard extends MY_Controller {
 		$this->load->view('dashboard', $this->page_data);
 	}
 
+	public function notification(){
+    // load view
+    $this->load->view('notification/notification', $this->page_data);
+
+  }
+
 }
 
 /* End of file Dashboard.php */

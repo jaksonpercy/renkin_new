@@ -59,7 +59,7 @@ class Login extends CI_Controller {
         if( $attempt=='valid' ){
 
         	// If Allowed, then retreive user row and login the user
-			$user = $this->db->where( 'username', $username )->or_where( 'email', $username )->get( $this->users_model->table )->row();
+			   $user = $this->db->where( 'username', $username )->or_where( 'email', $username )->get( $this->users_model->table )->row();
         	$this->users_model->login( $user, post('remember_me') );
 
         }elseif( $attempt=='invalid_password' ){
