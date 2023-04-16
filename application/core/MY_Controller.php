@@ -19,7 +19,7 @@ class MY_Controller extends CI_Controller {
 			die('Database is not configured');
 		}
 
-		date_default_timezone_set( setting('timezone') );
+		date_default_timezone_set( 'Asia/Jakarta' );
 
 		$this->config->set_item('language', getUserlang());
 

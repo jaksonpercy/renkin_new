@@ -25,6 +25,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
+      <?php if ($roles->role->role_id==1):?>
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
@@ -32,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Renkin</span>
-                <span class="info-box-number">150</span>
+                <span class="info-box-number"><?php echo $roles->role->role_name ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -69,6 +70,51 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <!-- /.col -->
         </div>
         <!-- /.row -->
+      <?php else :?>
+        <div class="row">
+          <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Jumlah SKPD/UKPD</span>
+                <span class="info-box-number">54 </span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-primary"><i class="far fa-flag"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Jumlah SKPD/UKPD Sudah Input</span>
+                <span class="info-box-number">53</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-md-4 col-sm-6 col-12">
+            <div class="info-box">
+              <span class="info-box-icon bg-danger"><i class="far fa-copy"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Jumlah SKPD/UKPD Belum Input</span>
+                <span class="info-box-number">25</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- /.col -->
+        </div>
+      <?php endif ?>
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
@@ -130,6 +176,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </section>
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
+          <?php if ($roles->role->role_id==2): ?>
           <section class="col-lg-4 connectedSortable">
 
             <!-- Map card -->
@@ -169,6 +216,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
             <!-- /.card -->
           </section>
+            <?php endif ?>
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->

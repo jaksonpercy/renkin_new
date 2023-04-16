@@ -51,6 +51,7 @@ class Users_model extends MY_Model {
 				'logged' => [
 					'id' => $row->id,
 					'time' => $time,
+					'role' => $row->role,
 				]
 			];
 			$this->session->set_userdata( $array );

@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
 
-		date_default_timezone_set( setting('timezone') );
+		date_default_timezone_set( 'Asia/Jakarta' );
 
 		if( !empty($this->db->username) && !empty($this->db->hostname) && !empty($this->db->database) ){ }else{
 			die('Database is not configured');

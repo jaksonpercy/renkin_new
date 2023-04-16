@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Roles_model extends MY_Model {
+class Pengaturan_role_model extends MY_Model {
 
 	public $table = 'role';
 
@@ -12,5 +12,5 @@ class Roles_model extends MY_Model {
 
 }
 
-/* End of file Roles_model.php */
-/* Location: ./application/models/Roles_model.php */
+/* End of file Role_permissions_model.php */
+/* Location: ./application/models/Role_permissions_model.php */

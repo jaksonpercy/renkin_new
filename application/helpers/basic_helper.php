@@ -435,6 +435,24 @@ if (!function_exists('hasPermissions')) {
 
 }
 
+if (!function_exists('hasRoles')) {
+
+	function hasRoles($code = '') {
+
+		$CI =& get_instance();
+
+		if ( !empty( $CI->roles_permissions_model->getByWhere([ 'role_id' => logged('role'), 'role_name' => $code ]) ) ) {
+
+			return true;
+
+		}
+
+		return false;
+
+	}
+
+}
+
 /**
   * Redirects with error if user doesnt have the permission to passed key/module
   *

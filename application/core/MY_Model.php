@@ -8,6 +8,8 @@ class MY_Model extends CI_Model {
 	  */
 	public $table_key = 'id';
 
+	public $role_id = 'role_id';
+
 	/**
 	  * Get Data from table
 	  *
@@ -26,6 +28,12 @@ class MY_Model extends CI_Model {
 	public function getById($id)
 	{
 		return $this->db->get_where($this->table, [ $this->table_key => $id ])->row();
+	}
+
+
+	public function getByRole($id)
+	{
+		return $this->db->get_where($this->table, [ $this->role_id => $id ])->row();
 	}
 
 	/**
