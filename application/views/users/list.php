@@ -52,7 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </tr>
                   </thead>
                   <tbody>
-                  <?php foreach ($users as $row):
+                  <?php
+                  $no=0;
+                  foreach ($users as $row):
+
                     $no += 1;
                      ?>
 

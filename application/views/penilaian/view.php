@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/StrakomUnggulan') ?>">Strategi Komunikasi Unggulan</a></li>
-              <li class="breadcrumb-item active"><?php echo $User->id ?></li>
+              <!-- <li class="breadcrumb-item active"><?php echo $User->id ?></li> -->
             </ol>
           </div>
         </div>
@@ -125,7 +125,7 @@ Kegiatan ini berjalan selama satu tahun anggaran, terus menerus dengan tujuan me
                   - Isu - isu politis</td>
               <td>Instagram</td>
 						<td>
-							<a href="<?php echo url('Penilaian/detaileditorial/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+							<a href="<?php echo url('Penilaian/detaileditorial/') ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
               	<a href="<?php echo url('') ?>" class="btn btn-sm btn-success" title="Accept Data" data-toggle="tooltip"><i class="fa fa-check"></i></a>
                 <a href="<?php echo url('') ?>" class="btn btn-sm btn-danger" title="Reject Data" data-toggle="tooltip"><i class="fa fa-times"></i></a>
 						</td>
@@ -169,7 +169,7 @@ Dema (Kasie ) 08161431790 <br>
 Service desk +62 852-1654-1900 <br>
 </td>
 						<td>
-							<a href="<?php echo url('Penilaian/detailmitigasi/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+							<a href="<?php echo url('Penilaian/detailmitigasi/') ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 						</td>
 						</tr>
 
