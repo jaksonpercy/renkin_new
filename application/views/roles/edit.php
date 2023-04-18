@@ -32,12 +32,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <h3 class="card-title"><?php echo lang('edit_role') ?></h3>
     </div>
 
-    <?php echo form_open('roles/update/'.$role->id, [ 'class' => 'form-validate' ]); ?>
+    <?php echo form_open('roles/update/'.$role->role_id, [ 'class' => 'form-validate' ]); ?>
     <div class="card-body">
 
       <div class="form-group">
         <label for="formClient-Name"><?php echo lang('role_name') ?></label>
-        <input type="text" class="form-control" name="name" id="formClient-Name" required placeholder="<?php echo lang('role_name') ?>" autofocus value="<?php echo $role->title ?>" />
+        <input type="text" class="form-control" name="name" id="formClient-Name" required placeholder="<?php echo lang('role_name') ?>" autofocus value="<?php echo $role->role_name ?>" />
       </div>
 
       <div class="form-group">
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <?php if (!empty($permissions = $this->permissions_model->get())): ?>
                     <?php foreach ($permissions as $row): ?>
                       <td><?php echo ucfirst($row->title) ?></td>
-                      <?php 
+                      <?php
                         $isChecked = in_array($row->code, $role_permissions) ? 'checked' : '';
                        ?>
                       <td width="50" class="text-center"><input type="checkbox" class="check-select-p" name="permission[]" value="<?php echo $row->code ?>" <?php echo $isChecked ?>></td>
@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     $('.check-select-all-p').on('change', function() {
 
       $('.check-select-p').attr('checked', $(this).is(':checked'));
-      
+
     })
 
     $('.table-DT').DataTable({

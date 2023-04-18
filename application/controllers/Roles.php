@@ -27,11 +27,11 @@ class Roles extends MY_Controller {
 	{
 
 		ifPermissions('roles_add');
-		
+
 		postAllowed();
 
 		$role = $this->roles_model->create([
-			'title' => $this->input->post('name'),
+			'role_name' => $this->input->post('name'),
 		]);
 
 		$Data = [];
@@ -48,7 +48,7 @@ class Roles extends MY_Controller {
 		$this->session->set_flashdata('alert', 'New Role Created Successfully');
 
 		$this->activity_model->add("New Role #$role Created by User: #".logged('id'));
-		
+
 		redirect('roles');
 
 	}
@@ -58,9 +58,9 @@ class Roles extends MY_Controller {
 
 		ifPermissions('roles_edit');
 
-		$this->page_data['role'] = $this->roles_model->getById($id);
+		$this->page_data['role'] = $this->roles_model->getByRole($id);
 		$permissions = $this->role_permissions_model->getByWhere([
-			'role' => $this->page_data['role']->id
+			'role' => $this->page_data['role']->role_id
 		]);
 
 		$permissions = array_map(function($data)
@@ -78,7 +78,7 @@ class Roles extends MY_Controller {
 	{
 
 		ifPermissions('roles_edit');
-		
+
 		postAllowed();
 
 		$data = [
@@ -112,19 +112,19 @@ class Roles extends MY_Controller {
 		if(!empty($all_permissions)){
 			// Permissions which will be deleted
 			foreach ($all_permissions as $data) {
-				
+
 				if(!in_array($data->permission, post('permission'))){
 					$this->role_permissions_model->delete($data->id);
 				}
-			
+
 			}
 		}
-		
+
 		$this->activity_model->add("Role #$role Updated by User: #".logged('id'));
-		
+
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'User Role has been Updated Successfully');
-		
+
 		redirect('roles');
 
 	}

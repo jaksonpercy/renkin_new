@@ -46,13 +46,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <?php foreach ($roles as $row): ?>
             <tr>
-              <td width="60"><?php echo $row->id ?></td>
+              <td width="60"><?php echo $row->role_id ?></td>
               <td>
-                <?php echo $row->title ?>
+                <?php echo $row->role_name ?>
               </td>
               <td>
                 <?php if (hasPermissions('roles_edit')): ?>
-                  <a href="<?php echo url('roles/edit/'.$row->id) ?>" class="btn btn-sm btn-default" title="Edit User Role" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                  <a href="<?php echo url('roles/edit/'.$row->role_id) ?>" class="btn btn-sm btn-default" title="Edit User Role" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                 <?php endif ?>
               </td>
             </tr>

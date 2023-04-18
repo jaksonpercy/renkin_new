@@ -13,8 +13,8 @@ class Permissions extends MY_Controller {
 
 	public function index()
 	{
-		
-		ifPermissions('permissions_list');
+
+		// ifPermissions('permissions_list');
 
 		$this->page_data['permissions'] = $this->permissions_model->get();
 		$this->load->view('permissions/list', $this->page_data);
@@ -40,7 +40,7 @@ class Permissions extends MY_Controller {
 
 	public function save()
 	{
-		
+
 		postAllowed();
 
 		ifPermissions('permissions_add');
@@ -54,14 +54,14 @@ class Permissions extends MY_Controller {
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'New Permission Created Successfully');
-		
+
 		redirect('permissions');
 
 	}
 
 	public function update($id)
 	{
-		
+
 		postAllowed();
 
 		ifPermissions('permissions_edit');
@@ -77,7 +77,7 @@ class Permissions extends MY_Controller {
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Permission has been Updated Successfully');
-		
+
 		redirect('permissions');
 
 	}
@@ -100,7 +100,7 @@ class Permissions extends MY_Controller {
 
 	public function checkIfUnique()
 	{
-		
+
 		$code = get('code');
 
 		if(!$code)
@@ -117,7 +117,7 @@ class Permissions extends MY_Controller {
 			die('false');
 		else
 			die('true');
-		
+
 
 	}
 

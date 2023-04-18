@@ -6,6 +6,11 @@ class Users_model extends MY_Model {
 
 	public $table = 'tbl_users';
 
+	public function getDataUser()
+	{
+		return $this->db->get($this->table)->result();
+	}
+
 	public function attempt($data)
 	{
 
@@ -50,6 +55,7 @@ class Users_model extends MY_Model {
 				'login_token' => $login_token,
 				'logged' => [
 					'id' => $row->id,
+					'name' => $row->name,
 					'time' => $time,
 					'role' => $row->role,
 				]
@@ -137,7 +143,7 @@ class Users_model extends MY_Model {
 	}
 
 	public function fromTableStr() {
-		return 'users';
+		return 'tbl_users';
 	}
 
 	public function joinArray(){

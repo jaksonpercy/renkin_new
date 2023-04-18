@@ -12,8 +12,8 @@ class Users extends MY_Controller {
 
 	public function index()
 	{
-		ifPermissions('users_list');
-		$this->page_data['users'] = $this->users_model->get();
+		// 	ifPermissions('users_list');
+		$this->page_data['users'] = $this->users_model->getDataUser();
 		$this->load->view('users/list', $this->page_data);
 	}
 
@@ -64,7 +64,7 @@ class Users extends MY_Controller {
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'New User Created Successfully');
-		
+
 		redirect('users');
 
 	}
@@ -76,7 +76,7 @@ class Users extends MY_Controller {
 
 		$this->page_data['User'] = $this->users_model->getById($id);
 		$this->page_data['User']->role = $this->roles_model->getByWhere([
-			'id'=> $this->page_data['User']->role
+			'role_id'=> $this->page_data['User']->role
 		])[0];
 		$this->page_data['User']->activity = $this->activity_model->getByWhere([
 			'user'=> $id
@@ -100,7 +100,7 @@ class Users extends MY_Controller {
 	{
 
 		ifPermissions('users_edit');
-		
+
 		postAllowed();
 
 		$data = [
@@ -141,7 +141,7 @@ class Users extends MY_Controller {
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Client Profile has been Updated Successfully');
-		
+
 		redirect('users');
 
 	}
@@ -183,7 +183,7 @@ class Users extends MY_Controller {
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'User has been Deleted Successfully');
-		
+
 		redirect('users');
 
 	}

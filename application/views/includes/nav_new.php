@@ -56,14 +56,115 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </a>
   </li>
 </ul>
-<li class="nav-item">
-  <a href="<?php echo url('Pengaturan/general') ?>" class="nav-link <?php echo ($page->submenu=='general')?'active':'' ?>">
+<?php if (hasRoles('users_list')): ?>
+<li class="nav-item has-treeview <?php echo ($page->menu=='rencanakinerja')?'menu-open':'' ?>">
+  <a href="#" class="nav-link  <?php echo ($page->menu=='rencanakinerja')?'active':'' ?>">
 
+  <p>
+  Master
+
+  </p>
+</a>
+<?php endif ?>
+<?php if (hasRoles('users_list')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('Users') ?>" class="nav-link <?php echo ($page->menu=='users')?'active':'' ?>">
+      <i class="nav-icon fas fa-user"></i>
+      <p>
+      <?php echo lang('users') ?>
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if (hasRoles('activity_log_list')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('Activity_logs') ?>" class="nav-link <?php echo ($page->menu=='activity_logs')?'active':'' ?>">
+      <i class="nav-icon fas fa-history"></i>
+      <p>
+      <?php echo lang('activity_logs') ?>
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if (hasRoles('roles_list')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('Roles') ?>" class="nav-link <?php echo ($page->menu=='roles')?'active':'' ?>">
+      <i class="nav-icon fas fa-lock"></i>
+      <p>
+      <?php echo lang('manage_roles') ?>
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if (hasRoles('permissions_list')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('Permissions') ?>" class="nav-link <?php echo ($page->menu=='permissions')?'active':'' ?>">
+      <i class="nav-icon fas fa-user"></i>
+      <p>
+      <?php echo lang('manage_permissions') ?>
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('Backup') ?>" class="nav-link <?php echo ($page->menu=='backup')?'active':'' ?>">
+      <i class="nav-icon fas fa-database"></i>
+      <p>
+      <?php echo lang('backup') ?>
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('PengaturanPeriode') ?>" class="nav-link <?php echo ($page->menu=='periode')?'active':'' ?>">
+      <i class="nav-icon fas fa-cog"></i>
+      <p>
+    Pengaturan Periode
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if ( hasRoles('company_settings') ): ?>
+<li class="nav-item has-treeview <?php echo ($page->menu=='settings')?'menu-open':'' ?>">
+  <a href="#" class="nav-link  <?php echo ($page->menu=='settings')?'active':'' ?>">
+    <i class="nav-icon fas fa-cog"></i>
     <p>
-    Pengaturan
+    <?php echo lang('settings') ?>
+      <i class="right fas fa-angle-left"></i>
     </p>
   </a>
+  <ul class="nav nav-treeview">
+  <li class="nav-item">
+      <a href="<?php echo url('Settings/general') ?>" class="nav-link <?php echo ($page->submenu=='general')?'active':'' ?>">
+        <i class="far fa-circle nav-icon"></i> <p> <?php echo lang('general_setings') ?> </p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="<?php echo url('Settings/company') ?>" class="nav-link <?php echo ($page->submenu=='company')?'active':'' ?>">
+        <i class="far fa-circle nav-icon"></i> <p>  <?php echo lang('company_setings') ?> </p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="<?php echo url('Settings/email_templates') ?>" class="nav-link <?php echo ($page->submenu=='email_templates')?'active':'' ?>">
+        <i class="far fa-circle nav-icon"></i> <p> <?php echo lang('manage_email_template') ?></p>
+      </a>
+    </li>
+  </ul>
 </li>
+</li>
+<?php endif ?>
+
 
   <li class="nav-header">
 <a href="<?php echo url() ?>">

@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/StrakomUnggulan') ?>">Strategi Komunikasi Unggulan</a></li>
-              <li class="breadcrumb-item active"><?php echo $User->id ?></li>
+              <li class="breadcrumb-item active"><?php echo $strakom->id ?></li>
             </ol>
           </div>
         </div>
@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
 
-						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$User->id) ?>">Edit</a></li>
+						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$strakom->id) ?>">Edit</a></li>
 
 
                 </ul>
@@ -51,43 +51,50 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       		<div class="col-sm-12">
       			<table class="table table-bordered table-striped">
       				<tbody>
+                <tr>
+                  <td width="160"><strong>Kategori Program/Kegiatan</strong>:</td>
+                  <td>
+                    <?php if ($strakom->kategori_program == 1){
+                      echo "Isu Prioritas";
+                    } else if ($strakom->kategori_program == 2) {
+                      echo "KSD";
+                    } else {
+                        echo "Program Unggulan Perangkat Daerah";
+                    } ?>
+                  </td>
+                </tr>
       					<tr>
       						<td width="160"><strong>Nama Program/Kegiatan</strong>:</td>
-      						<td>Publikasi Layanan JakWifi</td>
+      						<td><?php echo $strakom->nama_program ?></td>
       					</tr>
       					<tr>
-      						<td><strong>Program Prioritas</strong>:</td>
-      						<td>Program Unggulan Dinas Kominfotik</td>
+      						<td><strong>Jenis Kegiatan</strong>:</td>
+      						<td><?php echo $strakom->jenis_kegiatan ?></td>
       					</tr>
       					<tr>
       						<td><strong>Deskripsi Singkat Kegiatan</strong>:</td>
-      						<td>"Penyediaan internet untuk publik (JAKWIFI) <br>
-Kegiatan ini berjalan selama satu tahun anggaran, terus menerus dengan tujuan memberikan layanan internet untuk aparatur dan publik. Layanan internet gratis untuk publik dikenal dengan JAKWIFI dengan sasaran awal RW kumuh dan akan bertambah untuk seluruh RW di Jakarta dengan sasaran masyarakat kelas menengah dan bawah."
-</td>
+      						<td><?php echo $strakom->deskripsi ?></td>
       					</tr>
       					<tr>
       						<td><strong>Analisis Situasi</strong>:</td>
-      						<td>- Pengurangan anggaran JakWifi yang berdampak berkurangnya jumlah titik JakWifi dari 3500 menjadi 1200 titik <br>
-- Telah berubahnya status Pandemi menjadi Endemi <br>
-- Sekolah dan Kantor sudah kembali melaksanakan kegiatan tatap muka 100%</td>
+      						<td><?php echo $strakom->analisis_situasi ?></td>
       					</tr>
       					<tr>
       						<td><strong>Identifikasi Masalah/Isu Utama</strong>:</td>
-      						<td>- Pengurangan anggaran DKI Jakarta untuk JakWifi & titik pengurangan JakWifi <br>
-- Isu - isu politis</td>
+      						<td><?php echo $strakom->identifikasi_masalah ?></td>
       					</tr>
       					<tr>
       						<td><strong>Narasi Utama Publikasi Program</strong>:</td>
-      						<td>Penyesuaian JakWifi berdasarkan hasil survei kepuasan pengguna</td>
+      						<td><?php echo $strakom->narasi_utama ?></td>
       					</tr>
                 <tr>
                   <td><strong>Target Audiens</strong>:</td>
-                  <td>Pro : 1. Legislatif <br> Kontra :
-                  1. Masyarakat terdampak</td>
+                  <td>Pro : <?php echo $strakom->target_pro ?> <br> Kontra :
+                  <?php echo $strakom->target_kontra ?></td>
                 </tr>
                 <tr>
                   <td><strong>Rencana Media/Kanal Publikasi</strong>:</td>
-                  <td>Media Sosial, Rapat Koordinasi, Website Pemda, FAQ, WA grup</td>
+                  <td><?php echo $strakom->kanal_publikasi ?></td>
                 </tr>
       				</tbody>
       			</table>

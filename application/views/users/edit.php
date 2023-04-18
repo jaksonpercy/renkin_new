@@ -16,7 +16,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/users/view/'.$User->id) ?>"><?php echo $User->id ?></a></li>
               <li class="breadcrumb-item active"><?php echo lang('edit_user') ?></li>
             </ol>
           </div>
@@ -44,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <input type="text" class="form-control" name="name" id="formClient-Name" required placeholder="<?php echo lang('user_enter_name') ?>" value="<?php echo $User->name ?>" autofocus />
           </div>
 
-          
+
           <div class="form-group">
             <label for="formClient-Contact"><?php echo lang('user_contact') ?></label>
             <input type="text" class="form-control" name="phone" id="formClient-Contact" placeholder="<?php echo lang('user_enter_contact') ?>" value="<?php echo $User->phone ?>" />
@@ -70,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Email">Email</label>
-            <input type="email" class="form-control" name="email" data-rule-remote="<?php echo url('users/check?notId='.$User->id) ?>" data-msg-remote="<?php echo lang('user_email_exists') ?>" id="formClient-Email" required placeholder="<?php echo lang('user_enter_email') ?>"  value="<?php echo $User->email ?>">
+            <input type="email" class="form-control" name="email" id="formClient-Email" required placeholder="<?php echo lang('user_enter_email') ?>"  value="<?php echo $User->email ?>">
           </div>
 
           <div class="form-group">
@@ -89,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       </div>
       <!-- /.card -->
-      
+
     </div>
     <div class="col-sm-6">
       <!-- Default card -->
@@ -110,14 +109,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <select name="role" id="formClient-Role" class="form-control select2" required>
               <option value=""><?php echo lang('user_select_role') ?></option>
               <?php foreach ($this->roles_model->get() as $row): ?>
-                <?php $sel = !empty($User->role) && $User->role==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->title ?></option>
+                <?php $sel = !empty($User->role) && $User->role==$row->role_id ? 'selected' : '' ?>
+                <option value="<?php echo $row->role_id ?>" <?php echo $sel ?>><?php echo $row->role_name ?></option>
               <?php endforeach ?>
             </select>
           </div>
 
           <?php if (logged('id')!=$User->id): ?>
-            
+
           <?php endif ?>
           <div class="form-group">
             <label for="formClient-Status"><?php echo lang('user_status') ?></label>
@@ -134,7 +133,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       </div>
       <!-- /.card -->
-    
+
       <!-- Default card -->
       <div class="card">
         <div class="card-header">
@@ -208,4 +207,3 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </script>
 
 <?php include viewPath('includes/footer'); ?>
-

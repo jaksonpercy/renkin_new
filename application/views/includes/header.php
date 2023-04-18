@@ -204,24 +204,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <p>
               <?php echo logged('name') ?>
-              <small>Member since Nov. 2012</small>
+              <!-- <small>Member since Nov. 2012</small> -->
             </p>
           </li>
           <!-- Menu Body -->
-          <li class="user-body">
-            <div class="row">
-              <div class="col-4 text-center">
-                <a href="#"><?php echo lang('followers') ?></a>
-              </div>
-              <div class="col-4 text-center">
-                <a href="#"><?php echo lang('dashboard_sales') ?></a>
-              </div>
-              <div class="col-4 text-center">
-                <a href="#"><?php echo lang('friends') ?></a>
-              </div>
-            </div>
-            <!-- /.row -->
-          </li>
           <!-- Menu Footer-->
           <li class="user-footer">
             <a href="<?php echo url('profile') ?>" class="btn btn-default btn-flat"><?php echo lang('profile') ?></a>

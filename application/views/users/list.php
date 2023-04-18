@@ -30,9 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3"><?php echo lang('users') ?></h3>
                 <div class="ml-auto p-2">
-                    <?php if (hasPermissions('users_add')): ?>
+                    <!-- <?php if (hasPermissions('users_add')): ?>
                       <a href="<?php echo url('users/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> <?php echo lang('new_user') ?></a>
-                    <?php endif ?>
+                    <?php endif ?> -->
                 </div>
               </div>
 
@@ -52,9 +52,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </tr>
                   </thead>
                   <tbody>
-                  <?php foreach ($users as $row): ?>
+                  <?php foreach ($users as $row):
+                    $no += 1;
+                     ?>
+
                     <tr>
-                      <td width="60"><?php echo $row->id ?></td>
+                      <td width="60"><?php echo $no ?></td>
                       <td width="50" class="text-center">
                         <img src="<?php echo userProfile($row->id) ?>" width="40" height="40" alt="" class="img-avtar">
 
@@ -63,8 +66,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <?php echo $row->name ?>
                       </td>
                       <td><?php echo $row->email ?></td>
-                      <td><?php echo ucfirst($this->roles_model->getById($row->role)->title) ?></td>
-                      <td><?php echo ($row->last_login!='0000-00-00 00:00:00')?date( setting('date_format'), strtotime($row->last_login)):'No Record' ?></td>
+                      <td><?php echo ucfirst($this->roles_model->getByRole($row->role)->role_name) ?></td>
+                      <td><?php echo $row->last_login ?></td>
                       <td>
                         <?php if (logged('id')!==$row->id): ?>
                           <input type="checkbox" name="my-checkbox"  onchange="updateUserStatus('<?php echo $row->id ?>', $(this).is(':checked') )" <?php echo ($row->status) ? 'checked' : '' ?> data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">

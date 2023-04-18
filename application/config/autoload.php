@@ -140,4 +140,6 @@ $autoload['model'] = array(
 	'roles_model',
 	'activity_model',
 	'templates_model',
+	'Periode_model',
+	'Strakom_model',
 );

@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/users') ?>"><?php echo lang('users') ?></a></li>
-              <li class="breadcrumb-item active"><?php echo $User->id ?></li>
+
             </ol>
           </div>
         </div>
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       					</tr>
       					<tr>
       						<td><strong><?php echo lang('user_last_login') ?></strong>:</td>
-      						<td><?php echo ($User->last_login!='0000-00-00 00:00:00')?date( setting('datetime_format'), strtotime($User->last_login)):'No Record' ?></td>
+      						<td><?php echo $User->last_login ?></td>
       					</tr>
       					<tr>
       						<td><strong><?php echo lang('user_username') ?></strong>:</td>
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       					</tr>
       					<tr>
       						<td><strong><?php echo lang('user_role') ?></strong>:</td>
-      						<td><?php echo $User->role->title ?></td>
+      						<td><?php echo $User->role->role_name ?></td>
       					</tr>
       				</tbody>
       			</table>
@@ -114,7 +114,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					</tbody>
 				</table>
                   </div>
-				  
+
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->

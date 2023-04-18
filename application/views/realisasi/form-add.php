@@ -201,7 +201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Name">Judul*</label>
+                        <label for="formClient-Name">Judul Publikasi*</label>
                         <input type="text" class="form-control" name="judul" id="formClient-Name" required placeholder="Judul" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                       </div>
 

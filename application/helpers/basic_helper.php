@@ -441,13 +441,25 @@ if (!function_exists('hasRoles')) {
 
 		$CI =& get_instance();
 
-		if ( !empty( $CI->roles_permissions_model->getByWhere([ 'role_id' => logged('role'), 'role_name' => $code ]) ) ) {
+		$role_user = $CI->users_model->getById($CI->session->userdata('logged')['id']);
+		$roles_id = $CI->roles_model->getByWhere([
+			'role_id'=> $role_user->role
+		])[0];
+
+		if ($roles_id->role_id==3) {
 
 			return true;
 
-		}
+		} else {
+
+		// if ( !empty( $CI->roles_permissions_model->getByWhere([ 'role_id' => logged('role'), 'role_name' => $code ]) ) ) {
+		//
+		// 	return true;
+		//
+		// }
 
 		return false;
+	}
 
 	}
 

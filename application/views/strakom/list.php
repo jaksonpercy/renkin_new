@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+        <?php if ($roles->role->role_id==1):?>
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
@@ -31,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Strakom</span>
-                <span class="info-box-number">150</span>
+                <span class="info-box-number"><?php echo $countstrakom ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -44,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Strakom Disetujui</span>
-                <span class="info-box-number">53</span>
+                <span class="info-box-number">0</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -57,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Strakom Ditolak</span>
-                <span class="info-box-number">73</span>
+                <span class="info-box-number">0</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -67,18 +68,24 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <!-- /.col -->
         </div>
+      <?php endif ?>
+
+
         <div class="row">
           <div class="col-12">
             <div class="card">
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Strakom Unggulan</h3>
+                  <?php if ($roles->role->role_id==1):?>
                 <div class="ml-auto p-2">
 
                       <a href="<?php echo url('StrakomUnggulan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Strakom Unggulan</a>
 
                 </div>
+                  <?php endif ?>
               </div>
 
+              <?php if ($roles->role->role_id==1):?>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-hover table-striped">
@@ -99,8 +106,95 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php foreach ($strakom as $row):
+                    ?>
+
+                    <tr>
+                      <td><?php echo $row->id ?></td>
+                      <td><?php echo $row->nama_program ?></td>
+                      <td><?php echo $row->jenis_kegiatan ?></td>
+                      <td><?php echo $row->analisis_situasi ?></td>
+                      <td><?php echo $row->identifikasi_masalah ?></td>
+                      <td><?php echo $row->narasi_utama ?></td>
+                      <td><?php echo $row->target_pro ?></td>
+                      <td><?php echo $row->target_kontra ?></td>
+                      <td>
+                        <a href="<?php echo url('StrakomUnggulan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                        <a href="<?php echo url('StrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo url('StrakomUnggulan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+
+                      </td>
+                    </tr>
+
+                  <?php
+
+                  endforeach ?>
+                  <!-- <?php foreach ($users as $row): ?>
+                    <tr>
+                      <td width="60"><?php echo $row->id ?></td>
+                      <td width="50" class="text-center">
+                        <img src="<?php echo userProfile($row->id) ?>" width="40" height="40" alt="" class="img-avtar">
+
+                      </td>
+                      <td>
+                        <?php echo $row->name ?>
+                      </td>
+                      <td><?php echo $row->email ?></td>
+                      <td><?php echo ucfirst($this->roles_model->getById($row->role)->title) ?></td>
+                      <td><?php echo ($row->last_login!='0000-00-00 00:00:00')?date( setting('date_format'), strtotime($row->last_login)):'No Record' ?></td>
+                      <td>
+                        <?php if (logged('id')!==$row->id): ?>
+                          <input type="checkbox" name="my-checkbox"  onchange="updateUserStatus('<?php echo $row->id ?>', $(this).is(':checked') )" <?php echo ($row->status) ? 'checked' : '' ?> data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
+                        <?php else: ?>
+                          <input type="checkbox" name="my-checkbox" disabled data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
+                        <?php endif ?>
+                      </td>
+                      <td>
+                        <?php if (hasPermissions('users_edit')): ?>
+                          <a href="<?php echo url('users/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_user') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                        <?php endif ?>
+                        <?php if (hasPermissions('users_view')): ?>
+                          <a href="<?php echo url('users/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="<?php echo lang('view_user') ?>" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <?php endif ?>
+                        <?php if (hasPermissions('users_delete')): ?>
+                          <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
+                            <a href="<?php echo url('users/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_user') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                          <?php else: ?>
+                            <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
+                          <?php endif ?>
+                        <?php endif ?>
+                      </td>
+                    </tr>
+                  <?php endforeach ?> -->
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            <?php else:?>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover table-striped">
+                  <thead>
+                  <tr>
+                    <th rowspan="2"><?php echo lang('id') ?></th>
+                    <th rowspan="2">Nama OPD</th>
+                    <th rowspan="2">Nama Program/Kegiatan</th>
+                    <th rowspan="2">Jenis Program/Kegiatan</th>
+                    <th rowspan="2">Analisis Situasi</th>
+                    <th rowspan="2">Identifikasi Masalah</th>
+                    <th rowspan="2">Narasi Utama Publikasi Program</th>
+                    <th colspan="2">Target Audiens</th>
+                    <th rowspan="2"><?php echo lang('action') ?></th>
+                  </tr>
+                  <tr>
+                    <th>Pro</th>
+                    <th>Kontra</th>
+                  </tr>
+                  </thead>
+                  <tbody>
                     <tr>
                       <td>1</td>
+                      <td>Rencana Kinerja JaKita</td>
                       <td>Publikasi Layanan JakWifi</td>
                       <td>Program Unggulan Dinas Kominfotik</td>
                       <td>- Pengurangan anggaran JakWifi yang berdampak berkurangnya jumlah titik JakWifi dari 3500 menjadi 1200 titik <br>
@@ -112,10 +206,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>1. Legislatif</td>
                       <td>1. Masyarakat terdampak</td>
                       <td>
-                        <a href="<?php echo url('StrakomUnggulan/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo url('StrakomUnggulan/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url('StrakomUnggulan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-
                       </td>
                     </tr>
                   <!-- <?php foreach ($users as $row): ?>
@@ -159,6 +250,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </table>
               </div>
               <!-- /.card-body -->
+            <?php endif ?>
+
             </div>
             <!-- /.card -->
           </div>

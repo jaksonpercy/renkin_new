@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <section class="content">
 
-<?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+<?php echo form_open_multipart('StrakomUnggulan/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 
   <div class="row">
@@ -33,14 +33,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="card">
 
         <div class="card-body">
+          <input type="hidden" class="form-control" name="idUser" required value="<?php echo $user->id; ?>" />
+          <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $periode->id; ?>" />
+          <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $user->opd_upd; ?>" />
 
           <div class="form-group">
             <label for="formClient-Contact">Kategori Program*</label>
             <select name="kategoriProgram" id="kategoriProgram" class="form-control" required>
-              <option value="-">Pilih List Prioritas</option>
-              <option value="Isu Prioritas">Isu Prioritas</option>
-              <option value="KSD">KSD</option>
-              <option value="Program Unggulan Perangkat Daerah">Program Unggulan Perangkat Daerah</option>
+                <option value="-">Pilih Kategori Program</option>
+              <option value="1">Isu Prioritas</option>
+              <option value="2">KSD</option>
+              <option value="3">Program Unggulan Perangkat Daerah</option>
 
             </select>
           </div>
@@ -48,11 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group" style="display:none" id="divNoKSD">
             <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
             <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
-              <option value="-">Pilih KSD</option>
-              <option value="Penanggulangan Banjir">001 - KSD 1 </option>
-              <option value="Penanganan Kemacetan">002 - KSD 2 </option>
-              <option value="Penanganan Stunting">003 - KSD 3</option>
-              <option value="Antisipasi Dampak Resesi Ekonomi">004 - KSD 04</option>
+              <option value="001 - KSD 1">001 - KSD 1 </option>
+              <option value="002 - KSD 2">002 - KSD 2 </option>
+              <option value="003 - KSD 3">003 - KSD 3</option>
+              <option value="004 - KSD 4">004 - KSD 04</option>
 
             </select>
           </div>
@@ -223,17 +225,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
    const divJenisProgram = document.getElementById('divJenisProgram');
    const divNamaUnggulan = document.getElementById('divNamaUnggulan');
    el.addEventListener('change', function handleChange(event) {
-      if (event.target.value == 'Isu Prioritas') {
+      if (event.target.value == '1') {
          divNamaProgram.style.display = 'block';
           divJenisProgram.style.display = 'block';
           document.getElementById('divNoKSD').style.display = 'none';
            // document.getElementById('divNamaKSD').style.display = 'none';
-      } else if (event.target.value == 'KSD') {
+      } else if (event.target.value == '2') {
         divNamaProgram.style.display = 'none';
          divJenisProgram.style.display = 'none';
         document.getElementById('divNoKSD').style.display = 'block';
          // document.getElementById('divNamaKSD').style.display = 'block';
-      } else if (event.target.value == 'Program Unggulan Perangkat Daerah') {
+      } else if (event.target.value == '3') {
         divNamaProgram.style.display = 'none';
          divJenisProgram.style.display = 'none';
         document.getElementById('divNoKSD').style.display = 'none';
