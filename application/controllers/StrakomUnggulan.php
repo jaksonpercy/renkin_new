@@ -31,6 +31,9 @@ class StrakomUnggulan extends MY_Controller {
 
   public function add(){
     // load view
+    $this->page_data['kategoriprogram'] = $this->KategoriProgram_model->getByStatusActive(1);
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1

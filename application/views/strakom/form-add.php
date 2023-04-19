@@ -40,24 +40,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group">
             <label for="formClient-Contact">Kategori Program*</label>
             <select name="kategoriProgram" id="kategoriProgram" class="form-control" required>
-                <option value="-">Pilih Kategori Program</option>
-              <option value="1">Isu Prioritas</option>
-              <option value="2">KSD</option>
-              <option value="3">Program Unggulan Perangkat Daerah</option>
-
+              <option value="">Pilih Kategori Program</option>
+              <?php foreach ($kategoriprogram as $row): ?>
+                <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+              <?php endforeach ?>
             </select>
           </div>
 
           <div class="form-group" style="display:none" id="divNoKSD">
             <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
             <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
-              <option value="001 - KSD 1">001 - KSD 1 </option>
-              <option value="002 - KSD 2">002 - KSD 2 </option>
-              <option value="003 - KSD 3">003 - KSD 3</option>
-              <option value="004 - KSD 4">004 - KSD 04</option>
-
+              <?php foreach ($ksd as $row): ?>
+                <option value="<?php echo $row->id ?>"><?php echo $row->code ?> - <?php echo $row->nama ?></option>
+              <?php endforeach ?>
             </select>
-          </div>
+         </div>
 
           <!-- <div class="form-group" style="display:none" id="divNoKSD">
             <label for="formClient-Name">No KSD*</label>
@@ -78,10 +75,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <label for="formClient-Contact" class="col-sm-12">Jenis Program/Kegiatan*</label>
             <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" style="width:100%" required>
               <option value="-">Pilih Jenis Kegiatan</option>
-              <option value="Penanggulangan Banjir">Penanggulangan Banjir</option>
-              <option value="Penanganan Kemacetan">Penanganan Kemacetan</option>
-              <option value="Penanganan Stunting">Penanganan Stunting</option>
-              <option value="Antisipasi Dampak Resesi Ekonomi">Antisipasi Dampak Resesi Ekonomi</option>
+              <?php foreach ($jeniskegiatan as $row): ?>
+                <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+              <?php endforeach ?>
 
             </select>
           </div>

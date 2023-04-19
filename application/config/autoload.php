@@ -142,4 +142,7 @@ $autoload['model'] = array(
 	'templates_model',
 	'Periode_model',
 	'Strakom_model',
+	'KategoriProgram_model',
+	'JenisKegiatan_model',
+	'KSD_model',
 );

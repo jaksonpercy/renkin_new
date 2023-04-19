@@ -36,6 +36,11 @@ class MY_Model extends CI_Model {
 		return $this->db->get_where($this->table, [ $this->role_id => $id ])->row();
 	}
 
+	public function getByStatusActive($id)
+	{
+		return $this->db->get_where($this->table, [ "status" => $id ])->result();
+	}
+
 	/**
 	  * Get a particular field/row from table by its primary key eg. id
 	  *

@@ -110,6 +110,39 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </li>
 <?php endif ?>
 
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('KategoriProgram') ?>" class="nav-link <?php echo ($page->menu=='kategoriprogram')?'active':'' ?>">
+      <i class="nav-icon fas fa-cog"></i>
+      <p>
+    Kelola Kategori Program
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('JenisKegiatan') ?>" class="nav-link <?php echo ($page->menu=='jeniskegiatan')?'active':'' ?>">
+      <i class="nav-icon fas fa-cog"></i>
+      <p>
+    Kelola Jenis Kegiatan
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('KSD') ?>" class="nav-link <?php echo ($page->menu=='ksd')?'active':'' ?>">
+      <i class="nav-icon fas fa-cog"></i>
+      <p>
+    Kelola KSD
+      </p>
+    </a>
+  </li>
+<?php endif ?>
 
 <?php if (hasRoles('backup_db')): ?>
   <li class="nav-item">
