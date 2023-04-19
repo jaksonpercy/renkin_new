@@ -121,6 +121,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </li>
 <?php endif ?>
 
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('KanalPublikasi') ?>" class="nav-link <?php echo ($page->menu=='rencanamedia')?'active':'' ?>">
+      <i class="nav-icon fas fa-cog"></i>
+      <p>
+    Kelola Kanal Publikasi /<br> Rencana Media
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('ProdukKomunikasi') ?>" class="nav-link <?php echo ($page->menu=='produkkomunikasi')?'active':'' ?>">
+      <i class="nav-icon fas fa-cog"></i>
+      <p>
+    Kelola Produk Komunikasi
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
 
 <?php if (hasRoles('backup_db')): ?>
   <li class="nav-item">

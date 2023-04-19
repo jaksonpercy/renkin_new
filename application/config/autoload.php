@@ -145,4 +145,6 @@ $autoload['model'] = array(
 	'KategoriProgram_model',
 	'JenisKegiatan_model',
 	'KSD_model',
+	'KanalPublikasi_model',
+	'ProdukKomunikasi_model',
 );
