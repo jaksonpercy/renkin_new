@@ -143,7 +143,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Address">Rencana Media/Kanal Publikasi*</label>
-            <input type="text" class="form-control" name="rencanaMedia" id="formClient-Name" required placeholder="Rencana Media/Kanal Publikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+            <select class="select2" multiple="multiple" name="rencanaMedia[]" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
+              <?php foreach ($rencanamedia as $row): ?>
+                <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+              <?php endforeach ?>
+            </select>
           </div>
 
         </div>

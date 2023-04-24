@@ -111,8 +111,29 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                     <tr>
                       <td><?php echo $row->id ?></td>
-                      <td><?php echo $row->nama_program ?></td>
-                      <td><?php echo $row->jenis_kegiatan ?></td>
+                      <td>
+                        <?php if ($row->ksd_id > 0){
+                          foreach ($ksd as $rows):
+                            if ($rows->id == $row->ksd_id ) {
+                              echo $rows->nama;
+                            }
+                         endforeach;
+                        } else {
+                            echo $row->nama_program;
+                        }
+                        ?>
+                      
+                      </td>
+                      <td>
+                        <?php
+                        foreach ($jeniskegiatan as $rows):
+                          if ($rows->id == $row->jenis_kegiatan ) {
+                            echo $rows->nama;
+                          }
+                       endforeach
+                        ?>
+
+                      </td>
                       <td><?php echo $row->analisis_situasi ?></td>
                       <td><?php echo $row->identifikasi_masalah ?></td>
                       <td><?php echo $row->narasi_utama ?></td>

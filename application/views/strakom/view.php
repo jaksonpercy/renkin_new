@@ -65,11 +65,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </tr>
       					<tr>
       						<td width="160"><strong>Nama Program/Kegiatan</strong>:</td>
-      						<td><?php echo $strakom->nama_program ?></td>
+      						<td><?php if ($strakom->ksd_id > 0){
+                    foreach ($ksd as $rows):
+                      if ($rows->id == $strakom->ksd_id ) {
+                        echo $rows->nama;
+                      }
+                   endforeach;
+                  } else {
+                      echo $strakom->nama_program;
+                  }
+                  ?></td>
       					</tr>
       					<tr>
       						<td><strong>Jenis Kegiatan</strong>:</td>
-      						<td><?php echo $strakom->jenis_kegiatan ?></td>
+      						<td><?php
+                  foreach ($jeniskegiatan as $rows):
+                      if ($rows->id == $strakom->jenis_kegiatan ) {
+                        echo $rows->nama;
+                      }
+                   endforeach ?></td>
       					</tr>
       					<tr>
       						<td><strong>Deskripsi Singkat Kegiatan</strong>:</td>
@@ -94,7 +108,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </tr>
                 <tr>
                   <td><strong>Rencana Media/Kanal Publikasi</strong>:</td>
-                  <td><?php echo $strakom->kanal_publikasi ?></td>
+                  <td><?php
+                  $namaRencana = array();
+                  $my_array1 = explode(",", $strakom->kanal_publikasi);
+                  foreach ($my_array1 as $row){
+                    foreach ($rencanamedia as $rows){
+                      if ($rows->id == $row ) {
+                        array_push($namaRencana,$rows->nama);
+                      }
+                   }
+                }
+                echo implode(", ",$namaRencana);
+                 ?>
+                </td>
                 </tr>
       				</tbody>
       			</table>

@@ -40,17 +40,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group">
             <label for="formClient-Contact">Kategori Program*</label>
             <select name="kategoriProgram" id="kategoriProgram" class="form-control" required>
-              <?php if($strakom->kategori_program == 1):?>
-              <option value="1">Isu Prioritas</option>
-            <?php elseif($strakom->kategori_program == 2):?>
-              <option value="2">KSD</option>
-            <?php elseif($strakom->kategori_program == 3):?>
-              <option value="3">Program Unggulan Perangkat Daerah</option>
-            <?php endif; ?>
-              <option value="1">Isu Prioritas</option>
-              <option value="2">KSD</option>
-              <option value="3">Program Unggulan Perangkat Daerah</option>
-
+              <?php foreach ($kategoriprogram as $row):
+                $sel = $row->id==$strakom->kategori_program ? 'selected' : ''
+                ?>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
+              <?php endforeach ?>
             </select>
           </div>
 
@@ -59,11 +53,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group" id="divNoKSD">
             <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
             <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
-              <option value="<?php echo $strakom->nama_program ?>"><?php echo $strakom->nama_program ?></option>
-              <option value="001 - KSD 1">001 - KSD 1 </option>
-              <option value="002 - KSD 2">002 - KSD 2 </option>
-              <option value="003 - KSD 3">003 - KSD 3</option>
-              <option value="004 - KSD 4">004 - KSD 4</option>
+              <?php foreach ($ksd as $row):
+                $sel = $row->id==$strakom->ksd_id ? 'selected' : ''
+                ?>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
+              <?php endforeach ?>
 
             </select>
           </div>
@@ -74,12 +68,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group" style="display:none" id="divJenisProgram">
             <label for="formClient-Contact">Jenis Program/Kegiatan*</label>
-            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required>
-              <option value="<?php echo $strakom->jenis_kegiatan ?>"><?php echo $strakom->jenis_kegiatan ?></option>
-              <option value="Penanggulangan Banjir">Penanggulangan Banjir</option>
-              <option value="Penanganan Kemacetan">Penanganan Kemacetan</option>
-              <option value="Penanganan Stunting">Penanganan Stunting</option>
-              <option value="Antisipasi Dampak Resesi Ekonomi">Antisipasi Dampak Resesi Ekonomi</option>
+            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required style="width:100%">
+              <?php foreach ($jeniskegiatan as $row):
+                $sel = $jeniskegiatan->id==$strakom->jenis_kegiatan ? 'selected' : ''
+                ?>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
+              <?php endforeach ?>
 
             </select>
           </div>
@@ -107,12 +101,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group" id="divJenisProgram">
             <label for="formClient-Contact">Jenis Program/Kegiatan*</label>
             <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required>
-              <option value="<?php echo $strakom->jenis_kegiatan ?>"><?php echo $strakom->jenis_kegiatan ?></option>
-              <option value="Penanggulangan Banjir">Penanggulangan Banjir</option>
-              <option value="Penanganan Kemacetan">Penanganan Kemacetan</option>
-              <option value="Penanganan Stunting">Penanganan Stunting</option>
-              <option value="Antisipasi Dampak Resesi Ekonomi">Antisipasi Dampak Resesi Ekonomi</option>
-
+              <?php foreach ($jeniskegiatan as $row):
+                $sel = $jeniskegiatan->id==$strakom->jenis_kegiatan ? 'selected' : ''
+                ?>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
+              <?php endforeach ?>
             </select>
           </div>
           <div class="form-group" style="display:none" id="divNamaUnggulan">
@@ -123,11 +116,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group" id="divNoKSD" style="display:none" >
             <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
             <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
-              <option value="<?php echo $strakom->nama_program ?>"><?php echo $strakom->nama_program ?></option>
-              <option value="001 - KSD 1">001 - KSD 1 </option>
-              <option value="002 - KSD 2">002 - KSD 2 </option>
-              <option value="003 - KSD 3">003 - KSD 3</option>
-              <option value="004 - KSD 4">004 - KSD 4</option>
+              <?php foreach ($ksd as $row):
+                $sel = $ksd->id==$strakom->jenis_kegiatan ? 'selected' : ''
+                ?>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
+              <?php endforeach ?>
 
             </select>
           </div>
@@ -145,22 +138,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="form-group" style="display:none" id="divJenisProgram">
             <label for="formClient-Contact">Jenis Program/Kegiatan*</label>
             <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required>
-              <option value="<?php echo $strakom->jenis_kegiatan ?>"><?php echo $strakom->jenis_kegiatan ?></option>
-              <option value="Penanggulangan Banjir">Penanggulangan Banjir</option>
-              <option value="Penanganan Kemacetan">Penanganan Kemacetan</option>
-              <option value="Penanganan Stunting">Penanganan Stunting</option>
-              <option value="Antisipasi Dampak Resesi Ekonomi">Antisipasi Dampak Resesi Ekonomi</option>
+              <?php foreach ($jeniskegiatan as $row):
+                $sel = $jeniskegiatan->id==$strakom->jenis_kegiatan ? 'selected' : ''
+                ?>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
+              <?php endforeach ?>
 
             </select>
           </div>
           <div class="form-group" id="divNoKSD" style="display:none">
             <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
             <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
-              <option value="<?php echo $strakom->nama_program ?>"><?php echo $strakom->nama_program ?></option>
-              <option value="001 - KSD 1">001 - KSD 1 </option>
-              <option value="002 - KSD 2">002 - KSD 2 </option>
-              <option value="003 - KSD 3">003 - KSD 3</option>
-              <option value="004 - KSD 4">004 - KSD 4</option>
+              <?php foreach ($ksd as $row):
+                $sel = $ksd->id==$strakom->jenis_kegiatan ? 'selected' : ''
+                ?>
+                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
+              <?php endforeach ?>
+
 
             </select>
           </div>
@@ -220,8 +214,31 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Address">Rencana Media/Kanal Publikasi*</label>
-            <input type="text" class="form-control" name="rencanaMedia" id="formClient-Name" required placeholder="Rencana Media/Kanal Publikasi" value="<?php echo $strakom->kanal_publikasi ?>" />
-          </div>
+            <select class="select2" multiple="multiple" name="rencanaMedia[]" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
+              <!-- <?php foreach ($rencanamedia as $row): ?>
+                <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+              <?php endforeach ?> -->
+              <?php
+                $my_array1 = explode(",", $strakom->kanal_publikasi);
+                $sel ="";
+
+                $lengthRencanaMedia = count($rencanamedia);
+                $lengthArray = count($my_array1);
+                for ($i = 0; $i < $lengthRencanaMedia; $i++) {
+                  for ($x = 0; $x < $lengthArray; $x++) {
+                    if ($rencanamedia[$i]->id == $my_array1[$x]) {
+                      echo '
+                      <option value="'.$rencanamedia[$i]->id.'" selected >'.$rencanamedia[$i]->nama.'</option>';
+                        unset($rencanamedia[$i]);
+                    }
+                  }
+                }
+
+              ?>
+              <?php foreach ($rencanamedia as $row): ?>
+                <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+              <?php endforeach ?>
+            </select>  </div>
 
         </div>
         <!-- /.card-body -->
@@ -312,7 +329,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     $('.form-validate').validate();
 
       //Initialize Select2 Elements
-    // $('.select2').select2()
+    $('.select2').select2()
 
   })
 

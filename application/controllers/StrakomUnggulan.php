@@ -25,6 +25,8 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['strakom'] = $this->Strakom_model->get();
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
 
+    $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
 		$this->page_data['page']->submenu = 'rencanakinerja';
     $this->load->view('strakom/list', $this->page_data);
 	}
@@ -34,6 +36,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['kategoriprogram'] = $this->KategoriProgram_model->getByStatusActive(1);
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
@@ -44,6 +47,10 @@ class StrakomUnggulan extends MY_Controller {
 
   public function edit($id){
     // load view
+    $this->page_data['kategoriprogram'] = $this->KategoriProgram_model->getByStatusActive(1);
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->getById($id);
 
     $this->load->view('strakom/form-edit', $this->page_data);
@@ -52,6 +59,10 @@ class StrakomUnggulan extends MY_Controller {
 
   public function view($id){
     // load view
+
+    $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->getById($id);
 
     $this->load->view('strakom/view', $this->page_data);
@@ -89,10 +100,10 @@ class StrakomUnggulan extends MY_Controller {
     $namaProgram ='';
     $jenisKegiatan='';
 
-    if ($this->input->post('kategoriProgram')=='Isu Prioritas'){
+    if ($this->input->post('kategoriProgram')==1){
         $namaProgram = $this->input->post('namaProgram');
         $jenisKegiatan = $this->input->post('jenisKegiatan');
-    }else if ($this->input->post('kategoriProgram')=='KSD') {
+    }else if ($this->input->post('kategoriProgram')==2) {
       // code...
       $namaProgram = $this->input->post('ksd');
     } else {
@@ -103,6 +114,7 @@ class StrakomUnggulan extends MY_Controller {
 			'id' => $uuid,
 			'kategori_program' => $this->input->post('kategoriProgram'),
 			'nama_program' => $namaProgram,
+      'ksd_id' => $namaProgram,
 			'jenis_kegiatan' => $jenisKegiatan,
       'deskripsi' => $this->input->post('deskripsiKegiatan'),
 			'analisis_situasi' => $this->input->post('analisisSituasi'),
@@ -110,7 +122,7 @@ class StrakomUnggulan extends MY_Controller {
 			'narasi_utama' => $this->input->post('narasiUtama'),
 			'target_pro' => $this->input->post('targetAudiensPro'),
 			'target_kontra' => $this->input->post('targetAudiensKontra'),
-			'kanal_publikasi' => $this->input->post('rencanaMedia'),
+			'kanal_publikasi' => implode(", ",$this->input->post('rencanaMedia')),
 			'user_id' => $this->input->post('idUser'),
 			'periode_id' => $this->input->post('idPeriode'),
 			'opd_id' => $this->input->post('idOPD'),
@@ -149,6 +161,7 @@ class StrakomUnggulan extends MY_Controller {
       'id' => $uuid,
       'kategori_program' => $this->input->post('kategoriProgram'),
       'nama_program' => $namaProgram,
+      'ksd_id' => $namaProgram,
       'jenis_kegiatan' => $jenisKegiatan,
       'deskripsi' => $this->input->post('deskripsiKegiatan'),
       'analisis_situasi' => $this->input->post('analisisSituasi'),
@@ -156,7 +169,7 @@ class StrakomUnggulan extends MY_Controller {
       'narasi_utama' => $this->input->post('narasiUtama'),
       'target_pro' => $this->input->post('targetAudiensPro'),
       'target_kontra' => $this->input->post('targetAudiensKontra'),
-      'kanal_publikasi' => $this->input->post('rencanaMedia'),
+      'kanal_publikasi' => implode(", ",$this->input->post('rencanaMedia')),
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),

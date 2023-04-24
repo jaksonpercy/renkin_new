@@ -25,6 +25,7 @@ class Realisasi extends MY_Controller {
 
   public function add(){
     // load view
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->load->view('realisasi/form-add', $this->page_data);
 
   }

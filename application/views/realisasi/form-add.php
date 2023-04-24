@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-ubah"> <span class="pr-1"><i class="fa fa-edit"></i></span></button>
                   <!-- <a href="<?php echo url('realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fa fa-edit"></i></a> -->
                   <!-- <a href="<?php echo url('realisasi/realisasiview/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a> -->
-                  <a href="<?php echo url('Realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                  <a href="<?php echo url('Realisasi/delete/') ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
                 </td>
              </tr>
@@ -207,21 +207,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Address">Kanal Publikasi*</label>
-                        <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
-                          <option value="-">Pilih Kanal Publikasi</option>
-                          <option value="Publikasi Layanan JakWifi">TV</option>
-                          <option value="Publikasi Layanan JakWifi">Radio</option>
-                          <option value="Publikasi Layanan JakWifi">Media Cetak</option>
-                          <option value="Publikasi Layanan JakWifi">Instagram</option>
-                          <option value="Publikasi Layanan JakWifi">Facebook</option>
-                          <option value="Publikasi Layanan JakWifi">LinkedIn</option>
-                          <option value="Publikasi Layanan JakWifi">Rapat/Audiensi/Workshop/Bintek</option>
-
+                        <select name="jenisKegiatan" id="formClient-Role" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
+                          <option value="0">Pilih Kanal Publikasi</option>
+                          <?php foreach ($rencanamedia as $row): ?>
+                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                          <?php endforeach ?>
                         </select>
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Name">Link Tautan*</label>
+                        <label for="formClient-Name">Link Tautan</label>
+                        <p>*Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website</p>
                         <input type="text" class="form-control" name="linktautan" id="formClient-Name" required placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                       </div>
 
@@ -299,15 +295,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="form-group">
                   <label for="formClient-Address">Kanal Publikasi*</label>
                   <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
-                    <option value="-">Pilih Kanal Publikasi</option>
-                    <option value="Publikasi Layanan JakWifi">TV</option>
-                    <option value="Publikasi Layanan JakWifi">Radio</option>
-                    <option value="Publikasi Layanan JakWifi">Media Cetak</option>
-                    <option value="Publikasi Layanan JakWifi">Instagram</option>
-                    <option value="Publikasi Layanan JakWifi">Facebook</option>
-                    <option value="Publikasi Layanan JakWifi">LinkedIn</option>
-                    <option value="Publikasi Layanan JakWifi">Rapat/Audiensi/Workshop/Bintek</option>
-
+                    <option value="0">Pilih Kanal Publikasi</option>
+                    <?php foreach ($rencanamedia as $row): ?>
+                      <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                    <?php endforeach ?>
                   </select>
                 </div>
 
