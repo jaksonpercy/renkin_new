@@ -52,58 +52,44 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $no=0;
+                    foreach ($editorialplan as $row):
+                    $no++;
+                    ?>
                     <tr>
-                      <td>1</td>
-                      <td>5 Januari 2023</td>
-                      <td>Perubahan titik Jakwifi salah satunya didasari hasil survei</td>
-                      <td>Artikel</td>
-                      <td>- Pengurangan anggaran DKI Jakarta untuk JakWifi & titik pengurangan JakWifi <br>
-                          - Isu - isu politis</td>
-                      <td>Instagram</td>
+                      <td><?php echo $no ?></td>
+                      <td><?php echo $row->tanggal_rencana ?></td>
+                      <td><?php echo $row->pesan_utama ?></td>
+                      <td>
+                        <?php
+                          foreach ($produkkomunikasi as $rows):
+                            if ($rows->id == $row->produk_komunikasi ) {
+                              echo $rows->nama;
+                            }
+                         endforeach;
+                        ?>
+                      </td>
+                      <td><?php echo $row->khalayak ?></td>
+                      <td>
+                        <?php
+                          foreach ($rencanamedia as $rows):
+                            if ($rows->id == $row->kanal_komunikasi ) {
+                              echo $rows->nama;
+                            }
+                         endforeach;
+                        ?>
+                      </td>
                       <td>
                         <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit"><i class="fas fa-edit"></i></button>
-                        <a href="<?php echo url('EditorialPlan/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
                       </td>
                     </tr>
-                  <!-- <?php foreach ($users as $row): ?>
-                    <tr>
-                      <td width="60"><?php echo $row->id ?></td>
-                      <td width="50" class="text-center">
-                        <img src="<?php echo userProfile($row->id) ?>" width="40" height="40" alt="" class="img-avtar">
+                    <?php
 
-                      </td>
-                      <td>
-                        <?php echo $row->name ?>
-                      </td>
-                      <td><?php echo $row->email ?></td>
-                      <td><?php echo ucfirst($this->roles_model->getById($row->role)->title) ?></td>
-                      <td><?php echo ($row->last_login!='0000-00-00 00:00:00')?date( setting('date_format'), strtotime($row->last_login)):'No Record' ?></td>
-                      <td>
-                        <?php if (logged('id')!==$row->id): ?>
-                          <input type="checkbox" name="my-checkbox"  onchange="updateUserStatus('<?php echo $row->id ?>', $(this).is(':checked') )" <?php echo ($row->status) ? 'checked' : '' ?> data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
-                        <?php else: ?>
-                          <input type="checkbox" name="my-checkbox" disabled data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
-                        <?php endif ?>
-                      </td>
-                      <td>
-                        <?php if (hasPermissions('users_edit')): ?>
-                          <a href="<?php echo url('users/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_user') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <?php endif ?>
-                        <?php if (hasPermissions('users_view')): ?>
-                          <a href="<?php echo url('users/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="<?php echo lang('view_user') ?>" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <?php endif ?>
-                        <?php if (hasPermissions('users_delete')): ?>
-                          <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
-                            <a href="<?php echo url('users/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_user') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php else: ?>
-                            <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
-                          <?php endif ?>
-                        <?php endif ?>
-                      </td>
-                    </tr>
-                  <?php endforeach ?> -->
+                    endforeach ?>
                   </tbody>
                 </table>
               </div>
@@ -120,6 +106,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <!-- /.content -->
 
     <section class="content">
+      <?php echo form_open_multipart('EditorialPlan/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
       <div class="container-fluid">
         <div class="row">
 
@@ -133,10 +121,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </button>
           </div>
           <div class="modal-body">
-            <?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
-                <form action="" method="post" enctype="multipart/form-data">
+
               <div class="row">
+                <input type="hidden" class="form-control" name="idUser" required value="<?php echo $user->id; ?>" />
+                <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $periode->id; ?>" />
+                <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $user->opd_upd; ?>" />
+
                 <div class="col-sm-6">
                   <!-- Default card -->
                   <div class="card">
@@ -146,8 +137,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <div class="form-group">
                         <label for="formClient-Contact">Nama Program/Kegiatan*</label>
                         <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required>
-                          <option value="-">Pilih Program/Kegiatan</option>
-                          <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+                          <option value="">Pilih Nama Program/Kegiatan</option>
+                          <?php foreach ($strakom as $row):
+                            if ($row->ksd_id > 0){
+                              foreach ($ksd as $rows):
+                                if ($rows->id == $row->ksd_id ) {
+                                  echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
+                                }
+                             endforeach;
+                            } else {
+                                echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
+                            }
+                          ?>
+
+                          <?php endforeach ?>
                         </select>
                       </div>
 
@@ -161,17 +164,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <label for="formClient-Contact">Produk Komunikasi*</label>
                         <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
                           <option value="-">Pilih Produk Komunikasi</option>
-                          <option value="Artikel">Artikel</option>
-                          <option value="Video">Video</option>
-                          <option value="Infografis">Infografis</option>
-                          <option value="Foto">Foto</option>
-                          <option value="Press Release">Press Release</option>
-                          <option value="Motiongrafis">Motiongrafis</option>
-                          <option value="Media Luar Ruang">Media Luar Ruang</option>
-                          <option value="Sosialisasi">Sosialisasi</option>
-                          <option value="Aktivitas">Aktivitas</option>
-                          <option value="Berita">Berita</option>
-                          <option value="Lainnya">Lainnya</option>
+                          <?php foreach ($produkkomunikasi as $row): ?>
+                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                          <?php endforeach ?>
 
                         </select>
                       </div>
@@ -180,10 +175,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <label for="formClient-Contact">Kanal Komunikasi*</label>
                         <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" required>
                           <option value="-">Pilih Kanal Komunikasi</option>
-                          <option value="Instagram">Instagram</option>
-                          <option value="Facebook">Facebook</option>
-                          <option value="Lainnya">Lainnya</option>
-
+                          <?php foreach ($rencanamedia as $row): ?>
+                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                          <?php endforeach ?>
                         </select>
                       </div>
 
@@ -218,11 +212,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
                 </div>
               </div>
-            </form>
+
           </div>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
           </div>
         </div>
         <!-- /.modal-content -->
@@ -230,9 +224,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <!-- /.modal-dialog -->
     </div>
 
+
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <?php echo form_close(); ?>
+      <!-- /.container-fluid -->
+    </section>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
     <div class="modal fade" id="modal-lg-edit">
-<div class="modal-dialog modal-xl">
-  <div class="modal-content">
+    <div class="modal-dialog modal-xl">
+    <div class="modal-content">
     <div class="modal-header">
       <h4 class="modal-title">Edit Editorial Plan</h4>
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -330,24 +335,28 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
       <button type="button" class="btn btn-primary">Submit</button>
     </div>
+    </div>
+    <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+    </div>
+
   </div>
-  <!-- /.modal-content -->
+  <!-- /.row -->
 </div>
-<!-- /.modal-dialog -->
-</div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-
-
+<!-- /.container-fluid -->
+</section>
 
 <?php include viewPath('includes/footer'); ?>
 
 <script>
+$(document).ready(function() {
+  $('.form-validate').validate();
 
+    // Initialize Select2 Elements
+  $('.select2').select2()
+
+})
 window.updateUserStatus = (id, status) => {
   $.get( '<?php echo url('users/change_status') ?>/'+id, {
     status: status

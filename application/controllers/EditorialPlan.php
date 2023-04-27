@@ -19,13 +19,22 @@ class EditorialPlan extends MY_Controller {
 
   public function editorialplan()
 	{
-		$this->page_data['page']->submenu = 'rencanakinerja';
-    $this->page_data['editorialplan'] = $this->users_model->get();
+		$this->page_data['page']->submenu = 'editorialplan';
+    // load view
+    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['editorialplan'] = $this->Editorial_model->get();
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
+    $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+      $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->load->view('editorialplan/list', $this->page_data);
 	}
 
   public function add(){
-    // load view
+
     $this->load->view('editorialplan/form-add', $this->page_data);
 
   }
@@ -36,8 +45,19 @@ class EditorialPlan extends MY_Controller {
 
   }
 
-  public function view(){
+  public function view($id){
     // load view
+    $this->page_data['page']->submenu = 'editorialplan';
+    // load view
+    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['editorialplan'] = $this->Editorial_model->getById($id);
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
+    $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+      $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->load->view('editorialplan/view', $this->page_data);
 
   }
@@ -52,15 +72,45 @@ class EditorialPlan extends MY_Controller {
       return;
     }
 
-    // $id = $this->users_model->delete($id);
-    //
-    // $this->activity_model->add("User #$id Deleted by User:".logged('name'));
-    //
-    // $this->session->set_flashdata('alert-type', 'success');
-    // $this->session->set_flashdata('alert', 'User has been Deleted Successfully');
-    //
-    redirect('editorialplan');
+    $id = $this->Editorial_model->delete($id);
+
+    $this->activity_model->add("Editorial Plan #$id Dihapus oleh:".logged('name'));
+
+    $this->session->set_flashdata('alert-type', 'success');
+    $this->session->set_flashdata('alert', 'Editorial Plan Berhasil Di Hapus');
+
+    redirect('EditorialPlan');
 
   }
+
+  public function save()
+	{
+
+		postAllowed();
+
+		// ifPermissions('permissions_add');
+		$uuid = uniqid();
+		$periode = $this->Editorial_model->create([
+			'id' => $uuid,
+			'strakom_id' => $this->input->post('namaProgram'),
+			'tanggal_rencana' => $this->input->post('tanggalRencanaTayang'),
+      'produk_komunikasi' => $this->input->post('produkKomunikasi'),
+			'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
+      'pesan_utama' => $this->input->post('pesanUtama'),
+			'khalayak' => $this->input->post('khalayak'),
+      'user_id' => $this->input->post('idUser'),
+      'periode_id' => $this->input->post('idPeriode'),
+      'opd_id' => $this->input->post('idOPD'),
+
+		]);
+
+		$this->activity_model->add("Menambahkan Data Editorial Plan #$periode oleh User: #".logged('name'));
+
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Menambahkan data Editorial Plan Berhasil');
+
+		redirect('EditorialPlan');
+
+	}
 
 }

@@ -22,6 +22,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
+    $this->page_data['user'] = $this->users_model->get();
     $this->page_data['strakom'] = $this->Strakom_model->get();
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
 
@@ -59,7 +60,11 @@ class StrakomUnggulan extends MY_Controller {
 
   public function view($id){
     // load view
-
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
+    $this->page_data['user'] = $this->users_model->get();
     $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);

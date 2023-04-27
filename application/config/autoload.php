@@ -147,4 +147,5 @@ $autoload['model'] = array(
 	'KSD_model',
 	'KanalPublikasi_model',
 	'ProdukKomunikasi_model',
+	'Editorial_model',
 );

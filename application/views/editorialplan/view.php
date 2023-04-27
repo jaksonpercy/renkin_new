@@ -9,13 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Editorial Plan #1</h1>
+            <h1>Editorial Plan</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/EditorialPlan') ?>">Editorial Plan</a></li>
-              <li class="breadcrumb-item active"><?php echo $User->id ?></li>
+              <li class="breadcrumb-item active"><?php echo $editorialplan->id ?></li>
             </ol>
           </div>
         </div>
@@ -50,25 +50,42 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       				<tbody>
       					<tr>
       						<td width="160"><strong>Tanggal Rencana Tayang</strong>:</td>
-      						<td>5 Januari 2023</td>
+      						<td><?php
+                  $date=date_create($editorialplan->tanggal_rencana);
+                  echo date_format($date,"d F Y "); 
+                  ?></td>
       					</tr>
       					<tr>
       						<td><strong>Pesan Utama</strong>:</td>
-      						<td>Perubahan titik Jakwifi salah satunya didasari hasil survei</td>
+      						<td><?php echo $editorialplan->pesan_utama ?></td>
       					</tr>
       					<tr>
       						<td><strong>Produk Komunikasi</strong>:</td>
-      						<td>Artikel</td>
+      						<td>
+                    <?php
+                      foreach ($produkkomunikasi as $rows):
+                        if ($rows->id == $editorialplan->produk_komunikasi ) {
+                          echo $rows->nama;
+                        }
+                     endforeach;
+                    ?>
+                  </td>
       					</tr>
       					<tr>
       						<td><strong>Khalayak</strong>:</td>
-      						<td>- Pengurangan anggaran JakWifi yang berdampak berkurangnya jumlah titik JakWifi dari 3500 menjadi 1200 titik <br>
-- Telah berubahnya status Pandemi menjadi Endemi <br>
-- Sekolah dan Kantor sudah kembali melaksanakan kegiatan tatap muka 100%</td>
+      						<td><?php echo $editorialplan->khalayak ?></td>
       					</tr>
       					<tr>
       						<td><strong>Kanal Komunikasi</strong>:</td>
-      						<td>Instagram</td>
+      						<td>
+                    <?php
+                      foreach ($rencanamedia as $rows):
+                        if ($rows->id == $editorialplan->kanal_komunikasi ) {
+                          echo $rows->nama;
+                        }
+                     endforeach;
+                    ?>
+                  </td>
       					</tr>
       				</tbody>
       			</table>
