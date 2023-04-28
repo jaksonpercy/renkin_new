@@ -10,6 +10,8 @@ class MY_Model extends CI_Model {
 
 	public $role_id = 'role_id';
 
+	public $user_id = 'user_id';
+
 	/**
 	  * Get Data from table
 	  *
@@ -34,6 +36,11 @@ class MY_Model extends CI_Model {
 	public function getByRole($id)
 	{
 		return $this->db->get_where($this->table, [ $this->role_id => $id ])->row();
+	}
+
+	public function getByUserId($id)
+	{
+		return $this->db->get_where($this->table, [ $this->user_id => $id ])->row();
 	}
 
 	public function getByStatusActive($id)
@@ -152,6 +159,13 @@ class MY_Model extends CI_Model {
 	public function countAll()
 	{
 		return $this->db->count_all_results($this->table);
+	}
+
+	public function countAllByUserId($id)
+	{
+		$this->db->where('user_id', $id);
+		$this->db->count_all_results($this->table);
+		return true;
 	}
 
 }

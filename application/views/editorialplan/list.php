@@ -55,6 +55,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php
                     $no=0;
                     foreach ($editorialplan as $row):
+                    if ($row->user_id == $this->session->userdata('logged')['id']) {
+
                     $no++;
                     ?>
                     <tr>
@@ -88,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </td>
                     </tr>
                     <?php
-
+                  }
                     endforeach ?>
                   </tbody>
                 </table>

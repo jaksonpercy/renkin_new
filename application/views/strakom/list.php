@@ -107,6 +107,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </thead>
                   <tbody>
                     <?php foreach ($strakom as $row):
+                      if ($row->user_id == $this->session->userdata('logged')['id']) {
+                        // code...
+
                     ?>
 
                     <tr>
@@ -148,7 +151,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </tr>
 
                   <?php
-
+                  }
                   endforeach ?>
                   </tbody>
                 </table>

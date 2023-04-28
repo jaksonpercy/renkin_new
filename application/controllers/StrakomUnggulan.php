@@ -25,6 +25,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['user'] = $this->users_model->get();
     $this->page_data['strakom'] = $this->Strakom_model->get();
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
+    $this->page_data['countstrakombyid'] = $this->Strakom_model->countAllByUserId($this->session->userdata('logged')['id']);
 
     $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
