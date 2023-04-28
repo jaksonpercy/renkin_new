@@ -207,12 +207,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Address">Kanal Publikasi*</label>
-                        <select name="jenisKegiatan" id="formClient-Role" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
+                        <select name="kanalpublikasi" id="kanalpublikasi" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
                           <option value="0">Pilih Kanal Publikasi</option>
                           <?php foreach ($rencanamedia as $row): ?>
                             <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
                           <?php endforeach ?>
                         </select>
+                        <input type="text" class="form-control" name="textlainnya" id="textlainnya" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+
                       </div>
 
                       <div class="form-group">
@@ -294,12 +296,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 <div class="form-group">
                   <label for="formClient-Address">Kanal Publikasi*</label>
-                  <select name="jenisKegiatan" id="formClient-Role" class="form-control" required>
+                  <select name="kanalpublikasi" id="kanalpublikasiedit" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
                     <option value="0">Pilih Kanal Publikasi</option>
                     <?php foreach ($rencanamedia as $row): ?>
                       <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
                     <?php endforeach ?>
                   </select>
+                  <input type="text" class="form-control" name="textlainnya" id="textlainnyaedit" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+
                 </div>
 
                 <div class="form-group">
@@ -369,6 +373,33 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </section>
 <!-- /.content -->
 
+<script type="text/javascript">
+   const el = document.getElementById('kanalpublikasi');
+   const etLainnya = document.getElementById('textlainnya');
+   // const divNamaKSD = document.getElementById('divNamaKSD');
+
+   el.addEventListener('change', function handleChange(event) {
+      if (event.target.value == '9') {
+         etLainnya.style.display = 'block';
+       } else {
+        etLainnya.style.display = 'none';
+      }
+   });
+</script>
+
+<script type="text/javascript">
+   const eledit = document.getElementById('kanalpublikasiedit');
+   const etLainnyaedit = document.getElementById('textlainnyaedit');
+   // const divNamaKSD = document.getElementById('divNamaKSD');
+
+   eledit.addEventListener('change', function handleChange(event) {
+      if (event.target.value == '9') {
+         etLainnyaedit.style.display = 'block';
+       } else {
+        etLainnyaedit.style.display = 'none';
+      }
+   });
+</script>
 
 <script>
   $(document).ready(function() {

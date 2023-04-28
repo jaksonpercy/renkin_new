@@ -21,6 +21,10 @@ class EditorialPlan extends MY_Controller {
 	{
 		$this->page_data['page']->submenu = 'editorialplan';
     // load view
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
     $this->page_data['strakom'] = $this->Strakom_model->get();
     $this->page_data['editorialplan'] = $this->Editorial_model->get();
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
@@ -108,6 +112,39 @@ class EditorialPlan extends MY_Controller {
 
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Menambahkan data Editorial Plan Berhasil');
+
+		redirect('EditorialPlan');
+
+	}
+
+  public function updateData($id)
+	{
+
+		postAllowed();
+
+		// ifPermissions('permissions_edit');
+    $uuid = uniqid();
+
+
+		$data = [
+      'id' => $uuid,
+			'strakom_id' => $this->input->post('namaProgram'),
+			'tanggal_rencana' => $this->input->post('tanggalRencanaTayang'),
+      'produk_komunikasi' => $this->input->post('produkKomunikasi'),
+			'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
+      'pesan_utama' => $this->input->post('pesanUtama'),
+			'khalayak' => $this->input->post('khalayak'),
+      'user_id' => $this->input->post('idUser'),
+      'periode_id' => $this->input->post('idPeriode'),
+      'opd_id' => $this->input->post('idOPD'),
+		];
+
+		$permission = $this->Editorial_model->update($id, $data);
+
+		$this->activity_model->add("Mengubah Data Editorial Plan #$permission oleh User: #".logged('name'));
+
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Mengubah Data Editorial Plan Berhasil');
 
 		redirect('EditorialPlan');
 

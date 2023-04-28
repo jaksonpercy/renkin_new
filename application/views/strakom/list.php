@@ -32,7 +32,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Strakom</span>
-                <span class="info-box-number"><?php echo $countstrakom ?></span>
+                <span class="info-box-number">
+              
+                  <?php
+                  if ($roles->role->role_id==1){
+                  echo $countstrakombyid;
+                } else {
+                  echo $countstrakom;
+                }
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>

@@ -9,7 +9,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Publikasi Layanan JakWifi</h1>
+            <h1>
+              <?php if ($strakom->ksd_id > 0){
+                foreach ($ksd as $rows):
+                  if ($rows->id == $strakom->ksd_id ) {
+                    echo $rows->nama;
+                  }
+               endforeach;
+              } else {
+                  echo $strakom->nama_program;
+              }
+              ?>
+            </h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -219,6 +230,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="tab_2">
+                      <?php if ($roles->role->role_id==1):?>
 				  <table id="dataTable1" class="table table-bordered table-striped">
             <thead>
             <tr>
@@ -231,25 +243,105 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <th><?php echo lang('action') ?></th>
             </tr>
             </thead>
-					<tbody>
+            <tbody>
+              <?php
+              $no=0;
+              foreach ($editorialplan as $row):
+              if ($row->user_id == $this->session->userdata('logged')['id']) {
 
+              $no++;
+              ?>
+              <tr>
+                <td><?php echo $no ?></td>
+                <td><?php echo $row->tanggal_rencana ?></td>
+                <td><?php echo $row->pesan_utama ?></td>
+                <td>
+                  <?php
+                    foreach ($produkkomunikasi as $rows):
+                      if ($rows->id == $row->produk_komunikasi ) {
+                        echo $rows->nama;
+                      }
+                   endforeach;
+                  ?>
+                </td>
+                <td><?php echo $row->khalayak ?></td>
+                <td>
+                  <?php
+                    foreach ($rencanamedia as $rows):
+                      if ($rows->id == $row->kanal_komunikasi ) {
+                        echo $rows->nama;
+                      }
+                   endforeach;
+                  ?>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
+                  <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                  <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
-						<tr>
-              <td>1</td>
-              <td>5 Januari 2023</td>
-              <td>Perubahan titik Jakwifi salah satunya didasari hasil survei</td>
-              <td>Artikel</td>
-              <td>- Pengurangan anggaran DKI Jakarta untuk JakWifi & titik pengurangan JakWifi <br>
-                  - Isu - isu politis</td>
-              <td>Instagram</td>
-						<td>
-							<a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-						</td>
-						</tr>
+                </td>
+              </tr>
 
-
+              <?php
+            }
+              endforeach ?>
 					</tbody>
 				</table>
+      <?php else:?>
+        <table id="dataTable1" class="table table-bordered table-striped">
+          <thead>
+          <tr>
+            <th>No</th>
+            <th>Tanggal Rencana Tayang</th>
+            <th>Pesan Utama</th>
+            <th>Produk Komunikasi</th>
+            <th>Khalayak</th>
+            <th>Kanal Komunikasi</th>
+            <th><?php echo lang('action') ?></th>
+          </tr>
+          </thead>
+          <tbody>
+            <?php
+            $no=0;
+            foreach ($editorialplan as $row):
+
+            $no++;
+            ?>
+            <tr>
+              <td><?php echo $no ?></td>
+              <td><?php echo $row->tanggal_rencana ?></td>
+              <td><?php echo $row->pesan_utama ?></td>
+              <td>
+                <?php
+                  foreach ($produkkomunikasi as $rows):
+                    if ($rows->id == $row->produk_komunikasi ) {
+                      echo $rows->nama;
+                    }
+                 endforeach;
+                ?>
+              </td>
+              <td><?php echo $row->khalayak ?></td>
+              <td>
+                <?php
+                  foreach ($rencanamedia as $rows):
+                    if ($rows->id == $row->kanal_komunikasi ) {
+                      echo $rows->nama;
+                    }
+                 endforeach;
+                ?>
+              </td>
+              <td>
+                <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+
+              </td>
+            </tr>
+
+            <?php
+          
+            endforeach ?>
+        </tbody>
+        </table>
+      <?php endif; ?>
                   </div>
 
 

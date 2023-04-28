@@ -29,7 +29,7 @@ class StrakomUnggulan extends MY_Controller {
 
     $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
-		$this->page_data['page']->submenu = 'rencanakinerja';
+		$this->page_data['page']->submenu = 'strakom';
     $this->load->view('strakom/list', $this->page_data);
 	}
 
@@ -43,6 +43,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+    $this->page_data['page']->submenu = 'strakom';
     $this->load->view('strakom/form-add', $this->page_data);
 
   }
@@ -55,6 +56,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->getById($id);
 
+    $this->page_data['page']->submenu = 'strakom';
     $this->load->view('strakom/form-edit', $this->page_data);
 
   }
@@ -70,7 +72,9 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->getById($id);
-
+    $this->page_data['editorialplan'] = $this->Editorial_model->get();
+    $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
+    $this->page_data['page']->submenu = 'strakom';
     $this->load->view('strakom/view', $this->page_data);
 
   }

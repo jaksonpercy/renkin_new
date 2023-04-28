@@ -163,9 +163,8 @@ class MY_Model extends CI_Model {
 
 	public function countAllByUserId($id)
 	{
-		$this->db->where('user_id', $id);
-		$this->db->count_all_results($this->table);
-		return true;
+		$query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return count($query);
 	}
 
 }
