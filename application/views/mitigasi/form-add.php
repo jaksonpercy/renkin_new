@@ -23,8 +23,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!-- Main content -->
 
 <section class="content">
-
-<?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+<?php echo validation_errors(); ?>
+<?php echo form_open_multipart('Mitigasi/save', [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateForm()' ]); ?>
 
 
   <div class="row">
@@ -33,12 +33,27 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="card">
 
         <div class="card-body">
+          <input type="hidden" class="form-control" name="idUser" required value="<?php echo $user->id; ?>" />
+          <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $periode->id; ?>" />
+          <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $user->opd_upd; ?>" />
 
           <div class="form-group">
             <label for="formClient-Contact">Nama Program/Kegiatan Strategi Komunikasi Unggulan*</label>
-            <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required>
-              <option value="-">Pilih Program/Kegiatan</option>
-              <option value="Publikasi Layanan JakWifi">Publikasi Layanan JakWifi</option>
+            <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required>
+              <option value="">Pilih Nama Program/Kegiatan</option>
+              <?php foreach ($strakom as $row):
+                if ($row->ksd_id > 0){
+                  foreach ($ksd as $rows):
+                    if ($rows->id == $row->ksd_id ) {
+                      echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
+                    }
+                 endforeach;
+                } else {
+                    echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
+                }
+              ?>
+
+              <?php endforeach ?>
             </select>
           </div>
 
@@ -59,11 +74,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Name">Data Pendukung Kegiatan / Bahan Komunikasi*</label>
-              <textarea type="text" class="form-control" name="dataPendukung" id="formClient-PIC" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"></textarea>
-            <div class="custom-file" style="margin-top:3%">
-              <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-            </div>
+              <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"></textarea>
+            <!-- <div class="custom-file" style="margin-top:3%"> -->
+              <input type="file" class="form-control" name="filePendukung" id="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
+              <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
+            <!-- </div> -->
           </div>
 
         </div>
@@ -164,6 +179,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         ;;
   }
 
+</script>
+
+<script type="text/javascript">
+  function validateForm() {
+    var a = document.getElementById('dataPendukung').value;
+    var b = document.getElementById('filePendukung').value;
+    if ((a == null || a == "") && (b == null || b == "")) {
+      alert("Data Pendukung Wajib Diisi");
+      return false;
+    }
+  }
 </script>
 
 <?php include viewPath('includes/footer'); ?>

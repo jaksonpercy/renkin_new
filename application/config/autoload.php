@@ -148,4 +148,5 @@ $autoload['model'] = array(
 	'KanalPublikasi_model',
 	'ProdukKomunikasi_model',
 	'Editorial_model',
+	'Mitigasi_model',
 );

@@ -35,6 +35,15 @@ if (!function_exists('assets_url')) {
 
 }
 
+if (!function_exists('upload_file')) {
+
+	function upload_file_url($url='')
+	{
+		return str_replace("/index.php","", base_url('uploads/'.$url));
+	}
+
+}
+
 /**
   * Function to get url of upload folder
   *

@@ -46,6 +46,9 @@ class MY_Controller extends CI_Controller {
 			'submenu' => '',
 		];
 
+
+    $this->load->library('user_agent');
+
 	}
 
 	public function change_language()
