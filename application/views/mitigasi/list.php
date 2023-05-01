@@ -29,13 +29,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="card">
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Uraian Materi Mitigasi Krisis</h3>
+                  <?php if ($roles->role->role_id==1):?>
                 <div class="ml-auto p-2">
 
                       <a href="<?php echo url('Mitigasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Uraian Mitigasi Krisis</a>
 
                 </div>
+                  <?php endif ?>
               </div>
 
+              <?php if ($roles->role->role_id==1):?>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-hover table-striped">
@@ -47,70 +50,90 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
                     <th>Juru Bicara</th>
                     <th>PIC Kegiatan yang Dapat Dihubungi</th>
+                    <th>Dokumen Pendukung</th>
                     <th><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php foreach ($mitigasi as $row):
+                      if ($row->user_id == $this->session->userdata('logged')['id']) {
+                        // code...
+
+                    ?>
                     <tr>
-                      <td>1</td>
-                      <td>Publikasi Layanan JakWifi</td>
-                      <td>Masyarakat umum</td>
-                      <td>- Masyarakat yang belum dapat memanfaatkan jaringan internet gratis yang disediakan Pemprov DKI Jakarta <br>
-- Masyarakat yang merasakan kualitas internet yang disediakan pemda tidak sesuai dengan harapan <br>
-- Anggota legislatif yang melihat bahwa manfaat tidak sebanding dengan biaya yang dikeluarkan pemda"
-</td>
-                      <td>Plt. Kepala Dinas Kominfotik Provinsi DKI Jakarta</td>
-                      <td>Aditya Prana (Kabid JKD) 08128748447 <br>
-Dema (Kasie ) 08161431790 <br>
-Service desk +62 852-1654-1900 <br>
-</td>
+                      <td><?php echo $row->id ?></td>
+                      <td><?php echo $row->nama_kegiatan ?></td>
+                      <td><?php echo $row->stakeholder_pro ?></td>
+                      <td><?php echo $row->stakeholder_kontra ?></td>
+                      <td><?php echo $row->juru_bicara ?></td>
+                      <td><?php echo $row->pic_kegiatan ?></td>
                       <td>
-                        <a href="<?php echo url('Mitigasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                      <?php if(empty($row->data_pendukung_text)){ ?>
+                      <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
+                    <?php } else { ?>
+                      <a href="<?php echo url($row->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
+                    <?php } ?>
+                      </td>
+                      <td>
+                        <a href="<?php echo url('Mitigasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                        <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
 
                       </td>
                     </tr>
-                  <!-- <?php foreach ($users as $row): ?>
-                    <tr>
-                      <td width="60"><?php echo $row->id ?></td>
-                      <td width="50" class="text-center">
-                        <img src="<?php echo userProfile($row->id) ?>" width="40" height="40" alt="" class="img-avtar">
-
-                      </td>
-                      <td>
-                        <?php echo $row->name ?>
-                      </td>
-                      <td><?php echo $row->email ?></td>
-                      <td><?php echo ucfirst($this->roles_model->getById($row->role)->title) ?></td>
-                      <td><?php echo ($row->last_login!='0000-00-00 00:00:00')?date( setting('date_format'), strtotime($row->last_login)):'No Record' ?></td>
-                      <td>
-                        <?php if (logged('id')!==$row->id): ?>
-                          <input type="checkbox" name="my-checkbox"  onchange="updateUserStatus('<?php echo $row->id ?>', $(this).is(':checked') )" <?php echo ($row->status) ? 'checked' : '' ?> data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
-                        <?php else: ?>
-                          <input type="checkbox" name="my-checkbox" disabled data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
-                        <?php endif ?>
-                      </td>
-                      <td>
-                        <?php if (hasPermissions('users_edit')): ?>
-                          <a href="<?php echo url('users/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_user') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <?php endif ?>
-                        <?php if (hasPermissions('users_view')): ?>
-                          <a href="<?php echo url('users/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="<?php echo lang('view_user') ?>" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <?php endif ?>
-                        <?php if (hasPermissions('users_delete')): ?>
-                          <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
-                            <a href="<?php echo url('users/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_user') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php else: ?>
-                            <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
-                          <?php endif ?>
-                        <?php endif ?>
-                      </td>
-                    </tr>
-                  <?php endforeach ?> -->
-                  </tbody>
+                    <?php
+                    }
+                    endforeach ?>
+                    </tbody>
                 </table>
               </div>
+                <?php else:?>
+                  <div class="card-body">
+                    <table id="example1" class="table table-bordered table-hover table-striped">
+                      <thead>
+                      <tr>
+                        <th><?php echo lang('id') ?></th>
+                        <th>Nama Kegiatan</th>
+                        <th>Stakeholder Pro Pemprov DKI Jakarta</th>
+                        <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
+                        <th>Juru Bicara</th>
+                        <th>PIC Kegiatan yang Dapat Dihubungi</th>
+                        <th>Dokumen Pendukung</th>
+                        <th><?php echo lang('action') ?></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <?php foreach ($mitigasi as $row):
+                          if ($row->user_id == $this->session->userdata('logged')['id']) {
+                            // code...
+
+                        ?>
+                        <tr>
+                          <td><?php echo $row->id ?></td>
+                          <td><?php echo $row->nama_kegiatan ?></td>
+                          <td><?php echo $row->stakeholder_pro ?></td>
+                          <td><?php echo $row->stakeholder_kontra ?></td>
+                          <td><?php echo $row->juru_bicara ?></td>
+                          <td><?php echo $row->pic_kegiatan ?></td>
+                          <td>
+                          <?php if(empty($row->data_pendukung_text)){ ?>
+                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                        <?php } else { ?>
+                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
+                        <?php } ?>
+                          </td>
+                          <td>
+                            <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+
+                          </td>
+                        </tr>
+                        <?php
+                        }
+                        endforeach ?>
+                        </tbody>
+                    </table>
+                  </div>
+                <?php endif ?>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

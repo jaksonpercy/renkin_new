@@ -20,7 +20,17 @@ class Mitigasi extends MY_Controller {
   public function mitigasi()
   {
     $this->page_data['page']->submenu = 'mitigasi';
-    $this->page_data['mitigasi'] = $this->users_model->get();
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->get();
     $this->load->view('mitigasi/list', $this->page_data);
   }
 
@@ -48,8 +58,21 @@ class Mitigasi extends MY_Controller {
 
   }
 
-  public function view(){
+  public function view($id){
     // load view
+    $this->page_data['page']->submenu = 'mitigasi';
+    $this->page_data['user'] = $this->users_model->get();
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
+
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getById($id);
     $this->load->view('mitigasi/view', $this->page_data);
 
   }
@@ -58,19 +81,18 @@ class Mitigasi extends MY_Controller {
   {
 
     // ifPermissions('users_delete');
-
     if($id!==1 && $id!=logged($id)){ }else{
       redirect('/','refresh');
       return;
     }
 
-    // $id = $this->users_model->delete($id);
-    //
-    // $this->activity_model->add("User #$id Deleted by User:".logged('name'));
-    //
-    // $this->session->set_flashdata('alert-type', 'success');
-    // $this->session->set_flashdata('alert', 'User has been Deleted Successfully');
-    //
+    $id = $this->Mitigasi_model->delete($id);
+
+    $this->activity_model->add("Uraian Materi Mitigasi Krisis #$id Dihapus oleh:".logged('name'));
+
+    $this->session->set_flashdata('alert-type', 'success');
+    $this->session->set_flashdata('alert', 'Uraian Materi Mitigasi Krisis Berhasil Di Hapus');
+
     redirect('Mitigasi');
 
   }
