@@ -28,6 +28,8 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['countstrakombyid'] = $this->Strakom_model->countAllByUserId($this->session->userdata('logged')['id']);
 
     $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
+    
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
 		$this->page_data['page']->submenu = 'strakom';
     $this->load->view('strakom/list', $this->page_data);

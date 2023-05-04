@@ -32,7 +32,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="ml-auto p-2">
                   <?php if ($roles->role->role_id==1):?>
                   <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-lg"> <span class="pr-1"><i class="fa fa-plus"></i></span>
-                Tambah Editorial Plan
+                Tambah Materi
               </button>
             <?php endif; ?>
                 </div>
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tr>
                     <th>No</th>
                     <th>Tanggal Rencana Tayang</th>
-                    <th>Pesan Utama</th>
+                    <th style="width:60%">Pesan Utama</th>
                     <th>Produk Komunikasi</th>
                     <th>Khalayak</th>
                     <th>Kanal Komunikasi</th>
@@ -120,7 +120,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                               <div class="card-body">
 
                                 <div class="form-group">
-                                  <label for="formClient-Contact">Nama Program/Kegiatan*</label>
+                                  <label for="formClient-Contact">Nama Kegiatan*</label>
                                   <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required>
                                     <?php foreach ($strakom as $rows):
 
@@ -155,10 +155,30 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                                 <div class="form-group">
                                   <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-                                  <input type="date" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+                                  <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+                                </div>
+
+                                <div class="form-group">
+                                  <label for="formClient-Address">Pesan Utama*</label>
+                                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
                                 </div>
 
 
+
+                              </div>
+                              <!-- /.card-body -->
+
+                            </div>
+                            <!-- /.card -->
+
+                            <!-- Default card -->
+
+                            <!-- /.card -->
+
+                          </div>
+                          <div class="col-sm-6">
+                            <div class="card">
+                              <div class="card-body">
                                 <div class="form-group">
                                   <label for="formClient-Contact">Produk Komunikasi*</label>
                                   <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
@@ -174,6 +194,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                                   </select>
                                 </div>
+
+
+                                    <div class="form-group">
+                                      <label for="formClient-Address">Khalayak*</label>
+                                      <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"><?php echo $row->khalayak; ?></textarea>
+                                    </div>
+
 
                                 <div class="form-group">
                                   <label for="formClient-Contact">Kanal Komunikasi*</label>
@@ -192,30 +219,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                   </select>
                                 </div>
 
-                              </div>
-                              <!-- /.card-body -->
-
-                            </div>
-                            <!-- /.card -->
-
-                            <!-- Default card -->
-
-                            <!-- /.card -->
-
-                          </div>
-                          <div class="col-sm-6">
-                            <div class="card">
-                              <div class="card-body">
-
-                                <div class="form-group">
-                                  <label for="formClient-Address">Pesan Utama*</label>
-                                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
-                                </div>
-
-                                <div class="form-group">
-                                  <label for="formClient-Address">Khalayak*</label>
-                                  <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"><?php echo $row->khalayak; ?></textarea>
-                                </div>
 
                               </div>
                               <!-- /.card-body -->
@@ -325,7 +328,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="modal-dialog modal-xl">
         <div class="modal-content">
           <div class="modal-header">
-            <h4 class="modal-title">Tambah Editorial Plan</h4>
+            <h4 class="modal-title">Tambah Materi</h4>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -345,7 +348,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <div class="card-body">
 
                       <div class="form-group">
-                        <label for="formClient-Contact">Nama Program/Kegiatan*</label>
+                        <label for="formClient-Contact">Nama Kegiatan*</label>
                         <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style="width:100%;" required>
                           <option value="">Pilih Nama Program/Kegiatan</option>
                           <?php foreach ($strakom as $row):
@@ -366,30 +369,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-                        <input type="date" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus />
-                      </div>
-
-
-                      <div class="form-group">
-                        <label for="formClient-Contact">Produk Komunikasi*</label>
-                        <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" style="width:100%" required>
-                          <option value="-">Pilih Produk Komunikasi</option>
-                          <?php foreach ($produkkomunikasi as $row): ?>
-                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
-                          <?php endforeach ?>
-
-                        </select>
+                        <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus />
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Contact">Kanal Komunikasi*</label>
-                        <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" style="width:100%" required>
-                          <option value="-">Pilih Kanal Komunikasi</option>
-                          <?php foreach ($rencanamedia as $row): ?>
-                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
-                          <?php endforeach ?>
-                        </select>
+                        <label for="formClient-Address">Pesan Utama*</label>
+                        <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Pesan Utama" rows="5"></textarea>
                       </div>
+
 
                     </div>
                     <!-- /.card-body -->
@@ -407,14 +394,30 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <div class="card-body">
 
                       <div class="form-group">
-                        <label for="formClient-Address">Pesan Utama*</label>
-                        <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
+                        <label for="formClient-Contact">Produk Komunikasi*</label>
+                        <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" style="width:100%" required>
+                          <option value="-">Pilih Produk Komunikasi</option>
+                          <?php foreach ($produkkomunikasi as $row): ?>
+                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                          <?php endforeach ?>
+
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="formClient-Address">Khalayak*</label>
+                        <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Khalayak" rows="3"></textarea>
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Address">Khalayak*</label>
-                        <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
+                        <label for="formClient-Contact">Kanal Komunikasi*</label>
+                        <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" style="width:100%" required>
+                          <option value="-">Pilih Kanal Komunikasi</option>
+                          <?php foreach ($rencanamedia as $row): ?>
+                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                          <?php endforeach ?>
+                        </select>
                       </div>
+
 
                     </div>
                     <!-- /.card-body -->

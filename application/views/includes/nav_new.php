@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <a href="<?php echo url('StrakomUnggulan') ?>" class="nav-link <?php echo ($page->submenu=='strakom')?'active':'' ?>">
       <i class="nav-icon"></i>
       <p>
-        Strategi Komunikasi <br>Unggulan
+        Strakom Unggulan
       </p>
     </a>
   </li>

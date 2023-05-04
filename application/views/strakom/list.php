@@ -9,12 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Strategi Komunikasi Unggulan</h1>
+        <h1>Strakom Unggulan</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
-          <li class="breadcrumb-item active">Strategi Komunikasi Unggulan</li>
+          <li class="breadcrumb-item active">Strakom Unggulan</li>
         </ol>
       </div>
     </div>
@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Strakom</span>
                 <span class="info-box-number">
-              
+
                   <?php
                   if ($roles->role->role_id==1){
                   echo $countstrakombyid;
@@ -100,13 +100,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th rowspan="2"><?php echo lang('id') ?></th>
-                    <th rowspan="2">Nama Program/Kegiatan</th>
-                    <th rowspan="2">Jenis Program/Kegiatan</th>
-                    <th rowspan="2">Analisis Situasi</th>
-                    <th rowspan="2">Identifikasi Masalah</th>
+                    <th rowspan="2">No</th>
+                    <th rowspan="2">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th rowspan="2">Kategori Program</th>
+                    <th rowspan="2">Deskripsi Singkat Kegiatan</th>
+                    <th rowspan="2">Identifikasi Masalah / Isu Utama</th>
                     <th rowspan="2">Narasi Utama Publikasi Program</th>
                     <th colspan="2">Target Audiens</th>
+                    <th rowspan="2">Rencana Media/Kanal Publikasi</th>
                     <th rowspan="2"><?php echo lang('action') ?></th>
                   </tr>
                   <tr>
@@ -115,14 +116,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($strakom as $row):
+                    <?php
+                    $no=0;
+                    foreach ($strakom as $row):
+                    $no++;
                       if ($row->user_id == $this->session->userdata('logged')['id']) {
                         // code...
 
                     ?>
 
                     <tr>
-                      <td><?php echo $row->id ?></td>
+                      <td><?php echo $no ?></td>
                       <td>
                         <?php if ($row->ksd_id > 0){
                           foreach ($ksd as $rows):
@@ -146,15 +150,30 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         ?>
 
                       </td>
-                      <td><?php echo $row->analisis_situasi ?></td>
+                      <td><?php echo $row->deskripsi ?></td>
                       <td><?php echo $row->identifikasi_masalah ?></td>
                       <td><?php echo $row->narasi_utama ?></td>
                       <td><?php echo $row->target_pro ?></td>
                       <td><?php echo $row->target_kontra ?></td>
                       <td>
+                        <?php
+                        $namaRencana = array();
+                        $my_array1 = explode(",", $row->kanal_publikasi);
+                        foreach ($my_array1 as $rowss){
+                          foreach ($rencanamedia as $rows){
+                            if ($rows->id == $rowss ) {
+                              array_push($namaRencana,$rows->nama);
+                            }
+                         }
+                      }
+                      echo implode(", ",$namaRencana);
+                       ?>
+                      </td>
+                      <td>
                         <a href="<?php echo url('StrakomUnggulan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo url('StrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url('StrakomUnggulan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
                     </tr>
@@ -173,13 +192,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <thead>
                   <tr>
                     <th rowspan="2"><?php echo lang('id') ?></th>
-                    <th rowspan="2">Nama OPD</th>
-                    <th rowspan="2">Nama Program/Kegiatan</th>
-                    <th rowspan="2">Jenis Program/Kegiatan</th>
-                    <th rowspan="2">Analisis Situasi</th>
-                    <th rowspan="2">Identifikasi Masalah</th>
+                    <th rowspan="2">SKPD/UKPD</th>
+                    <th rowspan="2">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th rowspan="2">Kategori Program</th>
+                    <th rowspan="2">Deskripsi Singkat Kegiatan</th>
+                    <th rowspan="2">Identifikasi Masalah / Isu Utama</th>
                     <th rowspan="2">Narasi Utama Publikasi Program</th>
                     <th colspan="2">Target Audiens</th>
+                    <th rowspan="2">Rencana Media/Kanal Publikasi</th>
                     <th rowspan="2"><?php echo lang('action') ?></th>
                   </tr>
                   <tr>
@@ -225,11 +245,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         ?>
 
                       </td>
-                      <td><?php echo $row->analisis_situasi ?></td>
+                      <td><?php echo $row->deskripsi ?></td>
                       <td><?php echo $row->identifikasi_masalah ?></td>
                       <td><?php echo $row->narasi_utama ?></td>
                       <td><?php echo $row->target_pro ?></td>
                       <td><?php echo $row->target_kontra ?></td>
+                      <td>
+                        <?php
+                        $namaRencana = array();
+                        $my_array1 = explode(",", $row->kanal_publikasi);
+                        foreach ($my_array1 as $rowss){
+                          foreach ($rencanamedia as $rows){
+                            if ($rows->id == $rowss ) {
+                              array_push($namaRencana,$rows->nama);
+                            }
+                         }
+                      }
+                      echo implode(", ",$namaRencana);
+                       ?>
+                      </td>
                       <td>
                         <a href="<?php echo url('StrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 

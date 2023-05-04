@@ -8,11 +8,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-    Made with <i class="fa fa-heart" style="color: red;"></i> for Developers
-      &nbsp; &nbsp; &nbsp; &nbsp; 
+  
       <b>Version</b> 2.0
     </div>
-    <strong>Copyright &copy; <?php echo date('Y') ?> <a href="<?php echo url('/') ?>"><?php echo setting('company_name') ?></a>.</strong> All rights
+    <strong>Copyright &copy; 2020-2023 <a href="<?php echo url('/') ?>">Dinas Komunikasi & Informasi Publik</a>.</strong> All rights
     reserved.
   </footer>
 
@@ -96,11 +95,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     });
 
   });
-  
-  
+
+
 </script>
 
 </body>
 </html>
-
-

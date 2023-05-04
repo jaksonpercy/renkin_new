@@ -44,24 +44,28 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th><?php echo lang('id') ?></th>
-                    <th>Nama Kegiatan</th>
+                    <th>No</th>
+                    <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th>Uraian Potensi Krisis</th>
                     <th>Stakeholder Pro Pemprov DKI Jakarta</th>
                     <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
                     <th>Juru Bicara</th>
                     <th>PIC Kegiatan yang Dapat Dihubungi</th>
-                    <th>Dokumen Pendukung</th>
                     <th><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
                   <tbody>
-                    <?php foreach ($mitigasi as $row):
+                    <?php
+                    $no=0;
+                    foreach ($mitigasi as $row):
+                    $no++;
                       if ($row->user_id == $this->session->userdata('logged')['id']) {
                         // code...
 
                     ?>
                     <tr>
-                      <td><?php echo $row->id ?></td>
+                      <td><?php echo $no ?></td>
+                      <td><?php echo $row->uraian_potensi ?></td>
                       <td><?php echo $row->nama_kegiatan ?></td>
                       <td><?php echo $row->stakeholder_pro ?></td>
                       <td><?php echo $row->stakeholder_kontra ?></td>
@@ -93,12 +97,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <thead>
                       <tr>
                         <th><?php echo lang('id') ?></th>
-                        <th>Nama Kegiatan</th>
+                        <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                        <th>Uraian Potensi Krisis</th>
                         <th>Stakeholder Pro Pemprov DKI Jakarta</th>
                         <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
                         <th>Juru Bicara</th>
                         <th>PIC Kegiatan yang Dapat Dihubungi</th>
-                        <th>Dokumen Pendukung</th>
                         <th><?php echo lang('action') ?></th>
                       </tr>
                       </thead>
@@ -111,6 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <tr>
                           <td><?php echo $row->id ?></td>
                           <td><?php echo $row->nama_kegiatan ?></td>
+                          <td><?php echo $row->uraian_potensi ?></td>
                           <td><?php echo $row->stakeholder_pro ?></td>
                           <td><?php echo $row->stakeholder_kontra ?></td>
                           <td><?php echo $row->juru_bicara ?></td>

@@ -68,18 +68,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Name">Juru Bicara*</label>
-            <input type="text" class="form-control" name="juruBicara" id="formClient-Juru" required placeholder="Juru Bicara" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+            <label for="formClient-Address">Stakeholder Pro Pemprov DKI Jakarta*</label>
+            <textarea type="text" class="form-control" name="stakeholderPro" id="formClient-StakeholderPro" placeholder="Stakeholder Pro Pemprov DKI Jakarta" rows="5"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Name">Data Pendukung Kegiatan / Bahan Komunikasi*</label>
-              <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"></textarea>
-            <!-- <div class="custom-file" style="margin-top:3%"> -->
-              <input type="file" class="form-control" name="filePendukung" id="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
-              <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
-            <!-- </div> -->
+            <label for="formClient-Address">Stakeholder Kontra Pemprov DKI Jakarta*</label>
+            <textarea type="text" class="form-control" name="stakeholderKontra" id="formClient-StakeholderKontra" placeholder="Stakeholder Kontra Pemprov DKI Jakarta" rows="3"></textarea>
           </div>
+
+
 
         </div>
         <!-- /.card-body -->
@@ -97,21 +95,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
        <div class="card">
           <div class="card-body">
 
-            <div class="form-group">
-              <label for="formClient-Address">Stakeholder Pro Pemprov DKI Jakarta*</label>
-              <textarea type="text" class="form-control" name="stakeholderPro" id="formClient-StakeholderPro" placeholder="Stakeholder Pro Pemprov DKI Jakarta" rows="5"></textarea>
-            </div>
 
             <div class="form-group">
-              <label for="formClient-Address">Stakeholder Kontra Pemprov DKI Jakarta*</label>
-              <textarea type="text" class="form-control" name="stakeholderKontra" id="formClient-StakeholderKontra" placeholder="Stakeholder Kontra Pemprov DKI Jakarta" rows="3"></textarea>
+              <label for="formClient-Name">Juru Bicara*</label>
+              <input type="text" class="form-control" name="juruBicara" id="formClient-Juru" required placeholder="Juru Bicara" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
             </div>
+
 
             <div class="form-group">
               <label for="formClient-Address">PIC Kegiatan yang Dapat Dihubungi*</label>
               <textarea type="text" class="form-control" name="picKegiatan" id="formClient-PIC" placeholder="PIC Kegiatan yang Dapat Dihubungi" rows="3"></textarea>
             </div>
-
+            
+            <div class="form-group">
+              <label for="formClient-Name">Data Pendukung Kegiatan / Bahan Komunikasi*</label>
+                <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"></textarea>
+              <!-- <div class="custom-file" style="margin-top:3%"> -->
+                <input type="file" class="form-control" name="filePendukung" id="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
+                <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
+              <!-- </div> -->
+            </div>
           </div>
           <!-- /.card-body -->
 
@@ -129,7 +132,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/Mitigasi') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>

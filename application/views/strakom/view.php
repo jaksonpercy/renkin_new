@@ -337,7 +337,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </tr>
 
             <?php
-          
+
             endforeach ?>
         </tbody>
         </table>
@@ -387,6 +387,9 @@ Service desk +62 852-1654-1900 <br>
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
+              <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-primary">Download Strakom Unggulan</button>
+              </div>
             </div>
             <!-- ./card -->
           </div>

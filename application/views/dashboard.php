@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home');?></a></li>
-              <li class="breadcrumb-item active"><?php echo lang('dashboard');?> v1</li>
+              <li class="breadcrumb-item active"><?php echo lang('dashboard');?></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
