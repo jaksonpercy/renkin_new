@@ -30,11 +30,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Editorial Plan</h3>
                 <div class="ml-auto p-2">
-                  <?php if ($roles->role->role_id==1):?>
+                  <?php if ($roles->role->role_id==1){
+                    if ($periode->status_input_data == 1) {
+                      // code...
+
+                  ?>
                   <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-lg"> <span class="pr-1"><i class="fa fa-plus"></i></span>
                 Tambah Materi
               </button>
-            <?php endif; ?>
+            <?php }
+            } ?>
                 </div>
               </div>
 
@@ -50,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th>Produk Komunikasi</th>
                     <th>Khalayak</th>
                     <th>Kanal Komunikasi</th>
+                    <th>Status</th>
                     <th><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
@@ -85,9 +91,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         ?>
                       </td>
                       <td>
+
+                        <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else {
+                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                        } ?>
+                      </td>
+                      <td>
+                        <?php if ($roles->role->role_id==1){
+                          if ($periode->status_input_data == 1) {
+                            if ($row->status == 0) {
+                        ?>
                         <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
-                        <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        <?php }}} ?>
+                        <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>
                     </tr>

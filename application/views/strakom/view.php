@@ -48,9 +48,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
-          <?php if ($roles->role->role_id==1):?>
+          <?php if ($roles->role->role_id==1){
+          if ($periode->status_input_data == 1) {
+            if ($strakom->status == 0) {
+            ?>
 						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$strakom->id) ?>">Edit</a></li>
-          <?php endif?>
+          <?php }}}?>
 
                 </ul>
               </div><!-- /.card-header -->
@@ -132,6 +135,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 echo implode(", ",$namaRencana);
                  ?>
                 </td>
+                </tr>
+                <tr>
+                  <td><strong>Status</strong>:</td>
+                  <td>
+                    <?php if ($strakom->status == 0) {
+                      echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                    } else if ($strakom->status == 1) {
+                      echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                    } else if ($strakom->status == 2) {
+                      echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                    } else {
+                      echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                    } ?>
+                  </td>
                 </tr>
       				</tbody>
       			</table>
@@ -230,158 +247,386 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="tab_2">
-                      <?php if ($roles->role->role_id==1):?>
-				  <table id="dataTable1" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th>No</th>
-              <th>Tanggal Rencana Tayang</th>
-              <th>Pesan Utama</th>
-              <th>Produk Komunikasi</th>
-              <th>Khalayak</th>
-              <th>Kanal Komunikasi</th>
-              <th><?php echo lang('action') ?></th>
-            </tr>
-            </thead>
-            <tbody>
-              <?php
-              $no=0;
-              foreach ($editorialplan as $row):
-              if ($row->user_id == $this->session->userdata('logged')['id']) {
+                    <?php if ($roles->role->role_id==1){?>
+                  <!-- /.card-header -->
+                    <table id="example1" class="table table-bordered table-hover table-striped">
+                      <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Tanggal Rencana Tayang</th>
+                        <th style="width:60%">Pesan Utama</th>
+                        <th>Produk Komunikasi</th>
+                        <th>Khalayak</th>
+                        <th>Kanal Komunikasi</th>
+                        <th><?php echo lang('action') ?></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $no=0;
+                        foreach ($editorialplan as $row):
+                        if ($row->user_id == $this->session->userdata('logged')['id']) {
 
-              $no++;
-              ?>
-              <tr>
-                <td><?php echo $no ?></td>
-                <td><?php echo $row->tanggal_rencana ?></td>
-                <td><?php echo $row->pesan_utama ?></td>
-                <td>
-                  <?php
-                    foreach ($produkkomunikasi as $rows):
-                      if ($rows->id == $row->produk_komunikasi ) {
-                        echo $rows->nama;
+                        $no++;
+                        ?>
+                        <tr>
+                          <td><?php echo $no ?></td>
+                          <td><?php echo $row->tanggal_rencana ?></td>
+                          <td><?php echo $row->pesan_utama ?></td>
+                          <td>
+                            <?php
+                              foreach ($produkkomunikasi as $rows):
+                                if ($rows->id == $row->produk_komunikasi ) {
+                                  echo $rows->nama;
+                                }
+                             endforeach;
+                            ?>
+                          </td>
+                          <td><?php echo $row->khalayak ?></td>
+                          <td>
+                            <?php
+                              foreach ($rencanamedia as $rows):
+                                if ($rows->id == $row->kanal_komunikasi ) {
+                                  echo $rows->nama;
+                                }
+                             endforeach;
+                            ?>
+                          </td>
+                          <td>
+                            <?php if ($periode->status_input_data == 1) {
+                              // code...
+                            ?>
+                            <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
+                            <a href="<?php echo url('StrakomUnggulan/deleteEditorialPlan/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                          <?php } ?>
+                            <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+
+                          </td>
+                        </tr>
+                        <section class="content">
+                          <?php echo form_open_multipart('StrakomUnggulan/updateDataEditorialPlan/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+                          <div class="container-fluid">
+                            <div class="row">
+                        <div class="modal fade" id="modal-lg-edit<?php echo $row->id ?>">
+                        <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title">Edit Editorial Plan</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+
+
+                            <div class="row">
+                              <div class="col-sm-6">
+                                <!-- Default card -->
+                                <div class="card">
+                                  <input type="hidden" class="form-control" name="idUser" required value="<?php echo $row->user_id; ?>" />
+                                  <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $row->periode_id; ?>" />
+                                  <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->opd_id; ?>" />
+
+
+                                  <div class="card-body">
+
+                                    <div class="form-group">
+                                      <label for="formClient-Contact">Nama Kegiatan*</label>
+                                      <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required>
+                                        <?php foreach ($strakomList as $rows):
+
+
+                                          if ($rows->ksd_id > 0){
+
+                                            foreach ($ksd as $rowss):
+
+                                              if ($rowss->id == $rows->ksd_id ) {
+                                                if ($row->strakom_id == $rows->id) {
+                                                    echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+                                                } else {
+                                                   echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+                                                 }
+                                              }
+
+                                           endforeach;
+                                          } else {
+                                            $sel ="";
+                                            if ($row->strakom_id == $rows->id) {
+                                                echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
+                                            } else {
+                                              echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
+                                            }
+
+                                        }
+                                        ?>
+
+                                        <?php endforeach ?>
+                                      </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="formClient-Name">Tanggal Rencana Tayang*</label>
+                                      <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+                                    </div>
+
+                                    <div class="form-group">
+                                      <label for="formClient-Address">Pesan Utama*</label>
+                                      <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
+                                    </div>
+
+
+
+                                  </div>
+                                  <!-- /.card-body -->
+
+                                </div>
+                                <!-- /.card -->
+
+                                <!-- Default card -->
+
+                                <!-- /.card -->
+
+                              </div>
+                              <div class="col-sm-6">
+                                <div class="card">
+                                  <div class="card-body">
+                                    <div class="form-group">
+                                      <label for="formClient-Contact">Produk Komunikasi*</label>
+                                      <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
+                                        <?php foreach ($produkkomunikasi as $rows):
+                                          if ($row->produk_komunikasi == $rows->id) {
+                                        ?>
+                                          <option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
+                                        <?php } else { ?>
+                                          <option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
+
+                                        <?php }
+                                        endforeach ?>
+
+                                      </select>
+                                    </div>
+
+
+                                        <div class="form-group">
+                                          <label for="formClient-Address">Khalayak*</label>
+                                          <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"><?php echo $row->khalayak; ?></textarea>
+                                        </div>
+
+
+                                    <div class="form-group">
+                                      <label for="formClient-Contact">Kanal Komunikasi*</label>
+                                      <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" required>
+
+                                        <?php foreach ($rencanamedia as $rows):
+                                          if ($row->kanal_komunikasi == $rows->id) {
+                                        ?>
+                                          <option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
+                                        <?php } else { ?>
+                                          <option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
+
+                                        <?php }
+                                        endforeach ?>
+
+                                      </select>
+                                    </div>
+
+
+                                  </div>
+                                  <!-- /.card-body -->
+
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                          <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        </div>
+                        <!-- /.modal-content -->
+                        </div>
+                        <!-- /.modal-dialog -->
+                        </div>
+
+                      </div>
+                      <!-- /.row -->
+                    </div>
+                    <!-- /.container-fluid -->
+                    </section>
+
+                    <?php echo form_close(); ?>
+                        <?php
                       }
-                   endforeach;
-                  ?>
-                </td>
-                <td><?php echo $row->khalayak ?></td>
-                <td>
-                  <?php
-                    foreach ($rencanamedia as $rows):
-                      if ($rows->id == $row->kanal_komunikasi ) {
-                        echo $rows->nama;
-                      }
-                   endforeach;
-                  ?>
-                </td>
-                <td>
-                  <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
-                  <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                  <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        endforeach ?>
+                      </tbody>
+                    </table>
+                <?php } else { ?>
+                    <table id="example1" class="table table-bordered table-hover table-striped">
+                      <thead>
+                      <tr>
+                        <th>No</th>
+                        <th>Tanggal Rencana Tayang</th>
+                        <th>Pesan Utama</th>
+                        <th>Produk Komunikasi</th>
+                        <th>Khalayak</th>
+                        <th>Kanal Komunikasi</th>
+                        <th><?php echo lang('action') ?></th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        $no=0;
+                        foreach ($editorialplan as $row):
 
-                </td>
-              </tr>
+                        $no++;
+                        ?>
+                        <tr>
+                          <td><?php echo $no ?></td>
+                          <td><?php echo $row->tanggal_rencana ?></td>
+                          <td><?php echo $row->pesan_utama ?></td>
+                          <td>
+                            <?php
+                              foreach ($produkkomunikasi as $rows):
+                                if ($rows->id == $row->produk_komunikasi ) {
+                                  echo $rows->nama;
+                                }
+                             endforeach;
+                            ?>
+                          </td>
+                          <td><?php echo $row->khalayak ?></td>
+                          <td>
+                            <?php
+                              foreach ($rencanamedia as $rows):
+                                if ($rows->id == $row->kanal_komunikasi ) {
+                                  echo $rows->nama;
+                                }
+                             endforeach;
+                            ?>
+                          </td>
+                          <td>
+                          <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
-              <?php
-            }
-              endforeach ?>
-					</tbody>
-				</table>
-      <?php else:?>
-        <table id="dataTable1" class="table table-bordered table-striped">
-          <thead>
-          <tr>
-            <th>No</th>
-            <th>Tanggal Rencana Tayang</th>
-            <th>Pesan Utama</th>
-            <th>Produk Komunikasi</th>
-            <th>Khalayak</th>
-            <th>Kanal Komunikasi</th>
-            <th><?php echo lang('action') ?></th>
-          </tr>
-          </thead>
-          <tbody>
-            <?php
-            $no=0;
-            foreach ($editorialplan as $row):
+                          </td>
+                        </tr>
+                        <?php
 
-            $no++;
-            ?>
-            <tr>
-              <td><?php echo $no ?></td>
-              <td><?php echo $row->tanggal_rencana ?></td>
-              <td><?php echo $row->pesan_utama ?></td>
-              <td>
-                <?php
-                  foreach ($produkkomunikasi as $rows):
-                    if ($rows->id == $row->produk_komunikasi ) {
-                      echo $rows->nama;
-                    }
-                 endforeach;
-                ?>
-              </td>
-              <td><?php echo $row->khalayak ?></td>
-              <td>
-                <?php
-                  foreach ($rencanamedia as $rows):
-                    if ($rows->id == $row->kanal_komunikasi ) {
-                      echo $rows->nama;
-                    }
-                 endforeach;
-                ?>
-              </td>
-              <td>
-                <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-
-              </td>
-            </tr>
-
-            <?php
-
-            endforeach ?>
-        </tbody>
-        </table>
-      <?php endif; ?>
+                        endforeach ?>
+                      </tbody>
+                    </table>
+                <?php } ?>
                   </div>
 
 
                   <div class="tab-pane" id="tab_3">
-				  <table id="dataTable1" class="table table-bordered table-striped">
-            <thead>
-            <tr>
-              <th><?php echo lang('id') ?></th>
-              <th>Nama Kegiatan</th>
-              <th>Stakeholder Pro Pemprov DKI Jakarta</th>
-              <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
-              <th>Juru Bicara</th>
-              <th>PIC Kegiatan yang Dapat Dihubungi</th>
-              <th><?php echo lang('action') ?></th>
-            </tr>
-            </thead>
-					<tbody>
+                    <?php if ($roles->role->role_id==1):?>
+                      <table id="example1" class="table table-bordered table-hover table-striped">
+                        <thead>
+                        <tr>
+                          <th>No</th>
+                          <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                          <th>Uraian Potensi Krisis</th>
+                          <th>Stakeholder Pro Pemprov DKI Jakarta</th>
+                          <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th>Juru Bicara</th>
+                          <th>PIC Kegiatan yang Dapat Dihubungi</th>
+                          <th><?php echo lang('action') ?></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          $no=0;
+                          foreach ($mitigasi as $row):
+                          $no++;
+                            if ($row->user_id == $this->session->userdata('logged')['id']) {
+                              // code...
 
+                          ?>
+                          <tr>
+                            <td><?php echo $no ?></td>
+                            <td>
+                              <?php
+                              if (is_null($row->nama)) {
+                                  echo $row->nama_program;
+                              } else {
+                                  echo $row->nama;
+                              }
+                            ?>
+                            </td>
+                            <td><?php echo $row->uraian_potensi ?></td>
+                            <td><?php echo $row->stakeholder_pro ?></td>
+                            <td><?php echo $row->stakeholder_kontra ?></td>
+                            <td><?php echo $row->juru_bicara ?></td>
+                            <td><?php echo $row->pic_kegiatan ?></td>
+                            <!-- <td>
+                            <?php if(empty($row->data_pendukung_text)){ ?>
+                            <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
+                          <?php } else { ?>
+                            <a href="<?php echo url($row->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
+                          <?php } ?>
+                            </td> -->
+                            <td>
+                              <?php if ($roles->role->role_id==1){
+                                if ($periode->status_input_data == 1) {
+                              ?>
+                              <a href="<?php echo url('Mitigasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                              <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                            <?php }} ?>
+                              <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
-						<tr>
-              <td>1</td>
-              <td>Publikasi Layanan JakWifi</td>
-              <td>Masyarakat umum</td>
-              <td>- Masyarakat yang belum dapat memanfaatkan jaringan internet gratis yang disediakan Pemprov DKI Jakarta <br>
-- Masyarakat yang merasakan kualitas internet yang disediakan pemda tidak sesuai dengan harapan <br>
-- Anggota legislatif yang melihat bahwa manfaat tidak sebanding dengan biaya yang dikeluarkan pemda"
-</td>
-              <td>Plt. Kepala Dinas Kominfotik Provinsi DKI Jakarta</td>
-              <td>Aditya Prana (Kabid JKD) 08128748447 <br>
-Dema (Kasie ) 08161431790 <br>
-Service desk +62 852-1654-1900 <br>
-</td>
-						<td>
-							<a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-default" title="Lihat Data" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-						</td>
-						</tr>
+                            </td>
+                          </tr>
+                          <?php
+                          }
+                          endforeach ?>
+                          </tbody>
+                      </table>
+                      <?php else:?>
+                          <table id="example1" class="table table-bordered table-hover table-striped">
+                            <thead>
+                            <tr>
+                              <th><?php echo lang('id') ?></th>
+                              <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                              <th>Uraian Potensi Krisis</th>
+                              <th>Stakeholder Pro Pemprov DKI Jakarta</th>
+                              <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
+                              <th>Juru Bicara</th>
+                              <th>PIC Kegiatan yang Dapat Dihubungi</th>
+                              <th><?php echo lang('action') ?></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              <?php foreach ($mitigasi as $row):
+                                if ($row->user_id == $this->session->userdata('logged')['id']) {
+                                  // code...
 
+                              ?>
+                              <tr>
+                                <td><?php echo $row->id ?></td>
+                                <td><?php echo $row->nama_kegiatan ?></td>
+                                <td><?php echo $row->uraian_potensi ?></td>
+                                <td><?php echo $row->stakeholder_pro ?></td>
+                                <td><?php echo $row->stakeholder_kontra ?></td>
+                                <td><?php echo $row->juru_bicara ?></td>
+                                <td><?php echo $row->pic_kegiatan ?></td>
+                                <td>
+                                <?php if(empty($row->data_pendukung_text)){ ?>
+                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                              <?php } else { ?>
+                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
+                              <?php } ?>
+                                </td>
+                                <td>
+                                  <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
-					</tbody>
-				</table>
+                                </td>
+                              </tr>
+                              <?php
+                              }
+                              endforeach ?>
+                              </tbody>
+                          </table>
+                      <?php endif ?>
                   </div>
 
                 </div>
@@ -393,15 +638,20 @@ Service desk +62 852-1654-1900 <br>
             </div>
             <!-- ./card -->
           </div>
+            <?php if ($strakom->status == 0): ?>
           <div class="modal-footer justify-content-between">
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Finalisasi</button>
           </div>
+                <?php endif; ?>
           <!-- /.col -->
         </div>
         <!-- /.row -->
         <!-- END CUSTOM TABS -->
 
+
         <div class="modal fade" id="modal-finalisasi">
+          <?php echo form_open_multipart('StrakomUnggulan/change_status/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
@@ -415,13 +665,16 @@ Service desk +62 852-1654-1900 <br>
                 </div>
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                  <button type="button" class="btn btn-primary">Ya, Saya Yakin</button>
+                  <button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
                 </div>
               </div>
               <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
+              <?php echo form_close(); ?>
           </div>
+
+
 </section>
 
 <?php include viewPath('includes/footer'); ?>

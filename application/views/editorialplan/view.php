@@ -35,7 +35,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <ul class="nav nav-pills ml-auto p-2">
 
 					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
-						<!-- <li class="nav-item"><a class="nav-link" href="<?php echo url('Editorial/edit/'.$User->id) ?>">Edit</a></li> -->
+          <?php if ($roles->role->role_id==1){
+          if ($periode->status_input_data == 1) {
+            if ($strakom->status == 0) {
+            ?>
+            <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#modal-lg-edit<?php echo $editorialplan->id ?>">Edit</a></li>
+          <?php }}}?>
 
 
                 </ul>
@@ -52,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td width="160"><strong>Tanggal Rencana Tayang</strong>:</td>
       						<td><?php
                   $date=date_create($editorialplan->tanggal_rencana);
-                  echo date_format($date,"d F Y "); 
+                  echo date_format($date,"d F Y ");
                   ?></td>
       					</tr>
       					<tr>
@@ -106,6 +111,161 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <!-- END CUSTOM TABS -->
 
 </section>
+
+<section class="content">
+  <?php echo form_open_multipart('EditorialPlan/updateDataView/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+  <div class="container-fluid">
+    <div class="row">
+<div class="modal fade" id="modal-lg-edit<?php echo $editorialplan->id ?>">
+<div class="modal-dialog modal-xl">
+<div class="modal-content">
+<div class="modal-header">
+  <h4 class="modal-title">Edit Editorial Plan</h4>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <!-- Default card -->
+        <div class="card">
+          <input type="hidden" class="form-control" name="idUser" required value="<?php echo $editorialplan->user_id; ?>" />
+          <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $editorialplan->periode_id; ?>" />
+          <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $editorialplan->opd_id; ?>" />
+
+
+          <div class="card-body">
+
+            <div class="form-group">
+              <label for="formClient-Contact">Nama Kegiatan*</label>
+              <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required>
+                <?php foreach ($strakom as $rows):
+
+
+                  if ($rows->ksd_id > 0){
+
+                    foreach ($ksd as $rowss):
+
+                      if ($rowss->id == $rows->ksd_id ) {
+                        if ($editorialplan->strakom_id == $rows->id) {
+                            echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+                        } else {
+                           echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+                         }
+                      }
+
+                   endforeach;
+                  } else {
+                    $sel ="";
+                    if ($editorialplan->strakom_id == $rows->id) {
+                        echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
+                    } else {
+                      echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
+                    }
+
+                }
+                ?>
+
+                <?php endforeach ?>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="formClient-Name">Tanggal Rencana Tayang*</label>
+              <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $editorialplan->tanggal_rencana;?>" />
+            </div>
+
+            <div class="form-group">
+              <label for="formClient-Address">Pesan Utama*</label>
+              <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $editorialplan->pesan_utama; ?></textarea>
+            </div>
+
+
+
+          </div>
+          <!-- /.card-body -->
+
+        </div>
+        <!-- /.card -->
+
+        <!-- Default card -->
+
+        <!-- /.card -->
+
+      </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="form-group">
+              <label for="formClient-Contact">Produk Komunikasi*</label>
+              <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
+                <?php foreach ($produkkomunikasi as $rows):
+                  if ($editorialplan->produk_komunikasi == $rows->id) {
+                ?>
+                  <option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
+                <?php } else { ?>
+                  <option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
+
+                <?php }
+                endforeach ?>
+
+              </select>
+            </div>
+
+
+                <div class="form-group">
+                  <label for="formClient-Address">Khalayak*</label>
+                  <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"><?php echo $editorialplan->khalayak; ?></textarea>
+                </div>
+
+
+            <div class="form-group">
+              <label for="formClient-Contact">Kanal Komunikasi*</label>
+              <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" required>
+
+                <?php foreach ($rencanamedia as $rows):
+                  if ($editorialplan->kanal_komunikasi == $rows->id) {
+                ?>
+                  <option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
+                <?php } else { ?>
+                  <option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
+
+                <?php }
+                endforeach ?>
+
+              </select>
+            </div>
+
+
+          </div>
+          <!-- /.card-body -->
+
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal-footer justify-content-between">
+  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</div>
+<!-- /.modal-content -->
+</div>
+<!-- /.modal-dialog -->
+</div>
+
+</div>
+<!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+</section>
+
+<?php echo form_close(); ?>
+
 
 <?php include viewPath('includes/footer'); ?>
 

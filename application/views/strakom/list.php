@@ -54,7 +54,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Strakom Disetujui</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number">
+                  <?php
+                  if ($roles->role->role_id==1){
+                  echo $countstrakombyidApproved;
+                } else {
+                  echo $countstrakomApproved;
+                }
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -67,7 +75,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Strakom Ditolak</span>
-                <span class="info-box-number">0</span>
+                <span class="info-box-number">
+                  <?php
+                  if ($roles->role->role_id==1){
+                  echo $countstrakombyidRejected;
+                } else {
+                  echo $countstrakomRejected;
+                }
+                  ?>
+                </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -85,13 +101,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="card">
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Strakom Unggulan</h3>
-                  <?php if ($roles->role->role_id==1):?>
+                  <?php if ($roles->role->role_id==1){
+                    if ($periode->status_input_data == 1) {
+                      // code...
+
+                  ?>
+
                 <div class="ml-auto p-2">
 
                       <a href="<?php echo url('StrakomUnggulan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Strakom Unggulan</a>
 
                 </div>
-                  <?php endif ?>
+              <?php }
+              } ?>
               </div>
 
               <?php if ($roles->role->role_id==1):?>
@@ -108,6 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th rowspan="2">Narasi Utama Publikasi Program</th>
                     <th colspan="2">Target Audiens</th>
                     <th rowspan="2">Rencana Media/Kanal Publikasi</th>
+                    <th rowspan="2">Status</th>
                     <th rowspan="2"><?php echo lang('action') ?></th>
                   </tr>
                   <tr>
@@ -169,10 +192,28 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       echo implode(", ",$namaRencana);
                        ?>
                       </td>
+
                       <td>
+
+                        <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else {
+                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                        } ?>
+                      </td>
+                      <td>
+                        <?php if ($roles->role->role_id==1){
+                          if ($periode->status_input_data == 1) {
+                            if ($row->status == 0) {
+                        ?>
                         <a href="<?php echo url('StrakomUnggulan/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <a href="<?php echo url('StrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url('StrakomUnggulan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                      <?php }}} ?>
+                        <a href="<?php echo url('StrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
@@ -200,6 +241,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th rowspan="2">Narasi Utama Publikasi Program</th>
                     <th colspan="2">Target Audiens</th>
                     <th rowspan="2">Rencana Media/Kanal Publikasi</th>
+                    <th rowspan="2">Status</th>
                     <th rowspan="2"><?php echo lang('action') ?></th>
                   </tr>
                   <tr>
@@ -263,6 +305,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       }
                       echo implode(", ",$namaRencana);
                        ?>
+                      </td>
+                      <td>
+
+                        <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else {
+                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                        } ?>
                       </td>
                       <td>
                         <a href="<?php echo url('StrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>

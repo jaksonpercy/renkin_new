@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </select>
           </div>
 
-          <div class="form-group">
+          <div class="form-group" style ="display:none">
             <label for="formClient-Name">Nama Kegiatan*</label>
             <input type="text" class="form-control" name="namaKegiatan" id="formClient-Name" required placeholder="Nama Kegiatan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
           </div>
@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <label for="formClient-Address">PIC Kegiatan yang Dapat Dihubungi*</label>
               <textarea type="text" class="form-control" name="picKegiatan" id="formClient-PIC" placeholder="PIC Kegiatan yang Dapat Dihubungi" rows="3"></textarea>
             </div>
-            
+
             <div class="form-group">
               <label for="formClient-Name">Data Pendukung Kegiatan / Bahan Komunikasi*</label>
                 <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"></textarea>

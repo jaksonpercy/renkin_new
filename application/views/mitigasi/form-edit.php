@@ -24,83 +24,124 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <section class="content">
 
-<?php echo form_open_multipart('users/save', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+<?php echo form_open_multipart('Mitigasi/update/'.$mitigasi->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 
-  <div class="row">
-    <div class="col-sm-6">
-      <!-- Default card -->
-      <div class="card">
+<div class="row">
+  <div class="col-sm-6">
+    <!-- Default card -->
+    <div class="card">
 
+      <div class="card-body">
+        <input type="hidden" class="form-control" name="idUser" required value="<?php echo $mitigasi->user_id; ?>" />
+        <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $mitigasi->periode_id; ?>" />
+        <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $mitigasi->opd_id; ?>" />
+
+        <div class="form-group">
+          <label for="formClient-Contact">Nama Program/Kegiatan Strategi Komunikasi Unggulan*</label>
+          <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required>
+            <option value="">Pilih Nama Program/Kegiatan</option>
+            <?php foreach ($strakom as $rows):
+
+
+              if ($rows->ksd_id > 0){
+
+                foreach ($ksd as $rowss):
+
+                  if ($rowss->id == $rows->ksd_id ) {
+                    if ($mitigasi->strakom_id == $rows->id) {
+                        echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+                    } else {
+                       echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+                     }
+                  }
+
+               endforeach;
+              } else {
+                $sel ="";
+                if ($mitigasi->strakom_id == $rows->id) {
+                    echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
+                } else {
+                  echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
+                }
+
+            }
+            ?>
+
+            <?php endforeach ?>
+          </select>
+        </div>
+
+        <div class="form-group" style="display:none">
+          <label for="formClient-Name">Nama Kegiatan*</label>
+          <input type="text" class="form-control" name="namaKegiatan" id="formClient-Name" required placeholder="Nama Kegiatan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+        </div>
+
+        <div class="form-group">
+          <label for="formClient-Address">Uraian Potensi Krisis*</label>
+          <textarea type="text" class="form-control" name="uraianPotensi" id="formClient-Uraian" placeholder="Uraian Potensi Krisis" rows="5"><?php echo $mitigasi->uraian_potensi ?></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="formClient-Address">Stakeholder Pro Pemprov DKI Jakarta*</label>
+          <textarea type="text" class="form-control" name="stakeholderPro" id="formClient-StakeholderPro" placeholder="Stakeholder Pro Pemprov DKI Jakarta" rows="5"><?php echo $mitigasi->stakeholder_pro ?></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="formClient-Address">Stakeholder Kontra Pemprov DKI Jakarta*</label>
+          <textarea type="text" class="form-control" name="stakeholderKontra" id="formClient-StakeholderKontra" placeholder="Stakeholder Kontra Pemprov DKI Jakarta" rows="3"><?php echo $mitigasi->stakeholder_kontra ?></textarea>
+        </div>
+
+
+
+      </div>
+      <!-- /.card-body -->
+
+    </div>
+    <!-- /.card -->
+
+    <!-- Default card -->
+
+    <!-- /.card -->
+
+  </div>
+  <div class="col-sm-6">
+    <!-- Default card -->
+     <div class="card">
         <div class="card-body">
 
-          <div class="form-group">
-            <label for="formClient-Name">Nama Kegiatan*</label>
-            <input type="text" class="form-control" name="namaKegiatan" id="formClient-Name" required placeholder="Nama Kegiatan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-          </div>
-
-          <div class="form-group">
-            <label for="formClient-Address">Uraian Potensi Krisis*</label>
-            <textarea type="text" class="form-control" name="uraianPotensi" id="formClient-Uraian" placeholder="Uraian Potensi Krisis" rows="5"></textarea>
-          </div>
 
           <div class="form-group">
             <label for="formClient-Name">Juru Bicara*</label>
-            <input type="text" class="form-control" name="juruBicara" id="formClient-Juru" required placeholder="Juru Bicara" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+            <input type="text" class="form-control" name="juruBicara" id="formClient-Juru" required placeholder="Juru Bicara" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus value="<?php echo $mitigasi->juru_bicara ?>" />
+          </div>
+
+
+          <div class="form-group">
+            <label for="formClient-Address">PIC Kegiatan yang Dapat Dihubungi*</label>
+            <textarea type="text" class="form-control" name="picKegiatan" id="formClient-PIC" placeholder="PIC Kegiatan yang Dapat Dihubungi" rows="3"><?php echo $mitigasi->pic_kegiatan ?></textarea>
           </div>
 
           <div class="form-group">
             <label for="formClient-Name">Data Pendukung Kegiatan / Bahan Komunikasi*</label>
-            <input type="text" class="form-control" name="dataPendukung" id="formClient-DataPendukung" required placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-            <div class="custom-file" style="margin-top:3%">
-              <input type="file" class="custom-file-input" name="file" required id="exampleInputFile">
-              <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-            </div>
+              <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"><?php echo $mitigasi->data_pendukung_text ?></textarea>
+            <!-- <div class="custom-file" style="margin-top:3%"> -->
+              <input type="file" class="form-control" name="filePendukung" id="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
+              <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
+            <!-- </div> -->
           </div>
-
         </div>
         <!-- /.card-body -->
 
       </div>
-      <!-- /.card -->
+    <!-- /.card -->
 
-      <!-- Default card -->
+    <!-- Default card -->
 
-      <!-- /.card -->
+    <!-- /.card -->
 
-    </div>
-    <div class="col-sm-6">
-      <!-- Default card -->
-       <div class="card">
-          <div class="card-body">
-
-            <div class="form-group">
-              <label for="formClient-Address">Stakeholder Pro Pemprov DKI Jakarta*</label>
-              <textarea type="text" class="form-control" name="stakeholderPro" id="formClient-StakeholderPro" placeholder="Stakeholder Pro Pemprov DKI Jakarta" rows="5"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="formClient-Address">Stakeholder Kontra Pemprov DKI Jakarta*</label>
-              <textarea type="text" class="form-control" name="stakeholderKontra" id="formClient-StakeholderKontra" placeholder="Stakeholder Kontra Pemprov DKI Jakarta" rows="3"></textarea>
-            </div>
-
-            <div class="form-group">
-              <label for="formClient-Address">PIC Kegiatan yang Dapat Dihubungi*</label>
-              <textarea type="text" class="form-control" name="picKegiatan" id="formClient-PIC" placeholder="PIC Kegiatan yang Dapat Dihubungi" rows="3"></textarea>
-            </div>
-
-          </div>
-          <!-- /.card-body -->
-
-        </div>
-      <!-- /.card -->
-
-      <!-- Default card -->
-
-      <!-- /.card -->
-
-    </div>
   </div>
+</div>
 
   <!-- Default card -->
   <div class="card">
