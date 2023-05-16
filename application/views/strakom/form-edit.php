@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Contact">Kategori Program*</label>
-            <select name="kategoriProgram" id="kategoriProgram" class="form-control" required>
+            <select name="kategoriProgram" id="kategoriProgram" class="form-control" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'">
               <?php foreach ($kategoriprogram as $row):
                 $sel = $row->id==$strakom->kategori_program ? 'selected' : ''
                 ?>
@@ -51,24 +51,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <?php if($strakom->kategori_program == 2):?>
 
           <div class="form-group" id="divNoKSD">
-            <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
-            <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
+            <label for="formClient-Contact" class="col-sm-12">Nama KSD*</label>
+            <input type="text" class="form-control" name="namaKSD" value="<?php $strakom->ksd_id ?>" id="formClient-namaKSD" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama KSD" />
+            <!-- <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'">
               <?php foreach ($ksd as $row):
                 $sel = $row->id==$strakom->ksd_id ? 'selected' : ''
                 ?>
                 <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
               <?php endforeach ?>
 
-            </select>
+            </select> -->
           </div>
           <div class="form-group"  style="display:none" id="divNamaProgram">
             <label for="formClient-Name">Nama Program/Kegiatan*</label>
-            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" required placeholder="Nama Program/Kegiatan" value="<?php echo $strakom->nama_program ?>" />
+            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program/Kegiatan" value="<?php echo $strakom->nama_program ?>" />
           </div>
 
           <div class="form-group" style="display:none" id="divJenisProgram">
             <label for="formClient-Contact">Jenis Program/Kegiatan*</label>
-            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required style="width:100%">
+            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" style="width:100%">
               <?php foreach ($jeniskegiatan as $row):
                 $sel = $jeniskegiatan->id==$strakom->jenis_kegiatan ? 'selected' : ''
                 ?>
@@ -80,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group" style="display:none" id="divNamaUnggulan">
             <label for="formClient-Address">Nama Program Unggulan*</label>
-            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" placeholder="Nama Program Unggulan" rows="5"><?php echo $strakom->nama_program ?></textarea>
+            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" rows="5"><?php echo $strakom->nama_program ?></textarea>
           </div>
 
           <!-- <div class="form-group" style="display:none" id="divNoKSD">
@@ -95,12 +96,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <?php elseif($strakom->kategori_program == 1): ?>
           <div class="form-group"  id="divNamaProgram">
             <label for="formClient-Name">Nama Program/Kegiatan*</label>
-            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" required placeholder="Nama Program/Kegiatan" value="<?php echo $strakom->nama_program ?>" />
+            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program/Kegiatan" value="<?php echo $strakom->nama_program ?>" />
           </div>
 
           <div class="form-group" id="divJenisProgram">
             <label for="formClient-Contact">Jenis Program/Kegiatan*</label>
-            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required>
+            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'">
               <?php foreach ($jeniskegiatan as $row):
                 $sel = $jeniskegiatan->id==$strakom->jenis_kegiatan ? 'selected' : ''
                 ?>
@@ -110,34 +111,36 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <div class="form-group" style="display:none" id="divNamaUnggulan">
             <label for="formClient-Address">Nama Program Unggulan*</label>
-            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" placeholder="Nama Program Unggulan" rows="5"><?php echo $strakom->nama_program ?></textarea>
+            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" rows="5"><?php echo $strakom->nama_program ?></textarea>
           </div>
 
           <div class="form-group" id="divNoKSD" style="display:none" >
-            <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
-            <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
+            <label for="formClient-Contact" class="col-sm-12">Nama KSD*</label>
+            <input type="text" class="form-control" name="namaKSD" value="<?php $strakom->ksd_id ?>" id="formClient-namaKSD" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama KSD" />
+
+            <!-- <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'">
               <?php foreach ($ksd as $row):
                 $sel = $ksd->id==$strakom->jenis_kegiatan ? 'selected' : ''
                 ?>
                 <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
               <?php endforeach ?>
 
-            </select>
+            </select> -->
           </div>
 
       <?php else: ?>
           <div class="form-group" id="divNamaUnggulan">
             <label for="formClient-Address">Nama Program Unggulan*</label>
-            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" placeholder="Nama Program Unggulan" rows="5"><?php echo $strakom->nama_program ?></textarea>
+            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" rows="5"><?php echo $strakom->nama_program ?></textarea>
           </div>
           <div class="form-group"  style="display:none" id="divNamaProgram">
             <label for="formClient-Name">Nama Program/Kegiatan*</label>
-            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" required placeholder="Nama Program/Kegiatan" value="<?php echo $strakom->nama_program ?>" />
+            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program/Kegiatan" value="<?php echo $strakom->nama_program ?>" />
           </div>
 
           <div class="form-group" style="display:none" id="divJenisProgram">
             <label for="formClient-Contact">Jenis Program/Kegiatan*</label>
-            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required>
+            <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'">
               <?php foreach ($jeniskegiatan as $row):
                 $sel = $jeniskegiatan->id==$strakom->jenis_kegiatan ? 'selected' : ''
                 ?>
@@ -147,8 +150,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </select>
           </div>
           <div class="form-group" id="divNoKSD" style="display:none">
-            <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
-            <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
+            <label for="formClient-Contact" class="col-sm-12">Nama KSD*</label>
+            <input type="text" class="form-control" name="namaKSD" value="<?php $strakom->ksd_id ?>" id="formClient-namaKSD" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama KSD" />
+            
+            <!-- <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'">
               <?php foreach ($ksd as $row):
                 $sel = $ksd->id==$strakom->jenis_kegiatan ? 'selected' : ''
                 ?>
@@ -156,7 +161,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <?php endforeach ?>
 
 
-            </select>
+            </select> -->
           </div>
   <?php endif ?>
         </div>        <!-- /.card-body -->
@@ -170,17 +175,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Address">Deskripsi Singkat Kegiatan*</label>
-            <textarea type="text" class="form-control" name="deskripsiKegiatan" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $strakom->deskripsi ?></textarea>
+            <textarea type="text" class="form-control" name="deskripsiKegiatan" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $strakom->deskripsi ?></textarea>
           </div>
 
           <div class="form-group">
             <label for="formClient-Address">Analisis Situasi*</label>
-            <textarea type="text" class="form-control" name="analisisSituasi" id="formClient-Address" placeholder="Analisis Situasi" rows="3"><?php echo $strakom->analisis_situasi ?></textarea>
+            <textarea type="text" class="form-control" name="analisisSituasi" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Analisis Situasi" rows="3"><?php echo $strakom->analisis_situasi ?></textarea>
           </div>
 
           <div class="form-group">
             <label for="formClient-Address">Identifikasi Masalah / Isu Utama*</label>
-            <textarea type="text" class="form-control" name="identifikasiMasalah" id="formClient-Address" placeholder="Identifikasi Masalah" rows="3"><?php echo $strakom->identifikasi_masalah ?></textarea>
+            <textarea type="text" class="form-control" name="identifikasiMasalah" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Identifikasi Masalah" rows="3"><?php echo $strakom->identifikasi_masalah ?></textarea>
           </div>
 
         </div>
@@ -200,21 +205,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Address">Narasi Utama Publikasi Program*</label>
-            <textarea type="text" class="form-control" name="narasiUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $strakom->narasi_utama ?></textarea>
+            <textarea type="text" class="form-control" name="narasiUtama" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $strakom->narasi_utama ?></textarea>
           </div>
 
           <div class="form-group">
             <label for="formClient-Address">Target Audiens (per Triwulan)</label><br>
             <label for="formClient-Address">Pro*</label>
-            <textarea type="text" class="form-control" name="targetAudiensPro" id="formClient-Address" placeholder="Pro" rows="3"><?php echo $strakom->target_pro ?></textarea>
+            <textarea type="text" class="form-control" name="targetAudiensPro" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Pro" rows="3"><?php echo $strakom->target_pro ?></textarea>
             <label for="formClient-Address">Kontra*</label>
-            <textarea type="text" class="form-control" name="targetAudiensKontra" id="formClient-Address" placeholder="Kontra" rows="3"><?php echo $strakom->target_kontra ?></textarea>
+            <textarea type="text" class="form-control" name="targetAudiensKontra" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Kontra" rows="3"><?php echo $strakom->target_kontra ?></textarea>
 
           </div>
 
           <div class="form-group">
             <label for="formClient-Address">Rencana Media/Kanal Publikasi*</label>
-            <select class="select2" multiple="multiple" name="rencanaMedia[]" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
+            <select class="select2" multiple="multiple" name="rencanaMedia[]" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
               <!-- <?php foreach ($rencanamedia as $row): ?>
                 <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
               <?php endforeach ?> -->
@@ -257,7 +262,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/StrakomUnggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <!-- <div class="col"><a href="<?php echo url('/StrakomUnggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div> -->
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>

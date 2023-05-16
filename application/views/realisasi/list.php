@@ -73,22 +73,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Realisasi</h3>
                 <div class="ml-auto p-2">
-
+                  <?php if ($roles->role->role_id==1){
+                    if ($periode->status_realisasi == 1) {
+                  ?>
                 <a href="<?php echo url('Realisasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Realisasi</a>
+              <?php }
+              } ?>
                 </div>
               </div>
-
+              <?php if ($roles->role->role_id==1):?>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th><?php echo lang('id') ?></th>
-                    <th>Nama Program/Kegiatan</th>
-                    <th>No Lampiran</th>
-                    <th>Nama Lampiran</th>
-                    <th>Tanggal Lampiran</th>
-                    <th>File Nota Dinas</th>
+                    <th>No</th>
+                    <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th>Nota Dinas</th>
+                    <th>No Nota Dinas / Surat</th>
+                    <th>Perihal Nota Dinas /Surat</th>
+                    <th>Tanggal Nota Dinas /Surat</th>
                     <th><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
@@ -103,51 +107,49 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                         <a href="<?php echo url('Realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo url('Realisasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url('Realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                        <a href="<?php echo url('Realisasi/printExport/'.$row->id) ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                        <a href="<?php echo url('Realisasi/delete/') ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        <a href="<?php echo url('Realisasi/printExport/') ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
                     </tr>
-                  <!-- <?php foreach ($users as $row): ?>
-                    <tr>
-                      <td width="60"><?php echo $row->id ?></td>
-                      <td width="50" class="text-center">
-                        <img src="<?php echo userProfile($row->id) ?>" width="40" height="40" alt="" class="img-avtar">
 
-                      </td>
-                      <td>
-                        <?php echo $row->name ?>
-                      </td>
-                      <td><?php echo $row->email ?></td>
-                      <td><?php echo ucfirst($this->roles_model->getById($row->role)->title) ?></td>
-                      <td><?php echo ($row->last_login!='0000-00-00 00:00:00')?date( setting('date_format'), strtotime($row->last_login)):'No Record' ?></td>
-                      <td>
-                        <?php if (logged('id')!==$row->id): ?>
-                          <input type="checkbox" name="my-checkbox"  onchange="updateUserStatus('<?php echo $row->id ?>', $(this).is(':checked') )" <?php echo ($row->status) ? 'checked' : '' ?> data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
-                        <?php else: ?>
-                          <input type="checkbox" name="my-checkbox" disabled data-bootstrap-switch  data-off-color="secondary" data-on-color="success"  data-off-text="<?php echo lang('user_inactive') ?>" data-on-text="<?php echo lang('user_active') ?>">
-                        <?php endif ?>
-                      </td>
-                      <td>
-                        <?php if (hasPermissions('users_edit')): ?>
-                          <a href="<?php echo url('users/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="<?php echo lang('edit_user') ?>" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <?php endif ?>
-                        <?php if (hasPermissions('users_view')): ?>
-                          <a href="<?php echo url('users/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="<?php echo lang('view_user') ?>" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <?php endif ?>
-                        <?php if (hasPermissions('users_delete')): ?>
-                          <?php if ($row->id!=1 && logged('id')!=$row->id): ?>
-                            <a href="<?php echo url('users/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Do you really want to delete this user ?')" title="<?php echo lang('delete_user') ?>" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php else: ?>
-                            <a href="#" class="btn btn-sm btn-danger" title="<?php echo lang('delete_user_cannot') ?>" data-toggle="tooltip" disabled><i class="fa fa-trash"></i></a>
-                          <?php endif ?>
-                        <?php endif ?>
-                      </td>
-                    </tr>
-                  <?php endforeach ?> -->
                   </tbody>
                 </table>
               </div>
+              <?php else:?>
+                <div class="card-body">
+                  <table id="example1" class="table table-bordered table-hover table-striped">
+                    <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                      <th>Nota Dinas</th>
+                      <th>No Nota Dinas / Surat</th>
+                      <th>Perihal Nota Dinas /Surat</th>
+                      <th>Tanggal Nota Dinas /Surat</th>
+                      <th><?php echo lang('action') ?></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Publikasi Layanan JakWifi</td>
+                        <td>Lamp-001</td>
+                        <td>Lampiran Kesatu</td>
+                        <td>03-04-2019</td>
+                        <td> <a href="#">Download File Nota Dinas</a> </td>
+                        <td>
+                          <a href="<?php echo url('Realisasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                          <a href="<?php echo url('Realisasi/printExport/') ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+
+                        </td>
+                      </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+
+              <?php endif ?>
               <!-- /.card-body -->
             </div>
             <!-- /.card -->

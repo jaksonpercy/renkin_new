@@ -38,8 +38,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $user->opd_upd; ?>" />
 
           <div class="form-group">
-            <label for="formClient-Contact">Kategori Program*</label>
-            <select name="kategoriProgram" id="kategoriProgram" class="form-control" required>
+            <label for="formClient-Contact">Kategori Program<label class="text-danger">*</label></label>
+            <select name="kategoriProgram" id="kategoriProgram" class="form-control" required title="Bagian ini wajib diisi" oninvalid="'this.style.color='#FF0000'">
               <option value="">Pilih Kategori Program</option>
               <?php foreach ($kategoriprogram as $row): ?>
                 <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
@@ -48,12 +48,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group" style="display:none" id="divNoKSD">
-            <label for="formClient-Contact" class="col-sm-12">List KSD*</label>
-            <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
+            <label for="formClient-Contact" class="col-sm-12">Nama KSD<label class="text-danger">*</label></label>
+            <input type="text" class="form-control" name="namaKSD" id="formClient-namaKSD" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama KSD" />
+
+            <!-- <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required>
               <?php foreach ($ksd as $row): ?>
                 <option value="<?php echo $row->id ?>"><?php echo $row->code ?> - <?php echo $row->nama ?></option>
               <?php endforeach ?>
-            </select>
+            </select> -->
          </div>
 
           <!-- <div class="form-group" style="display:none" id="divNoKSD">
@@ -67,12 +69,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div> -->
 
           <div class="form-group"  style="display:none" id="divNamaProgram">
-            <label for="formClient-Name">Nama Program/Kegiatan*</label>
-            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" required placeholder="Nama Program/Kegiatan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+            <label for="formClient-Name">Nama Program/Kegiatan<label class="text-danger">*</label></label>
+            <input type="text" class="form-control" name="namaProgram" id="formClient-namaProgram" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program/Kegiatan" />
           </div>
 
           <div class="form-group"  style="display:none" id="divJenisProgram">
-            <label for="formClient-Contact" class="col-sm-12">Jenis Program/Kegiatan*</label>
+            <label for="formClient-Contact" class="col-sm-12">Jenis Program/Kegiatan<label class="text-danger">*</label></label>
             <select name="jenisKegiatan" id="formClient-jenisKegiatan" class="form-control select2" style="width:100%" required>
               <option value="-">Pilih Jenis Kegiatan</option>
               <?php foreach ($jeniskegiatan as $row): ?>
@@ -83,8 +85,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group"  style="display:none" id="divNamaUnggulan">
-            <label for="formClient-Address">Nama Program Unggulan*</label>
-            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" placeholder="Nama Program Unggulan" rows="5"></textarea>
+            <label for="formClient-Address">Nama Program Unggulan<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" rows="5"></textarea>
           </div>
 
         </div>
@@ -98,18 +100,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Address">Deskripsi Singkat Kegiatan*</label>
-            <textarea type="text" class="form-control" name="deskripsiKegiatan" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
+            <label for="formClient-Address">Deskripsi Singkat Kegiatan<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="deskripsiKegiatan" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Address">Analisis Situasi*</label>
-            <textarea type="text" class="form-control" name="analisisSituasi" id="formClient-Address" placeholder="Analisis Situasi" rows="3"></textarea>
+            <label for="formClient-Address">Analisis Situasi<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="analisisSituasi" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Analisis Situasi" rows="3"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Address">Identifikasi Masalah / Isu Utama*</label>
-            <textarea type="text" class="form-control" name="identifikasiMasalah" id="formClient-Address" placeholder="Identifikasi Masalah" rows="3"></textarea>
+            <label for="formClient-Address">Identifikasi Masalah / Isu Utama<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="identifikasiMasalah" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Identifikasi Masalah" rows="3"></textarea>
           </div>
 
         </div>
@@ -128,22 +130,22 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Address">Narasi Utama Publikasi Program*</label>
-            <textarea type="text" class="form-control" name="narasiUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"></textarea>
+            <label for="formClient-Address">Narasi Utama Publikasi Program<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="narasiUtama" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Narasi Utama Publikasi Program" rows="5"></textarea>
           </div>
 
           <div class="form-group">
             <label for="formClient-Address">Target Audiens (per Triwulan)</label><br>
-            <label for="formClient-Address">Pro*</label>
-            <textarea type="text" class="form-control" name="targetAudiensPro" id="formClient-Address" placeholder="Pro" rows="3"></textarea>
-            <label for="formClient-Address">Kontra*</label>
-            <textarea type="text" class="form-control" name="targetAudiensKontra" id="formClient-Address" placeholder="Kontra" rows="3"></textarea>
+            <label for="formClient-Address">Pro<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="targetAudiensPro" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Pro" rows="3"></textarea>
+            <label for="formClient-Address">Kontra<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="targetAudiensKontra" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Kontra" rows="3"></textarea>
 
           </div>
 
           <div class="form-group">
-            <label for="formClient-Address">Rencana Media/Kanal Publikasi*</label>
-            <select class="select2" multiple="multiple" name="rencanaMedia[]" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
+            <label for="formClient-Address">Rencana Media/Kanal Publikasi<label class="text-danger">*</label></label>
+            <select class="select2" multiple="multiple" name="rencanaMedia[]" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
               <?php foreach ($rencanamedia as $row): ?>
                 <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
               <?php endforeach ?>
@@ -167,7 +169,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/StrakomUnggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <!-- <div class="col"><a href="<?php echo url('/StrakomUnggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div> -->
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>
@@ -229,11 +231,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
          divNamaProgram.style.display = 'block';
           divJenisProgram.style.display = 'block';
           document.getElementById('divNoKSD').style.display = 'none';
+          divNamaUnggulan.style.display = 'none';
            // document.getElementById('divNamaKSD').style.display = 'none';
       } else if (event.target.value == '2') {
         divNamaProgram.style.display = 'none';
          divJenisProgram.style.display = 'none';
         document.getElementById('divNoKSD').style.display = 'block';
+        divNamaUnggulan.style.display = 'none';
          // document.getElementById('divNamaKSD').style.display = 'block';
       } else if (event.target.value == '3') {
         divNamaProgram.style.display = 'none';

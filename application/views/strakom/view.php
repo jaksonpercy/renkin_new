@@ -26,7 +26,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/StrakomUnggulan') ?>">Strategi Komunikasi Unggulan</a></li>
-              <li class="breadcrumb-item active"><?php echo $strakom->id ?></li>
+
             </ol>
           </div>
         </div>
@@ -90,6 +90,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   }
                   ?></td>
       					</tr>
+                <?php if (!empty($strakom->jenis_kegiatan)) {
+
+                ?>
       					<tr>
       						<td><strong>Jenis Kegiatan</strong>:</td>
       						<td><?php
@@ -99,6 +102,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       }
                    endforeach ?></td>
       					</tr>
+              <?php } ?>
       					<tr>
       						<td><strong>Deskripsi Singkat Kegiatan</strong>:</td>
       						<td><?php echo $strakom->deskripsi ?></td>
@@ -248,6 +252,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="tab_2">
                     <?php if ($roles->role->role_id==1){?>
+                      <div class="d-flex p-0">
+                      <div class="ml-auto p-2">
+                        <?php if ($roles->role->role_id==1){
+                          if ($periode->status_input_data == 1) {
+                            // code...
+
+                        ?>
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-lg"> <span class="pr-1"><i class="fa fa-plus"></i></span>
+                      Tambah Materi
+                    </button>
+                  <?php }
+                  } ?>
+                      </div>
+                        </div>
                   <!-- /.card-header -->
                     <table id="example1" class="table table-bordered table-hover table-striped">
                       <thead>
@@ -585,7 +603,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <table id="example1" class="table table-bordered table-hover table-striped">
                             <thead>
                             <tr>
-                              <th><?php echo lang('id') ?></th>
+                              <th>No</th>
                               <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                               <th>Uraian Potensi Krisis</th>
                               <th>Stakeholder Pro Pemprov DKI Jakarta</th>
@@ -633,14 +651,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-primary">Download Strakom Unggulan</button>
+                <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
               </div>
             </div>
             <!-- ./card -->
           </div>
             <?php if ($strakom->status == 0): ?>
           <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Finalisasi</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
           </div>
                 <?php endif; ?>
           <!-- /.col -->
@@ -675,6 +693,134 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
 
+</section>
+
+<section class="content">
+  <?php echo form_open_multipart('StrakomUnggulan/saveEditorialPlan/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="modal fade" id="modal-lg">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Tambah Materi</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+
+
+          <div class="row">
+            <input type="hidden" class="form-control" name="idUser" required value="<?php echo $strakom->user_id; ?>" />
+            <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $strakom->periode_id; ?>" />
+            <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $strakom->opd_id; ?>" />
+
+            <div class="col-sm-6">
+              <!-- Default card -->
+              <div class="card">
+
+                <div class="card-body">
+
+                  <div class="form-group">
+                    <label for="formClient-Contact">Nama Kegiatan*</label>
+                    <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style="width:100%;" required>
+                      <option value="">Pilih Nama Program/Kegiatan</option>
+                      <?php foreach ($strakomList as $row):
+                        if ($row->ksd_id > 0){
+                          foreach ($ksd as $rows):
+                            if ($rows->id == $row->ksd_id ) {
+                              echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
+                            }
+                         endforeach;
+                        } else {
+                            echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
+                        }
+                      ?>
+
+                      <?php endforeach ?>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="formClient-Name">Tanggal Rencana Tayang*</label>
+                    <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="formClient-Address">Pesan Utama*</label>
+                    <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Pesan Utama" rows="5"></textarea>
+                  </div>
+
+
+                </div>
+                <!-- /.card-body -->
+
+              </div>
+              <!-- /.card -->
+
+              <!-- Default card -->
+
+              <!-- /.card -->
+
+            </div>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+
+                  <div class="form-group">
+                    <label for="formClient-Contact">Produk Komunikasi*</label>
+                    <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" style="width:100%" required>
+                      <option value="-">Pilih Produk Komunikasi</option>
+                      <?php foreach ($produkkomunikasi as $row): ?>
+                        <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                      <?php endforeach ?>
+
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="formClient-Address">Khalayak*</label>
+                    <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Khalayak" rows="3"></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="formClient-Contact">Kanal Komunikasi*</label>
+                    <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" style="width:100%" required>
+                      <option value="-">Pilih Kanal Komunikasi</option>
+                      <?php foreach ($rencanamedia as $row): ?>
+                        <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                      <?php endforeach ?>
+                    </select>
+                  </div>
+
+
+                </div>
+                <!-- /.card-body -->
+
+              </div>
+            </div>
+          </div>
+
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>
+
+
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <?php echo form_close(); ?>
+  <!-- /.container-fluid -->
 </section>
 
 <?php include viewPath('includes/footer'); ?>

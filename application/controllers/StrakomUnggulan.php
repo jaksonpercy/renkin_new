@@ -131,7 +131,7 @@ class StrakomUnggulan extends MY_Controller {
         $jenisKegiatan = $this->input->post('jenisKegiatan');
     }else if ($this->input->post('kategoriProgram')==2) {
       // code...
-      $namaProgram = $this->input->post('ksd');
+      $namaProgram = $this->input->post('namaKSD');
     } else {
       $namaProgram = $this->input->post('namaProgramUnggulan');
     }
@@ -178,7 +178,7 @@ class StrakomUnggulan extends MY_Controller {
         $jenisKegiatan = $this->input->post('jenisKegiatan');
     }else if ($this->input->post('kategoriProgram')==2) {
       // code...
-      $namaProgram = $this->input->post('ksd');
+      $namaProgram = $this->input->post('namaKSD');
     } else {
       $namaProgram = $this->input->post('namaProgramUnggulan');
     }
@@ -278,6 +278,36 @@ class StrakomUnggulan extends MY_Controller {
 		$this->session->set_flashdata('alert', 'Mengubah Status Strakom Unggulan Berhasil');
 
 		redirect('StrakomUnggulan/view/'. $id );
+	}
+
+  public function saveEditorialPlan($id)
+	{
+
+		postAllowed();
+
+		// ifPermissions('permissions_add');
+		$uuid = uniqid();
+		$periode = $this->Editorial_model->create([
+			'id' => $uuid,
+			'strakom_id' => $this->input->post('namaProgram'),
+			'tanggal_rencana' => $this->input->post('tanggalRencanaTayang'),
+      'produk_komunikasi' => $this->input->post('produkKomunikasi'),
+			'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
+      'pesan_utama' => $this->input->post('pesanUtama'),
+			'khalayak' => $this->input->post('khalayak'),
+      'user_id' => $this->input->post('idUser'),
+      'periode_id' => $this->input->post('idPeriode'),
+      'opd_id' => $this->input->post('idOPD'),
+
+		]);
+
+		$this->activity_model->add("Menambahkan Data Editorial Plan #$periode oleh User: #".logged('name'));
+
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Menambahkan data Editorial Plan Berhasil');
+
+		redirect('StrakomUnggulan/view/'. $id );
+
 	}
 
 }

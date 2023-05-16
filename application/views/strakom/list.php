@@ -9,12 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Strakom Unggulan</h1>
+        <h1>Strategi Komunikasi Unggulan</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
-          <li class="breadcrumb-item active">Strakom Unggulan</li>
+          <li class="breadcrumb-item active">Strategi Komunikasi Unggulan</li>
         </ol>
       </div>
     </div>
@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Strakom</span>
+                <span class="info-box-text">Jumlah Strategi Komunikasi Unggulan</span>
                 <span class="info-box-number">
 
                   <?php
@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <span class="info-box-icon bg-primary"><i class="far fa-flag"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Strakom Disetujui</span>
+                <span class="info-box-text">Jumlah Strategi Komunikasi Unggulan Disetujui</span>
                 <span class="info-box-number">
                   <?php
                   if ($roles->role->role_id==1){
@@ -74,7 +74,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <span class="info-box-icon bg-danger"><i class="far fa-copy"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Strakom Ditolak</span>
+                <span class="info-box-text">Jumlah Strategi Komunikasi Unggulan Ditolak</span>
                 <span class="info-box-number">
                   <?php
                   if ($roles->role->role_id==1){
@@ -100,7 +100,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-12">
             <div class="card">
               <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">Strakom Unggulan</h3>
+                <h3 class="card-title p-3">Strategi Komunikasi Unggulan</h3>
                   <?php if ($roles->role->role_id==1){
                     if ($periode->status_input_data == 1) {
                       // code...
@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 <div class="ml-auto p-2">
 
-                      <a href="<?php echo url('StrakomUnggulan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Strakom Unggulan</a>
+                      <a href="<?php echo url('StrakomUnggulan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Strategi Komunikasi Unggulan</a>
 
                 </div>
               <?php }
@@ -131,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th colspan="2">Target Audiens</th>
                     <th rowspan="2">Rencana Media/Kanal Publikasi</th>
                     <th rowspan="2">Status</th>
-                    <th rowspan="2"><?php echo lang('action') ?></th>
+                    <th rowspan="2" style="width:11%"><?php echo lang('action') ?></th>
                   </tr>
                   <tr>
                     <th>Pro</th>

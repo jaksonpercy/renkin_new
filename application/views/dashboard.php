@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Renkin</span>
-                <span class="info-box-number"><?php echo $roles->role->role_name ?></span>
+                <span class="info-box-number"><?php echo $countstrakombyid ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>

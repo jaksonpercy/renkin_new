@@ -272,7 +272,6 @@ public function update($id)
   $uuid = uniqid();
 
   $data = [
-    'id' => $uuid,
     'strakom_id' => $this->input->post('namaProgram'),
     'nama_kegiatan' => $this->input->post('namaKegiatan'),
     'uraian_potensi' => $this->input->post('uraianPotensi'),
@@ -323,7 +322,6 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
   // echo "The file ". htmlspecialchars( basename( $_FILES["filePendukung"]["name"])). " has been uploaded.";
   $uuid = uniqid();
   $data = [
-    'id' => $uuid,
     'strakom_id' => $this->input->post('namaProgram'),
     'nama_kegiatan' => $this->input->post('namaKegiatan'),
     'uraian_potensi' => $this->input->post('uraianPotensi'),
@@ -383,7 +381,6 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
   // echo "The file ". htmlspecialchars( basename( $_FILES["filePendukung"]["name"])). " has been uploaded.";
   $uuid = uniqid();
   $data = [
-    'id' => $uuid,
     'strakom_id' => $this->input->post('namaProgram'),
     'nama_kegiatan' => $this->input->post('namaKegiatan'),
     'uraian_potensi' => $this->input->post('uraianPotensi'),
@@ -415,7 +412,6 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
 } else {
   $uuid = uniqid();
   $data = [
-    'id' => $uuid,
     'strakom_id' => $this->input->post('namaProgram'),
     'nama_kegiatan' => $this->input->post('namaKegiatan'),
     'uraian_potensi' => $this->input->post('uraianPotensi'),
