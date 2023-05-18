@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <a href="<?php echo url('Realisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
       <i class="nav-icon"></i>
       <p>
-      Realisasi
+      Realisasi Strategi <br>Komunikasi
       </p>
     </a>
   </li>

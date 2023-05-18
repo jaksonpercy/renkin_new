@@ -123,7 +123,7 @@ $lang['informational'] = "Informational";
 
 $lang['id'] = "ID";
 $lang['action'] = "Action";
-$lang['submit'] = "Submit";
+$lang['submit'] = "Simpan";
 $lang['cancel'] = "Cancel";
 
 /**
@@ -300,4 +300,3 @@ $lang['settings_timezone'] = "Timezone";
 $lang['language'] = "Language";
 $lang['default_lang'] = "Default Language";
 $lang['blank_page'] = "Blank Page";
-

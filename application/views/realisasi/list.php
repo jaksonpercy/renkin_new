@@ -9,12 +9,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Realisasi</h1>
+        <h1>Realisasi Strategi Komunikasi</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
-          <li class="breadcrumb-item active">Realisasi</li>
+          <li class="breadcrumb-item active">Realisasi Strategi Komunikasi</li>
         </ol>
       </div>
     </div>
@@ -30,7 +30,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Realisasi</span>
+                <span class="info-box-text">Jumlah Realisasi Strategi Komunikasi</span>
                 <span class="info-box-number">150</span>
               </div>
               <!-- /.info-box-content -->
@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <span class="info-box-icon bg-primary"><i class="far fa-flag"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Realisasi Disetujui</span>
+                <span class="info-box-text">Jumlah Realisasi Strategi Komunikasi Disetujui</span>
                 <span class="info-box-number">53</span>
               </div>
               <!-- /.info-box-content -->
@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <span class="info-box-icon bg-danger"><i class="far fa-copy"></i></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Realisasi Ditolak</span>
+                <span class="info-box-text">Jumlah Realisasi Strategi Komunikasi Ditolak</span>
                 <span class="info-box-number">73</span>
               </div>
               <!-- /.info-box-content -->
@@ -71,12 +71,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-12">
             <div class="card">
               <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">Realisasi</h3>
+                <h3 class="card-title p-3">Realisasi Strategi Komunikasi</h3>
                 <div class="ml-auto p-2">
                   <?php if ($roles->role->role_id==1){
                     if ($periode->status_realisasi == 1) {
                   ?>
-                <a href="<?php echo url('Realisasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Realisasi</a>
+                <a href="<?php echo url('Realisasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Realisasi Strategi Komunikasi</a>
               <?php }
               } ?>
                 </div>
@@ -87,13 +87,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                    <th>Nota Dinas</th>
-                    <th>No Nota Dinas / Surat</th>
-                    <th>Perihal Nota Dinas /Surat</th>
-                    <th>Tanggal Nota Dinas /Surat</th>
-                    <th><?php echo lang('action') ?></th>
+                    <th style="vertical-align:middle;text-align:center;">No</th>
+                    <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th style="vertical-align:middle;text-align:center;">Nota Dinas</th>
+                    <th style="vertical-align:middle;text-align:center;">No Nota Dinas / Surat</th>
+                    <th style="vertical-align:middle;text-align:center;">Perihal Nota Dinas /Surat</th>
+                    <th style="vertical-align:middle;text-align:center;">Tanggal Nota Dinas /Surat</th>
+                    <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -120,15 +120,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="card-body">
                   <table id="example1" class="table table-bordered table-hover table-striped">
                     <thead>
-                    <tr>
-                      <th>No</th>
-                      <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                      <th>Nota Dinas</th>
-                      <th>No Nota Dinas / Surat</th>
-                      <th>Perihal Nota Dinas /Surat</th>
-                      <th>Tanggal Nota Dinas /Surat</th>
-                      <th><?php echo lang('action') ?></th>
-                    </tr>
+                      <tr>
+                        <th style="vertical-align:middle;text-align:center;">No</th>
+                        <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                        <th style="vertical-align:middle;text-align:center;">Nota Dinas</th>
+                        <th style="vertical-align:middle;text-align:center;">No Nota Dinas / Surat</th>
+                        <th style="vertical-align:middle;text-align:center;">Perihal Nota Dinas /Surat</th>
+                        <th style="vertical-align:middle;text-align:center;">Tanggal Nota Dinas /Surat</th>
+                        <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+                      </tr>
                     </thead>
                     <tbody>
                       <tr>

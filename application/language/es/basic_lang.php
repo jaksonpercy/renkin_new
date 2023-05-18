@@ -8,7 +8,7 @@ $lang['info'] = [
 ];
 
 
-// 
+//
 $lang['sign_in_session'] = "Sign in to start your session";
 $lang['username_or_email'] = "Username or Email";
 $lang['home'] = "Home";
@@ -101,7 +101,7 @@ $lang['informational'] = "Informational";
 
 $lang['id'] = "ID";
 $lang['action'] = "Action";
-$lang['submit'] = "Submit";
+$lang['submit'] = "Simpan";
 $lang['cancel'] = "Cancel";
 
 /**
@@ -275,6 +275,3 @@ $lang['edit'] = "Edit";
 $lang['settings_email_template'] = "Template";
 $lang['settings_timezone'] = "Timezone";
 $lang['settings_timezone'] = "Timezone";
-
-
-

@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/Mitigasi') ?>">Uraian Materi Mitigasi Krisis</a></li>
-              <li class="breadcrumb-item active"><?php echo $mitigasi->id; ?></li>
+
             </ol>
           </div>
         </div>
@@ -143,6 +143,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
+            </div>
+            <div class="modal-footer justify-content-between">
+
+              <a href="<?php echo url('/Mitigasi') ?>" class="btn btn-flat btn-secondary">Kembali</a>
             </div>
             <!-- ./card -->
           </div>

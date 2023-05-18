@@ -246,17 +246,19 @@ class StrakomUnggulan extends MY_Controller {
     $uuid = uniqid();
 
 
-		$data = [
-			'strakom_id' => $this->input->post('namaProgram'),
-			'tanggal_rencana' => $this->input->post('tanggalRencanaTayang'),
+    $data = [
+      'strakom_id' => $this->input->post('namaProgram'),
+      'tanggal_rencana' => $this->input->post('tanggalRencanaTayang'),
       'produk_komunikasi' => $this->input->post('produkKomunikasi'),
-			'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
+      'txtLainProdukKomunikasi' => $this->input->post('txtLainnyaProdukKomunikasi'),
+      'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
+      'txtLainKanalKomunikasi' => $this->input->post('txtLainnyaKanalKomunikasi'),
       'pesan_utama' => $this->input->post('pesanUtama'),
-			'khalayak' => $this->input->post('khalayak'),
+      'khalayak' => $this->input->post('khalayak'),
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
-		];
+    ];
 
 		$permission = $this->Editorial_model->update($id, $data);
 
@@ -287,19 +289,21 @@ class StrakomUnggulan extends MY_Controller {
 
 		// ifPermissions('permissions_add');
 		$uuid = uniqid();
-		$periode = $this->Editorial_model->create([
-			'id' => $uuid,
-			'strakom_id' => $this->input->post('namaProgram'),
-			'tanggal_rencana' => $this->input->post('tanggalRencanaTayang'),
+    $periode = $this->Editorial_model->create([
+      'id' => $uuid,
+      'strakom_id' => $this->input->post('namaProgram'),
+      'tanggal_rencana' => $this->input->post('tanggalRencanaTayang'),
       'produk_komunikasi' => $this->input->post('produkKomunikasi'),
-			'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
+      'txtLainProdukKomunikasi' => $this->input->post('txtLainnyaProdukKomunikasi'),
+      'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
+      'txtLainKanalKomunikasi' => $this->input->post('txtLainnyaKanalKomunikasi'),
       'pesan_utama' => $this->input->post('pesanUtama'),
-			'khalayak' => $this->input->post('khalayak'),
+      'khalayak' => $this->input->post('khalayak'),
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
 
-		]);
+    ]);
 
 		$this->activity_model->add("Menambahkan Data Editorial Plan #$periode oleh User: #".logged('name'));
 

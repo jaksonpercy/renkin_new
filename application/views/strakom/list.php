@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php include viewPath('includes/header'); ?>
 
+<style media="screen">
+</style>
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
@@ -122,16 +124,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th rowspan="2">No</th>
-                    <th rowspan="2">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                    <th rowspan="2">Kategori Program</th>
-                    <th rowspan="2">Deskripsi Singkat Kegiatan</th>
-                    <th rowspan="2">Identifikasi Masalah / Isu Utama</th>
-                    <th rowspan="2">Narasi Utama Publikasi Program</th>
-                    <th colspan="2">Target Audiens</th>
-                    <th rowspan="2">Rencana Media/Kanal Publikasi</th>
-                    <th rowspan="2">Status</th>
-                    <th rowspan="2" style="width:11%"><?php echo lang('action') ?></th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">No</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Kategori Program</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Deskripsi Singkat Kegiatan</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Identifikasi Masalah / Isu Utama</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Narasi Utama Publikasi Program</th>
+                    <th colspan="2" style="vertical-align:middle;text-align:center;">Target Audiens</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Rencana Media/Kanal Publikasi</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Status</th>
+                    <th rowspan="2" style="width:11%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   <tr>
                     <th>Pro</th>
@@ -232,17 +234,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th rowspan="2"><?php echo lang('id') ?></th>
-                    <th rowspan="2">SKPD/UKPD</th>
-                    <th rowspan="2">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                    <th rowspan="2">Kategori Program</th>
-                    <th rowspan="2">Deskripsi Singkat Kegiatan</th>
-                    <th rowspan="2">Identifikasi Masalah / Isu Utama</th>
-                    <th rowspan="2">Narasi Utama Publikasi Program</th>
-                    <th colspan="2">Target Audiens</th>
-                    <th rowspan="2">Rencana Media/Kanal Publikasi</th>
-                    <th rowspan="2">Status</th>
-                    <th rowspan="2"><?php echo lang('action') ?></th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;"><?php echo lang('id') ?></th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">SKPD/UKPD</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Kategori Program</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Deskripsi Singkat Kegiatan</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Identifikasi Masalah / Isu Utama</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Narasi Utama Publikasi Program</th>
+                    <th colspan="2" style="vertical-align:middle;text-align:center;">Target Audiens</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Rencana Media/Kanal Publikasi</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Status</th>
+                    <th rowspan="2" style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   <tr>
                     <th>Pro</th>

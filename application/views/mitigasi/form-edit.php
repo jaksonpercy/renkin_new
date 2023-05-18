@@ -123,8 +123,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Name">Data Pendukung Kegiatan / Bahan Komunikasi*</label>
-              <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"><?php echo $mitigasi->data_pendukung_text ?></textarea>
+            <label for="formClient-Name">Data Pendukung Kegiatan*</label>
+              <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data pendukung kegiatan (cth: standby statement, press release, talking point, FAQ, Data Teknis, Dll)" rows="3"><?php echo $mitigasi->data_pendukung_text ?></textarea>
             <!-- <div class="custom-file" style="margin-top:3%"> -->
               <input type="file" class="form-control" name="filePendukung" id="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
               <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
@@ -147,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/Mitigasi') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <div class="col" style="display:none"><a href="<?php echo url('/Mitigasi') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>

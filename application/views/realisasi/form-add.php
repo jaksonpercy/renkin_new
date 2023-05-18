@@ -43,12 +43,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Realisasi</h1>
+            <h1>Realisasi Strategi Komunikasi</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/Realisasi') ?>">Realisasi</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/Realisasi') ?>">Realisasi Strategi Komunikasi</a></li>
               <li class="breadcrumb-item active">Tambah</li>
             </ol>
           </div>
@@ -146,16 +146,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <table id="dataTable1" class="table table-bordered table-striped">
               <thead>
               <tr>
-                <th>No</th>
-                <th>Tanggal Realisasi</th>
-                <th>Judul</th>
-                <th>Kanal Publikasi</th>
-                <th>Link Tautan</th>
-                <th>Dokumentasi</th>
+                <th style="vertical-align:middle;text-align:center;">No</th>
+                <th style="vertical-align:middle;text-align:center;">Tanggal Realisasi</th>
+                <th style="vertical-align:middle;text-align:center;">Judul</th>
+                <th style="vertical-align:middle;text-align:center;">Kanal Publikasi</th>
+                <th style="vertical-align:middle;text-align:center;">Link Tautan</th>
+                <th style="vertical-align:middle;text-align:center;">Dokumentasi</th>
                 <?php if ($roles->role->role_id==1){
                   if ($periode->status_realisasi == 1) {
                 ?>
-                <th><?php echo lang('action') ?></th>
+                <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   <?php }} ?>
               </tr>
               </thead>
@@ -308,9 +308,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                          </div>
                        </div>
                    </div>
-                   <div class="modal-footer justify-content-between">
-                     <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                     <button type="submit" class="btn btn-primary">Submit</button>
+                   <div class="modal-footer text-right">
+                     <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> -->
+                     <button type="submit" class="btn btn-primary">Simpan</button>
                    </div>
 
                   <?php echo form_close(); ?>
@@ -421,9 +421,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                </div>
              </div>
          </div>
-         <div class="modal-footer justify-content-between">
-           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-           <button type="submit" class="btn btn-primary">Submit</button>
+         <div class="modal-footer text-right">
+           <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> -->
+           <button type="submit" class="btn btn-primary">Simpan</button>
          </div>
 
          <?php echo form_close(); ?>
@@ -451,7 +451,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="card">
     <div class="card-footer">
       <div class="row">
-        <div class="col"><a href="<?php echo url('/strakomunggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+        <div class="col" style="display:none;"><a href="<?php echo url('/strakomunggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
         <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
       </div>
     </div>

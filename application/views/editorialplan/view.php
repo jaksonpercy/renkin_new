@@ -15,7 +15,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/EditorialPlan') ?>">Editorial Plan</a></li>
-              <li class="breadcrumb-item active"><?php echo $editorialplan->id ?></li>
+
             </ol>
           </div>
         </div>
@@ -37,7 +37,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
           <?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
-            if ($strakom->status == 0) {
+            if ($editorialplan->status == 0) {
             ?>
             <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#modal-lg-edit<?php echo $editorialplan->id ?>">Edit</a></li>
           <?php }}}?>
@@ -102,6 +102,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
+              <div class="modal-footer justify-content-between">
+
+                <a href="<?php echo url('/EditorialPlan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
+              </div>
             </div>
             <!-- ./card -->
           </div>

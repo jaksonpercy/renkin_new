@@ -49,14 +49,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th>No</th>
-                    <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                    <th>Uraian Potensi Krisis</th>
-                    <th>Stakeholder Pro Pemprov DKI Jakarta</th>
-                    <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
-                    <th>Juru Bicara</th>
-                    <th>PIC Kegiatan yang Dapat Dihubungi</th>
-                    <th><?php echo lang('action') ?></th>
+                    <th style="vertical-align:middle;text-align:center;">No</th>
+                    <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                    <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
+                    <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
+                    <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                    <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
+                    <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                    <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
                   <tbody>
@@ -112,16 +112,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <div class="card-body">
                     <table id="example1" class="table table-bordered table-hover table-striped">
                       <thead>
-                      <tr>
-                        <th><?php echo lang('id') ?></th>
-                        <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                        <th>Uraian Potensi Krisis</th>
-                        <th>Stakeholder Pro Pemprov DKI Jakarta</th>
-                        <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
-                        <th>Juru Bicara</th>
-                        <th>PIC Kegiatan yang Dapat Dihubungi</th>
-                        <th><?php echo lang('action') ?></th>
-                      </tr>
+                        <tr>
+                          <th style="vertical-align:middle;text-align:center;">No</th>
+                          <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                          <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
+                          <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                          <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+                        </tr>
                       </thead>
                       <tbody>
                         <?php foreach ($mitigasi as $row):

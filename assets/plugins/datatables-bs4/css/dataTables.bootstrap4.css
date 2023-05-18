@@ -179,6 +179,7 @@ table.dataTable.table-sm .sorting_desc:after {
 
 table.table-bordered.dataTable th,
 table.table-bordered.dataTable td {
+  vertical-align: center;
   border-left-width: 0;
 }
 table.table-bordered.dataTable th:last-child, table.table-bordered.dataTable th:last-child,

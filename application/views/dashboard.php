@@ -2,6 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php include viewPath('includes/header'); ?>
+<style media="screen">
+th {
+text-align: center;
+vertical-align: center;
+}
+</style>
 <!-- Content Header (Page header) -->
 <div class="content-header">
       <div class="container-fluid">

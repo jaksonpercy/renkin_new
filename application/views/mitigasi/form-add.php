@@ -108,8 +108,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </div>
 
             <div class="form-group">
-              <label for="formClient-Name">Data Pendukung Kegiatan / Bahan Komunikasi*</label>
-                <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data Pendukung Kegiatan / Bahan Komunikasi" rows="3"></textarea>
+              <label for="formClient-Name">Data Pendukung Kegiatan*</label>
+                <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data pendukung kegiatan (cth: standby statement, press release, talking point, FAQ, Data Teknis, Dll)" rows="3"></textarea>
               <!-- <div class="custom-file" style="margin-top:3%"> -->
                 <input type="file" class="form-control" name="filePendukung" id="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
                 <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->

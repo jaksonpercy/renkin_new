@@ -270,13 +270,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <table id="example1" class="table table-bordered table-hover table-striped">
                       <thead>
                       <tr>
-                        <th>No</th>
-                        <th>Tanggal Rencana Tayang</th>
-                        <th style="width:60%">Pesan Utama</th>
-                        <th>Produk Komunikasi</th>
-                        <th>Khalayak</th>
-                        <th>Kanal Komunikasi</th>
-                        <th><?php echo lang('action') ?></th>
+                        <th style="vertical-align:middle;text-align:center;">No</th>
+                        <th style="vertical-align:middle;text-align:center;">Tanggal Rencana Tayang</th>
+                        <th style="width:60%;vertical-align:middle;text-align:center;">Pesan Utama</th>
+                        <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
+                        <th style="vertical-align:middle;text-align:center;">Khalayak</th>
+                        <th style="vertical-align:middle;text-align:center;">Kanal Komunikasi</th>
+                        <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                       </tr>
                       </thead>
                       <tbody>
@@ -411,7 +411,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                   <div class="card-body">
                                     <div class="form-group">
                                       <label for="formClient-Contact">Produk Komunikasi*</label>
-                                      <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" required>
+                                      <select name="produkKomunikasi" id="produkKomunikasiEdit" class="form-control select2" required>
                                         <?php foreach ($produkkomunikasi as $rows):
                                           if ($row->produk_komunikasi == $rows->id) {
                                         ?>
@@ -423,6 +423,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                         endforeach ?>
 
                                       </select>
+                                      <?php
+                                      if($row->produk_komunikasi == 11){
+                                      ?>
+                                      <input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya" value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
+                                    <?php } else {?>
+                                      <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya" value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
+
+                                    <?php } ?>
                                     </div>
 
 
@@ -434,7 +442,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                                     <div class="form-group">
                                       <label for="formClient-Contact">Kanal Komunikasi*</label>
-                                      <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" required>
+                                      <select name="kanalKomunikasi" id="kanalKomunikasiEdit" class="form-control" required>
 
                                         <?php foreach ($rencanamedia as $rows):
                                           if ($row->kanal_komunikasi == $rows->id) {
@@ -447,6 +455,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                         endforeach ?>
 
                                       </select>
+                                      <?php
+                                      if($row->kanal_komunikasi == 9){
+                                      ?>
+                                      <input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasiEdit" required placeholder="Lainnya" value="<?php echo $row->txtLainKanalKomunikasi ?>" autofocus />
+                                    <?php } else {?>
+                                      <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasiEdit" required placeholder="Lainnya" value="<?php echo $row->txtLainKanalKomunikasi ?>" autofocus />
+
+                                    <?php } ?>
                                     </div>
 
 
@@ -457,9 +473,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                               </div>
                             </div>
                         </div>
-                        <div class="modal-footer justify-content-between">
-                          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                        <div class="modal-footer text-right">
+                          <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> -->
+                          <button type="submit" class="btn btn-primary">Simpan</button>
                         </div>
                         </div>
                         <!-- /.modal-content -->
@@ -482,15 +498,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <?php } else { ?>
                     <table id="example1" class="table table-bordered table-hover table-striped">
                       <thead>
-                      <tr>
-                        <th>No</th>
-                        <th>Tanggal Rencana Tayang</th>
-                        <th>Pesan Utama</th>
-                        <th>Produk Komunikasi</th>
-                        <th>Khalayak</th>
-                        <th>Kanal Komunikasi</th>
-                        <th><?php echo lang('action') ?></th>
-                      </tr>
+                        <tr>
+                          <th style="vertical-align:middle;text-align:center;">No</th>
+                          <th style="vertical-align:middle;text-align:center;">Tanggal Rencana Tayang</th>
+                          <th style="width:60%;vertical-align:middle;text-align:center;">Pesan Utama</th>
+                          <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
+                          <th style="vertical-align:middle;text-align:center;">Khalayak</th>
+                          <th style="vertical-align:middle;text-align:center;">Kanal Komunikasi</th>
+                          <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+                        </tr>
                       </thead>
                       <tbody>
                         <?php
@@ -541,14 +557,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <table id="example1" class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
-                          <th>No</th>
-                          <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                          <th>Uraian Potensi Krisis</th>
-                          <th>Stakeholder Pro Pemprov DKI Jakarta</th>
-                          <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
-                          <th>Juru Bicara</th>
-                          <th>PIC Kegiatan yang Dapat Dihubungi</th>
-                          <th><?php echo lang('action') ?></th>
+                          <th style="vertical-align:middle;text-align:center;">No</th>
+                          <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                          <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
+                          <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                          <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -602,16 +618,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php else:?>
                           <table id="example1" class="table table-bordered table-hover table-striped">
                             <thead>
-                            <tr>
-                              <th>No</th>
-                              <th>Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                              <th>Uraian Potensi Krisis</th>
-                              <th>Stakeholder Pro Pemprov DKI Jakarta</th>
-                              <th>Stakeholder Kontra Pemprov DKI Jakarta</th>
-                              <th>Juru Bicara</th>
-                              <th>PIC Kegiatan yang Dapat Dihubungi</th>
-                              <th><?php echo lang('action') ?></th>
-                            </tr>
+                              <tr>
+                                <th style="vertical-align:middle;text-align:center;">No</th>
+                                <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                                <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                                <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
+                                <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                                <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+                              </tr>
                             </thead>
                             <tbody>
                               <?php foreach ($mitigasi as $row):
@@ -652,15 +668,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
+                <?php if ($strakom->status == 0): ?>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
+              <?php endif; ?>
+              </div>
+              <div class="modal-footer justify-content-between">
+
+                <a href="<?php echo url('/StrakomUnggulan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
               </div>
             </div>
             <!-- ./card -->
           </div>
-            <?php if ($strakom->status == 0): ?>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
-          </div>
-                <?php endif; ?>
           <!-- /.col -->
         </div>
         <!-- /.row -->
@@ -746,7 +764,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="form-group">
                     <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-                    <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus />
+                    <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang (DD-MM-YYYY)" autofocus />
                   </div>
 
                   <div class="form-group">
@@ -772,13 +790,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="form-group">
                     <label for="formClient-Contact">Produk Komunikasi*</label>
-                    <select name="produkKomunikasi" id="formClient-Produk" class="form-control select2" style="width:100%" required>
+                    <select name="produkKomunikasi" id="produkKomunikasi" class="form-control" style="width:100%" required>
                       <option value="-">Pilih Produk Komunikasi</option>
                       <?php foreach ($produkkomunikasi as $row): ?>
                         <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
                       <?php endforeach ?>
 
                     </select>
+                    <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasi" required placeholder="Lainnya" autofocus />
+
                   </div>
                   <div class="form-group">
                     <label for="formClient-Address">Khalayak*</label>
@@ -787,13 +807,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="form-group">
                     <label for="formClient-Contact">Kanal Komunikasi*</label>
-                    <select name="kanalKomunikasi" id="formClient-Role" class="form-control select2" style="width:100%" required>
+                    <select name="kanalKomunikasi" id="kanalKomunikasi" class="form-control" style="width:100%" required>
                       <option value="-">Pilih Kanal Komunikasi</option>
                       <?php foreach ($rencanamedia as $row): ?>
                         <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
                       <?php endforeach ?>
                     </select>
+                    <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasi" required placeholder="Lainnya" autofocus />
+
                   </div>
+
 
 
                 </div>
@@ -804,9 +827,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
       </div>
-      <div class="modal-footer justify-content-between">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-        <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="modal-footer text-right">
+        <button type="submit" class="btn btn-primary">Simpan</button>
       </div>
     </div>
     <!-- /.modal-content -->
@@ -824,7 +846,49 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </section>
 
 <?php include viewPath('includes/footer'); ?>
+<script type="text/javascript">
+   const publikasiKomunikasi = document.getElementById('produkKomunikasi');
+   const txtpublikasiKomunikasi = document.getElementById('txtLainnyaProdukKomunikasi');
+   const kanalKomunikasi = document.getElementById('kanalKomunikasi');
+   const txtkanalKomunikasi = document.getElementById('txtLainnyaKanalKomunikasi');
+   const publikasiKomunikasiEdit = document.getElementById('produkKomunikasiEdit');
+   const txtpublikasiKomunikasiEdit = document.getElementById('txtLainnyaProdukKomunikasiEdit');
+   const kanalKomunikasiEdit = document.getElementById('kanalKomunikasiEdit');
+   const txtkanalKomunikasiEdit = document.getElementById('txtLainnyaKanalKomunikasiEdit');
+   // const divNamaKSD = document.getElementById('divNamaKSD');
 
+   publikasiKomunikasi.addEventListener('change', function handleChange(event) {
+      if (event.target.value == '11') {
+         txtpublikasiKomunikasi.style.display = 'block';
+       } else {
+        txtpublikasiKomunikasi.style.display = 'none';
+      }
+   });
+
+   kanalKomunikasi.addEventListener('change', function handleChange(event) {
+      if (event.target.value == '9') {
+         txtkanalKomunikasi.style.display = 'block';
+       } else {
+        txtkanalKomunikasi.style.display = 'none';
+      }
+   });
+
+   publikasiKomunikasiEdit.addEventListener('change', function handleChange(event) {
+      if (event.target.value == '11') {
+         txtpublikasiKomunikasiEdit.style.display = 'block';
+       } else {
+        txtpublikasiKomunikasiEdit.style.display = 'none';
+      }
+   });
+
+   kanalKomunikasiEdit.addEventListener('change', function handleChange(event) {
+      if (event.target.value == '9') {
+         txtkanalKomunikasiEdit.style.display = 'block';
+       } else {
+        txtkanalKomunikasiEdit.style.display = 'none';
+      }
+   });
+</script>
 <script>
 	$('#dataTable1').DataTable({
     "order": []
