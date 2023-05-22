@@ -168,6 +168,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <?php if (hasRoles('backup_db')): ?>
   <li class="nav-item">
+    <a href="<?php echo url('Pemberitahuan') ?>" class="nav-link <?php echo ($page->menu=='pemberitahuan')?'active':'' ?>">
+      <i class="nav-icon fas fa-cog"></i>
+      <p>
+    Kelola Pemberitahuan
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
+<?php if (hasRoles('backup_db')): ?>
+  <li class="nav-item">
     <a href="<?php echo url('Backup') ?>" class="nav-link <?php echo ($page->menu=='backup')?'active':'' ?>">
       <i class="nav-icon fas fa-database"></i>
       <p>

@@ -151,4 +151,5 @@ $autoload['model'] = array(
 	'Mitigasi_model',
 	'Realisasi_model',
 	'Data_Realisasi_model',
+	'Pemberitahuan_model',
 );

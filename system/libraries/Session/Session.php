@@ -797,6 +797,12 @@ class CI_Session {
 		$_SESSION[$data] = $value;
 	}
 
+
+	public function set_captcha($data, $value = NULL)
+	{
+		$_SESSION[$data] = $value;
+	}
+
 	// ------------------------------------------------------------------------
 
 	/**

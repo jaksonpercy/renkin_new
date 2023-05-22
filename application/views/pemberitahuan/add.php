@@ -8,13 +8,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>KSD</h1>
+        <h1>Pemberitahuan</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
-          <li class="breadcrumb-item"><a href="<?php echo url('/KSD') ?>">KSD</a></li>
-          <li class="breadcrumb-item active">Edit</li>
+          <li class="breadcrumb-item"><a href="<?php echo url('/Pemberitahuan') ?>"> Pemberitahuan</a></li>
+          <li class="breadcrumb-item active"> Tambah</li>
         </ol>
       </div>
     </div>
@@ -27,46 +27,48 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <!-- Default card -->
   <div class="card">
     <div class="card-header with-border">
-      <h3 class="card-title">Edit KSD</h3>
+      <h3 class="card-title"> Tambah Pemberitahuan </h3>
 
       <div class="card-tools pull-right">
-        <a href="<?php echo url('KSD') ?>" class="btn btn-flat btn-default"><i class="fa fa-chevron-left"></i> &nbsp;&nbsp; KSD</a>
+        <a href="<?php echo url('Pemberitahuan') ?>" class="btn btn-flat btn-default btn-sm"><i class="fa fa-arrow-left"></i> &nbsp;&nbsp;  Pemberitahuan </a>
       </div>
 
     </div>
 
-    <?php echo form_open('KSD/update/'.$ksd->id, [ 'class' => 'form-validate' ]); ?>
+    <?php echo form_open_multipart('Pemberitahuan/save', [ 'class' => 'form-validate' ]); ?>
     <div class="card-body">
 
       <div class="form-group">
-        <label for="formClient-Name"> Nama KSD</label>
-        <input type="text" class="form-control" name="name" id="formClient-Name" required placeholder="Enter Name" value="<?php echo $ksd->nama ?>" autofocus />
+        <label for="formClient-Name"> Judul Pemberitahuan</label>
+        <input type="text" class="form-control" name="judulpemberitahuan" id="formClient-Judul" required placeholder="Judul Pemberitahuan" autofocus />
       </div>
 
       <div class="form-group">
-        <label for="formClient-Code"> <?php echo lang('permission_code') ?></label>
-        <input type="text" class="form-control" name="code" id="formClient-Code" required placeholder="Enter Code" value="<?php echo $ksd->code ?>" autofocus />
-        <p style="color: red;"> <?php echo lang('permission_code_unique') ?></p>
+        <label for="formClient-Code"> URL Link</label>
+        <input type="text" class="form-control" name="url" id="formClient-URL" required placeholder="URL" autofocus />
+      </div>
+
+      <div class="form-group">
+        <label for="formClient-Name">File </label>
+          <input type="file" class="form-control" name="filePendukung" id="formClient-filePendukung" accept="image/*"/>
+
       </div>
 
       <div class="form-group">
         <label for="formClient-Status"><?php echo lang('user_status') ?></label>
         <select name="status" id="formClient-Status" class="form-control">
-          <?php $sel = $ksd->status==1 ? 'selected' : '' ?>
-          <option value="1" <?php echo $sel ?>><?php echo lang('user_active') ?></option>
-          <?php $sel = $ksd->status==0 ? 'selected' : '' ?>
-          <option value="0" <?php echo $sel ?>><?php echo lang('user_inactive') ?></option>
+          <option value="1" selected><?php echo lang('user_active') ?></option>
+          <option value="0"><?php echo lang('user_inactive') ?></option>
         </select>
       </div>
-
 
     </div>
     <!-- /.card-body -->
 
     <div class="card-footer">
       <div class="row">
-        <!-- <div class="col"><a href="<?php echo url('/KSD') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div> -->
-        <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
+        <!-- <div class="col"><a href="<?php echo url('/KSD') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"> <?php echo lang('cancel') ?></a></div> -->
+        <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"> <?php echo lang('submit') ?></button></div>
       </div>
     </div>
     <!-- /.card-footer-->
