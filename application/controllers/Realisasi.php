@@ -20,6 +20,8 @@ class Realisasi extends MY_Controller {
 	{
 		$this->page_data['page']->submenu = 'realisasi';
     $this->page_data['realisasi'] = $this->users_model->get();
+
+    $this->page_data['userall'] = $this->users_model->get();
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
@@ -75,7 +77,7 @@ class Realisasi extends MY_Controller {
     $this->page_data['strakom'] = $this->Strakom_model->get();
 
     $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getDataByUserId($this->session->userdata('logged')['id']);
-    
+
     $this->load->view('realisasi/form-edit', $this->page_data);
 
   }

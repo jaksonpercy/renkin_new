@@ -18,6 +18,11 @@ class StrakomUnggulan extends MY_Controller {
 
   public function strakom()
 	{
+
+    $tahun = $this->input->post('tahun_periode');
+    $skpd = $this->input->post('user_id');
+    $triwulan = $this->input->post('triwulan_periode');
+    $filtered_get = array_filter($_POST);
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -26,7 +31,11 @@ class StrakomUnggulan extends MY_Controller {
       'status_periode'=> 1
     ])[0];
     $this->page_data['user'] = $this->users_model->get();
-    $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
+    if ($this->page_data['roles']->role->role_id == 1) {
+        $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
+    } else {
+      $this->page_data['strakom'] = $this->Strakom_model->get();
+    }
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
     $this->page_data['countstrakomApproved'] = $this->Strakom_model->countAllByStatus(2);
     $this->page_data['countstrakomRejected'] = $this->Strakom_model->countAllByStatus(3);
@@ -120,7 +129,9 @@ class StrakomUnggulan extends MY_Controller {
 	{
 
 		postAllowed();
-
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
 		// ifPermissions('permissions_add');
 		$uuid = uniqid();
     $namaProgram ='';
@@ -152,6 +163,8 @@ class StrakomUnggulan extends MY_Controller {
       'kanal_publikasi_lainnya' => $this->input->post('textlainnya'),
 			'user_id' => $this->input->post('idUser'),
 			'periode_id' => $this->input->post('idPeriode'),
+      'tahun_periode' => $this->page_data['periode']->tahun,
+      'triwulan_periode' => $this->page_data['periode']->periode_aktif,
 			'opd_id' => $this->input->post('idOPD'),
 		]);
 

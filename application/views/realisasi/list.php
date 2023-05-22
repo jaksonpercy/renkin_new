@@ -70,6 +70,65 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="row">
           <div class="col-12">
             <div class="card">
+              <div class="card-header">
+
+                <?php echo form_open_multipart('StrakomUnggulan/strakom', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
+                <div class="row">
+                  <div class="col-2">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <label for="formClient-Contact">Pilih Tahun</label>
+                      <select name="tahun_periode" id="tahun_periode" class="form-control">
+                        <option value="">Pilih Tahun</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-3">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <label for="formClient-Contact">Pilih SKPD/UKPD</label>
+                      <select name="user_id" id="user_id" class="form-control select2">
+                        <option value="">Pilih SKPD/UKPD</option>
+                        <?php foreach ($userall as $row): ?>
+                          <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+                        <?php endforeach ?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                  <div class="col-3">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <label for="formClient-Contact">Pilih Triwulan</label>
+                      <select name="triwulan_periode" id="triwulan_periode" class="form-control">
+                        <option value="">Pilih Triwulan</option>
+                        <option value="Triwulan I">Triwulan I</option>
+                        <option value="Triwulan II">Triwulan II</option>
+                        <option value="Triwulan III">Triwulan III</option>
+                        <option value="Triwulan IV">Triwulan IV</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col"><button type="submit" class="btn btn-flat btn-primary">Tampilkan</button></div>
+
+
+
+                <!-- /.card-footer-->
+                <?php echo form_close(); ?>
+              </div>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Realisasi Strategi Komunikasi</h3>
                 <div class="ml-auto p-2">
