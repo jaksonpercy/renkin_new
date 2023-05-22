@@ -35,7 +35,7 @@ vertical-align: center;
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
-              <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+              <span class="info-box-icon bg-success"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Renkin.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Renkin</span>
@@ -48,7 +48,7 @@ vertical-align: center;
           <!-- /.col -->
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
-              <span class="info-box-icon bg-success"><i class="far fa-flag"></i></span>
+              <span class="info-box-icon bg-info"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Realisasi(1).png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Realisasi</span>
@@ -61,7 +61,7 @@ vertical-align: center;
           <!-- /.col -->
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
-              <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+              <span class="info-box-icon bg-primary"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Periode-Dipilih.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Periode Dipilih</span>

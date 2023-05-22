@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php include viewPath('includes/header'); ?>
 
+<style>
+.error {
+	color:#ff0000;
+}
+</style>
+
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
@@ -145,12 +151,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Address">Rencana Media/Kanal Publikasi<label class="text-danger">*</label></label>
-            <select class="select2" multiple="multiple" name="rencanaMedia[]" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
+            <select id="kanal" class="select2" multiple="multiple" name="rencanaMedia[]" required title="Bagian ini wajib diisi" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;">
               <?php foreach ($rencanamedia as $row): ?>
                 <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
               <?php endforeach ?>
             </select>
           </div>
+		  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
 
         </div>
         <!-- /.card-body -->
@@ -253,6 +260,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
            divNamaUnggulan.style.display = 'none';
       }
    });
+   
+   $(function() {
+    $('#kanal').change(function(e) {
+        var selected = $(e.target).val();
+        if (selected.includes('9') == true) {
+			$('#textlainnya').css("display", "block");
+		}
+    }); 
+});
 </script>
 
 
