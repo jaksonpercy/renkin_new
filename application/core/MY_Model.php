@@ -207,6 +207,13 @@ class MY_Model extends CI_Model {
 		return $query;
 	}
 
+	public function getDataLimit($id,$limit)
+	{
+
+		$query = $this->db->query("SELECT * FROM $this->table ORDER BY id =  '".$id."' LIMIT 1")->result()	;
+		return $query;
+	}
+
 }
 
 /* End of file MY_Model.php */

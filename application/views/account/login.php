@@ -19,8 +19,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <link rel="stylesheet" href="<?php echo $assets ?>plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $assets ?>/css/adminlte.min.css">
+
+    <!-- jQuery -->
+  <script src="<?php echo $assets ?>plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+  <script src="<?php echo $assets ?>plugins/jquery-ui/jquery-ui.min.js"></script>
+
+  <script src="<?php echo $assets ?>plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+
 </head>
 <body class="hold-transition <?php echo !isset($body_classes)?'login-page':$body_classes ?>">
 
@@ -48,6 +57,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <p class="login-box-msg" style="display:none"><?php echo lang('sign_in_session') ?></p>
 
       <?php echo form_open('/Login/check', ['method' => 'POST', 'autocomplete' => 'off']); ?>
+      <?php if(!empty($captchaError)) {?>
+      <div class="form-group col-12 text-center">
+        <div class="alert text-center <?php echo $captchaError['status']; ?>">
+          <?php echo $captchaError['message']; ?>
+        </div>
+      </div>
+    <?php }?>
       <div class="input-group mb-3">
           <input type="text" name="username" required class="form-control" placeholder="<?php echo lang('username_or_email') ?>" value="<?php echo post('username') ?>" autofocus>
           <div class="input-group-append">
@@ -68,16 +84,32 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <?php echo form_error('password', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?>
         </div>
 
-      <?php if (setting('google_recaptcha_enabled') == '1'): ?>
+        <div class="input-group mb-3">
 
-      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+          <div class="row">
+                 <div class="form-group col-6">
+                   <label>Enter Captcha</label>
+                   <input type="text" class="form-control" name="captcha" id="captcha">
+                 </div>
+                 <div class="form-group col-6">
+                   <label>Captcha Code</label>
+                   <img src="<?php echo $assets ?>plugins/captcha/captcha.php" alt="PHP Captcha">
+                 </div>
+               </div>
 
-      <div class="form-group">
-        <div class="g-recaptcha" data-sitekey="<?php echo setting('google_recaptcha_sitekey') ?>"></div>
-        <?php echo form_error('g-recaptcha-response', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?>
-      </div>
+          <!-- <div id="html_element"></div> -->
+          <!-- <div class="g-recaptcha" data-sitekey="6LdcBC0mAAAAAHwTiw1FooOXWX1DqVBCLxyOtoSy"></div> -->
+          <!-- <?php echo form_error('g-recaptcha-response', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?> -->
+        </div>
 
-      <?php endif ?>
+
+      <!-- <?php if (setting('google_recaptcha_enabled') == '1'): ?> -->
+
+      <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
+
+
+
+      <!-- <?php endif ?> -->
 
       <div class="row">
         <div class="col-8">
@@ -108,13 +140,67 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   </div>
 </div>
 <!-- /.login-box -->
+<div class="modal hide fade" id="myModal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3>Modal header</h3>
+    </div>
+    <div class="modal-body">
+        <p>One fine body…</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn">Close</a>
+        <a href="#" class="btn btn-primary">Save changes</a>
+    </div>
+</div>
+
+    <div class="modal fade" id="modal-lg">
+<div class="modal-dialog modal-lg">
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div class="">
+            <!-- Default card -->
+            <a href="<?php echo $pemberitahuan[0]->url; ?>" target="_blank">
+                  <img src="<?php echo url('/uploads/bannerpemberitahuan/'.$pemberitahuan[0]->lokasi_file);?>" style="width:100%;"alt=""/>
+            </a>
+        </div>
+
+    </div>
+
+  </div>
+  <!-- /.modal-content -->
 
 
 
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</div>
+
+<script type="text/javascript">
+  $(window).on('load',function() {
+    $('#modal-lg').modal('show');
+});
+</script>
+
+<!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+       async defer> -->
+   <!-- </script> -->
 <!-- AdminLTE App -->
-<script src="<?php echo $assets ?>/js/adminlte.min.js"></script>
+<!-- <script src="<?php echo $assets ?>/js/adminlte.min.js"></script> -->
 
-
+<!-- <script type="text/javascript">
+     var onloadCallback = function() {
+       grecaptcha.render('html_element', {
+         'sitekey' : '6LdcBC0mAAAAAHwTiw1FooOXWX1DqVBCLxyOtoSy'
+       });
+     };
+   </script> -->
 <!-- <script>
   $(function () {
     $('input').iCheck({
@@ -124,6 +210,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     });
   });
 </script> -->
+
 <script type="text/javascript">
 var hours = new Date().getHours();
 if (document.body) {

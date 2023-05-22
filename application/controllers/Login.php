@@ -8,7 +8,6 @@ class Login extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-
 		date_default_timezone_set( 'Asia/Jakarta' );
 
 		if( !empty($this->db->username) && !empty($this->db->hostname) && !empty($this->db->database) ){ }else{
@@ -28,6 +27,7 @@ class Login extends CI_Controller {
 
 	public function index()
 	{
+		$this->data['pemberitahuan'] = $this->Pemberitahuan_model->getDataLimit('DESC',1);
 		$this->load->view('account/login', $this->data, FALSE);
 	}
 
@@ -40,17 +40,24 @@ class Login extends CI_Controller {
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|xss_clean|callback_validate_username');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|xss_clean');
 
-        $is_recaptcha_enabled = (setting('google_recaptcha_enabled') == '1');
+        // $is_recaptcha_enabled = (setting('google_recaptcha_enabled') == '1');
+				//
+        // if($is_recaptcha_enabled)
+        // 	$this->form_validation->set_rules('g-recaptcha-response', 'Google Recaptcha', 'callback_validate_recaptcha');
+				//
+        // if ($this->form_validation->run() == FALSE)
+        // {
+        //     $this->index();
+        //     return;
+        // }
 
-        if($is_recaptcha_enabled)
-        	$this->form_validation->set_rules('g-recaptcha-response', 'Google Recaptcha', 'callback_validate_recaptcha');
+				$captchaUser = filter_var(post('captcha'), FILTER_SANITIZE_STRING);
 
-        if ($this->form_validation->run() == FALSE)
-        {
-            $this->index();
-            return;
-        }
-
+			// 	if(empty(post('captcha'))) {
+			// 		$this->session->set_flashdata('message', 'Please enter the captcha.');
+			// 		$this->session->set_flashdata('message_type', 'danger');
+      // }
+      // else if($this->session->userdata('CAPTCHA_CODE') == $captchaUser){
         $username = post('username');
         $password = post('password');
 
@@ -91,6 +98,16 @@ class Login extends CI_Controller {
             return;
 
         }
+			// } else {
+			// 	$this->session->set_flashdata('message', $captchaUser);
+			// 	$this->session->set_flashdata('message_type', 'danger');
+			// 	// $this->form_validation->set_message('validate_captcha', 'Captcha is invalid.');
+			//
+			// 	// $captchaError = array(
+			// 	// 	"status" => "alert-danger",
+			// 	// 	"message" => "Captcha is invalid."
+			// 	// );
+			// }
 
         redirect('/','refresh');
 
