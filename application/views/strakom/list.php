@@ -30,10 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
-              <span class="info-box-icon bg-info"><i class="far fa-envelope"></i></span>
+              <span class="info-box-icon bg-info"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Renkin.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Strategi Komunikasi Unggulan</span>
+                <span class="info-box-text">Jumlah Strakom</span>
                 <span class="info-box-number">
 
                   <?php
@@ -52,10 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <!-- /.col -->
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
-              <span class="info-box-icon bg-primary"><i class="far fa-flag"></i></span>
+              <span class="info-box-icon bg-success"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Strakom-Disetujui.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Strategi Komunikasi Unggulan Disetujui</span>
+                <span class="info-box-text">Jumlah Strakom Disetujui</span>
                 <span class="info-box-number">
                   <?php
                   if ($roles->role->role_id==1){
@@ -73,10 +73,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <!-- /.col -->
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
-              <span class="info-box-icon bg-danger"><i class="far fa-copy"></i></span>
+              <span class="info-box-icon bg-danger"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Strakom-Ditolak.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Strategi Komunikasi Unggulan Ditolak</span>
+                <span class="info-box-text">Jumlah Strakom Ditolak</span>
                 <span class="info-box-number">
                   <?php
                   if ($roles->role->role_id==1){
