@@ -6,7 +6,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <link rel="stylesheet" href="<?php echo $url->assets ?>plugins/jquery-file-upload/css/jquery.fileupload.css" />
     <link rel="stylesheet" href="<?php echo $url->assets ?>plugins/jquery-file-upload/css/jquery.fileupload-ui.css" />
 
-    <style>#dropzone {
+    <style>
+    .error {
+    	color:#ff0000;
+    }
+    #dropzone {
     background: white;
     width: 100%;
     height: 200px;
@@ -70,8 +74,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="card-body">
 
         <div class="form-group">
-          <label for="formClient-Contact">Nama Program/Kegiatan Strategi Komunikasi*</label>
-          <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required>
+          <label for="formClient-Contact">Nama Program/Kegiatan Strategi Komunikasi<label class="text-danger">*</label></label>
+          <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required title="Bagian ini wajib diisi">
             <option value="">Pilih Nama Program/Kegiatan Strategi Komunikasi</option>
             <?php foreach ($strakom as $row):
               if ($row->ksd_id > 0){
@@ -90,26 +94,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
 
         <div class="form-group">
-          <label for="formClient-Name">Nota Dinas*</label>
+          <label for="formClient-Name">Nota Dinas<label class="text-danger">*</label></label>
            <div class="custom-file">
-            <input type="file" class="custom-file-input" name="file" accept=".pdf" required id="exampleInputFile">
+            <input type="file" class="custom-file-input" name="file" accept=".pdf" required title="Bagian ini wajib diisi" id="exampleInputFile">
             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
           </div>
         </div>
 
         <div class="form-group">
-          <label for="formClient-Contact">No Nota Dinas / Surat*</label>
-          <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" required placeholder="No Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <label for="formClient-Contact">No Nota Dinas / Surat<label class="text-danger">*</label></label>
+          <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" required title="Bagian ini wajib diisi" placeholder="No Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
         <div class="form-group">
-          <label for="formClient-Contact">Perihal Nota Dinas /Surat*</label>
-          <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" required placeholder="Nama Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <label for="formClient-Contact">Perihal Nota Dinas /Surat<label class="text-danger">*</label></label>
+          <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" required title="Bagian ini wajib diisi" placeholder="Nama Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
         <div class="form-group">
-          <label for="formClient-Contact">Tanggal Nota Dinas /Surat*</label>
-          <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" required placeholder="Tanggal Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <label for="formClient-Contact">Tanggal Nota Dinas /Surat<label class="text-danger">*</label></label>
+          <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" required title="Bagian ini wajib diisi" placeholder="Tanggal Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
       </div>
@@ -124,7 +128,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
   </div>
 </div>
-<?php echo form_close(); ?>
   <div class="row">
     <div class="col-sm-12">
       <!-- Default card -->
@@ -205,7 +208,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                      </button>
                    </div>
 
-                     <?php echo form_open_multipart('Realisasi/updateData/'.$row->id, ['autocomplete' => 'off' ]); ?>
+                     <?php echo form_open_multipart('Realisasi/updateData/'.$row->id, ['class' => 'form-validate-edit','autocomplete' => 'off' ]); ?>
                    <div class="">
                        <div class="row">
                          <div class="col-sm-12">
@@ -219,8 +222,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
                                <div class="form-group">
-                                  <label for="formClient-Contact">Nama Judul Strategi Komunikasi*</label>
-                                  <select name="namaProgramData" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required>
+                                  <label for="formClient-Contact">Nama Judul Strategi Komunikasi<label class="text-danger">*</label></label>
+                                  <select name="namaProgramData" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required title="Bagian ini wajib diisi">
                                     <option value="">Pilih Judul Strategi Komunikasi</option>
                                     <?php foreach ($strakom as $rows):
 
@@ -254,18 +257,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                   </select>
                                 </div>
                                 <div class="form-group">
-                                  <label for="formClient-Name">Tanggal Realisasi*</label>
-                                  <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required value="<?php echo $row->tanggal_realisasi; ?>" placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                                  <label for="formClient-Name">Tanggal Realisasi<label class="text-danger">*</label></label>
+                                  <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required title="Bagian ini wajib diisi" value="<?php echo $row->tanggal_realisasi; ?>" placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="formClient-Name">Judul Publikasi*</label>
-                                  <input type="text" class="form-control" name="judulPublikasi" id="formClient-Name" required value="<?php echo $row->judul_publikasi; ?>" placeholder="Judul Publikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                                  <label for="formClient-Name">Judul Publikasi<label class="text-danger">*</label></label>
+                                  <input type="text" class="form-control" name="judulPublikasi" id="formClient-Name" required title="Bagian ini wajib diisi" value="<?php echo $row->judul_publikasi; ?>" placeholder="Judul Publikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="formClient-Address">Kanal Publikasi*</label>
-                                  <select name="kanalpublikasi" id="kanalpublikasi" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
+                                  <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
+                                  <select name="kanalpublikasi" id="formClient-kanalpublikasi" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required title="Bagian ini wajib diisi">
                                     <?php foreach ($rencanamedia as $rows):
                                       if ($row->kanal_publikasi == $rows->id) {
                                     ?>
@@ -281,17 +284,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="formClient-Name">Link Tautan</label> (*Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
+                                  <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
 
                                   <input type="text" class="form-control" name="linktautan" id="formClient-Name" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                                 </div>
 
                                 <div class="form-group">
-                                  <label for="formClient-Name">Dokumentasi*</label>
-                                  <div class="custom-file">
-                                    <input type="file" class="form-control" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
+                                  <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
+                                  <!-- <div class="custom-file"> -->
+                                    <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
 
-                                  </div>
+                                  <!-- </div> -->
                                 </div>
 
 
@@ -336,7 +339,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
              <span aria-hidden="true">&times;</span>
            </button>
          </div>
-         <?php echo form_open_multipart('Realisasi/addData', ['autocomplete' => 'off' ]); ?>
+         <?php echo form_open_multipart('Realisasi/addData', ['class' => 'form-validates','autocomplete' => 'off' ]); ?>
 
          <div class="">
 
@@ -353,8 +356,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
                      <div class="form-group">
-                        <label for="formClient-Contact">Nama Judul Strategi Komunikasi*</label>
-                        <select name="namaProgramData" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required>
+                        <label for="formClient-Contact">Nama Judul Strategi Komunikasi<label class="text-danger">*</label></label>
+                        <select name="namaProgramData" id="formClient-namaProgramData" class="form-control select2" style ="width:100%" required title="Bagian ini wajib diisi">
                           <option value="">Pilih Judul Strategi Komunikasi</option>
                           <?php foreach ($strakom as $row):
                             if ($row->ksd_id > 0){
@@ -372,18 +375,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="formClient-Name">Tanggal Realisasi*</label>
-                        <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                        <label for="formClient-Name">Tanggal Realisasi<label class="text-danger">*</label></label>
+                        <input type="date" class="form-control" name="tglRealisasi" id="formClient-tglRealisasi" required title="Bagian ini wajib diisi" placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Name">Judul Publikasi*</label>
-                        <input type="text" class="form-control" name="judulPublikasi" id="formClient-Name" required placeholder="Judul Publikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                        <label for="formClient-Name">Judul Publikasi<label class="text-danger">*</label></label>
+                        <input type="text" class="form-control" name="judulPublikasi" id="formClient-judulPublikasi" required title="Bagian ini wajib diisi" placeholder="Judul Publikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Address">Kanal Publikasi*</label>
-                        <select name="kanalpublikasi" id="kanalpublikasi" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
+                        <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
+                        <select name="kanalpublikasi" id="formClient-kanalpublikasi" class="form-control" required title="Bagian ini wajib diisi" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
                           <option value="0">Pilih Kanal Publikasi</option>
                           <?php foreach ($rencanamedia as $row): ?>
                             <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
@@ -394,17 +397,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Name">Link Tautan</label> (*Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
+                        <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
 
                         <input type="text" class="form-control" name="linktautan" id="formClient-Name" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                       </div>
 
                       <div class="form-group">
-                        <label for="formClient-Name">Dokumentasi*</label>
-                        <div class="custom-file">
-                          <input type="file" class="form-control" required name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
+                        <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
 
-                        </div>
+                          <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="formClient-fileDokumentasi" accept="image/*"/>
+
+
                       </div>
 
 
@@ -466,7 +469,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!-- /.content -->
 
 <script type="text/javascript">
-   const el = document.getElementById('kanalpublikasi');
+   const el = document.getElementById('formClient-kanalpublikasi');
    const etLainnya = document.getElementById('textlainnya');
    // const divNamaKSD = document.getElementById('divNamaKSD');
 
@@ -480,7 +483,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </script>
 
 <script type="text/javascript">
-   const eledit = document.getElementById('kanalpublikasiedit');
+   const eledit = document.getElementById('formClient-kanalpublikasiedit');
    const etLainnyaedit = document.getElementById('textlainnyaedit');
    // const divNamaKSD = document.getElementById('divNamaKSD');
 
@@ -495,7 +498,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <script>
   $(document).ready(function() {
+    $('.form-validates').validate();
     $('.form-validate').validate();
+    $('.form-validate-edit').validate();
 
       //Initialize Select2 Elements
     $('.select2').select2()

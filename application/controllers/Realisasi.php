@@ -61,6 +61,21 @@ class Realisasi extends MY_Controller {
 
   public function edit(){
     // load view
+    $this->page_data['page']->submenu = 'realisasi';
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['strakom'] = $this->Strakom_model->get();
+
+    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getDataByUserId($this->session->userdata('logged')['id']);
+    
     $this->load->view('realisasi/form-edit', $this->page_data);
 
   }

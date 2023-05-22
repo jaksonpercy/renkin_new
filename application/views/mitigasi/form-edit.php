@@ -3,6 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php include viewPath('includes/header'); ?>
 
+<style>
+.error {
+	color:#ff0000;
+}
+</style>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
@@ -38,8 +43,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $mitigasi->opd_id; ?>" />
 
         <div class="form-group">
-          <label for="formClient-Contact">Nama Program/Kegiatan Strategi Komunikasi Unggulan*</label>
-          <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required>
+          <label for="formClient-Contact">Nama Program/Kegiatan Strategi Komunikasi Unggulan<label class="text-danger">*</label></label>
+          <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required title="Bagian ini wajib diisi">
             <option value="">Pilih Nama Program/Kegiatan</option>
             <?php foreach ($strakom as $rows):
 
@@ -74,22 +79,22 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="form-group" style="display:none">
           <label for="formClient-Name">Nama Kegiatan*</label>
-          <input type="text" class="form-control" name="namaKegiatan" id="formClient-Name" required placeholder="Nama Kegiatan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <input type="text" class="form-control" name="namaKegiatan" id="formClient-Name" required title="Bagian ini wajib diisi" placeholder="Nama Kegiatan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
         <div class="form-group">
-          <label for="formClient-Address">Uraian Potensi Krisis*</label>
-          <textarea type="text" class="form-control" name="uraianPotensi" id="formClient-Uraian" placeholder="Uraian Potensi Krisis" rows="5"><?php echo $mitigasi->uraian_potensi ?></textarea>
+          <label for="formClient-Address">Uraian Potensi Krisis<label class="text-danger">*</label></label>
+          <textarea type="text" class="form-control" name="uraianPotensi" id="formClient-Uraian" required title="Bagian ini wajib diisi" placeholder="Uraian Potensi Krisis" rows="5"><?php echo $mitigasi->uraian_potensi ?></textarea>
         </div>
 
         <div class="form-group">
-          <label for="formClient-Address">Stakeholder Pro Pemprov DKI Jakarta*</label>
-          <textarea type="text" class="form-control" name="stakeholderPro" id="formClient-StakeholderPro" placeholder="Stakeholder Pro Pemprov DKI Jakarta" rows="5"><?php echo $mitigasi->stakeholder_pro ?></textarea>
+          <label for="formClient-Address">Stakeholder Pro Pemprov DKI Jakarta<label class="text-danger">*</label></label>
+          <textarea type="text" class="form-control" name="stakeholderPro" id="formClient-StakeholderPro" required title="Bagian ini wajib diisi" placeholder="Stakeholder Pro Pemprov DKI Jakarta" rows="5"><?php echo $mitigasi->stakeholder_pro ?></textarea>
         </div>
 
         <div class="form-group">
-          <label for="formClient-Address">Stakeholder Kontra Pemprov DKI Jakarta*</label>
-          <textarea type="text" class="form-control" name="stakeholderKontra" id="formClient-StakeholderKontra" placeholder="Stakeholder Kontra Pemprov DKI Jakarta" rows="3"><?php echo $mitigasi->stakeholder_kontra ?></textarea>
+          <label for="formClient-Address">Stakeholder Kontra Pemprov DKI Jakarta<label class="text-danger">*</label></label>
+          <textarea type="text" class="form-control" name="stakeholderKontra" id="formClient-StakeholderKontra" required title="Bagian ini wajib diisi" placeholder="Stakeholder Kontra Pemprov DKI Jakarta" rows="3"><?php echo $mitigasi->stakeholder_kontra ?></textarea>
         </div>
 
 
@@ -112,21 +117,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
           <div class="form-group">
-            <label for="formClient-Name">Juru Bicara*</label>
-            <input type="text" class="form-control" name="juruBicara" id="formClient-Juru" required placeholder="Juru Bicara" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus value="<?php echo $mitigasi->juru_bicara ?>" />
+            <label for="formClient-Name">Juru Bicara<label class="text-danger">*</label></label>
+            <input type="text" class="form-control" name="juruBicara" id="formClient-Juru" required title="Bagian ini wajib diisi" placeholder="Juru Bicara" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus value="<?php echo $mitigasi->juru_bicara ?>" />
           </div>
 
 
           <div class="form-group">
-            <label for="formClient-Address">PIC Kegiatan yang Dapat Dihubungi*</label>
-            <textarea type="text" class="form-control" name="picKegiatan" id="formClient-PIC" placeholder="PIC Kegiatan yang Dapat Dihubungi" rows="3"><?php echo $mitigasi->pic_kegiatan ?></textarea>
+            <label for="formClient-Address">PIC Kegiatan yang Dapat Dihubungi<label class="text-danger">*</label></label>
+            <textarea type="text" class="form-control" name="picKegiatan" id="formClient-PIC" required title="Bagian ini wajib diisi" placeholder="PIC Kegiatan yang Dapat Dihubungi" rows="3"><?php echo $mitigasi->pic_kegiatan ?></textarea>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Name">Data Pendukung Kegiatan*</label>
-              <textarea type="text" class="form-control" name="dataPendukung" id="dataPendukung" placeholder="Data pendukung kegiatan (cth: standby statement, press release, talking point, FAQ, Data Teknis, Dll)" rows="3"><?php echo $mitigasi->data_pendukung_text ?></textarea>
+            <label for="formClient-Name">Data Pendukung Kegiatan<label class="text-danger">*</label></label>
+              <textarea type="text" class="form-control" name="dataPendukung" id="formClient-dataPendukung" placeholder="Data pendukung kegiatan (cth: standby statement, press release, talking point, FAQ, Data Teknis, Dll)" rows="3"><?php echo $mitigasi->data_pendukung_text ?></textarea>
             <!-- <div class="custom-file" style="margin-top:3%"> -->
-              <input type="file" class="form-control" name="filePendukung" id="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
+              <input type="file" class="form-control" name="filePendukung" id="formClient-filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
               <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
             <!-- </div> -->
           </div>

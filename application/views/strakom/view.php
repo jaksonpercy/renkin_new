@@ -3,7 +3,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php include viewPath('includes/header'); ?>
 
-
+<style>
+.error {
+	color:#ff0000;
+}
+</style>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
@@ -350,8 +354,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                   <div class="card-body">
 
                                     <div class="form-group">
-                                      <label for="formClient-Contact">Nama Kegiatan*</label>
-                                      <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required>
+                                      <label for="formClient-Contact">Nama Kegiatan<label class="text-danger">*</label></label>
+                                      <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required title="Bagian ini wajib diisi">
                                         <?php foreach ($strakomList as $rows):
 
 
@@ -384,13 +388,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-                                      <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+                                      <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
+                                      <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
                                     </div>
 
                                     <div class="form-group">
-                                      <label for="formClient-Address">Pesan Utama*</label>
-                                      <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
+                                      <label for="formClient-Address">Pesan Utama<label class="text-danger">*</label></label>
+                                      <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Pesan" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
                                     </div>
 
 
@@ -410,8 +414,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <div class="card">
                                   <div class="card-body">
                                     <div class="form-group">
-                                      <label for="formClient-Contact">Produk Komunikasi*</label>
-                                      <select name="produkKomunikasi" id="produkKomunikasiEdit" class="form-control select2" required>
+                                      <label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
+                                      <select name="produkKomunikasi" required title="Bagian ini wajib diisi" id="produkKomunikasiEdit" class="form-control select2" required>
                                         <?php foreach ($produkkomunikasi as $rows):
                                           if ($row->produk_komunikasi == $rows->id) {
                                         ?>
@@ -435,14 +439,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
                                         <div class="form-group">
-                                          <label for="formClient-Address">Khalayak*</label>
-                                          <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Analisis Situasi" rows="3"><?php echo $row->khalayak; ?></textarea>
+                                          <label for="formClient-Address">Khalayak<label class="text-danger">*</label></label>
+                                          <textarea type="text" class="form-control" name="khalayak" required title="Bagian ini wajib diisi" id="formClient-Khalayak" placeholder="Analisis Situasi" rows="3"><?php echo $row->khalayak; ?></textarea>
                                         </div>
 
 
                                     <div class="form-group">
-                                      <label for="formClient-Contact">Kanal Komunikasi*</label>
-                                      <select name="kanalKomunikasi" id="kanalKomunikasiEdit" class="form-control" required>
+                                      <label for="formClient-Contact">Kanal Komunikasi<label class="text-danger">*</label></label>
+                                      <select name="kanalKomunikasi" id="kanalKomunikasiEdit"required title="Bagian ini wajib diisi"  class="form-control" required>
 
                                         <?php foreach ($rencanamedia as $rows):
                                           if ($row->kanal_komunikasi == $rows->id) {
@@ -743,8 +747,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="card-body">
 
                   <div class="form-group">
-                    <label for="formClient-Contact">Nama Kegiatan*</label>
-                    <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style="width:100%;" required>
+                    <label for="formClient-Contact">Nama Kegiatan<label class="text-danger">*</label></label>
+                    <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style="width:100%;" required title="Bagian ini wajib diisi">
                       <option value="">Pilih Nama Program/Kegiatan</option>
                       <?php foreach ($strakomList as $row):
                         if ($row->ksd_id > 0){
@@ -763,13 +767,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
 
                   <div class="form-group">
-                    <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-                    <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang (DD-MM-YYYY)" autofocus />
+                    <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
+                    <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang (DD-MM-YYYY)" autofocus />
                   </div>
 
                   <div class="form-group">
-                    <label for="formClient-Address">Pesan Utama*</label>
-                    <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Address" placeholder="Pesan Utama" rows="5"></textarea>
+                    <label for="formClient-Address">Pesan Utama<label class="text-danger">*</label></label>
+                    <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Pesan" required title="Bagian ini wajib diisi" placeholder="Pesan Utama" rows="5"></textarea>
                   </div>
 
 
@@ -789,31 +793,31 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="card-body">
 
                   <div class="form-group">
-                    <label for="formClient-Contact">Produk Komunikasi*</label>
-                    <select name="produkKomunikasi" id="produkKomunikasi" class="form-control" style="width:100%" required>
+                    <label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
+                    <select name="produkKomunikasi" id="produkKomunikasi" required title="Bagian ini wajib diisi" class="form-control" style="width:100%" required>
                       <option value="-">Pilih Produk Komunikasi</option>
                       <?php foreach ($produkkomunikasi as $row): ?>
                         <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
                       <?php endforeach ?>
 
                     </select>
-                    <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasi" required placeholder="Lainnya" autofocus />
+                    <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasi" placeholder="Lainnya" autofocus />
 
                   </div>
                   <div class="form-group">
-                    <label for="formClient-Address">Khalayak*</label>
-                    <textarea type="text" class="form-control" name="khalayak" id="formClient-Address" placeholder="Khalayak" rows="3"></textarea>
+                    <label for="formClient-Address">Khalayak<label class="text-danger">*</label></label>
+                    <textarea type="text" class="form-control" name="khalayak" id="formClient-Khalayak" required title="Bagian ini wajib diisi" placeholder="Khalayak" rows="3"></textarea>
                   </div>
 
                   <div class="form-group">
-                    <label for="formClient-Contact">Kanal Komunikasi*</label>
-                    <select name="kanalKomunikasi" id="kanalKomunikasi" class="form-control" style="width:100%" required>
+                    <label for="formClient-Contact">Kanal Komunikasi<label class="text-danger">*</label></label>
+                    <select name="kanalKomunikasi" id="kanalKomunikasi" required title="Bagian ini wajib diisi" class="form-control" style="width:100%" required>
                       <option value="-">Pilih Kanal Komunikasi</option>
                       <?php foreach ($rencanamedia as $row): ?>
                         <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
                       <?php endforeach ?>
                     </select>
-                    <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasi" required placeholder="Lainnya" autofocus />
+                    <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasi" placeholder="Lainnya" autofocus />
 
                   </div>
 
