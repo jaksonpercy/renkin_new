@@ -19,9 +19,9 @@ class StrakomUnggulan extends MY_Controller {
   public function strakom()
 	{
 
-    $tahun = $this->input->post('tahun_periode');
-    $skpd = $this->input->post('user_id');
-    $triwulan = $this->input->post('triwulan_periode');
+    // $tahun = $this->input->post('tahun_periode');
+    // $skpd = $this->input->post('user_id');
+    // $triwulan = $this->input->post('triwulan_periode');
     $filtered_get = array_filter($_POST);
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
@@ -163,8 +163,6 @@ class StrakomUnggulan extends MY_Controller {
       'kanal_publikasi_lainnya' => $this->input->post('textlainnya'),
 			'user_id' => $this->input->post('idUser'),
 			'periode_id' => $this->input->post('idPeriode'),
-      'tahun_periode' => $this->page_data['periode']->tahun,
-      'triwulan_periode' => $this->page_data['periode']->periode_aktif,
 			'opd_id' => $this->input->post('idOPD'),
 		]);
 
