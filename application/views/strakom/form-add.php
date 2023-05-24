@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group"  style="display:none" id="divNamaUnggulan">
             <label for="formClient-Address">Nama Program Unggulan<label class="text-danger">*</label></label>
-            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" rows="5"></textarea>
+						<input type="text" class="form-control" name="namaProgramUnggulan" id="formClient-namaProgram" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" />
           </div>
 
         </div>
@@ -141,7 +141,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Address">Target Audiens (per Triwulan)</label><br>
+            <label for="formClient-Address">Target Audiens</label><br>
             <label for="formClient-Address">Pro<label class="text-danger">*</label></label>
             <textarea type="text" class="form-control" name="targetAudiensPro" id="formClient-Pro" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Pro" rows="3"></textarea><br>
             <label for="formClient-Address">Kontra<label class="text-danger">*</label></label>
@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <?php endforeach ?>
             </select>
           </div>
-		  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+		  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="" placeholder="Lainnya, Lainnya 2, Lainnya 3,..." style="display:none; margin-top:1%;" autofocus />
 
         </div>
         <!-- /.card-body -->

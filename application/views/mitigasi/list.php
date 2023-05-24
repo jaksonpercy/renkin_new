@@ -51,6 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </div>
                   </div>
                 </div>
+                  <?php if ($roles->role->role_id>1){ ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
@@ -64,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </div>
                   </div>
                 </div>
+                <?php } ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
@@ -115,6 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
                     <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                     <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                    <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
                     <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
@@ -143,13 +146,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td><?php echo $row->stakeholder_kontra ?></td>
                       <td><?php echo $row->juru_bicara ?></td>
                       <td><?php echo $row->pic_kegiatan ?></td>
-                      <!-- <td>
+                      <td>
                       <?php if(empty($row->data_pendukung_text)){ ?>
-                      <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
-                    <?php } else { ?>
-                      <a href="<?php echo url($row->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
-                    <?php } ?>
-                      </td> -->
+                      <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a>
+                    <?php } else {
+                        echo $row->data_pendukung_text;
+                      }
+                     ?>
+                      </td>
                       <td>
                         <?php if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
@@ -179,6 +183,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                          <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                         </tr>
                       </thead>
@@ -204,13 +209,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <td><?php echo $row->stakeholder_kontra ?></td>
                           <td><?php echo $row->juru_bicara ?></td>
                           <td><?php echo $row->pic_kegiatan ?></td>
-                          <!-- <td>
+                          <td>
                           <?php if(empty($row->data_pendukung_text)){ ?>
-                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
-                        <?php } else { ?>
-                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
-                        <?php } ?>
-                          </td> -->
+                          <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a>
+                        <?php } else {
+                            echo $row->data_pendukung_text;
+                          }
+                         ?>
+                          </td>
                           <td>
                             <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 

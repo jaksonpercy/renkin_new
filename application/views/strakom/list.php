@@ -125,6 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </div>
                   </div>
                 </div>
+                <?php if ($roles->role->role_id>1){ ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
@@ -138,6 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </div>
                   </div>
                 </div>
+              <?php } ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
@@ -186,7 +188,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tr>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">No</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Kategori Program</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Deskripsi Singkat Kegiatan</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Identifikasi Masalah / Isu Utama</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Narasi Utama Publikasi Program</th>
@@ -215,16 +216,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                         <?php
                             echo $row->nama_program;
-                        ?>
-
-                      </td>
-                      <td>
-                        <?php
-                        foreach ($jeniskegiatan as $rows):
-                          if ($rows->id == $row->jenis_kegiatan ) {
-                            echo $rows->nama;
-                          }
-                       endforeach
                         ?>
 
                       </td>
@@ -290,7 +281,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">No</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">SKPD/UKPD</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                    <th rowspan="2" style="vertical-align:middle;text-align:center;">Kategori Program</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Deskripsi Singkat Kegiatan</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Identifikasi Masalah / Isu Utama</th>
                     <th rowspan="2" style="vertical-align:middle;text-align:center;">Narasi Utama Publikasi Program</th>
@@ -329,16 +319,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         ?>
 
                       </td>
-                      <td>
-                        <?php
-                        foreach ($jeniskegiatan as $rows):
-                          if ($rows->id == $row->jenis_kegiatan ) {
-                            echo $rows->nama;
-                          }
-                       endforeach
-                        ?>
-
-                      </td>
+                    
                       <td><?php echo $row->deskripsi ?></td>
                       <td><?php echo $row->identifikasi_masalah ?></td>
                       <td><?php echo $row->narasi_utama ?></td>

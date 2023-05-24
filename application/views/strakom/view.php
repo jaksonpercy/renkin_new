@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <h3 class="card-title p-3">Detail</h3>
                 <ul class="nav nav-pills ml-auto p-2">
 
-					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
           <?php if ($roles->role->role_id==1){
@@ -82,7 +81,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </td>
                 </tr>
       					<tr>
+									<?php if ($strakom->kategori_program == 1){ ?>
       						<td width="160"><strong>Nama Program/Kegiatan</strong>:</td>
+								<?php } else if ($strakom->kategori_program == 2) { ?>
+										<td width="160"><strong>Nama KSD</strong>:</td>
+								<?php } else { ?>
+										<td width="160"><strong>Nama Program Unggulan</strong>:</td>
+								<?php } ?>
       						<td><?php if ($strakom->ksd_id > 0){
                     foreach ($ksd as $rows):
                       if ($rows->id == $strakom->ksd_id ) {

@@ -94,6 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </div>
                   </div>
                 </div>
+                  <?php if ($roles->role->role_id>1){ ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
@@ -107,6 +108,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </div>
                   </div>
                 </div>
+                  <?php } ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">

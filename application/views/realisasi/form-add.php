@@ -103,17 +103,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="form-group">
           <label for="formClient-Contact">No Nota Dinas / Surat<label class="text-danger">*</label></label>
-          <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" required title="Bagian ini wajib diisi" placeholder="No Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" required title="Bagian ini wajib diisi" placeholder="No Nota Dinas / Surat" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
         <div class="form-group">
           <label for="formClient-Contact">Perihal Nota Dinas /Surat<label class="text-danger">*</label></label>
-          <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" required title="Bagian ini wajib diisi" placeholder="Nama Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" required title="Bagian ini wajib diisi" placeholder="Perihal Nota Dinas /Surat" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
         <div class="form-group">
           <label for="formClient-Contact">Tanggal Nota Dinas /Surat<label class="text-danger">*</label></label>
-          <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" required title="Bagian ini wajib diisi" placeholder="Tanggal Lampiran" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" required title="Bagian ini wajib diisi" placeholder="Tanggal Nota Dinas /Surat" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
         </div>
 
       </div>
@@ -268,7 +268,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                                 <div class="form-group">
                                   <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
-                                  <select name="kanalpublikasi" id="formClient-kanalpublikasi" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required title="Bagian ini wajib diisi">
+                                  <select name="kanalpublikasi" id="kanalpublikasiedit" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required title="Bagian ini wajib diisi">
                                     <?php foreach ($rencanamedia as $rows):
                                       if ($row->kanal_publikasi == $rows->id) {
                                     ?>
@@ -279,23 +279,38 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                     <?php }
                                     endforeach ?>
                                   </select>
-                                  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="<?php echo $row->text_lainnya; ?>" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+                                  <input type="text" class="form-control" name="textlainnya" id="textlainnyaedit" value="<?php echo $row->text_lainnya; ?>" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
 
                                 </div>
+                                <?php if($row->kanal_publikasi == 1 || $row->kanal_publikasi == 2 || $row->kanal_publikasi == 3 || $row->kanal_publikasi == 7){ ?>
+                                  <div class="form-group" id="divDokumentasiEdit">
+                                    <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
+                                    <!-- <div class="custom-file"> -->
+                                      <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasiedit" accept="image/*"/>
 
-                                <div class="form-group">
-                                  <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
+                                    <!-- </div> -->
+                                  </div>
+                                  <div class="form-group" id="divLinkTautanEdit" style="display:none;">
+                                    <label for="formClient-Name" >Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
 
-                                  <input type="text" class="form-control" name="linktautan" id="formClient-Name" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                                    <input type="text" class="form-control" name="linktautan" id="linktautanedit" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                                  </div>
+
+                                <?php } else { ?>
+                                  <div class="form-group" id="divDokumentasiEdit" style="display:none">
+                                    <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
+                                    <!-- <div class="custom-file"> -->
+                                      <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasiedit" accept="image/*"/>
+
+                                    <!-- </div> -->
+                                  </div>
+                                <div class="form-group" id="divLinkTautanEdit">
+                                  <label for="formClient-Name" >Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
+
+                                  <input type="text" class="form-control" name="linktautan" id="linktautanedit" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                                 </div>
 
-                                <div class="form-group">
-                                  <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
-                                  <!-- <div class="custom-file"> -->
-                                    <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
-
-                                  <!-- </div> -->
-                                </div>
+                              <?php } ?>
 
 
                              </div>
@@ -386,7 +401,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
-                        <select name="kanalpublikasi" id="formClient-kanalpublikasi" class="form-control" required title="Bagian ini wajib diisi" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
+                        <select name="kanalpublikasi" id="kanalpublikasi" class="form-control" required title="Bagian ini wajib diisi" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
                           <option value="0">Pilih Kanal Publikasi</option>
                           <?php foreach ($rencanamedia as $row): ?>
                             <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
@@ -396,16 +411,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       </div>
 
-                      <div class="form-group">
-                        <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
+                      <div class="form-group" style="display:none;" id="divLinkTautan">
+                        <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
 
-                        <input type="text" class="form-control" name="linktautan" id="formClient-Name" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                        <input type="text" class="form-control" name="linktautan" id="linktautan" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                       </div>
 
-                      <div class="form-group">
+                      <div class="form-group" style="display:none;" id="divFileDokumentasi">
                         <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
 
-                          <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="formClient-fileDokumentasi" accept="image/*"/>
+                          <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
 
 
                       </div>
@@ -469,29 +484,51 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <!-- /.content -->
 
 <script type="text/javascript">
-   const el = document.getElementById('formClient-kanalpublikasi');
+   const el = document.getElementById('kanalpublikasi');
    const etLainnya = document.getElementById('textlainnya');
+   const etLinkTautan = document.getElementById('divLinkTautan');
+   const etFileDokumentasi = document.getElementById('divFileDokumentasi');
    // const divNamaKSD = document.getElementById('divNamaKSD');
 
    el.addEventListener('change', function handleChange(event) {
-      if (event.target.value == '9') {
+     if (event.target.value == '1' || event.target.value == '2' || event.target.value == '3' || event.target.value == '7') {
+       etLinkTautan.style.display = 'none';
+       etFileDokumentasi.style.display = 'block';
+       etLainnya.style.display = 'none';
+     }
+      else if (event.target.value == '9') {
          etLainnya.style.display = 'block';
+         etLinkTautan.style.display = 'block';
+         etFileDokumentasi.style.display = 'none';
        } else {
-        etLainnya.style.display = 'none';
+         etLinkTautan.style.display = 'block';
+         etFileDokumentasi.style.display = 'none';
+         etLainnya.style.display = 'none';
       }
    });
 </script>
 
 <script type="text/javascript">
-   const eledit = document.getElementById('formClient-kanalpublikasiedit');
+   const eledit = document.getElementById('kanalpublikasiedit');
    const etLainnyaedit = document.getElementById('textlainnyaedit');
+   const etLinkTautanEdit = document.getElementById('divLinkTautanEdit');
+   const etFileDokumentasiEdit = document.getElementById('divFileDokumentasiEdit');
    // const divNamaKSD = document.getElementById('divNamaKSD');
 
    eledit.addEventListener('change', function handleChange(event) {
-      if (event.target.value == '9') {
+     if (event.target.value == '1' || event.target.value == '2' || event.target.value == '3' || event.target.value == '7') {
+       etLinkTautanEdit.style.display = 'none';
+       etFileDokumentasiEdit.style.display = 'block';
+       etLainnyaedit.style.display = 'none';
+     }
+      else if (event.target.value == '9') {
          etLainnyaedit.style.display = 'block';
+         etLinkTautanEdit.style.display = 'block';
+         etFileDokumentasiEdit.style.display = 'none';
        } else {
-        etLainnyaedit.style.display = 'none';
+         etLinkTautanEdit.style.display = 'block';
+         etFileDokumentasiEdit.style.display = 'none';
+         etLainnyaedit.style.display = 'none';
       }
    });
 </script>

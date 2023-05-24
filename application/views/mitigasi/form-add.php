@@ -72,12 +72,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Address">Stakeholder Pro Pemprov DKI Jakarta<label class="text-danger">*</label></label>
+            <label for="formClient-Address">Stakeholder Pro<label class="text-danger">*</label></label>
             <textarea type="text" class="form-control" name="stakeholderPro" id="formClient-StakeholderPro" required title="Bagian ini wajib diisi" placeholder="Stakeholder Pro Pemprov DKI Jakarta" rows="5"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Address">Stakeholder Kontra Pemprov DKI Jakarta<label class="text-danger">*</label></label>
+            <label for="formClient-Address">Stakeholder Kontra<label class="text-danger">*</label></label>
             <textarea type="text" class="form-control" name="stakeholderKontra" id="formClient-StakeholderKontra" required title="Bagian ini wajib diisi" placeholder="Stakeholder Kontra Pemprov DKI Jakarta" rows="3"></textarea>
           </div>
 

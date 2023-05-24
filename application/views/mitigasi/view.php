@@ -34,8 +34,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <h3 class="card-title p-3">Detail</h3>
                 <ul class="nav nav-pills ml-auto p-2">
 
-					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
-          <?php if ($roles->role->role_id==1){
+					<?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
             ?>
 						<li class="nav-item"><a class="nav-link" href="<?php echo url('Mitigasi/edit/'.$mitigasi->id) ?>">Edit</a></li>
