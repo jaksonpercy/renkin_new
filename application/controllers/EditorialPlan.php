@@ -27,9 +27,9 @@ class EditorialPlan extends MY_Controller {
     ])[0];
     $this->page_data['strakom'] = $this->Strakom_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-    $this->page_data['editorialplan'] = $this->Editorial_model->getDataByUserId($this->session->userdata('logged')['id']);
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomId($this->session->userdata('logged')['id']);
   } else {
-    $this->page_data['editorialplan'] = $this->Editorial_model->get();
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomIdAll();
   }
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);

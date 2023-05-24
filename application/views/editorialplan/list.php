@@ -115,6 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <thead>
                   <tr>
                     <th style="vertical-align:middle;text-align:center;">No</th>
+										<th style="vertical-align:middle;text-align:center;">Nama Strategi Komunikasi Unggulan</th>
                     <th style="vertical-align:middle;text-align:center;">Tanggal Rencana Tayang</th>
                     <th style="width:60%;vertical-align:middle;text-align:center;">Pesan Utama</th>
                     <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
@@ -134,6 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     ?>
                     <tr>
                       <td><?php echo $no ?></td>
+											<td><?php echo $row->nama_program ?></td>
                       <td><?php echo $row->tanggal_rencana ?></td>
                       <td><?php echo $row->pesan_utama ?></td>
                       <td>
@@ -266,9 +268,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																	<?php
 																	if($row->produk_komunikasi == 11){
 																	?>
-																	<input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya" value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
+																	<input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
 																<?php } else {?>
-																	<input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya" value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
+																	<input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
 
 																<?php } ?>
 																</div>
@@ -370,6 +372,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <thead>
                     <tr>
                       <th style="vertical-align:middle;text-align:center;">No</th>
+											<th style="vertical-align:middle;text-align:center;">Nama Strategi Komunikasi Unggulan</th>
                       <th style="vertical-align:middle;text-align:center;">Tanggal Rencana Tayang</th>
                       <th style="width:60%;vertical-align:middle;text-align:center;">Pesan Utama</th>
                       <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
@@ -388,6 +391,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     ?>
                     <tr>
                       <td><?php echo $no ?></td>
+											<td><?php echo $row->nama_program ?></td>
                       <td><?php echo $row->tanggal_rencana ?></td>
                       <td><?php echo $row->pesan_utama ?></td>
                       <td>
