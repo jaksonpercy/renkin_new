@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/StrakomUnggulan') ?>">Strategi Komunikasi Unggulan</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/ReviewStrakom') ?>">Review Strategi Komunikasi Unggulan</a></li>
 
             </ol>
           </div>
@@ -51,12 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
-          <?php if ($roles->role->role_id==1){
-          if ($periode->status_input_data == 1) {
-            if ($strakom->status == 0) {
-            ?>
-						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$strakom->id) ?>">Edit</a></li>
-          <?php }}}?>
+
 
                 </ul>
               </div><!-- /.card-header -->
@@ -263,16 +258,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php if ($roles->role->role_id==1){?>
                       <div class="d-flex p-0">
                       <div class="ml-auto p-2">
-                        <?php if ($roles->role->role_id==1){
-                          if ($periode->status_input_data == 1) {
-                            // code...
 
-                        ?>
-                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-lg"> <span class="pr-1"><i class="fa fa-plus"></i></span>
-                      Tambah Materi
-                    </button>
-                  <?php }
-                  } ?>
                       </div>
                         </div>
                   <!-- /.card-header -->
@@ -320,12 +306,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             ?>
                           </td>
                           <td>
-                            <?php if ($periode->status_input_data == 1) {
-                              // code...
-                            ?>
-                            <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
-                            <a href="<?php echo url('StrakomUnggulan/deleteEditorialPlan/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php } ?>
+
                             <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                           </td>
@@ -609,12 +590,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <?php } ?>
                             </td> -->
                             <td>
-                              <?php if ($roles->role->role_id==1){
-                                if ($periode->status_input_data == 1) {
-                              ?>
-                              <a href="<?php echo url('Mitigasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                              <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                            <?php }} ?>
                               <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                             </td>
@@ -677,11 +652,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
-
+                <?php if ($strakom->status == 0): ?>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
+              <?php endif; ?>
               </div>
               <div class="modal-footer justify-content-between">
 
-                <a href="<?php echo url('/StrakomUnggulan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
+                <a href="<?php echo url('/ReviewStrakom') ?>" class="btn btn-flat btn-secondary">Kembali</a>
               </div>
             </div>
             <!-- ./card -->
@@ -690,6 +667,33 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
         <!-- /.row -->
         <!-- END CUSTOM TABS -->
+
+
+        <div class="modal fade" id="modal-finalisasi">
+          <?php echo form_open_multipart('ReviewStrakom/change_status_finalisasi/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Finalisasi</h4>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+									<input type="hidden" name="nama_strakom" value="<?php echo $strakom->nama_program; ?>">
+                  <p>Apakah kamu yakin untuk melakukan finalisasi Strategi Komunikasi Unggulan untuk Judul <b><?php echo $strakom->nama_program ?> </b> ini ?</p>
+                </div>
+                <div class="modal-footer justify-content-between">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+                  <button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+              <?php echo form_close(); ?>
+          </div>
 
 
 </section>

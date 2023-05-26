@@ -196,7 +196,7 @@ class MY_Model extends CI_Model {
 	public function getDataByUserId($id)
 	{
 
-		$query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id as strakom_id,tbl_strakom_unggulan.kategori_program, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.ksd_id, tbl_strakom_unggulan.jenis_kegiatan, tbl_strakom_unggulan.deskripsi, tbl_strakom_unggulan.analisis_situasi, tbl_strakom_unggulan.identifikasi_masalah, tbl_strakom_unggulan.narasi_utama, tbl_strakom_unggulan.target_pro, tbl_strakom_unggulan.target_kontra, tbl_strakom_unggulan.kanal_publikasi, tbl_strakom_unggulan.kanal_publikasi_lainnya, tbl_strakom_unggulan.user_id, tbl_strakom_unggulan.periode_id, tbl_strakom_unggulan.opd_id, tbl_strakom_unggulan.status FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = 1 AND user_id =  '".$id."'")->result()	;
 		return $query;
 	}
 

@@ -47,6 +47,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </p>
     </a>
   </li>
+  <?php if (hasRolesUser()): ?>
+      <?php if (hasReviewPeriod()): ?>
+    <li class="nav-item">
+      <a href="<?php echo url('ReviewStrakom') ?>" class="nav-link <?php echo ($page->submenu=='reviewstrakom')?'active':'' ?>">
+        <i class="nav-icon"></i>
+        <p>
+      Review Strategi Komunikasi <br> Unggulan
+        </p>
+      </a>
+    </li>
+      <?php endif ?>
+  <?php endif ?>
   <li class="nav-item">
     <a href="<?php echo url('Realisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
       <i class="nav-icon"></i>

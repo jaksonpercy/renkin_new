@@ -152,4 +152,5 @@ $autoload['model'] = array(
 	'Realisasi_model',
 	'Data_Realisasi_model',
 	'Pemberitahuan_model',
+	'Notifikasi_model',
 );
