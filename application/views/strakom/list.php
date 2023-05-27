@@ -352,10 +352,84 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         } ?>
                       </td>
                       <td>
+                        <?php
+                        if($periode->status_verifikasi == 1){
+                        if($roles->role->role_id==2){
+                          if($row->status == 1){ ?>
+                          <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approve<?php echo $row->id ?>"><i class="fa fa-paper-plane" title="Disetujui"></i></button>
+                          <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-reject<?php echo $row->id ?>"><i class="fa fa-times" title="Ditolak"></i></button>
+
+                        <?php }}} ?>
                         <a href="<?php echo url('StrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>
                     </tr>
+
+                    <div class="modal fade" id="modal-approve<?php echo $row->id ?>">
+                    	<?php echo form_open_multipart('StrakomUnggulan/change_status_strakom_list/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+                    		<div class="modal-dialog">
+                    			<div class="modal-content">
+                    				<div class="modal-header">
+                    					<h4 class="modal-title">Setujui Strategi Komunikasi Unggulan</h4>
+                    					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    						<span aria-hidden="true">&times;</span>
+                    					</button>
+                    				</div>
+                    				<div class="modal-body">
+                    					<input type="hidden" name="nama_strakom" value="<?php echo $row->nama_program; ?>">
+                    					<input type="hidden" name="userId" value="<?php echo $row->user_id; ?>">
+                    					<input type="hidden" name="opdId" value="<?php echo $row->opd_id; ?>">
+                    					<input type="hidden" name="status_strakom" value="2">
+                    					<div class="form-group" style="display:none">
+                    						<label for="formClient-Name">Alasan</label>
+                    						<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+                    					</div>
+                    					<p>Apakah kamu yakin untuk menyetujui Strategi Komunikasi Unggulan untuk Judul <b><?php echo $row->nama_program ?> </b> ini ?</p>
+                    				</div>
+                    				<div class="modal-footer justify-content-between">
+                    					<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+                    					<button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+                    				</div>
+                    			</div>
+                    			<!-- /.modal-content -->
+                    		</div>
+                    		<!-- /.modal-dialog -->
+                    			<?php echo form_close(); ?>
+                    	</div>
+
+
+                    <div class="modal fade" id="modal-reject<?php echo $row->id ?>">
+                    	<?php echo form_open_multipart('StrakomUnggulan/change_status_strakom_list/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+                    <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                    	<div class="modal-header">
+                    		<h4 class="modal-title">Tolak Strategi Komunikasi Unggulan</h4>
+                    		<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    			<span aria-hidden="true">&times;</span>
+                    		</button>
+                    	</div>
+                    	<div class="modal-body">
+                    		<input type="hidden" name="nama_strakom" value="<?php echo $row->nama_program; ?>">
+                    		<input type="hidden" name="userId" value="<?php echo $row->user_id; ?>">
+                    		<input type="hidden" name="opdId" value="<?php echo $row->opd_id; ?>">
+                    		<input type="hidden" name="status_strakom" value="3">
+                    		<div class="form-group">
+                    			<label for="formClient-Name">Alasan</label>
+                    			<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+                    		</div>
+                    		</div>
+                    	<div class="modal-footer justify-content-between">
+                    		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    		<button type="submit" class="btn btn-primary">Simpan</button>
+                    	</div>
+                    </div>
+                    <!-- /.modal-content -->
+                    </div>
+                    	<?php echo form_close(); ?>
+                    <!-- /.modal-dialog -->
+                    </div>
 
                   <?php
 

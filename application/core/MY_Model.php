@@ -266,6 +266,13 @@ return $query;
 
 	}
 
+	public function getListStrakomByOpd($id)
+	{
+
+		$query = $this->db->query("SELECT * FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+		return $query;
+	}
+
 
 }
 
