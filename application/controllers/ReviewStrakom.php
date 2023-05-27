@@ -114,7 +114,7 @@ class ReviewStrakom extends MY_Controller {
       'opd_id' => $this->page_data['user']->opd_upd,
     ]);
 
-    redirect('ReviewStrakom);
+    redirect('ReviewStrakom');
   }
 
 }
