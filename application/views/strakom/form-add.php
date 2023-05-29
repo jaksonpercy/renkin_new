@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group"  style="display:none" id="divNamaUnggulan">
             <label for="formClient-Address">Nama Program Unggulan<label class="text-danger">*</label></label>
-            <textarea type="text" class="form-control" name="namaProgramUnggulan" id="formClient-NamaProgram" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" rows="5"></textarea>
+						<input type="text" class="form-control" name="namaProgramUnggulan" id="formClient-namaProgram" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" />
           </div>
 
         </div>
@@ -112,12 +112,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Address">Analisis Situasi<label class="text-danger">*</label></label>
-            <textarea type="text" class="form-control" name="analisisSituasi" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Analisis Situasi" rows="3"></textarea>
+            <textarea type="text" class="form-control" name="analisisSituasi" id="formClient-Analisis" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Analisis Situasi" rows="3"></textarea>
           </div>
 
           <div class="form-group">
             <label for="formClient-Address">Identifikasi Masalah / Isu Utama<label class="text-danger">*</label></label>
-            <textarea type="text" class="form-control" name="identifikasiMasalah" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Identifikasi Masalah" rows="3"></textarea>
+            <textarea type="text" class="form-control" name="identifikasiMasalah" id="formClient-Identifikasi" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Identifikasi Masalah" rows="3"></textarea>
           </div>
 
         </div>
@@ -137,15 +137,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group">
             <label for="formClient-Address">Narasi Utama Publikasi Program<label class="text-danger">*</label></label>
-            <textarea type="text" class="form-control" name="narasiUtama" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Narasi Utama Publikasi Program" rows="5"></textarea>
+            <textarea type="text" class="form-control" name="narasiUtama" id="formClient-Narasi" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Narasi Utama Publikasi Program" rows="5"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Address">Target Audiens (per Triwulan)</label><br>
+            <label for="formClient-Address">Target Audiens</label><br>
             <label for="formClient-Address">Pro<label class="text-danger">*</label></label>
-            <textarea type="text" class="form-control" name="targetAudiensPro" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Pro" rows="3"></textarea>
+            <textarea type="text" class="form-control" name="targetAudiensPro" id="formClient-Pro" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Pro" rows="3"></textarea><br>
             <label for="formClient-Address">Kontra<label class="text-danger">*</label></label>
-            <textarea type="text" class="form-control" name="targetAudiensKontra" id="formClient-Address" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Kontra" rows="3"></textarea>
+            <textarea type="text" class="form-control" name="targetAudiensKontra" id="formClient-Kontra" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Kontra" rows="3"></textarea>
 
           </div>
 
@@ -157,7 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <?php endforeach ?>
             </select>
           </div>
-		  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+		  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="" placeholder="Lainnya, Lainnya 2, Lainnya 3,..." style="display:none; margin-top:1%;" autofocus />
 
         </div>
         <!-- /.card-body -->
@@ -260,14 +260,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
            divNamaUnggulan.style.display = 'none';
       }
    });
-   
+
    $(function() {
     $('#kanal').change(function(e) {
         var selected = $(e.target).val();
         if (selected.includes('9') == true) {
 			$('#textlainnya').css("display", "block");
 		}
-    }); 
+    });
 });
 </script>
 

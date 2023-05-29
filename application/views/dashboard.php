@@ -2,6 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <?php include viewPath('includes/header'); ?>
+<link rel="stylesheet" href="<?php echo $url->assets ?>plugins/ekko-lightbox/ekko-lightbox.css">
+
 <style media="screen">
 th {
 text-align: center;
@@ -170,7 +172,17 @@ vertical-align: center;
               <!-- /.card-header -->
               <div class="card-body">
               <!-- /.card-body -->
-
+              <div class="row" style="margin:1%">
+                <?php foreach ($pemberitahuan as $row): ?>
+                <div class="col-sm-4">
+                  <a href="<?php echo url('/uploads/bannerpemberitahuan/'.$row->lokasi_file);?>" data-toggle="lightbox" data-title="<?php echo $row->nama_pemberitahuan ?>" data-gallery="gallery">
+                    <!-- <a href="<?php echo $row->url; ?>" target="_blank"> -->
+                    <img src="<?php echo url('/uploads/bannerpemberitahuan/'.$row->lokasi_file);?>" class="img-fluid mb-2" alt="white sample"/>
+                    <!-- </a> -->
+                  </a>
+                </div>
+              <?php endforeach ?>
+              </div>
               <!-- /.card-footer-->
             </div>
           </div>
@@ -229,6 +241,27 @@ vertical-align: center;
       </div><!-- /.container-fluid -->
     </section>
     <!-- /.content -->
+    <script src="<?php echo $url->assets ?>plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+
+    <!-- Filterizr-->
+    <script src="<?php echo $url->assets ?>plugins/filterizr/jquery.filterizr.min.js"></script>
+
+    <script>
+    $(function () {
+      $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+        event.preventDefault();
+        $(this).ekkoLightbox({
+          alwaysShowClose: true
+        });
+      });
+
+      $('.filter-container').filterizr({gutterPixels: 3});
+      $('.btn[data-filter]').on('click', function() {
+        $('.btn[data-filter]').removeClass('active');
+        $(this).addClass('active');
+      });
+    })
+    </script>
 
 <?php include viewPath('includes/footer'); ?>
 

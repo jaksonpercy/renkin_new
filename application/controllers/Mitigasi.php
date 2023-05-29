@@ -24,13 +24,18 @@ class Mitigasi extends MY_Controller {
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+    $this->page_data['userall'] = $this->users_model->get();
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->get();
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable($this->session->userdata('logged')['id']);
+    if ($this->page_data['roles']->role->role_id == 1) {
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id']);
+    } else {
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable();
+    }
     $this->load->view('mitigasi/list', $this->page_data);
   }
 

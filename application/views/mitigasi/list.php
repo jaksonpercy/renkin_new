@@ -27,6 +27,67 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="row">
           <div class="col-12">
             <div class="card">
+              <div class="card-header">
+
+                <?php echo form_open_multipart('StrakomUnggulan/strakom', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
+                <div class="row">
+                  <div class="col-2">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <label for="formClient-Contact">Pilih Tahun</label>
+                      <select name="tahun_periode" id="tahun_periode" class="form-control">
+                        <option value="">Pilih Tahun</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                        <option value="2015">2015</option>
+
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                  <?php if ($roles->role->role_id>1){ ?>
+                  <div class="col-3">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <label for="formClient-Contact">Pilih SKPD/UKPD</label>
+                      <select name="user_id" id="user_id" class="form-control select2">
+                        <option value="">Pilih SKPD/UKPD</option>
+                        <?php foreach ($userall as $row): ?>
+                          <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+                        <?php endforeach ?>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <?php } ?>
+                  <div class="col-3">
+                    <div class="card-body">
+                    <div class="form-group">
+                      <label for="formClient-Contact">Pilih Triwulan</label>
+                      <select name="triwulan_periode" id="triwulan_periode" class="form-control">
+                        <option value="">Pilih Triwulan</option>
+                        <option value="Triwulan I">Triwulan I</option>
+                        <option value="Triwulan II">Triwulan II</option>
+                        <option value="Triwulan III">Triwulan III</option>
+                        <option value="Triwulan IV">Triwulan IV</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col"><button type="submit" class="btn btn-flat btn-primary">Tampilkan</button></div>
+
+
+
+                <!-- /.card-footer-->
+                <?php echo form_close(); ?>
+              </div>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Uraian Materi Mitigasi Krisis</h3>
                 <div class="ml-auto p-2">
@@ -56,6 +117,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
                     <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                     <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                    <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
                     <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
@@ -84,13 +146,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td><?php echo $row->stakeholder_kontra ?></td>
                       <td><?php echo $row->juru_bicara ?></td>
                       <td><?php echo $row->pic_kegiatan ?></td>
-                      <!-- <td>
+                      <td>
                       <?php if(empty($row->data_pendukung_text)){ ?>
-                      <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
-                    <?php } else { ?>
-                      <a href="<?php echo url($row->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
-                    <?php } ?>
-                      </td> -->
+                      <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a>
+                    <?php } else {
+                        echo $row->data_pendukung_text;
+                      }
+                     ?>
+                      </td>
                       <td>
                         <?php if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
@@ -120,18 +183,27 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                          <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php foreach ($mitigasi as $row):
-                          if ($row->user_id == $this->session->userdata('logged')['id']) {
-                            // code...
-
+                        <?php
+                        $no=0;
+                        foreach ($mitigasi as $row):
+                          $no++;
                         ?>
                         <tr>
-                          <td><?php echo $row->id ?></td>
-                          <td><?php echo $row->nama_kegiatan ?></td>
+                          <td><?php echo $no ?></td>
+                          <td>
+                            <?php
+                            if (is_null($row->nama)) {
+                                echo $row->nama_program;
+                            } else {
+                                echo $row->nama;
+                            }
+                          ?>
+                          </td>
                           <td><?php echo $row->uraian_potensi ?></td>
                           <td><?php echo $row->stakeholder_pro ?></td>
                           <td><?php echo $row->stakeholder_kontra ?></td>
@@ -139,10 +211,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <td><?php echo $row->pic_kegiatan ?></td>
                           <td>
                           <?php if(empty($row->data_pendukung_text)){ ?>
-                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
-                        <?php } else { ?>
-                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
-                        <?php } ?>
+                          <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a>
+                        <?php } else {
+                            echo $row->data_pendukung_text;
+                          }
+                         ?>
                           </td>
                           <td>
                             <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
@@ -150,7 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           </td>
                         </tr>
                         <?php
-                        }
+
                         endforeach ?>
                         </tbody>
                     </table>

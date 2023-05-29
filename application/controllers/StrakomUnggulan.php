@@ -18,6 +18,11 @@ class StrakomUnggulan extends MY_Controller {
 
   public function strakom()
 	{
+
+    // $tahun = $this->input->post('tahun_periode');
+    // $skpd = $this->input->post('user_id');
+    // $triwulan = $this->input->post('triwulan_periode');
+    $filtered_get = array_filter($_POST);
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -26,7 +31,14 @@ class StrakomUnggulan extends MY_Controller {
       'status_periode'=> 1
     ])[0];
     $this->page_data['user'] = $this->users_model->get();
-    $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
+    $this->page_data['userbyid'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    if ($this->page_data['roles']->role->role_id == 1) {
+        $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
+    } else if ($this->page_data['roles']->role->role_id == 2) {
+        $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
+    } else  {
+      $this->page_data['strakom'] = $this->Strakom_model->get();
+    }
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
     $this->page_data['countstrakomApproved'] = $this->Strakom_model->countAllByStatus(2);
     $this->page_data['countstrakomRejected'] = $this->Strakom_model->countAllByStatus(3);
@@ -120,7 +132,9 @@ class StrakomUnggulan extends MY_Controller {
 	{
 
 		postAllowed();
-
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
 		// ifPermissions('permissions_add');
 		$uuid = uniqid();
     $namaProgram ='';
@@ -149,6 +163,7 @@ class StrakomUnggulan extends MY_Controller {
 			'target_pro' => $this->input->post('targetAudiensPro'),
 			'target_kontra' => $this->input->post('targetAudiensKontra'),
 			'kanal_publikasi' => implode(", ",$this->input->post('rencanaMedia')),
+      'kanal_publikasi_lainnya' => $this->input->post('textlainnya'),
 			'user_id' => $this->input->post('idUser'),
 			'periode_id' => $this->input->post('idPeriode'),
 			'opd_id' => $this->input->post('idOPD'),
@@ -196,6 +211,7 @@ class StrakomUnggulan extends MY_Controller {
       'target_pro' => $this->input->post('targetAudiensPro'),
       'target_kontra' => $this->input->post('targetAudiensKontra'),
       'kanal_publikasi' => implode(", ",$this->input->post('rencanaMedia')),
+      'kanal_publikasi_lainnya' => $this->input->post('textlainnya'),
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
@@ -313,5 +329,71 @@ class StrakomUnggulan extends MY_Controller {
 		redirect('StrakomUnggulan/view/'. $id );
 
 	}
+
+  public function change_status_strakom($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $namaStrakom = $this->input->post('nama_strakom');
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Strakom_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Strategi Komunikasi Unggulan menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Strategi Komunikasi Unggulan dengan Judul $namaStrakom milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('StrakomUnggulan/view/'.$id);
+  }
+
+  public function change_status_strakom_list($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $namaStrakom = $this->input->post('nama_strakom');
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Strakom_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Strategi Komunikasi Unggulan menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Strategi Komunikasi Unggulan dengan Judul $namaStrakom milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('StrakomUnggulan');
+  }
 
 }

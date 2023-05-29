@@ -474,6 +474,65 @@ if (!function_exists('hasRoles')) {
 
 }
 
+if (!function_exists('hasRolesUser')) {
+
+	function hasRolesUser() {
+
+		$CI =& get_instance();
+
+		$role_user = $CI->users_model->getById($CI->session->userdata('logged')['id']);
+		$roles_id = $CI->roles_model->getByWhere([
+			'role_id'=> $role_user->role
+		])[0];
+
+		if ($roles_id->role_id==1) {
+
+			return true;
+
+		} else {
+
+		// if ( !empty( $CI->roles_permissions_model->getByWhere([ 'role_id' => logged('role'), 'role_name' => $code ]) ) ) {
+		//
+		// 	return true;
+		//
+		// }
+
+		return false;
+	}
+
+	}
+
+}
+
+if (!function_exists('hasReviewPeriod')) {
+
+	function hasReviewPeriod() {
+
+		$CI =& get_instance();
+
+		$periode = $CI->Periode_model->getByWhere([
+			'status_periode'=> 1
+		])[0];
+
+		if ($periode->status_input_data==1) {
+
+			return true;
+
+		} else {
+
+		// if ( !empty( $CI->roles_permissions_model->getByWhere([ 'role_id' => logged('role'), 'role_name' => $code ]) ) ) {
+		//
+		// 	return true;
+		//
+		// }
+
+		return false;
+	}
+
+	}
+
+}
+
 /**
   * Redirects with error if user doesnt have the permission to passed key/module
   *

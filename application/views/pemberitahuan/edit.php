@@ -8,12 +8,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>KSD</h1>
+        <h1>Pemberitahuan</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
-          <li class="breadcrumb-item"><a href="<?php echo url('/KSD') ?>">KSD</a></li>
+          <li class="breadcrumb-item"><a href="<?php echo url('/Pemberitahuan') ?>">Pemberitahuan</a></li>
           <li class="breadcrumb-item active">Edit</li>
         </ol>
       </div>
@@ -27,38 +27,42 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <!-- Default card -->
   <div class="card">
     <div class="card-header with-border">
-      <h3 class="card-title">Edit KSD</h3>
+      <h3 class="card-title">Edit Pemberitahuan</h3>
 
       <div class="card-tools pull-right">
-        <a href="<?php echo url('KSD') ?>" class="btn btn-flat btn-default"><i class="fa fa-chevron-left"></i> &nbsp;&nbsp; KSD</a>
+        <a href="<?php echo url('Pemberitahuan') ?>" class="btn btn-flat btn-default"><i class="fa fa-chevron-left"></i> &nbsp;&nbsp; Pemberitahuan</a>
       </div>
 
     </div>
 
-    <?php echo form_open('KSD/update/'.$ksd->id, [ 'class' => 'form-validate' ]); ?>
+    <?php echo form_open('Pemberitahuan/update/'.$pemberitahuan->id, [ 'class' => 'form-validate' ]); ?>
     <div class="card-body">
 
       <div class="form-group">
-        <label for="formClient-Name"> Nama KSD</label>
-        <input type="text" class="form-control" name="name" id="formClient-Name" required placeholder="Enter Name" value="<?php echo $ksd->nama ?>" autofocus />
+        <label for="formClient-Name"> Judul Pemberitahuan</label>
+        <input type="text" class="form-control" name="judulpemberitahuan" id="formClient-Judul" required placeholder="Judul Pemberitahuan" value="<?php echo $pemberitahuan->nama_pemberitahuan; ?>" autofocus />
       </div>
 
       <div class="form-group">
-        <label for="formClient-Code"> <?php echo lang('permission_code') ?></label>
-        <input type="text" class="form-control" name="code" id="formClient-Code" required placeholder="Enter Code" value="<?php echo $ksd->code ?>" autofocus />
-        <p style="color: red;"> <?php echo lang('permission_code_unique') ?></p>
+        <label for="formClient-Code"> URL Link</label>
+        <input type="text" class="form-control" name="url" id="formClient-URL" required placeholder="URL" value="<?php echo $pemberitahuan->url; ?>" autofocus />
+      </div>
+
+      <div class="form-group">
+        <label for="formClient-Name">File </label>
+          <input type="file" class="form-control" name="filePendukung" id="formClient-filePendukung" accept="image/*"/>
+
       </div>
 
       <div class="form-group">
         <label for="formClient-Status"><?php echo lang('user_status') ?></label>
         <select name="status" id="formClient-Status" class="form-control">
-          <?php $sel = $ksd->status==1 ? 'selected' : '' ?>
+          <?php $sel = $pemberitahuan->status==1 ? 'selected' : '' ?>
           <option value="1" <?php echo $sel ?>><?php echo lang('user_active') ?></option>
-          <?php $sel = $ksd->status==0 ? 'selected' : '' ?>
+          <?php $sel = $pemberitahuan->status==0 ? 'selected' : '' ?>
           <option value="0" <?php echo $sel ?>><?php echo lang('user_inactive') ?></option>
         </select>
       </div>
-
 
     </div>
     <!-- /.card-body -->
