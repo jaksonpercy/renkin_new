@@ -74,6 +74,38 @@ class ReviewEditorialPlan extends MY_Controller {
     redirect('ReviewEditorialPlan');
   }
 
+  public function change_status_editorial_detail($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Editorial_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Editorial Plan menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Editorial Plan dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('ReviewEditorialPlan/view/'.$id);
+  }
+
   public function add(){
 
     $this->load->view('editorialplan/form-add', $this->page_data);
@@ -91,7 +123,7 @@ class ReviewEditorialPlan extends MY_Controller {
     $this->page_data['page']->submenu = 'editorialplan';
     // load view
     $this->page_data['strakom'] = $this->Strakom_model->get();
-    $this->page_data['editorialplan'] = $this->Editorial_model->getById($id);
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomById($id)[0];
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);

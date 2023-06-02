@@ -254,7 +254,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                         <?php if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
-                            if ($row->status == 0) {
+                            if ($row->status == 0 || $row->status == 3) {
                         ?>
                         <a href="<?php echo url('StrakomUnggulan/edit/'.$row->strakom_id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo url('StrakomUnggulan/delete/'.$row->strakom_id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>

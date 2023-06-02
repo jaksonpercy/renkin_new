@@ -118,6 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                     <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                     <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
+                    <th style="vertical-align:middle;text-align:center;">Status</th>
                     <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
@@ -155,12 +156,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                      ?>
                       </td>
                       <td>
+
+                        <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else {
+                          echo "<p class='text-danger'><strong>Ditolak</strong> (".$row->alasan.")</p>";
+                        } ?>
+                      </td>
+                      <td>
                         <?php if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
+                             if ($row->status == 0 || $row->status == 3) {
                         ?>
                         <a href="<?php echo url('Mitigasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                      <?php }} ?>
+                      <?php }}} ?>
                         <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>

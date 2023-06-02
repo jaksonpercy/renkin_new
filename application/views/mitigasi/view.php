@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1><?php echo $mitigasi->nama_kegiatan; ?></h1>
+            <h1><?php echo $mitigasi->nama_program; ?></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -36,10 +36,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 					<?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
+               if ($mitigasi->status == 0 || $mitigasi->status == 3) {
             ?>
 						<li class="nav-item"><a class="nav-link" href="<?php echo url('Mitigasi/edit/'.$mitigasi->id) ?>">Edit</a></li>
 
-          <?php }}?>
+          <?php }}}?>
                 </ul>
               </div><!-- /.card-header -->
               <div class="card-body">
@@ -51,10 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <?php if ($roles->role->role_id==1):?>
       			<table class="table table-bordered table-striped">
       				<tbody>
-      					<tr>
-      						<td width="160"><strong>Nama Kegiatan</strong>:</td>
-      						<td><?php echo $mitigasi->nama_kegiatan ?></td>
-      					</tr>
+                <tr>
+                  <td width="300"><strong>Nama Strategi Komunikasi Unggulan</strong></td>
+                  <td><?php echo $mitigasi->nama_program ?></td>
+                </tr>
       					<tr>
       						<td><strong>Uraian Potensi Krisis</strong>:</td>
       						<td><?php echo $mitigasi->uraian_potensi ?></td>
@@ -82,6 +83,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <tr>
                   <td><strong>PIC Kegiatan yang Dapat Dihubungi</strong>:</td>
                   <td><?php echo $mitigasi->pic_kegiatan ?></td>
+                </tr>
+                <tr>
+                  <td><strong>Status</strong></td>
+                  <td>
+
+                    <?php if ($mitigasi->status == 0) {
+                      echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                    } else if ($mitigasi->status == 1) {
+                      echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                    } else if ($mitigasi->status == 2) {
+                      echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                    } else {
+                      echo "<p class='text-danger'><strong>Ditolak</strong> (".$mitigasi->alasan.")</p>";
+                    } ?>
+                  </td>
                 </tr>
       				</tbody>
       			</table>

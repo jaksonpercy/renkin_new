@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 					<?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
-            if ($editorialplan->status == 0) {
+            if ($editorialplan->status == 0 || $editorialplan->status == 3) {
             ?>
             <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#modal-lg-edit<?php echo $editorialplan->id ?>">Edit</a></li>
           <?php }}}?>
@@ -52,6 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       		<div class="col-sm-12">
       			<table class="table table-bordered table-striped">
       				<tbody>
+                <tr>
+                  <td><strong>Nama Strategi Komunikasi Unggulan</strong></td>
+                  <td><?php echo $editorialplan->nama_program ?></td>
+                </tr>
       					<tr>
       						<td width="160"><strong>Tanggal Rencana Tayang</strong>:</td>
       						<td><?php
@@ -91,6 +95,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     ?>
                   </td>
       					</tr>
+                <tr>
+                  <td><strong>Status</strong></td>
+                  <td>
+
+                    <?php if ($editorialplan->status == 0) {
+                      echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                    } else if ($editorialplan->status == 1) {
+                      echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                    } else if ($editorialplan->status == 2) {
+                      echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                    } else {
+                      echo "<p class='text-danger'><strong>Ditolak</strong> (".$editorialplan->alasan.")</p>";
+                    } ?>
+                  </td>
+                </tr>
       				</tbody>
       			</table>
       		</div>
@@ -124,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="modal-dialog modal-xl">
 <div class="modal-content">
 <div class="modal-header">
-  <h4 class="modal-title">Edit Editorial Plan</h4>
+  <h4 class="modal-title">Edit Materi</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -251,8 +270,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       </div>
     </div>
 </div>
-<div class="modal-footer justify-content-between">
-  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+<div class="modal-footer text-right">
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 </div>

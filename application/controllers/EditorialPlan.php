@@ -59,7 +59,7 @@ class EditorialPlan extends MY_Controller {
     $this->page_data['page']->submenu = 'editorialplan';
     // load view
     $this->page_data['strakom'] = $this->Strakom_model->get();
-    $this->page_data['editorialplan'] = $this->Editorial_model->getById($id);
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomById($id)[0];
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
@@ -147,6 +147,7 @@ class EditorialPlan extends MY_Controller {
       'txtLainKanalKomunikasi' => $this->input->post('txtLainnyaKanalKomunikasi'),
       'pesan_utama' => $this->input->post('pesanUtama'),
 			'khalayak' => $this->input->post('khalayak'),
+      'status' => "0",
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),

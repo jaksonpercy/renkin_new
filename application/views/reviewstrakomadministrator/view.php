@@ -252,6 +252,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                    ?>
                   </td>
                   </tr>
+									<tr>
+										<td><strong>Status</strong></td>
+										<td>
+
+											<?php if ($strakom->status == 0) {
+												echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+											} else if ($strakom->status == 1) {
+												echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+											} else if ($strakom->status == 2) {
+												echo '<p class="text-success"><strong>Disetujui</strong></p>';
+											} else {
+											  echo "<p class='text-danger'><strong>Ditolak</strong> (".$strakom->alasan.")</p>";
+											} ?>
+										</td>
+									</tr>
                 </tbody>
               </table>
 							<?php
@@ -523,6 +538,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
                           <th style="vertical-align:middle;text-align:center;">Khalayak</th>
                           <th style="vertical-align:middle;text-align:center;">Kanal Komunikasi</th>
+                          <th style="vertical-align:middle;text-align:center;">Status</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                         </tr>
                       </thead>
@@ -556,6 +572,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                              endforeach;
                             ?>
                           </td>
+													<td>
+														<?php if ($row->status == 0) {
+															echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+														} else if ($row->status == 1) {
+															echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+														} else if ($row->status == 2) {
+															echo '<p class="text-success"><strong>Disetujui</strong></p>';
+														} else {
+															echo "<p class='text-danger'><strong>Ditolak</strong> (".$row->alasan.")</p>";
+														} ?>
+													</td>
                           <td>
 														<?php
 															if($periode->status_verifikasi == 1){
@@ -622,7 +649,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 														<input type="hidden" name="status_strakom" value="3">
 														<div class="form-group">
 															<label for="formClient-Name">Catatan</label>
-															<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+															<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5" required></textarea>
 														</div>
 														</div>
 													<div class="modal-footer justify-content-between">
@@ -728,6 +755,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                                 <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
 															  <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
+																<th style="vertical-align:middle;text-align:center;">Status</th>
                                 <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                               </tr>
                             </thead>
@@ -753,6 +781,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
                               <?php } ?>
                                 </td>
+																<td>
+																	<?php if ($row->status == 0) {
+																		echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+																	} else if ($row->status == 1) {
+																		echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+																	} else if ($row->status == 2) {
+																		echo '<p class="text-success"><strong>Disetujui</strong></p>';
+																	} else {
+																		echo "<p class='text-danger'><strong>Ditolak</strong> (".$row->alasan.")</p>";
+																	} ?>
+																</td>
                                 <td>
 																	<?php
 																		if($periode->status_verifikasi == 1){
@@ -819,7 +858,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																	<input type="hidden" name="status_strakom" value="3">
 																	<div class="form-group">
 																		<label for="formClient-Name">Catatan</label>
-																		<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+																		<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5" required></textarea>
 																	</div>
 																	</div>
 																<div class="modal-footer justify-content-between">
@@ -862,7 +901,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <!-- ./card -->
           </div>
 					<div class="modal-footer justify-content-between">
-						<a href="<?php echo url('/StrakomUnggulan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
+						<a href="<?php echo url('/ReviewStrakomUnggulan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
 
 					</div>
           <!-- /.col -->
@@ -925,7 +964,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<input type="hidden" name="status_strakom" value="3">
 		<div class="form-group">
 			<label for="formClient-Name">Catatan</label>
-			<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+			<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5" required></textarea>
 		</div>
 		</div>
 	<div class="modal-footer justify-content-between">

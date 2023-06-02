@@ -212,6 +212,7 @@ class StrakomUnggulan extends MY_Controller {
       'target_kontra' => $this->input->post('targetAudiensKontra'),
       'kanal_publikasi' => implode(", ",$this->input->post('rencanaMedia')),
       'kanal_publikasi_lainnya' => $this->input->post('textlainnya'),
+      'status' => "0",
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),

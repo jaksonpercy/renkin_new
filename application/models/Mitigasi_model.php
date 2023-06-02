@@ -10,6 +10,13 @@ class Mitigasi_model extends MY_Model {
 		parent::__construct();
 	}
 
+	public function getDataMitigasiJoinStrakomById($userid)
+	{
+		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id, tbl_mitigasi.status, tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program from tbl_mitigasi join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id where tbl_mitigasi.id = '".$userid."'")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 }
 
 /* End of file Permissions_model.php */

@@ -90,7 +90,7 @@ class Mitigasi extends MY_Controller {
 
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->get();
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getById($id);
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataMitigasiJoinStrakomById($id)[0];
     $this->load->view('mitigasi/view', $this->page_data);
 
   }
@@ -286,6 +286,7 @@ public function update($id)
     'stakeholder_pro' => $this->input->post('stakeholderPro'),
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
+    'status' => "0",
     'user_id' => $this->input->post('idUser'),
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
@@ -336,6 +337,7 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
     'stakeholder_pro' => $this->input->post('stakeholderPro'),
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
+      'status' => "0",
     'user_id' => $this->input->post('idUser'),
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
@@ -396,6 +398,7 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
     'user_id' => $this->input->post('idUser'),
+      'status' => "0",
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
   ];
@@ -425,6 +428,7 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
     'user_id' => $this->input->post('idUser'),
+      'status' => "0",
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
   ];

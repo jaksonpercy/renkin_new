@@ -46,14 +46,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <!-- Custom Tabs -->
             <div class="card">
               <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">Detail</h3>
                 <ul class="nav nav-pills ml-auto p-2">
-
+					<li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
           <?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
-            if ($strakom->status == 0) {
+            if ($strakom->status == 0 || $strakom->status == 3) {
             ?>
 						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$strakom->id) ?>">Edit</a></li>
           <?php }}}?>
