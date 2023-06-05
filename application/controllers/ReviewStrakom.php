@@ -18,6 +18,8 @@ class ReviewStrakom extends MY_Controller {
 
   public function strakom()
 	{
+	$tahun = $this->input->get('tahun_periode');
+    $triwulan = $this->input->get('triwulan_periode');
     $filtered_get = array_filter($_POST);
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
@@ -28,7 +30,7 @@ class ReviewStrakom extends MY_Controller {
     ])[0];
     $this->page_data['user'] = $this->users_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-        $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
+        $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id'],$tahun,$triwulan);
     } else {
       $this->page_data['strakom'] = $this->Strakom_model->get();
     }

@@ -21,13 +21,15 @@ class EditorialPlan extends MY_Controller {
 	{
 		$this->page_data['page']->submenu = 'editorialplan';
     // load view
+	$tahun = $this->input->get('tahun_periode');
+    $triwulan = $this->input->get('triwulan_periode');
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
     $this->page_data['strakom'] = $this->Strakom_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomId($this->session->userdata('logged')['id']);
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomId($this->session->userdata('logged')['id'],$tahun,$triwulan);
   } else {
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomIdAll();
   }
