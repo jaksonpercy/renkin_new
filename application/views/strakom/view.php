@@ -48,7 +48,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <ul class="nav nav-pills ml-auto p-2">
 					<li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
-					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
+					<li class="nav-item"><a id="tabeditorial" class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
           <?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
@@ -275,7 +275,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </div>
                         </div>
                   <!-- /.card-header -->
-                    <table id="example1" class="table table-bordered table-hover table-striped">
+                    <table id="ep" class="table table-bordered table-hover table-striped">
                       <thead>
                       <tr>
                         <th style="vertical-align:middle;text-align:center;">No</th>
@@ -505,7 +505,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </tbody>
                     </table>
                 <?php } else { ?>
-                    <table id="example1" class="table table-bordered table-hover table-striped">
+                    <table id="ep" class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
@@ -912,6 +912,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
    const txtpublikasiKomunikasiEdit = document.getElementById('txtLainnyaProdukKomunikasiEdit');
    const kanalKomunikasiEdit = document.getElementById('kanalKomunikasiEdit');
    const txtkanalKomunikasiEdit = document.getElementById('txtLainnyaKanalKomunikasiEdit');
+   const tabEditorial = document.getElementById('tabeditorial');
    // const divNamaKSD = document.getElementById('divNamaKSD');
 
    publikasiKomunikasi.addEventListener('change', function handleChange(event) {
@@ -950,4 +951,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	$('#dataTable1').DataTable({
     "order": []
   });
+  $("#ep").DataTable({
+      order: [[0, 'asc']]
+    });
 </script>
