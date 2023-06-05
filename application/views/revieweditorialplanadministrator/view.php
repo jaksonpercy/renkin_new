@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/EditorialPlan') ?>">Editorial Plan</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/ReviewEditorialPlan') ?>">Editorial Plan</a></li>
 
             </ol>
           </div>
@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 					<?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
-            if ($editorialplan->status == 0 || $editorialplan->status == 3) {
+            if ($editorialplan->status == 0) {
             ?>
             <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#modal-lg-edit<?php echo $editorialplan->id ?>">Edit</a></li>
           <?php }}}?>
@@ -119,10 +119,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 </div>
                 <!-- /.tab-content -->
+                <?php
+                  if($periode->status_verifikasi == 1){
+                  if($roles->role->role_id==4){
+                  if($editorialplan->status==1){ ?>
+
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-approveeditorial">Setujui</button>
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-rejecteditorial">Tolak</button>
+              <?php }}} ?>
               </div><!-- /.card-body -->
+
               <div class="modal-footer justify-content-between">
 
-                <a href="<?php echo url('/EditorialPlan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
+                <a href="<?php echo url('/ReviewEditorialPlan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
               </div>
             </div>
             <!-- ./card -->
@@ -134,6 +143,73 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 </section>
 
+<div class="modal fade" id="modal-approveeditorial">
+  <?php echo form_open_multipart('ReviewEditorialPlan/change_status_editorial_detail/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Setujui Editorial Plan</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" name="userId" value="<?php echo $editorialplan->user_id; ?>">
+          <input type="hidden" name="strakomId" value="<?php echo $editorialplan->strakom_id; ?>">
+          <input type="hidden" name="idEditorial" value="<?php echo $editorialplan->id; ?>">
+          <input type="hidden" name="opdId" value="<?php echo $editorialplan->opd_id; ?>">
+          <input type="hidden" name="status_strakom" value="2">
+          <div class="form-group" style="display:none">
+            <label for="formClient-Name">Alasan</label>
+            <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+          </div>
+          <p>Apakah kamu yakin untuk menyetujui Editorial Plan ini ?</p>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+          <button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+      <?php echo form_close(); ?>
+  </div>
+
+
+<div class="modal fade" id="modal-rejecteditorial">
+  <?php echo form_open_multipart('ReviewEditorialPlan/change_status_editorial_detail/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+<div class="modal-dialog modal-lg">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">Tolak Editorial Plan</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <input type="hidden" name="userId" value="<?php echo $editorialplan->user_id; ?>">
+    <input type="hidden" name="opdId" value="<?php echo $editorialplan->opd_id; ?>">
+      <input type="hidden" name="strakomId" value="<?php echo $editorialplan->strakom_id; ?>">
+    <input type="hidden" name="status_strakom" value="3">
+    <div class="form-group">
+      <label for="formClient-Name">Catatan</label>
+      <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+    </div>
+    </div>
+  <div class="modal-footer justify-content-between">
+      <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+    <button type="submit" class="btn btn-primary">Simpan</button>
+  </div>
+</div>
+<!-- /.modal-content -->
+</div>
+  <?php echo form_close(); ?>
+<!-- /.modal-dialog -->
+</div>
+
 <section class="content">
   <?php echo form_open_multipart('EditorialPlan/updateDataView/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
@@ -143,7 +219,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <div class="modal-dialog modal-xl">
 <div class="modal-content">
 <div class="modal-header">
-  <h4 class="modal-title">Edit Materi</h4>
+  <h4 class="modal-title">Edit Editorial Plan</h4>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -270,7 +346,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       </div>
     </div>
 </div>
-<div class="modal-footer text-right">
+<div class="modal-footer justify-content-between">
+  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
   <button type="submit" class="btn btn-primary">Submit</button>
 </div>
 </div>

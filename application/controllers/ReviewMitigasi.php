@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Mitigasi extends MY_Controller {
+class ReviewMitigasi extends MY_Controller {
 
   public function __construct() {
 
@@ -19,8 +19,6 @@ class Mitigasi extends MY_Controller {
 
   public function mitigasi()
   {
-	$tahun = $this->input->get('tahun_periode');
-    $triwulan = $this->input->get('triwulan_periode');
     $this->page_data['page']->submenu = 'mitigasi';
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
@@ -34,11 +32,75 @@ class Mitigasi extends MY_Controller {
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id'],$tahun,$triwulan);
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id']);
     } else {
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable();
     }
-    $this->load->view('mitigasi/list', $this->page_data);
+    $this->load->view('reviewmitigasiadministrator/list', $this->page_data);
+  }
+
+  public function change_status_mitigasi($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Mitigasi_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Uraian Mitigasi Krisis menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Uraian Mitigasi Krisis dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('ReviewMitigasi');
+  }
+
+  public function change_status_mitigasi_detail($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Mitigasi_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Uraian Mitigasi Krisis menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Uraian Mitigasi Krisis dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('ReviewMitigasi/view/'.$id);
   }
 
   public function add(){
@@ -93,7 +155,7 @@ class Mitigasi extends MY_Controller {
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->get();
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataMitigasiJoinStrakomById($id)[0];
-    $this->load->view('mitigasi/view', $this->page_data);
+    $this->load->view('reviewmitigasiadministrator/view', $this->page_data);
 
   }
 
@@ -288,7 +350,6 @@ public function update($id)
     'stakeholder_pro' => $this->input->post('stakeholderPro'),
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
-    'status' => "0",
     'user_id' => $this->input->post('idUser'),
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
@@ -339,7 +400,6 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
     'stakeholder_pro' => $this->input->post('stakeholderPro'),
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
-      'status' => "0",
     'user_id' => $this->input->post('idUser'),
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
@@ -400,7 +460,6 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
     'user_id' => $this->input->post('idUser'),
-      'status' => "0",
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
   ];
@@ -430,7 +489,6 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
     'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
     'pic_kegiatan' => $this->input->post('picKegiatan'),
     'user_id' => $this->input->post('idUser'),
-      'status' => "0",
     'periode_id' => $this->input->post('idPeriode'),
     'opd_id' => $this->input->post('idOPD'),
   ];

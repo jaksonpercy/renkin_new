@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class EditorialPlan extends MY_Controller {
+class ReviewEditorialPlan extends MY_Controller {
 
   public function __construct() {
 
@@ -21,15 +21,13 @@ class EditorialPlan extends MY_Controller {
 	{
 		$this->page_data['page']->submenu = 'editorialplan';
     // load view
-	$tahun = $this->input->get('tahun_periode');
-    $triwulan = $this->input->get('triwulan_periode');
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
     $this->page_data['strakom'] = $this->Strakom_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomId($this->session->userdata('logged')['id'],$tahun,$triwulan);
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomId($this->session->userdata('logged')['id']);
   } else {
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomIdAll();
   }
@@ -41,8 +39,72 @@ class EditorialPlan extends MY_Controller {
       'status_periode'=> 1
     ])[0];
       $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
-    $this->load->view('editorialplan/list', $this->page_data);
+    $this->load->view('revieweditorialplanadministrator/list', $this->page_data);
 	}
+
+  public function change_status_editorial($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Editorial_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Editorial Plan menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Editorial Plan dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('ReviewEditorialPlan');
+  }
+
+  public function change_status_editorial_detail($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Editorial_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Editorial Plan menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Editorial Plan dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('ReviewEditorialPlan/view/'.$id);
+  }
 
   public function add(){
 
@@ -74,7 +136,7 @@ class EditorialPlan extends MY_Controller {
       'role_id'=> $this->page_data['roles']->role
     ])[0];
       $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
-    $this->load->view('editorialplan/view', $this->page_data);
+    $this->load->view('revieweditorialplanadministrator/view', $this->page_data);
 
   }
 
@@ -149,7 +211,6 @@ class EditorialPlan extends MY_Controller {
       'txtLainKanalKomunikasi' => $this->input->post('txtLainnyaKanalKomunikasi'),
       'pesan_utama' => $this->input->post('pesanUtama'),
 			'khalayak' => $this->input->post('khalayak'),
-      'status' => "0",
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),

@@ -181,6 +181,7 @@ class MY_Model extends CI_Model {
 
 	public function getDataJoinThreeTableByUserId($id, $tahun = null, $triwulan = null)
 	{
+
 		$filter = "";
 		if (!empty($tahun)) {
 			$filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$tahun."' ";
@@ -189,14 +190,21 @@ class MY_Model extends CI_Model {
 		if (!empty($triwulan)) {
 			$filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$triwulan."' ";
 		}
-		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id where tbl_mitigasi.user_id = '".$id."'".$filter)->result()	;
+		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id where tbl_mitigasi.user_id = '".$id."'".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}
 
 	public function getDataJoinThreeTable()
 	{
-		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id")->result()	;
+		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
+	public function getListMitigasiByStrakom($id)
+	{
+		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id where tbl_mitigasi.strakom_id = '".$id."'")->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}

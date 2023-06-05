@@ -180,7 +180,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                         <?php if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
-                            if ($row->status == 0) {
+                            if ($row->status == 0 || $row->status == 3) {
                         ?>
                         <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
                         <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
@@ -253,7 +253,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 																<div class="form-group">
 																	<label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
-																	<select name="produkKomunikasi" id="formClient-produkKomunikasiEdit" class="form-control select2" required title="Bagian ini wajib diisi">
+																	<select name="produkKomunikasi" id="formClient-produkKomunikasiEdit" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi">
 																		<?php foreach ($produkkomunikasi as $rows):
 																			if ($row->produk_komunikasi == $rows->id) {
 																		?>

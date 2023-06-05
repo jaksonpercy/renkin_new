@@ -8,7 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-  
+
       <b>Version</b> 2.0
     </div>
     <strong>Copyright &copy; 2020-2023 <a href="<?php echo url('/') ?>">Dinas Komunikasi & Informasi Publik</a>.</strong> All rights
@@ -74,7 +74,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $("#example1").DataTable({
       "responsive": false,
       "autoWidth": false,
-	  "scrollX": true,
+	     "scrollX": true,
+    });
+
+    $("#example2").DataTable({
+    "scrollX": false,
+    });
+    $("#example3").DataTable({
+    "scrollX": false,
+    });
+    $("#example4").DataTable({
+    "scrollX": false,
     });
 
     $("input[data-bootstrap-switch]").each(function(){

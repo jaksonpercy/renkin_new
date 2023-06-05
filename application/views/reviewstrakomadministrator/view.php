@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/StrakomUnggulan') ?>">Strategi Komunikasi Unggulan</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('/ReviewStrakomUnggulan') ?>">Strategi Komunikasi Unggulan</a></li>
 
             </ol>
           </div>
@@ -46,13 +46,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <!-- Custom Tabs -->
             <div class="card">
               <div class="card-header d-flex p-0">
+
                 <ul class="nav nav-pills ml-auto p-2">
 					<li class="nav-item"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
           <?php if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
-            if ($strakom->status == 0 || $strakom->status == 3) {
+            if ($strakom->status == 0) {
             ?>
 						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$strakom->id) ?>">Edit</a></li>
           <?php }}}?>
@@ -251,8 +252,31 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                    ?>
                   </td>
                   </tr>
+									<tr>
+										<td><strong>Status</strong></td>
+										<td>
+
+											<?php if ($strakom->status == 0) {
+												echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+											} else if ($strakom->status == 1) {
+												echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+											} else if ($strakom->status == 2) {
+												echo '<p class="text-success"><strong>Disetujui</strong></p>';
+											} else {
+											  echo "<p class='text-danger'><strong>Ditolak</strong> (".$strakom->alasan.")</p>";
+											} ?>
+										</td>
+									</tr>
                 </tbody>
               </table>
+							<?php
+								if($periode->status_verifikasi == 1){
+								if($roles->role->role_id==4){
+								if($strakom->status==1){ ?>
+
+							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-approve">Setujui</button>
+							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-reject">Tolak</button>
+						<?php }}} ?>
             </div>
           <?php endif ?>
       	</div>
@@ -505,7 +529,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </tbody>
                     </table>
                 <?php } else { ?>
-                    <table id="example1" class="table table-bordered table-hover table-striped">
+                    <table id="example2" class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
@@ -514,6 +538,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
                           <th style="vertical-align:middle;text-align:center;">Khalayak</th>
                           <th style="vertical-align:middle;text-align:center;">Kanal Komunikasi</th>
+                          <th style="vertical-align:middle;text-align:center;">Status</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                         </tr>
                       </thead>
@@ -547,23 +572,116 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                              endforeach;
                             ?>
                           </td>
+													<td>
+														<?php if ($row->status == 0) {
+															echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+														} else if ($row->status == 1) {
+															echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+														} else if ($row->status == 2) {
+															echo '<p class="text-success"><strong>Disetujui</strong></p>';
+														} else {
+															echo "<p class='text-danger'><strong>Ditolak</strong> (".$row->alasan.")</p>";
+														} ?>
+													</td>
                           <td>
-                          <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+														<?php
+															if($periode->status_verifikasi == 1){
+															if($roles->role->role_id==4){
+															if($row->status==1){ ?>
+																<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approveeditorial<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
+																<button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-rejecteditorial<?php echo $row->id ?>"><i class="fa fa-times" title="Tolak"></i></button>
+
+			                      <?php }}} ?>
+                          <a href="<?php echo url('ReviewEditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                           </td>
                         </tr>
+												<div class="modal fade" id="modal-approveeditorial<?php echo $row->id ?>">
+													<?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_editorial/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+														<div class="modal-dialog">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h4 class="modal-title">Setujui Editorial Plan</h4>
+																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	<input type="hidden" name="userId" value="<?php echo $row->user_id; ?>">
+																	<input type="hidden" name="strakomId" value="<?php echo $row->strakom_id; ?>">
+																	<input type="hidden" name="idEditorial" value="<?php echo $row->id; ?>">
+																	<input type="hidden" name="opdId" value="<?php echo $row->opd_id; ?>">
+																	<input type="hidden" name="status_strakom" value="2">
+																	<div class="form-group" style="display:none">
+																		<label for="formClient-Name">Alasan</label>
+																		<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+																	</div>
+																	<p>Apakah kamu yakin untuk menyetujui Editorial Plan ini ?</p>
+																</div>
+																<div class="modal-footer justify-content-between">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+																	<button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+																</div>
+															</div>
+															<!-- /.modal-content -->
+														</div>
+														<!-- /.modal-dialog -->
+															<?php echo form_close(); ?>
+													</div>
+
+
+												<div class="modal fade" id="modal-rejecteditorial<?php echo $row->id ?>">
+													<?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_editorial/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+												<div class="modal-dialog modal-lg">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h4 class="modal-title">Tolak Editorial Plan</h4>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body">
+														<input type="hidden" name="userId" value="<?php echo $strakom->user_id; ?>">
+														<input type="hidden" name="opdId" value="<?php echo $strakom->opd_id; ?>">
+															<input type="hidden" name="strakomId" value="<?php echo $row->strakom_id; ?>">
+														<input type="hidden" name="status_strakom" value="3">
+														<div class="form-group">
+															<label for="formClient-Name">Catatan</label>
+															<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5" required></textarea>
+														</div>
+														</div>
+													<div class="modal-footer justify-content-between">
+															<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+														<button type="submit" class="btn btn-primary">Simpan</button>
+													</div>
+												</div>
+												<!-- /.modal-content -->
+												</div>
+													<?php echo form_close(); ?>
+												<!-- /.modal-dialog -->
+												</div>
                         <?php
 
                         endforeach ?>
                       </tbody>
                     </table>
                 <?php } ?>
+								<?php
+									if($periode->status_verifikasi == 1){
+									if($roles->role->role_id==4){
+									if($strakom->status==1){ ?>
+
+								<button type="button" class="btn btn-success" style="display:none" data-toggle="modal" data-target="#modal-approve">Setujui</button>
+								<button type="button" class="btn btn-danger" style="display:none" data-toggle="modal" data-target="#modal-reject">Tolak</button>
+							<?php }}} ?>
                   </div>
 
 
                   <div class="tab-pane" id="tab_3">
                     <?php if ($roles->role->role_id==1):?>
-                      <table id="example1" class="table table-bordered table-hover table-striped">
+                      <table id="example3" class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
@@ -626,7 +744,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           </tbody>
                       </table>
                       <?php else:?>
-                          <table id="example1" class="table table-bordered table-hover table-striped">
+                          <table id="example4" class="table table-bordered table-hover table-striped">
                             <thead>
                               <tr>
                                 <th style="vertical-align:middle;text-align:center;">No</th>
@@ -636,18 +754,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
                                 <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                                 <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
-                                <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+															  <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
+																<th style="vertical-align:middle;text-align:center;">Status</th>
+                                <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                               </tr>
                             </thead>
                             <tbody>
-                              <?php foreach ($mitigasi as $row):
-                                if ($row->user_id == $this->session->userdata('logged')['id']) {
-                                  // code...
+                              <?php
+															$no =0;
+															foreach ($mitigasi as $row):
+                                  $no++;
 
                               ?>
                               <tr>
-                                <td><?php echo $row->id ?></td>
-                                <td><?php echo $row->nama_kegiatan ?></td>
+                                <td><?php echo $no ?></td>
+                                <td><?php echo $row->nama_program ?></td>
                                 <td><?php echo $row->uraian_potensi ?></td>
                                 <td><?php echo $row->stakeholder_pro ?></td>
                                 <td><?php echo $row->stakeholder_kontra ?></td>
@@ -660,18 +781,111 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
                               <?php } ?>
                                 </td>
+																<td>
+																	<?php if ($row->status == 0) {
+																		echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+																	} else if ($row->status == 1) {
+																		echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+																	} else if ($row->status == 2) {
+																		echo '<p class="text-success"><strong>Disetujui</strong></p>';
+																	} else {
+																		echo "<p class='text-danger'><strong>Ditolak</strong> (".$row->alasan.")</p>";
+																	} ?>
+																</td>
                                 <td>
-                                  <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+																	<?php
+																		if($periode->status_verifikasi == 1){
+																		if($roles->role->role_id==4){
+																		if($row->status==1){ ?>
+																			<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approvemitigasi<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
+																			<button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-rejectmitigasi<?php echo $row->id ?>"><i class="fa fa-times" title="Tolak"></i></button>
+
+						                      <?php }}} ?>
+                                  <a href="<?php echo url('ReviewMitigasi/view/'.$row->id ) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                                 </td>
                               </tr>
+															<div class="modal fade" id="modal-approvemitigasi<?php echo $row->id ?>">
+																<?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_mitigasi/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+																	<div class="modal-dialog">
+																		<div class="modal-content">
+																			<div class="modal-header">
+																				<h4 class="modal-title">Setujui Uraian Mitigasi Krisis</h4>
+																				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																					<span aria-hidden="true">&times;</span>
+																				</button>
+																			</div>
+																			<div class="modal-body">
+																				<input type="hidden" name="userId" value="<?php echo $row->user_id; ?>">
+																				<input type="hidden" name="strakomId" value="<?php echo $row->strakom_id; ?>">
+																				<input type="hidden" name="idEditorial" value="<?php echo $row->id; ?>">
+																				<input type="hidden" name="opdId" value="<?php echo $row->opd_id; ?>">
+																				<input type="hidden" name="status_strakom" value="2">
+																				<div class="form-group" style="display:none">
+																					<label for="formClient-Name">Alasan</label>
+																					<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+																				</div>
+																				<p>Apakah kamu yakin untuk menyetujui Uraian Mitigasi Krisis ini ?</p>
+																			</div>
+																			<div class="modal-footer justify-content-between">
+																				<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+																				<button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+																			</div>
+																		</div>
+																		<!-- /.modal-content -->
+																	</div>
+																	<!-- /.modal-dialog -->
+																		<?php echo form_close(); ?>
+																</div>
+
+
+															<div class="modal fade" id="modal-rejectmitigasi<?php echo $row->id ?>">
+																<?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_mitigasi/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+
+															<div class="modal-dialog modal-lg">
+															<div class="modal-content">
+																<div class="modal-header">
+																	<h4 class="modal-title">Tolak Uraian Mitigasi Krisis</h4>
+																	<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																		<span aria-hidden="true">&times;</span>
+																	</button>
+																</div>
+																<div class="modal-body">
+																	<input type="hidden" name="userId" value="<?php echo $strakom->user_id; ?>">
+																	<input type="hidden" name="opdId" value="<?php echo $strakom->opd_id; ?>">
+																		<input type="hidden" name="strakomId" value="<?php echo $row->strakom_id; ?>">
+																	<input type="hidden" name="status_strakom" value="3">
+																	<div class="form-group">
+																		<label for="formClient-Name">Catatan</label>
+																		<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5" required></textarea>
+																	</div>
+																	</div>
+																<div class="modal-footer justify-content-between">
+																	<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+																	<button type="submit" class="btn btn-primary">Simpan</button>
+																</div>
+															</div>
+															<!-- /.modal-content -->
+															</div>
+																<?php echo form_close(); ?>
+															<!-- /.modal-dialog -->
+															</div>
                               <?php
-                              }
+
                               endforeach ?>
                               </tbody>
                           </table>
+
                       <?php endif ?>
-                  </div>
+											<?php
+												if($periode->status_verifikasi == 1){
+												if($roles->role->role_id==4){
+												if($strakom->status==1){ ?>
+
+											<button type="button" class="btn btn-success" style="display:none" data-toggle="modal" data-target="#modal-approve">Setujui</button>
+											<button type="button" class="btn btn-danger" style="display:none" data-toggle="modal" data-target="#modal-reject">Tolak</button>
+										<?php }}} ?>
 
                 </div>
                 <!-- /.tab-content -->
@@ -681,20 +895,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               </div>
 
+
             </div>
 
             <!-- ./card -->
           </div>
 					<div class="modal-footer justify-content-between">
-						<a href="<?php echo url('/StrakomUnggulan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
-						<?php
-							if($periode->status_verifikasi == 1){
-							if($roles->role->role_id==2){
-							if($strakom->status==1){ ?>
+						<a href="<?php echo url('/ReviewStrakomUnggulan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
 
-						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-approve">Setujui</button>
-						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-reject">Tolak</button>
-					<?php }}} ?>
 					</div>
           <!-- /.col -->
         </div>
@@ -755,12 +963,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 		<input type="hidden" name="opdId" value="<?php echo $strakom->opd_id; ?>">
 		<input type="hidden" name="status_strakom" value="3">
 		<div class="form-group">
-			<label for="formClient-Name">Alasan</label>
-			<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+			<label for="formClient-Name">Catatan</label>
+			<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5" required></textarea>
 		</div>
 		</div>
 	<div class="modal-footer justify-content-between">
-		<button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
 		<button type="submit" class="btn btn-primary">Simpan</button>
 	</div>
 </div>

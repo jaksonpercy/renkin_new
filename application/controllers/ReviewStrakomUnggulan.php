@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class StrakomUnggulan extends MY_Controller {
+class ReviewStrakomUnggulan extends MY_Controller {
 
   public function __construct() {
 
@@ -19,10 +19,10 @@ class StrakomUnggulan extends MY_Controller {
   public function strakom()
 	{
 
-    $tahun = $this->input->get('tahun_periode');
+    // $tahun = $this->input->post('tahun_periode');
     // $skpd = $this->input->post('user_id');
-    $triwulan = $this->input->get('triwulan_periode');
-    //$filtered_get = array_filter($_POST);
+    // $triwulan = $this->input->post('triwulan_periode');
+    $filtered_get = array_filter($_POST);
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -33,7 +33,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['user'] = $this->users_model->get();
     $this->page_data['userbyid'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     if ($this->page_data['roles']->role->role_id == 1) {
-        $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id'],$tahun,$triwulan);
+        $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
     } else if ($this->page_data['roles']->role->role_id == 2) {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
     } else  {
@@ -51,7 +51,7 @@ class StrakomUnggulan extends MY_Controller {
 
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
 		$this->page_data['page']->submenu = 'strakom';
-    $this->load->view('strakom/list', $this->page_data);
+    $this->load->view('reviewstrakomadministrator/list', $this->page_data);
 	}
 
   public function add(){
@@ -65,7 +65,7 @@ class StrakomUnggulan extends MY_Controller {
       'status_periode'=> 1
     ])[0];
     $this->page_data['page']->submenu = 'strakom';
-    $this->load->view('strakom/form-add', $this->page_data);
+    $this->load->view('reviewstrakomadministrator/form-add', $this->page_data);
 
   }
 
@@ -78,7 +78,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['strakom'] = $this->Strakom_model->getById($id);
 
     $this->page_data['page']->submenu = 'strakom';
-    $this->load->view('strakom/form-edit', $this->page_data);
+    $this->load->view('reviewstrakomadministrator/form-edit', $this->page_data);
 
   }
 
@@ -99,11 +99,11 @@ class StrakomUnggulan extends MY_Controller {
 
     $this->page_data['strakomList'] = $this->Strakom_model->get();
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataByStrakomId($id);
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable($this->session->userdata('logged')['id'],$id);
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getListMitigasiByStrakom($id);
 
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['page']->submenu = 'strakom';
-    $this->load->view('strakom/view', $this->page_data);
+    $this->load->view('reviewstrakomadministrator/view', $this->page_data);
 
   }
 
@@ -212,7 +212,6 @@ class StrakomUnggulan extends MY_Controller {
       'target_kontra' => $this->input->post('targetAudiensKontra'),
       'kanal_publikasi' => implode(", ",$this->input->post('rencanaMedia')),
       'kanal_publikasi_lainnya' => $this->input->post('textlainnya'),
-      'status' => "0",
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
@@ -327,7 +326,7 @@ class StrakomUnggulan extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Menambahkan data Editorial Plan Berhasil');
 
-		redirect('StrakomUnggulan/view/'. $id );
+		redirect('ReviewStrakomUnggulan/view/'. $id );
 
 	}
 
@@ -361,7 +360,71 @@ class StrakomUnggulan extends MY_Controller {
       'opd_id' =>  $this->input->post('opdId'),
     ]);
 
-    redirect('StrakomUnggulan/view/'.$id);
+    redirect('ReviewStrakomUnggulan/view/'.$id);
+  }
+
+  public function change_status_editorial($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Editorial_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Editorial Plan menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Editorial Plan dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakomId'));
+  }
+
+  public function change_status_mitigasi($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    $this->Mitigasi_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Uraian Mitigasi Krisis menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Uraian Mitigasi Krisis dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
+      'user_id' => $this->session->userdata('logged')['id'],
+      'periode_id' =>  $this->input->post('userId'),
+      'opd_id' =>  $this->input->post('opdId'),
+    ]);
+
+    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakomId'));
   }
 
   public function change_status_strakom_list($id)
@@ -394,7 +457,7 @@ class StrakomUnggulan extends MY_Controller {
       'opd_id' =>  $this->input->post('opdId'),
     ]);
 
-    redirect('StrakomUnggulan');
+    redirect('ReviewStrakomUnggulan');
   }
 
 }

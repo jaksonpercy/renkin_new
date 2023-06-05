@@ -51,7 +51,7 @@ class Login extends CI_Controller {
         //     return;
         // }
 
-				$captchaUser = filter_var(post('captcha'), FILTER_SANITIZE_STRING);
+				// $captchaUser = filter_var(post('captcha'), FILTER_SANITIZE_STRING);
 
 			// 	if(empty(post('captcha'))) {
 			// 		$this->session->set_flashdata('message', 'Please enter the captcha.');
