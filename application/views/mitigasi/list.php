@@ -29,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="card">
               <div class="card-header">
 
-                <?php echo form_open_multipart('StrakomUnggulan/strakom', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
+                <?php echo form_open_multipart('Mitigasi/mitigasi', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
                 <div class="row">
                   <div class="col-2">
                     <div class="card-body">
@@ -37,15 +37,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <label for="formClient-Contact">Pilih Tahun</label>
                       <select name="tahun_periode" id="tahun_periode" class="form-control">
                         <option value="">Pilih Tahun</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
+						<?php
+						for ($i=date('Y'); $i>2000; $i--){
+							if($i==$_GET['tahun_periode']){
+							echo '<option selected value="'.$i.'">'.$i.'</option>';
+							} else {
+							echo '<option value="'.$i.'">'.$i.'</option>';	
+							}
+						}
+						?>
 
                       </select>
                     </div>
@@ -72,10 +72,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <label for="formClient-Contact">Pilih Triwulan</label>
                       <select name="triwulan_periode" id="triwulan_periode" class="form-control">
                         <option value="">Pilih Triwulan</option>
-                        <option value="Triwulan I">Triwulan I</option>
-                        <option value="Triwulan II">Triwulan II</option>
-                        <option value="Triwulan III">Triwulan III</option>
-                        <option value="Triwulan IV">Triwulan IV</option>
+                        <option <?php if($_GET['triwulan_periode'] == "Triwulan I"){echo "selected";} ?> value="Triwulan I">Triwulan I</option>
+                        <option <?php if($_GET['triwulan_periode'] == "Triwulan II"){echo "selected";} ?> value="Triwulan II">Triwulan II</option>
+                        <option <?php if($_GET['triwulan_periode'] == "Triwulan III"){echo "selected";} ?> value="Triwulan III">Triwulan III</option>
+                        <option <?php if($_GET['triwulan_periode'] == "Triwulan IV"){echo "selected";} ?> value="Triwulan IV">Triwulan IV</option>
                       </select>
                     </div>
                   </div>

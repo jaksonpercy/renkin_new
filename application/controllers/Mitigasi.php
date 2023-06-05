@@ -19,6 +19,8 @@ class Mitigasi extends MY_Controller {
 
   public function mitigasi()
   {
+	$tahun = $this->input->get('tahun_periode');
+    $triwulan = $this->input->get('triwulan_periode');
     $this->page_data['page']->submenu = 'mitigasi';
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
@@ -32,7 +34,7 @@ class Mitigasi extends MY_Controller {
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id']);
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id'],$tahun,$triwulan);
     } else {
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable();
     }

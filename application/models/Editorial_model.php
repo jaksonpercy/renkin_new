@@ -10,9 +10,17 @@ class Editorial_model extends MY_Model {
 		parent::__construct();
 	}
 
-	public function getDataJoinStrakomId($userid)
+	public function getDataJoinStrakomId($userid, $tahun = null, $triwulan = null)
 	{
-		$query = $this->db->query("SELECT tbl_editorial_plan.tanggal_rencana, tbl_editorial_plan.produk_komunikasi, tbl_editorial_plan.txtLainProdukKomunikasi, tbl_editorial_plan.kanal_komunikasi, tbl_editorial_plan.txtLainKanalKomunikasi, tbl_editorial_plan.pesan_utama, tbl_editorial_plan.khalayak,tbl_editorial_plan.user_id,tbl_editorial_plan.id, tbl_editorial_plan.status,tbl_strakom_unggulan.nama_program FROM tbl_editorial_plan join tbl_strakom_unggulan on tbl_editorial_plan.strakom_id = tbl_strakom_unggulan.id WHERE tbl_editorial_plan.user_id = '".$userid."'")->result()	;
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND tahun_periode = '".$tahun."' ";
+		}
+		
+		if (!empty($triwulan)) {
+			$filter .= " AND triwulan_periode = '".$triwulan."' ";
+		}
+		$query = $this->db->query("SELECT tbl_editorial_plan.tanggal_rencana, tbl_editorial_plan.produk_komunikasi, tbl_editorial_plan.txtLainProdukKomunikasi, tbl_editorial_plan.kanal_komunikasi, tbl_editorial_plan.txtLainKanalKomunikasi, tbl_editorial_plan.pesan_utama, tbl_editorial_plan.khalayak,tbl_editorial_plan.user_id,tbl_editorial_plan.id, tbl_editorial_plan.status,tbl_strakom_unggulan.nama_program FROM tbl_editorial_plan join tbl_strakom_unggulan on tbl_editorial_plan.strakom_id = tbl_strakom_unggulan.id WHERE tbl_editorial_plan.user_id = '".$userid."'".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}
