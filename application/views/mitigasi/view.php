@@ -89,13 +89,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <td>
 
                     <?php if ($mitigasi->status == 0) {
-                      echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                      echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($mitigasi->status == 1) {
-                      echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                      echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                     } else if ($mitigasi->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
                     } else {
-                      echo "<p class='text-danger'><strong>Ditolak</strong> (".$mitigasi->alasan.")</p>";
+                      echo "<p class='text-danger'><strong>Perlu Diperbaiki </strong> (".$mitigasi->alasan.")</p>";
                     } ?>
                   </td>
                 </tr>

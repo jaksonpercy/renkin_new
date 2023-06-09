@@ -186,7 +186,7 @@ class MY_Model extends CI_Model {
 		if (!empty($tahun)) {
 			$filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$tahun."' ";
 		}
-		
+
 		if (!empty($triwulan)) {
 			$filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$triwulan."' ";
 		}
@@ -215,7 +215,7 @@ class MY_Model extends CI_Model {
 		if (!empty($tahun)) {
 			$filter .= " AND tahun_periode = '".$tahun."' ";
 		}
-		
+
 		if (!empty($triwulan)) {
 			$filter .= " AND triwulan_periode = '".$triwulan."' ";
 		}
@@ -224,11 +224,44 @@ class MY_Model extends CI_Model {
 		return $query;
 	}
 
+	public function getListDataByFilter($tahun = null, $triwulan = null, $userId = null)
+	{
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND tahun_periode = '".$tahun."' ";
+		}
+
+		if (!empty($triwulan)) {
+			$filter .= " AND triwulan_periode = '".$triwulan."' ";
+		}
+
+		if (!empty($userId)) {
+			$filter .= " AND user_id = '".$userId."' ";
+		}
+
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id ,tbl_strakom_unggulan.kategori_program, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.ksd_id, tbl_strakom_unggulan.jenis_kegiatan, tbl_strakom_unggulan.deskripsi, tbl_strakom_unggulan.analisis_situasi, tbl_strakom_unggulan.identifikasi_masalah, tbl_strakom_unggulan.narasi_utama, tbl_strakom_unggulan.target_pro, tbl_strakom_unggulan.target_kontra, tbl_strakom_unggulan.kanal_publikasi, tbl_strakom_unggulan.kanal_publikasi_lainnya, tbl_strakom_unggulan.user_id, tbl_strakom_unggulan.periode_id, tbl_strakom_unggulan.opd_id, tbl_strakom_unggulan.status FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = 1 ".$filter)->result()	;
+		return $query;
+	}
+
 	public function getDataByStrakomId($id)
 	{
 
 		$query = $this->db->query("SELECT * FROM $this->table WHERE strakom_id =  '".$id."'")->result()	;
 		return $query;
+	}
+
+	public function getDataByStrakomIdAndPeriode($id,$periode)
+	{
+
+		$query = $this->db->query("SELECT * FROM $this->table WHERE strakom_id =  '".$id."' AND periode_id = '".$periode."'")->result()	;
+		return $query;
+	}
+
+	public function getCountDataByStrakomIdAndPeriode($id,$periode)
+	{
+
+		$query = $this->db->query("SELECT * FROM $this->table WHERE strakom_id =  '".$id."' AND periode_id = '".$periode."'")->result()	;
+		return count($query);
 	}
 
 	public function getDataJoinThreeTableByStrakom($id,$idStrakom)
@@ -296,7 +329,7 @@ return $query;
 		if (!empty($tahun)) {
 			$filter .= " AND tahun_periode = '".$tahun."' ";
 		}
-		
+
 		if (!empty($triwulan)) {
 			$filter .= " AND triwulan_periode = '".$triwulan."' ";
 		}

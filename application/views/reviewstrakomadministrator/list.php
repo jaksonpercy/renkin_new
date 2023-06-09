@@ -242,13 +242,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                          echo '<p class="text-danger"><strong>Dikembalikan</strong></p>';
                         } ?>
                       </td>
                       <td>
@@ -342,13 +342,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                          echo '<p class="text-danger"><strong>Dikembalikan</strong></p>';
                         } ?>
                       </td>
                       <td>

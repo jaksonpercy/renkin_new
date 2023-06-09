@@ -22,6 +22,8 @@ class StrakomUnggulan extends MY_Controller {
     $tahun = $this->input->get('tahun_periode');
     // $skpd = $this->input->post('user_id');
     $triwulan = $this->input->get('triwulan_periode');
+
+    $userId = $this->input->get('user_id');
     //$filtered_get = array_filter($_POST);
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
@@ -37,7 +39,7 @@ class StrakomUnggulan extends MY_Controller {
     } else if ($this->page_data['roles']->role->role_id == 2) {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
     } else  {
-      $this->page_data['strakom'] = $this->Strakom_model->get();
+      $this->page_data['strakom'] = $this->Strakom_model->getListDataByFilter($tahun,$triwulan,$userId);
     }
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
     $this->page_data['countstrakomApproved'] = $this->Strakom_model->countAllByStatus(2);

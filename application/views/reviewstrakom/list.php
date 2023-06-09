@@ -116,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 							if($i==$_GET['tahun_periode']){
 							echo '<option selected value="'.$i.'">'.$i.'</option>';
 							} else {
-							echo '<option value="'.$i.'">'.$i.'</option>';	
+							echo '<option value="'.$i.'">'.$i.'</option>';
 							}
 						}
 						?>
@@ -238,13 +238,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
                         } ?>
                       </td>
                       <td>

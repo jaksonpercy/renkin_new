@@ -152,13 +152,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <td><strong>Status</strong>:</td>
                   <td>
                     <?php if ($strakom->status == 0) {
-                      echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                      echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($strakom->status == 1) {
-                      echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                      echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                     } else if ($strakom->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
                     } else {
-                      echo "<p class='text-danger'><strong>Ditolak ($strakom->alasan) </strong></p>";
+                      echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
                     } ?>
                   </td>
                 </tr>
@@ -563,7 +563,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="tab-pane" id="tab_3">
                     <?php if ($roles->role->role_id==1):?>
-                      <table id="example1" class="table table-bordered table-hover table-striped">
+                      <table id="example2" class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>

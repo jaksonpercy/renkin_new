@@ -50,7 +50,7 @@ class Realisasi extends MY_Controller {
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->get();
 
-    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getDataByUserId($this->session->userdata('logged')['id']);
+    // $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getDataByUserId($this->session->userdata('logged')['id']);
     $this->load->view('realisasi/form-add', $this->page_data);
 
   }
