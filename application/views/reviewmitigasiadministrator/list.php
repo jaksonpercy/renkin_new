@@ -232,13 +232,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           </td>
                           <td>
                             <?php
+                            if(count($periodeCount)>0){
                             if($periode->status_verifikasi == 1){
                             if($roles->role->role_id==4){
                             if($row->status==1){ ?>
                               <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approvemitigasi<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
                               <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-rejectmitigasi<?php echo $row->id ?>"><i class="fa fa-times" title="Tolak"></i></button>
 
-                          <?php }}} ?>
+                          <?php }}}} ?>
                             <a href="<?php echo url('ReviewMitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                           </td>

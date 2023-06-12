@@ -499,9 +499,10 @@ if (!function_exists('hasReviewPeriod')) {
 
 		$periode = $CI->Periode_model->getByWhere([
 			'status_periode'=> 1
-		])[0];
+		]);
 
-		if ($periode->status_input_data==1) {
+		if(count($periode)>0){
+		if ($periode[0]->status_input_data==1) {
 
 			return true;
 
@@ -515,6 +516,9 @@ if (!function_exists('hasReviewPeriod')) {
 
 		return false;
 	}
+} else {
+	return false;
+}
 
 	}
 

@@ -183,9 +183,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </div>
 
 <script type="text/javascript">
+<?php if(count($pemberitahuan)>0){ ?>
   $(window).on('load',function() {
     $('#modal-lg').modal('show');
 });
+<?php } ?>
 </script>
 
 <!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"

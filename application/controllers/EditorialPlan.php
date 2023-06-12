@@ -40,9 +40,14 @@ class EditorialPlan extends MY_Controller {
   }
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount']) > 0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
       $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->load->view('editorialplan/list', $this->page_data);
 	}
@@ -68,9 +73,14 @@ class EditorialPlan extends MY_Controller {
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount']) > 0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
 
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([

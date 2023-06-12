@@ -111,7 +111,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Editorial Plan</h3>
                 <div class="ml-auto p-2">
-                  <?php if ($roles->role->role_id==1){
+                  <?php
+									if(count($periodeCount) > 0){
+									if ($roles->role->role_id==1){
                     if ($periode->status_input_data == 1) {
                       // code...
 
@@ -120,6 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 Tambah Materi
               </button>
             <?php }
+					}
             } ?>
                 </div>
               </div>
@@ -194,13 +197,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         } ?>
                       </td>
                       <td>
-                        <?php if ($roles->role->role_id==1){
+                        <?php
+												if(count($periodeCount)>0){
+												if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
                             if ($row->status == 0 || $row->status == 3) {
                         ?>
                         <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
                         <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                        <?php }}} ?>
+											<?php }}}} ?>
                         <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>

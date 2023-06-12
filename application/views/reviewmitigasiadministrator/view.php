@@ -118,13 +118,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 </div>
                 <?php
+                if(count($periodeCount)>0){
                   if($periode->status_verifikasi == 1){
                   if($roles->role->role_id==4){
                   if($mitigasi->status==1){ ?>
 
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-approvemitigasi">Setujui</button>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-rejectmitigasi">Tolak</button>
-              <?php }}} ?>
+              <?php }}}} ?>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
             </div>

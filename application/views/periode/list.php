@@ -128,7 +128,7 @@ window.updatePeriodeStatus = (id, status_periode) => {
     if (data=='done') {
       // code
     }else{
-      alert('<?php echo lang('user_unable_change_status') ?>');
+      // alert('<?php echo lang('user_unable_change_status') ?>');
     }
   })
 }

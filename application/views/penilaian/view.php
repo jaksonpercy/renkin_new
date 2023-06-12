@@ -577,9 +577,10 @@ $nilaiMitigasi =0;
 
 
             </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="modal-footer text-right">
+              <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+              
+              <button type="submit" class="btn btn-primary">Kirim</button>
             </div>
            <?php echo form_close(); ?>
 
@@ -626,9 +627,9 @@ $nilaiMitigasi =0;
 
 
            </div>
-           <div class="modal-footer justify-content-between">
-             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-             <button type="submit" class="btn btn-primary">Submit</button>
+           <div class="modal-footer text-right">
+             <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+             <button type="submit" class="btn btn-primary">Kirim</button>
            </div>
           <?php echo form_close(); ?>
         <?php } ?>
@@ -684,9 +685,9 @@ $nilaiMitigasi =0;
 
 
           </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="modal-footer text-right">
+            <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <button type="submit" class="btn btn-primary">Kirim</button>
           </div>
          <?php echo form_close(); ?>
 
@@ -738,9 +739,9 @@ $nilaiMitigasi =0;
 
 
          </div>
-         <div class="modal-footer justify-content-between">
-           <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-           <button type="submit" class="btn btn-primary">Submit</button>
+         <div class="modal-footer text-right">
+           <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           <button type="submit" class="btn btn-primary">Kirim</button>
          </div>
         <?php echo form_close(); ?>
       <?php } ?>
@@ -796,9 +797,9 @@ $nilaiMitigasi =0;
 
 
         </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-          <button type="submit" class="btn btn-primary">Submit</button>
+        <div class="modal-footer text-right">
+          <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <button type="submit" class="btn btn-primary">Kirim</button>
         </div>
        <?php echo form_close(); ?>
 
@@ -850,9 +851,9 @@ $nilaiMitigasi =0;
 
 
        </div>
-       <div class="modal-footer justify-content-between">
-         <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-         <button type="submit" class="btn btn-primary">Submit</button>
+       <div class="modal-footer text-right">
+         <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+         <button type="submit" class="btn btn-primary">Kirim</button>
        </div>
       <?php echo form_close(); ?>
     <?php } ?>

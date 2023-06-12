@@ -18,14 +18,21 @@ class Penilaian extends MY_Controller {
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount'])>0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
     $this->page_data['user'] = $this->users_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
         $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
     } else {
+      
       $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByStatus("2");
+
     }
 
     $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);

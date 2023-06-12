@@ -34,12 +34,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <h3 class="card-title p-3">Detail</h3>
                 <ul class="nav nav-pills ml-auto p-2">
 
-					<?php if ($roles->role->role_id==1){
+					<?php
+          if(count($periodeCount) > 0){
+          if ($roles->role->role_id==1){
           if ($periode->status_input_data == 1) {
             if ($editorialplan->status == 0 || $editorialplan->status == 3) {
             ?>
             <li class="nav-item"><a class="nav-link" data-toggle="modal" data-target="#modal-lg-edit<?php echo $editorialplan->id ?>">Edit</a></li>
-          <?php }}}?>
+          <?php }}}}?>
 
 
                 </ul>

@@ -29,9 +29,14 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount']) > 0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
     $this->page_data['user'] = $this->users_model->get();
     $this->page_data['userbyid'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     if ($this->page_data['roles']->role->role_id == 1) {
@@ -86,9 +91,14 @@ class StrakomUnggulan extends MY_Controller {
 
   public function view($id){
     // load view
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount']) > 0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role

@@ -38,7 +38,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <?php
                   if ($roles->role->role_id==1){
+                    if(count($periodeCount)>0){
                   echo $countstrakombyid;
+                } else {
+                  echo "0";
+                }
                 } else {
                   echo $countstrakom;
                 }
@@ -59,7 +63,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <span class="info-box-number">
                   <?php
                   if ($roles->role->role_id==1){
+                      if(count($periodeCount)>0){
                   echo $countstrakombyidApproved;
+                } else {
+                  echo "0";
+                }
                 } else {
                   echo $countstrakomApproved;
                 }
@@ -80,7 +88,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <span class="info-box-number">
                   <?php
                   if ($roles->role->role_id==1){
+                      if(count($periodeCount)>0){
                   echo $countstrakombyidRejected;
+                } else {
+                  echo "0";
+                }
                 } else {
                   echo $countstrakomRejected;
                 }
@@ -182,6 +194,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Strategi Komunikasi Unggulan</h3>
                   <?php if ($roles->role->role_id==1){
+                    if(count($periodeCount) > 0 ){
                     if ($periode->status_input_data == 1) {
                       // code...
 
@@ -193,6 +206,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 </div>
               <?php }
+            }
               } ?>
               </div>
 
@@ -269,12 +283,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </td>
                       <td>
                         <?php if ($roles->role->role_id==1){
+                          if(count($periodeCount) > 0){
                           if ($periode->status_input_data == 1) {
                             if ($row->status == 0 || $row->status == 3) {
                         ?>
                         <a href="<?php echo url('StrakomUnggulan/edit/'.$row->strakom_id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo url('StrakomUnggulan/delete/'.$row->strakom_id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                      <?php }}} ?>
+                      <?php }}}} ?>
                         <a href="<?php echo url('StrakomUnggulan/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
