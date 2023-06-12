@@ -579,8 +579,8 @@ $nilaiMitigasi =0;
             </div>
             <div class="modal-footer text-right">
               <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-              
-              <button type="submit" class="btn btn-primary">Kirim</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
+
             </div>
            <?php echo form_close(); ?>
 
@@ -687,7 +687,15 @@ $nilaiMitigasi =0;
           </div>
           <div class="modal-footer text-right">
             <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <?php if($penilaian > 0){
+                  if($penilaian[0]->nilai_strakom == 0){?>
+            <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian strategi komunikasi unggulan terlebih dahulu')">Kirim</button>
+          <?php } else { ?>
             <button type="submit" class="btn btn-primary">Kirim</button>
+          <?php }} else { ?>
+            <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian strategi komunikasi unggulan terlebih dahulu')">Kirim</button>
+
+          <?php } ?>
           </div>
          <?php echo form_close(); ?>
 
@@ -799,7 +807,15 @@ $nilaiMitigasi =0;
         </div>
         <div class="modal-footer text-right">
           <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <?php if($penilaian > 0){
+                if($penilaian[0]->nilai_editorial == 0){?>
+          <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian editorial plan terlebih dahulu')">Kirim</button>
+        <?php } else { ?>
           <button type="submit" class="btn btn-primary">Kirim</button>
+        <?php }} else { ?>
+          <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian editorial plan terlebih dahulu')">Kirim</button>
+
+        <?php } ?>
         </div>
        <?php echo form_close(); ?>
 

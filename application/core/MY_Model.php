@@ -345,6 +345,36 @@ return $query;
 		return $query;
 	}
 
+	public function getListUserByAsisten($id)
+	{
+		$query = $this->db->query("SELECT * FROM $this->table WHERE opd_upd IN ".$id."")->result()	;
+		return $query;
+	}
+	public function getCountStrakomByListOpd($id)
+	{
+		$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+		return $query;
+	}
+
+	public function getListStrakomByListOpd()
+	{
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id, tbl_strakom_unggulan.nama_program,tbl_strakom_unggulan.created_date, tbl_strakom_unggulan.status, tbl_users.name, tbl_periode.periode_aktif, tbl_periode.tahun FROM `tbl_strakom_unggulan` join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_strakom_unggulan.status IN (1,2);")->result()	;
+		return $query;
+	}
+
+	// public function getListStrakomByListOpdNotIn($id)
+	// {
+	// 	$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+	// 	$listId = array();
+	// 	foreach ($query as $row) {
+	// 		$listId[] = $row->opd_id;
+	// 	}
+	// 	$dataId = implode(", ",$listid);
+	// 	$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+	// 	return $query;
+	// }
+
+
 
 }
 

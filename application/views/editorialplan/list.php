@@ -244,20 +244,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                     <?php foreach ($strakom as $rows):
 
 
-                                      if ($rows->ksd_id > 0){
-
-                                        foreach ($ksd as $rowss):
-
-                                          if ($rowss->id == $rows->ksd_id ) {
-                                            if ($row->strakom_id == $rows->id) {
-                                                echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
-                                            } else {
-                                               echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
-                                             }
-                                          }
-
-                                       endforeach;
-                                      } else {
+                                      // if ($rows->ksd_id > 0){
+																			//
+                                      //   foreach ($ksd as $rowss):
+																			//
+                                      //     if ($rowss->id == $rows->ksd_id ) {
+                                      //       if ($row->strakom_id == $rows->id) {
+                                      //           echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+                                      //       } else {
+                                      //          echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+                                      //        }
+                                      //     }
+																			//
+                                      //  endforeach;
+                                      // } else {
                                         $sel ="";
                                         if ($row->strakom_id == $rows->id) {
                                             echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
@@ -265,7 +265,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                           echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
                                         }
 
-                                    }
+                                    // }
                                     ?>
 
                                     <?php endforeach ?>
@@ -512,15 +512,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style="width:100%;" required title="Bagian ini wajib diisi">
                           <option value="">Pilih Nama Strategi Komunikasi Unggulan</option>
                           <?php foreach ($strakom as $row):
-                            if ($row->ksd_id > 0){
-                              foreach ($ksd as $rows):
-                                if ($rows->id == $row->ksd_id ) {
-                                  echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
-                                }
-                             endforeach;
-                            } else {
+                            // if ($row->ksd_id > 0){
+                            //   foreach ($ksd as $rows):
+                            //     if ($rows->id == $row->ksd_id ) {
+                            //       echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
+                            //     }
+                            //  endforeach;
+                            // } else {
                                 echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
-                            }
+                            // }
                           ?>
 
                           <?php endforeach ?>

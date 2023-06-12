@@ -46,15 +46,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required title="Bagian ini wajib diisi">
               <option value="">Pilih Nama Program/Kegiatan</option>
               <?php foreach ($strakom as $row):
-                if ($row->ksd_id > 0){
-                  foreach ($ksd as $rows):
-                    if ($rows->id == $row->ksd_id ) {
-                      echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
-                    }
-                 endforeach;
-                } else {
+                // if ($row->ksd_id > 0){
+                //   foreach ($ksd as $rows):
+                //     if ($rows->id == $row->ksd_id ) {
+                //       echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
+                //     }
+                //  endforeach;
+                // } else {
                     echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
-                }
+                // }
               ?>
 
               <?php endforeach ?>
