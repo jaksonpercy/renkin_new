@@ -291,7 +291,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <a href="<?php echo url('StrakomUnggulan/delete/'.$row->strakom_id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                       <?php }}}} ?>
                         <a href="<?php echo url('StrakomUnggulan/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                        <a target="_blank" href="<?php echo url('StrakomUnggulan/download/'.$row->strakom_id).'?date='.date("Ymis") ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
                     </tr>

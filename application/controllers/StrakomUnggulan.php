@@ -118,6 +118,145 @@ class StrakomUnggulan extends MY_Controller {
     $this->load->view('strakom/view', $this->page_data);
 
   }
+  
+  public function download($id){
+	//$this->load->library('pdfgenerator');
+    // load view
+	
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
+    $this->page_data['user'] = $this->users_model->get();
+    $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
+    $this->page_data['strakom'] = $this->Strakom_model->getById($id);
+
+    $this->page_data['strakomList'] = $this->Strakom_model->get();
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataByStrakomId($id);
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable($this->session->userdata('logged')['id'],$id);
+
+    $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
+    $this->page_data['page']->submenu = 'strakom';
+    
+	
+        
+   /*     
+    // title dari pdf
+    $this->data['title_pdf'] = $this->page_data['strakom']->nama_program;
+        
+    // filename dari pdf ketika didownload
+    $file_pdf = 'laporan_penjualan_toko_kita';
+    // setting paper
+    $paper = 'A4';
+    //orientasi paper potrait / landscape
+    $orientation = "portrait";
+	
+	$html = $this->load->view('strakom/download', $this->data, true);
+        
+	$this->pdfgenerator->generate($html, $file_pdf,$paper,$orientation);
+	*/
+	require_once(APPPATH.'libraries/xlsxwriter.class.php');
+	 $fname='uploads/strakom_unggulan.xlsx';
+   $strakom = array();
+   array_push($strakom, array('STRATEGI KOMUNIKASI'));
+   array_push($strakom, array($this->page_data['strakom']->nama_program));
+   array_push($strakom, array(''));
+   array_push(
+    $strakom,
+    array('Kategori Program/Kegiatan',$this->page_data['strakom']->kategori_program == '1'?'Isu Prioritas':($this->page_data['strakom']->kategori_program == '2'?'KSD':'Program Unggulan Perangkat Daerah')),
+    array('Nama Program/Kegiatan',$this->page_data['strakom']->nama_program),
+    array('Jenis Kegiatan',$this->page_data['strakom']->jenis_kegiatan),
+    array('Deskripsi Singkat Kegiatan',$this->page_data['strakom']->deskripsi),
+    array('Analisis Situasi',$this->page_data['strakom']->analisis_situasi),
+    array('Identifikasi Masalah/Isu Utama',$this->page_data['strakom']->identifikasi_masalah),
+    array('Narasi Utama Publikasi Program',$this->page_data['strakom']->narasi_utama),
+    array('Target Audiens','Pro : '.$this->page_data['strakom']->target_pro.'. Kontra : '.$this->page_data['strakom']->target_kontra),
+    array('Rencana Media/Kanal Publikasi',$this->page_data['strakom']->kanal_publikasi),
+    array('Status',$this->page_data['strakom']->status)
+   );
+
+   $editorialplan = array();
+   array_push($editorialplan, array('EDITORIAL PLAN'));
+   array_push($editorialplan,
+   array(''),
+   array('No.','Tanggal Rencana Tayang','Pesan Utama','Produk Komunikasi','Khalayak','Kanal Komunikasi')
+  );
+
+  $no=0;
+  foreach ($this->page_data['editorialplan'] as $row){
+    $no++;
+    $produkkomunikasi='';
+    foreach ($this->page_data['produkkomunikasi'] as $rows){
+      if ($rows->id == $row->produk_komunikasi ) {
+        $produkkomunikasi = $rows->nama;
+      }
+    }
+    $kanalkomunikasi='';
+    foreach ($this->page_data['rencanamedia'] as $rows){
+      if ($rows->id == $row->kanal_komunikasi ) {
+        $kanalkomunikasi = $rows->nama;
+      }
+    }
+
+    array_push($editorialplan,
+    array(
+      $no,
+      $row->tanggal_rencana,
+      $row->pesan_utama,
+      $produkkomunikasi,
+      $row->khalayak,
+      $kanalkomunikasi
+    )
+  );
+  }
+
+
+  //////////////////////////////// Uraian Materi Mitigasi ////////////////////////////////////
+
+  $mitigasi = array();
+   array_push($mitigasi, array('URAIAN MATERI MITIGASI KRISIS'));
+   array_push($mitigasi,
+   array(''),
+   array('No.','Nama Program/Kegiatan Strategi Komunikasi Unggulan','Uraian Potensi Krisis','Stakeholder Pro Pemprov DKI Jakarta','Stakeholder Kontra Pemprov DKI Jakarta','Juru Bicara','PIC Kegiatan yang Dapat Dihubungi')
+  );
+
+  $no=0;
+  foreach ($this->page_data['mitigasi'] as $row){
+    $no++;
+    $namaprogram='';
+    if (is_null($row->nama)) {
+      $namaprogram = $row->nama_program;
+    } else {
+      $namaprogram=$row->nama;
+    }                          
+
+    array_push($mitigasi,
+    array(
+      $no,
+      $namaprogram,
+      $row->uraian_potensi,
+      $row->stakeholder_pro,
+      $row->stakeholder_kontra,
+      $row->juru_bicara,
+      $row->pic_kegiatan
+    )
+  );
+  }
+
+	 $writer = new XLSXWriter();
+	 $writer->setAuthor('Diskominfo DKI Jakarta');
+	 $writer->writeSheet($strakom,'1. Strakom Unggulan');  // with headers
+	 $writer->writeSheet($editorialplan,'2. Editorial Plan');            // no headers
+   $writer->writeSheet($mitigasi,'3. Uraian Materi Mitigasi Krisis');
+	 $writer->writeToFile($fname);   // creates XLSX file (in current folder) 
+	 redirect($fname.'?date='.date('Ymdis'));
+
+  }
 
   public function delete($id)
   {
