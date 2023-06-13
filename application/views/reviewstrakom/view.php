@@ -8,21 +8,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	color:#ff0000;
 }
 </style>
+
+<?php
+	$countData =0; ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>
-              <?php if ($strakom->ksd_id > 0){
-                foreach ($ksd as $rows):
-                  if ($rows->id == $strakom->ksd_id ) {
-                    echo $rows->nama;
-                  }
-               endforeach;
-              } else {
+              <?php
+							// if ($strakom->ksd_id > 0){
+              //   foreach ($ksd as $rows):
+              //     if ($rows->id == $strakom->ksd_id ) {
+              //       echo $rows->nama;
+              //     }
+              //  endforeach;
+              // } else {
                   echo $strakom->nama_program;
-              }
+              // }
               ?>
             </h1>
           </div>
@@ -59,7 +63,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">
 				  <div class="row">
-          <?php if ($roles->role->role_id==1):?>
+          <?php if ($roles->role->role_id==1):
+						?>
       		<div class="col-sm-12">
       			<table class="table table-bordered table-striped">
       				<tbody>
@@ -83,19 +88,22 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 								<?php } else { ?>
 										<td width="160"><strong>Nama Program Unggulan</strong>:</td>
 								<?php } ?>
-      						<td><?php if ($strakom->ksd_id > 0){
-                    foreach ($ksd as $rows):
-                      if ($rows->id == $strakom->ksd_id ) {
-                        echo $rows->nama;
-                      }
-                   endforeach;
-                  } else {
+      						<td><?php
+									if(!empty($strakom->nama_program)){
+										$countData ++;
+									}
+									// if ($strakom->ksd_id > 0){
+                  //   foreach ($ksd as $rows):
+                  //     if ($rows->id == $strakom->ksd_id ) {
+                  //       echo $rows->nama;
+                  //     }
+                  //  endforeach;
+                  // } else {
                       echo $strakom->nama_program;
-                  }
+                  // }
                   ?></td>
       					</tr>
                 <?php if (!empty($strakom->jenis_kegiatan)) {
-
                 ?>
       					<tr>
       						<td><strong>Jenis Kegiatan</strong>:</td>
@@ -109,28 +117,56 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <?php } ?>
       					<tr>
       						<td><strong>Deskripsi Singkat Kegiatan</strong>:</td>
-      						<td><?php echo $strakom->deskripsi ?></td>
+      						<td><?php
+									if(!empty($strakom->deskripsi)){
+										$countData ++;
+									}
+									echo $strakom->deskripsi ?></td>
       					</tr>
       					<tr>
       						<td><strong>Analisis Situasi</strong>:</td>
-      						<td><?php echo $strakom->analisis_situasi ?></td>
+      						<td><?php
+									if(!empty($strakom->analisis_situasi)){
+										$countData ++;
+									}
+									echo $strakom->analisis_situasi ?></td>
       					</tr>
       					<tr>
       						<td><strong>Identifikasi Masalah/Isu Utama</strong>:</td>
-      						<td><?php echo $strakom->identifikasi_masalah ?></td>
+      						<td><?php
+									if(!empty($strakom->identifikasi_masalah)){
+										$countData ++;
+									}
+									echo $strakom->identifikasi_masalah ?></td>
       					</tr>
       					<tr>
       						<td><strong>Narasi Utama Publikasi Program</strong>:</td>
-      						<td><?php echo $strakom->narasi_utama ?></td>
+      						<td><?php
+									if(!empty($strakom->narasi_utama)){
+										$countData ++;
+									}
+									echo $strakom->narasi_utama ?></td>
       					</tr>
                 <tr>
                   <td><strong>Target Audiens</strong>:</td>
-                  <td>Pro : <?php echo $strakom->target_pro ?> <br> Kontra :
-                  <?php echo $strakom->target_kontra ?></td>
+                  <td>
+										Pro : <?php
+										if(!empty($strakom->target_pro)){
+											$countData ++;
+										}
+										echo $strakom->target_pro ?> <br> Kontra :
+                  <?php
+									if(!empty($strakom->target_kontra)){
+										$countData ++;
+									}
+									echo $strakom->target_kontra ?></td>
                 </tr>
                 <tr>
                   <td><strong>Rencana Media/Kanal Publikasi</strong>:</td>
                   <td><?php
+									if(!empty($strakom->kanal_publikasi)){
+										$countData ++;
+									}
                   $namaRencana = array();
                   $my_array1 = explode(",", $strakom->kanal_publikasi);
                   foreach ($my_array1 as $row){
@@ -652,9 +688,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
-                <?php if ($strakom->status == 0): ?>
+                <?php if ($strakom->status == 0){
+									if($countData >= 7){
+										if($counteditorialplan >= 15){
+											if($countmitigasi >= 1){
+								 	?>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
-              <?php endif; ?>
+              <?php }}}} ?>
               </div>
               <div class="modal-footer justify-content-between">
 
@@ -674,20 +714,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Finalisasi</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
+								<div class="modal-header">
+									<h4 class="modal-title">Perhatian!</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
                 <div class="modal-body">
 									<input type="hidden" name="nama_strakom" value="<?php echo $strakom->nama_program; ?>">
-                  <p>Apakah kamu yakin untuk melakukan finalisasi Strategi Komunikasi Unggulan untuk Judul <b><?php echo $strakom->nama_program ?> </b> ini ?</p>
+                  <p>Apakah Anda yakin akan mengirimkan data rencana kinerja yang telah disusun dalam <b><?php echo $strakom->nama_program ?> </b> ?</p>
                 </div>
-                <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                  <button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
-                </div>
+								<div class="modal-footer text-right">
+									<button type="button" style ="display:none" class="btn btn-default" data-dismiss="modal">Tidak</button>
+									<button type="submit" class="btn btn-primary">Kirim</button>
+								</div>
               </div>
               <!-- /.modal-content -->
             </div>

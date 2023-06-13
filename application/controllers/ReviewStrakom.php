@@ -30,7 +30,7 @@ class ReviewStrakom extends MY_Controller {
     ])[0];
     $this->page_data['user'] = $this->users_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-        $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id'],$tahun,$triwulan);
+        $this->page_data['strakom'] = $this->Strakom_model->getListStrakomForReview($tahun,$triwulan,$this->session->userdata('logged')['id']);
     } else {
       $this->page_data['strakom'] = $this->Strakom_model->get();
     }
@@ -67,7 +67,9 @@ class ReviewStrakom extends MY_Controller {
 
     $this->page_data['strakomList'] = $this->Strakom_model->get();
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataByStrakomId($id);
+    $this->page_data['counteditorialplan'] = count($this->Editorial_model->getDataByStrakomId($id));
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable($this->session->userdata('logged')['id'],$id);
+    $this->page_data['countmitigasi'] = count($this->Mitigasi_model->getDataJoinThreeTable($this->session->userdata('logged')['id'],$id));
 
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['page']->submenu = 'reviewstrakom';
