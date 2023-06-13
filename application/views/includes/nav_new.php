@@ -60,14 +60,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </li>
       <?php endif ?>
   <?php endif ?>
-  <li class="nav-item">
+  <!-- <li class="nav-item">
     <a href="<?php echo url('Realisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
       <i class="nav-icon"></i>
       <p>
       Realisasi Strategi <br>Komunikasi
       </p>
     </a>
-  </li>
+  </li> -->
 </ul>
 </li>
 <?php endif ?>
@@ -119,14 +119,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </li>
     <?php endif ?>
 <?php endif ?>
-<li class="nav-item">
+<!-- <li class="nav-item">
   <a href="<?php echo url('Realisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
     <i class="nav-icon"></i>
     <p>
     Realisasi Strategi <br>Komunikasi
     </p>
   </a>
-</li>
+</li> -->
 </ul>
 </li>
 <?php endif ?>

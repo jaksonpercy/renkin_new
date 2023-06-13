@@ -221,24 +221,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <td>
 
                             <?php if ($row->status == 0) {
-                              echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                              echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                             } else if ($row->status == 1) {
-                              echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                              echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                             } else if ($row->status == 2) {
-                              echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                              echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                             } else {
-                              echo "<p class='text-danger'><strong>Ditolak</strong> (".$row->alasan.")</p>";
+                              echo "<p class='text-danger'><strong>Dikembalikan</strong> (".$row->alasan.")</p>";
                             } ?>
                           </td>
                           <td>
                             <?php
+                            if(count($periodeCount)>0){
                             if($periode->status_verifikasi == 1){
                             if($roles->role->role_id==4){
                             if($row->status==1){ ?>
                               <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approvemitigasi<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
                               <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-rejectmitigasi<?php echo $row->id ?>"><i class="fa fa-times" title="Tolak"></i></button>
 
-                          <?php }}} ?>
+                          <?php }}}} ?>
                             <a href="<?php echo url('ReviewMitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                           </td>

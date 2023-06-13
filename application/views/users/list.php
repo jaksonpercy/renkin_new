@@ -123,7 +123,7 @@ window.updateUserStatus = (id, status) => {
     if (data=='done') {
       // code
     }else{
-      alert('<?php echo lang('user_unable_change_status') ?>');
+      // alert('<?php echo lang('user_unable_change_status') ?>');
     }
   })
 }

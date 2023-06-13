@@ -51,11 +51,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<li class="nav-item"><a id="tabeditorial" class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
           <?php if ($roles->role->role_id==1){
+						if(count($periodeCount) > 0){
           if ($periode->status_input_data == 1) {
             if ($strakom->status == 0 || $strakom->status == 3) {
             ?>
 						<li class="nav-item"><a class="nav-link" href="<?php echo url('StrakomUnggulan/edit/'.$strakom->id) ?>">Edit</a></li>
-          <?php }}}?>
+          <?php }}}}?>
 
                 </ul>
               </div><!-- /.card-header -->
@@ -152,13 +153,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <td><strong>Status</strong>:</td>
                   <td>
                     <?php if ($strakom->status == 0) {
-                      echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                      echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($strakom->status == 1) {
-                      echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                      echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                     } else if ($strakom->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
                     } else {
-                      echo "<p class='text-danger'><strong>Ditolak ($strakom->alasan) </strong></p>";
+                      echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
                     } ?>
                   </td>
                 </tr>
@@ -262,7 +263,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php if ($roles->role->role_id==1){?>
                       <div class="d-flex p-0">
                       <div class="ml-auto p-2">
-                        <?php if ($roles->role->role_id==1){
+                        <?php
+												if(count($periodeCount) > 0){
+												if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
                             // code...
 
@@ -270,7 +273,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-lg"> <span class="pr-1"><i class="fa fa-plus"></i></span>
                       Tambah Materi
                     </button>
-                  <?php }
+                  <?php }}
                   } ?>
                       </div>
                         </div>
@@ -319,13 +322,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             ?>
                           </td>
                           <td>
-                            <?php if ($periode->status_input_data == 1) {
+                            <?php
+														if(count($periodeCount)>0){
+														if ($periode->status_input_data == 1) {
 															if($strakom->status == 0){
                               // code...
                             ?>
                             <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
                             <a href="<?php echo url('StrakomUnggulan/deleteEditorialPlan/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php }} ?>
+                          <?php }}} ?>
                             <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                           </td>
@@ -563,7 +568,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="tab-pane" id="tab_3">
                     <?php if ($roles->role->role_id==1):?>
-                      <table id="example1" class="table table-bordered table-hover table-striped">
+                      <table id="example2" class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
@@ -609,13 +614,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <?php } ?>
                             </td> -->
                             <td>
-                              <?php if ($roles->role->role_id==1){
+                              <?php
+															if(count($periodeCount)>0){
+															if ($roles->role->role_id==1){
                                 if ($periode->status_input_data == 1) {
 																	if($strakom->status == 0){
                               ?>
                               <a href="<?php echo url('Mitigasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                               <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                            <?php }}} ?>
+                            <?php }}}} ?>
                               <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                             </td>
@@ -688,13 +695,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 					<div class="modal-footer justify-content-between">
 						<a href="<?php echo url('/StrakomUnggulan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
 						<?php
+							if(count($periodeCount)>0){
 							if($periode->status_verifikasi == 1){
 							if($roles->role->role_id==2){
 							if($strakom->status==1){ ?>
 
 						<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-approve">Setujui</button>
 						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-reject">Tolak</button>
-					<?php }}} ?>
+					<?php }}}} ?>
 					</div>
           <!-- /.col -->
         </div>

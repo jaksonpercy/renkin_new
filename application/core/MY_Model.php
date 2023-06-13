@@ -186,7 +186,7 @@ class MY_Model extends CI_Model {
 		if (!empty($tahun)) {
 			$filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$tahun."' ";
 		}
-		
+
 		if (!empty($triwulan)) {
 			$filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$triwulan."' ";
 		}
@@ -215,12 +215,31 @@ class MY_Model extends CI_Model {
 		if (!empty($tahun)) {
 			$filter .= " AND tahun_periode = '".$tahun."' ";
 		}
-		
+
 		if (!empty($triwulan)) {
 			$filter .= " AND triwulan_periode = '".$triwulan."' ";
 		}
 
-		$query = $this->db->query("SELECT tbl_strakom_unggulan.id as strakom_id,tbl_strakom_unggulan.kategori_program, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.ksd_id, tbl_strakom_unggulan.jenis_kegiatan, tbl_strakom_unggulan.deskripsi, tbl_strakom_unggulan.analisis_situasi, tbl_strakom_unggulan.identifikasi_masalah, tbl_strakom_unggulan.narasi_utama, tbl_strakom_unggulan.target_pro, tbl_strakom_unggulan.target_kontra, tbl_strakom_unggulan.kanal_publikasi, tbl_strakom_unggulan.kanal_publikasi_lainnya, tbl_strakom_unggulan.user_id, tbl_strakom_unggulan.periode_id, tbl_strakom_unggulan.opd_id, tbl_strakom_unggulan.status FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = 1 AND user_id =  '".$id."'".$filter)->result()	;
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id as strakom_id,tbl_strakom_unggulan.kategori_program, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.ksd_id, tbl_strakom_unggulan.jenis_kegiatan, tbl_strakom_unggulan.deskripsi, tbl_strakom_unggulan.analisis_situasi, tbl_strakom_unggulan.identifikasi_masalah, tbl_strakom_unggulan.narasi_utama, tbl_strakom_unggulan.target_pro, tbl_strakom_unggulan.target_kontra, tbl_strakom_unggulan.kanal_publikasi, tbl_strakom_unggulan.kanal_publikasi_lainnya, tbl_strakom_unggulan.user_id, tbl_strakom_unggulan.periode_id, tbl_strakom_unggulan.opd_id, tbl_strakom_unggulan.status FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE user_id =  '".$id."'".$filter)->result()	;
+		return $query;
+	}
+
+	public function getListDataByFilter($tahun = null, $triwulan = null, $userId = null)
+	{
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND tahun_periode = '".$tahun."' ";
+		}
+
+		if (!empty($triwulan)) {
+			$filter .= " AND triwulan_periode = '".$triwulan."' ";
+		}
+
+		if (!empty($userId)) {
+			$filter .= " AND user_id = '".$userId."' ";
+		}
+
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id ,tbl_strakom_unggulan.kategori_program, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.ksd_id, tbl_strakom_unggulan.jenis_kegiatan, tbl_strakom_unggulan.deskripsi, tbl_strakom_unggulan.analisis_situasi, tbl_strakom_unggulan.identifikasi_masalah, tbl_strakom_unggulan.narasi_utama, tbl_strakom_unggulan.target_pro, tbl_strakom_unggulan.target_kontra, tbl_strakom_unggulan.kanal_publikasi, tbl_strakom_unggulan.kanal_publikasi_lainnya, tbl_strakom_unggulan.user_id, tbl_strakom_unggulan.periode_id, tbl_strakom_unggulan.opd_id, tbl_strakom_unggulan.status FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = 1 ".$filter)->result()	;
 		return $query;
 	}
 
@@ -229,6 +248,20 @@ class MY_Model extends CI_Model {
 
 		$query = $this->db->query("SELECT * FROM $this->table WHERE strakom_id =  '".$id."'")->result()	;
 		return $query;
+	}
+
+	public function getDataByStrakomIdAndPeriode($id,$periode)
+	{
+
+		$query = $this->db->query("SELECT * FROM $this->table WHERE strakom_id =  '".$id."' AND periode_id = '".$periode."'")->result()	;
+		return $query;
+	}
+
+	public function getCountDataByStrakomIdAndPeriode($id,$periode)
+	{
+
+		$query = $this->db->query("SELECT * FROM $this->table WHERE strakom_id =  '".$id."' AND periode_id = '".$periode."'")->result()	;
+		return count($query);
 	}
 
 	public function getDataJoinThreeTableByStrakom($id,$idStrakom)
@@ -241,10 +274,17 @@ class MY_Model extends CI_Model {
 	public function getDataLimit($id,$limit)
 	{
 
-		$query = $this->db->query("SELECT * FROM $this->table ORDER BY id =  '".$id."' LIMIT 1")->result()	;
+		$query = $this->db->query("SELECT * FROM $this->table WHERE status = 1 ORDER BY id =  '".$id."' LIMIT 1")->result()	;
 		return $query;
 	}
 
+
+	public function getDataSort($id)
+	{
+
+		$query = $this->db->query("SELECT * FROM $this->table WHERE status = 1 ORDER BY id =  '".$id."' LIMIT 1")->result()	;
+		return $query;
+	}
 	public function getFilterPeriodeByYearnName($year,$name)
 	{
 		if (empty($year)) {
@@ -296,7 +336,7 @@ return $query;
 		if (!empty($tahun)) {
 			$filter .= " AND tahun_periode = '".$tahun."' ";
 		}
-		
+
 		if (!empty($triwulan)) {
 			$filter .= " AND triwulan_periode = '".$triwulan."' ";
 		}
@@ -304,6 +344,36 @@ return $query;
 		$query = $this->db->query("SELECT * FROM $this->table WHERE opd_id IN ".$id."".$filter)->result()	;
 		return $query;
 	}
+
+	public function getListUserByAsisten($id)
+	{
+		$query = $this->db->query("SELECT * FROM $this->table WHERE opd_upd IN ".$id."")->result()	;
+		return $query;
+	}
+	public function getCountStrakomByListOpd($id)
+	{
+		$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+		return $query;
+	}
+
+	public function getListStrakomByListOpd()
+	{
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id, tbl_strakom_unggulan.nama_program,tbl_strakom_unggulan.created_date, tbl_strakom_unggulan.status, tbl_users.name, tbl_periode.periode_aktif, tbl_periode.tahun FROM `tbl_strakom_unggulan` join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_strakom_unggulan.status IN (1,2);")->result()	;
+		return $query;
+	}
+
+	// public function getListStrakomByListOpdNotIn($id)
+	// {
+	// 	$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+	// 	$listId = array();
+	// 	foreach ($query as $row) {
+	// 		$listId[] = $row->opd_id;
+	// 	}
+	// 	$dataId = implode(", ",$listid);
+	// 	$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+	// 	return $query;
+	// }
+
 
 
 }

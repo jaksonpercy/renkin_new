@@ -49,20 +49,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <?php foreach ($strakom as $rows):
 
 
-              if ($rows->ksd_id > 0){
-
-                foreach ($ksd as $rowss):
-
-                  if ($rowss->id == $rows->ksd_id ) {
-                    if ($mitigasi->strakom_id == $rows->id) {
-                        echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
-                    } else {
-                       echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
-                     }
-                  }
-
-               endforeach;
-              } else {
+              // if ($rows->ksd_id > 0){
+							//
+              //   foreach ($ksd as $rowss):
+							//
+              //     if ($rowss->id == $rows->ksd_id ) {
+              //       if ($mitigasi->strakom_id == $rows->id) {
+              //           echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+              //       } else {
+              //          echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+              //        }
+              //     }
+							//
+              //  endforeach;
+              // } else {
                 $sel ="";
                 if ($mitigasi->strakom_id == $rows->id) {
                     echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
                 }
 
-            }
+            // }
             ?>
 
             <?php endforeach ?>

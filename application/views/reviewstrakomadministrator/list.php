@@ -165,19 +165,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Strategi Komunikasi Unggulan</h3>
-                  <?php if ($roles->role->role_id==1){
-                    if ($periode->status_input_data == 1) {
-                      // code...
 
-                  ?>
-
-                <div class="ml-auto p-2">
-
-                      <a href="<?php echo url('StrakomUnggulan/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Strategi Komunikasi Unggulan</a>
-
-                </div>
-              <?php }
-              } ?>
               </div>
 
               <?php if ($roles->role->role_id==1):?>
@@ -242,23 +230,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                          echo '<p class="text-danger"><strong>Dikembalikan</strong></p>';
                         } ?>
                       </td>
                       <td>
-                        <?php if ($roles->role->role_id==1){
-                          if ($periode->status_input_data == 1) {
-                            if ($row->status == 0) {
-                        ?>
-                        <a href="<?php echo url('ReviewStrakomUnggulan/edit/'.$row->strakom_id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <a href="<?php echo url('ReviewStrakomUnggulan/delete/'.$row->strakom_id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                      <?php }}} ?>
+
                         <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
@@ -342,24 +324,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                          echo '<p class="text-danger"><strong>Dikembalikan</strong></p>';
                         } ?>
                       </td>
                       <td>
                         <?php
+                        if(count($periodeCount)>0){
                         if($periode->status_verifikasi == 1){
                         if($roles->role->role_id==2){
                           if($row->status == 1){ ?>
                           <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approve<?php echo $row->id ?>"><i class="fa fa-paper-plane" title="Disetujui"></i></button>
                           <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-reject<?php echo $row->id ?>"><i class="fa fa-times" title="Ditolak"></i></button>
 
-                        <?php }}} ?>
+                        <?php }}}} ?>
                         <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>

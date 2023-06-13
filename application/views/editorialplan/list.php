@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 							if($i==$_GET['tahun_periode']){
 							echo '<option selected value="'.$i.'">'.$i.'</option>';
 							} else {
-							echo '<option value="'.$i.'">'.$i.'</option>';	
+							echo '<option value="'.$i.'">'.$i.'</option>';
 							}
 						}
 						?>
@@ -55,32 +55,48 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </div>
                   </div>
                 </div>
-								  <?php if ($roles->role->role_id>1){ ?>
-                  <div class="col-3">
-                    <div class="card-body">
-                    <div class="form-group">
-                      <label for="formClient-Contact">Pilih SKPD/UKPD</label>
-                      <select name="user_id" id="user_id" class="form-control select2">
-                        <option value="">Pilih SKPD/UKPD</option>
-                        <?php foreach ($userall as $row): ?>
-                          <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
-                        <?php endforeach ?>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-								<?php } ?>
+								<?php if ($roles->role->role_id>1){ ?>
+									<div class="col-3">
+										<div class="card-body">
+										<div class="form-group">
+											<label for="formClient-Contact">Pilih SKPD/UKPD</label>
+											<select name="user_id" id="user_id" class="form-control select2">
+												<option value="">Pilih SKPD/UKPD</option>
+												<?php foreach ($userall as $row): ?>
+													<option  <?php if(!empty($_GET['user_id']) && $_GET['user_id'] == $row->id){echo "selected";} ?> value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+												<?php endforeach ?>
+											</select>
+										</div>
+									</div>
+								</div>
+							<?php } else { ?>
+							<div class="col-3" style="display:none">
+								<div class="card-body">
+								<div class="form-group">
+									<label for="formClient-Contact">Pilih SKPD/UKPD</label>
+									<select name="user_id" id="user_id"  class="form-control select2">
+										<option value="">Pilih SKPD/UKPD</option>
+										<?php foreach ($userall as $row): ?>
+											<option <?php if(!empty($_GET['user_id']) && $_GET['user_id'] == $row->id){echo "selected";} ?>  value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+										<?php endforeach ?>
+									</select>
+								</div>
+							</div>
+						</div>
+
+					<?php } ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
                       <label for="formClient-Contact">Pilih Triwulan</label>
-                      <select name="triwulan_periode" id="triwulan_periode" class="form-control">
-                        <option value="">Pilih Triwulan</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan I"){echo "selected";} ?> value="Triwulan I">Triwulan I</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan II"){echo "selected";} ?> value="Triwulan II">Triwulan II</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan III"){echo "selected";} ?> value="Triwulan III">Triwulan III</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan IV"){echo "selected";} ?> value="Triwulan IV">Triwulan IV</option>
-                      </select>
+											<select name="triwulan_periode" id="triwulan_periode" class="form-control">
+												<option value="">Pilih Triwulan</option>
+
+												<option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan I"){echo "selected";} ?> value="Triwulan I">Triwulan I</option>
+												<option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan II"){echo "selected";} ?> value="Triwulan II">Triwulan II</option>
+												<option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan III"){echo "selected";} ?> value="Triwulan III">Triwulan III</option>
+												<option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan IV"){echo "selected";} ?> value="Triwulan IV">Triwulan IV</option>
+											</select>
                     </div>
                   </div>
                 </div>
@@ -95,7 +111,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Editorial Plan</h3>
                 <div class="ml-auto p-2">
-                  <?php if ($roles->role->role_id==1){
+                  <?php
+									if(count($periodeCount) > 0){
+									if ($roles->role->role_id==1){
                     if ($periode->status_input_data == 1) {
                       // code...
 
@@ -104,6 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 Tambah Materi
               </button>
             <?php }
+					}
             } ?>
                 </div>
               </div>
@@ -167,24 +186,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </td>
                       <td>
 
-                        <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+												<?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
                         } ?>
                       </td>
                       <td>
-                        <?php if ($roles->role->role_id==1){
+                        <?php
+												if(count($periodeCount)>0){
+												if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
                             if ($row->status == 0 || $row->status == 3) {
                         ?>
                         <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
                         <a href="<?php echo url('EditorialPlan/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                        <?php }}} ?>
+											<?php }}}} ?>
                         <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>
@@ -223,20 +244,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                     <?php foreach ($strakom as $rows):
 
 
-                                      if ($rows->ksd_id > 0){
-
-                                        foreach ($ksd as $rowss):
-
-                                          if ($rowss->id == $rows->ksd_id ) {
-                                            if ($row->strakom_id == $rows->id) {
-                                                echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
-                                            } else {
-                                               echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
-                                             }
-                                          }
-
-                                       endforeach;
-                                      } else {
+                                      // if ($rows->ksd_id > 0){
+																			//
+                                      //   foreach ($ksd as $rowss):
+																			//
+                                      //     if ($rowss->id == $rows->ksd_id ) {
+                                      //       if ($row->strakom_id == $rows->id) {
+                                      //           echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+                                      //       } else {
+                                      //          echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+                                      //        }
+                                      //     }
+																			//
+                                      //  endforeach;
+                                      // } else {
                                         $sel ="";
                                         if ($row->strakom_id == $rows->id) {
                                             echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
@@ -244,7 +265,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                           echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
                                         }
 
-                                    }
+                                    // }
                                     ?>
 
                                     <?php endforeach ?>
@@ -491,15 +512,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style="width:100%;" required title="Bagian ini wajib diisi">
                           <option value="">Pilih Nama Strategi Komunikasi Unggulan</option>
                           <?php foreach ($strakom as $row):
-                            if ($row->ksd_id > 0){
-                              foreach ($ksd as $rows):
-                                if ($rows->id == $row->ksd_id ) {
-                                  echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
-                                }
-                             endforeach;
-                            } else {
+                            // if ($row->ksd_id > 0){
+                            //   foreach ($ksd as $rows):
+                            //     if ($rows->id == $row->ksd_id ) {
+                            //       echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
+                            //     }
+                            //  endforeach;
+                            // } else {
                                 echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
-                            }
+                            // }
                           ?>
 
                           <?php endforeach ?>

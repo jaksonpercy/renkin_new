@@ -252,6 +252,43 @@ $nilaiMitigasi =0;
                   </tr>
                 </tbody>
               </table>
+              <?php
+              $countStrakom=0;
+              if (!empty($strakom->nama_program)) {
+                $countStrakom ++;
+              }
+
+              if (!empty($strakom->deskripsi)) {
+                $countStrakom ++;
+              }
+
+              if (!empty($strakom->analisis_situasi)) {
+                $countStrakom ++;
+              }
+
+              if (!empty($strakom->identifikasi_masalah)) {
+                $countStrakom ++;
+              }
+
+              if (!empty($strakom->narasi_utama)) {
+                $countStrakom ++;
+              }
+
+              if (!empty($strakom->target_pro)) {
+                $countStrakom ++;
+              }
+
+              if (!empty($strakom->target_kontra)) {
+                $countStrakom ++;
+              }
+
+              if (!empty($strakom->kanal_publikasi)) {
+                $countStrakom ++;
+              }
+
+              $nilaiStrakom = ($countStrakom/8)*20;
+              ?>
+
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-strakom">Nilai</button>
 
             </div>
@@ -312,6 +349,10 @@ $nilaiMitigasi =0;
                         <?php
 
                         endforeach ?>
+
+                        <?php
+                        $nilaiEditorial = ($no/15)*20;
+                        ?>
                       </tbody>
                     </table>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-editorial">Nilai</button>
@@ -338,19 +379,49 @@ $nilaiMitigasi =0;
 
                         <?php
                         $no=0;
+                        $jumlah=0;
                         foreach ($mitigasi as $row):
                           $no++;
                         ?>
                         <tr>
                           <td><?php echo $no ?></td>
                           <td><?php echo $row->nama_program ?></td>
-                          <td><?php echo $row->uraian_potensi ?></td>
-                          <td><?php echo $row->stakeholder_pro ?></td>
-                          <td><?php echo $row->stakeholder_kontra ?></td>
-                          <td><?php echo $row->juru_bicara ?></td>
-                          <td><?php echo $row->pic_kegiatan ?></td>
+                          <td><?php
+                          if(!empty($row->uraian_potensi)){
+                            $jumlah+=5;
+                          }
+                          echo $row->uraian_potensi
+                          ?></td>
+                          <td><?php
+                          if(!empty($row->stakeholder_pro)){
+                            $jumlah+=5;
+                          }
+                          echo $row->stakeholder_pro
+                          ?></td>
+                          <td><?php
+                          if(!empty($row->stakeholder_kontra)){
+                            $jumlah+=5;
+                          }
+                          echo $row->stakeholder_kontra
+                          ?></td>
+                          <td><?php
+                          if(!empty($row->juru_bicara)){
+                            $jumlah+=5;
+                          }
+                          echo $row->juru_bicara
+                          ?></td>
+                          <td><?php
+                          if(!empty($row->pic_kegiatan)){
+                            $jumlah+=5;
+                          }
+                          echo $row->pic_kegiatan
+                          ?></td>
                           <td>
-                          <?php if(empty($row->data_pendukung_text)){ ?>
+                          <?php
+                          if(!empty($row->data_pendukung_text) ||!empty($row->data_pendukung_file)  ){
+                            $jumlah+=5;
+                          }
+                          if(empty($row->data_pendukung_text)){ ?>
                           <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
                         <?php } else { ?>
                           <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
@@ -364,6 +435,9 @@ $nilaiMitigasi =0;
                         <?php
 
                         endforeach ?>
+                        <?php
+                        $nilaiMitigasi = $jumlah / $no;
+                         ?>
                         </tbody>
                     </table>
 
@@ -459,34 +533,106 @@ $nilaiMitigasi =0;
         <div class="modal fade" id="modal-nilai-strakom">
         <div class="modal-dialog modal-lg">
           <div class="modal-content">
+
+            <?php if($penilaian==0){ ?>
+            <?php echo form_open_multipart('Penilaian/addNilai', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
             <div class="modal-header">
+              <?php if ($roles->role->role_id==2){?>
               <h4 class="modal-title">Nilai Strategi Komunikasi Unggulan</h4>
+            <?php } else if ($roles->role->role_id==4){?>
+              <h4 class="modal-title">Rekomendasi Nilai Strategi Komunikasi Unggulan</h4>
+            <?php } ?>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <form action="" method="post" enctype="multipart/form-data">
+
+
             <div class="row">
               <div class="col-sm-12">
                 <!-- Default card -->
-                <div class="form-group col-sm-2">
-                  <label for="formClient-Name">Beri Nilai (%)</label>
-                  <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="30"></input>
+                <input type="hidden" name="strakomId" value="<?php echo $strakom->id ?>">
+                 <input type="hidden" name="komponen" value="1">
+                <div class="form-group col-sm-4">
+                  <?php if ($roles->role->role_id==2){?>
+                    <label for="formClient-Name">Beri Nilai (%)</label>
+                <?php } else if ($roles->role->role_id==4){?>
+                    <label for="formClient-Name">Rekomendasi Nilai (%)</label>
+                <?php } ?>
+
+                  <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $nilaiStrakom; ?>"></input>
                 </div>
 
                     <div class="form-group">
-                      <label for="formClient-Name">Catatan</label>
+                      <?php if ($roles->role->role_id==2){?>
+                        <label for="formClient-Name">Catatan</label>
+                    <?php } else if ($roles->role->role_id==4){?>
+                        <label for="formClient-Name">Rekomendasi Catatan</label>
+                    <?php } ?>
                       <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
                     </div>
               </div>
             </div>
-          </form>
+
+
             </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-              <button type="button" class="btn btn-primary">Submit</button>
+            <div class="modal-footer text-right">
+              <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Kirim</button>
+
             </div>
+           <?php echo form_close(); ?>
+
+         <?php } else {?>
+           <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+           <div class="modal-header">
+             <?php if ($roles->role->role_id==2){?>
+             <h4 class="modal-title">Nilai Strategi Komunikasi Unggulan</h4>
+           <?php } else if ($roles->role->role_id==4){?>
+             <h4 class="modal-title">Rekomendasi Nilai Strategi Komunikasi Unggulan</h4>
+           <?php } ?>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+
+
+           <div class="row">
+             <div class="col-sm-12">
+                 <input type="hidden" name="strakomId" value="<?php echo $strakom->id ?>">
+                  <input type="hidden" name="komponen" value="1">
+               <!-- Default card -->
+               <div class="form-group col-sm-4">
+                 <?php if ($roles->role->role_id==2){?>
+                   <label for="formClient-Name">Beri Nilai (%)</label>
+               <?php } else if ($roles->role->role_id==4){?>
+                   <label for="formClient-Name">Rekomendasi Nilai (%)</label>
+               <?php } ?>
+
+                 <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
+               </div>
+
+                   <div class="form-group">
+                     <?php if ($roles->role->role_id==2){?>
+                       <label for="formClient-Name">Catatan</label>
+                   <?php } else if ($roles->role->role_id==4){?>
+                       <label for="formClient-Name">Rekomendasi Catatan</label>
+                   <?php } ?>
+                     <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan; ?></textarea>
+                   </div>
+             </div>
+           </div>
+
+
+           </div>
+           <div class="modal-footer text-right">
+             <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+             <button type="submit" class="btn btn-primary">Kirim</button>
+           </div>
+          <?php echo form_close(); ?>
+        <?php } ?>
           </div>
           <!-- /.modal-content -->
         </div>
@@ -496,34 +642,117 @@ $nilaiMitigasi =0;
       <div class="modal fade" id="modal-nilai-editorial">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
+          <?php if($penilaian==0){ ?>
+          <?php echo form_open_multipart('Penilaian/addNilai', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
           <div class="modal-header">
+            <?php if ($roles->role->role_id==2){?>
             <h4 class="modal-title">Nilai Editorial Plan</h4>
+          <?php } else if ($roles->role->role_id==4){?>
+            <h4 class="modal-title">Rekomendasi Nilai Editorial Plan</h4>
+          <?php } ?>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form action="" method="post" enctype="multipart/form-data">
+
+
           <div class="row">
             <div class="col-sm-12">
               <!-- Default card -->
-              <div class="form-group col-sm-2">
-                <label for="formClient-Name">Beri Nilai (%)</label>
-                <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="30"></input>
+              <input type="hidden" name="strakomId" value="<?php echo $strakom->id ?>">
+               <input type="hidden" name="komponen" value="2">
+              <div class="form-group col-sm-4">
+                <?php if ($roles->role->role_id==2){?>
+                  <label for="formClient-Name">Beri Nilai (%)</label>
+              <?php } else if ($roles->role->role_id==4){?>
+                  <label for="formClient-Name">Rekomendasi Nilai (%)</label>
+              <?php } ?>
+
+                <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial; ?>"></input>
               </div>
 
                   <div class="form-group">
-                    <label for="formClient-Name">Catatan</label>
-                    <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+                    <?php if ($roles->role->role_id==2){?>
+                      <label for="formClient-Name">Catatan</label>
+                  <?php } else if ($roles->role->role_id==4){?>
+                      <label for="formClient-Name">Rekomendasi Catatan</label>
+                  <?php } ?>
+                    <textarea type="text" class="form-control" name="alasanEditorial" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
                   </div>
             </div>
           </div>
-        </form>
+
+
           </div>
-          <div class="modal-footer justify-content-between">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary">Submit</button>
+          <div class="modal-footer text-right">
+            <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            <?php if($penilaian > 0){
+                  if($penilaian[0]->nilai_strakom == 0){?>
+            <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian strategi komunikasi unggulan terlebih dahulu')">Kirim</button>
+          <?php } else { ?>
+            <button type="submit" class="btn btn-primary">Kirim</button>
+          <?php }} else { ?>
+            <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian strategi komunikasi unggulan terlebih dahulu')">Kirim</button>
+
+          <?php } ?>
           </div>
+         <?php echo form_close(); ?>
+
+       <?php } else {?>
+         <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+         <div class="modal-header">
+           <?php if ($roles->role->role_id==2){?>
+           <h4 class="modal-title">Nilai Editorial Plan</h4>
+         <?php } else if ($roles->role->role_id==4){?>
+           <h4 class="modal-title">Rekomendasi Nilai Editorial Plan</h4>
+         <?php } ?>
+           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+             <span aria-hidden="true">&times;</span>
+           </button>
+         </div>
+         <div class="modal-body">
+
+
+         <div class="row">
+           <div class="col-sm-12">
+               <input type="hidden" name="strakomId" value="<?php echo $strakom->id ?>">
+                <input type="hidden" name="komponen" value="2">
+             <!-- Default card -->
+             <div class="form-group col-sm-4">
+               <?php if ($roles->role->role_id==2){?>
+                 <label for="formClient-Name">Beri Nilai (%)</label>
+             <?php } else if ($roles->role->role_id==4){?>
+                 <label for="formClient-Name">Rekomendasi Nilai (%)</label>
+             <?php } ?>
+
+             <?php if($penilaianData[0]->nilai_editorial>0){ ?>
+               <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
+             <?php } else { ?>
+               <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo round($nilaiEditorial,2); ?>"></input>
+
+             <?php } ?>
+             </div>
+
+                 <div class="form-group">
+                   <?php if ($roles->role->role_id==2){?>
+                     <label for="formClient-Name">Catatan</label>
+                 <?php } else if ($roles->role->role_id==4){?>
+                     <label for="formClient-Name">Rekomendasi Catatan</label>
+                 <?php } ?>
+                   <textarea type="text" class="form-control" name="alasanEditorial" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan_editorial; ?></textarea>
+                 </div>
+           </div>
+         </div>
+
+
+         </div>
+         <div class="modal-footer text-right">
+           <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+           <button type="submit" class="btn btn-primary">Kirim</button>
+         </div>
+        <?php echo form_close(); ?>
+      <?php } ?>
         </div>
         <!-- /.modal-content -->
       </div>
@@ -533,34 +762,117 @@ $nilaiMitigasi =0;
     <div class="modal fade" id="modal-nilai-mitigasi">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
+        <?php if($penilaian==0){ ?>
+        <?php echo form_open_multipart('Penilaian/addNilai', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
         <div class="modal-header">
-          <h4 class="modal-title">Nilai Uraian Mitigasi Krisis</h4>
+          <?php if ($roles->role->role_id==2){?>
+          <h4 class="modal-title">Nilai Uraian Mitigasi</h4>
+        <?php } else if ($roles->role->role_id==4){?>
+          <h4 class="modal-title">Rekomendasi Nilai Uraian Mitigasi</h4>
+        <?php } ?>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="post" enctype="multipart/form-data">
+
+
         <div class="row">
           <div class="col-sm-12">
             <!-- Default card -->
-            <div class="form-group col-sm-2">
-              <label for="formClient-Name">Beri Nilai (%)</label>
-              <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="30"></input>
+            <input type="hidden" name="strakomId" value="<?php echo $strakom->id ?>">
+             <input type="hidden" name="komponen" value="3">
+            <div class="form-group col-sm-4">
+              <?php if ($roles->role->role_id==2){?>
+                <label for="formClient-Name">Beri Nilai (%)</label>
+            <?php } else if ($roles->role->role_id==4){?>
+                <label for="formClient-Name">Rekomendasi Nilai (%)</label>
+            <?php } ?>
+
+              <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo round($nilaiMitigasi,2); ?>"></input>
             </div>
 
                 <div class="form-group">
-                  <label for="formClient-Name">Catatan</label>
-                  <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+                  <?php if ($roles->role->role_id==2){?>
+                    <label for="formClient-Name">Catatan</label>
+                <?php } else if ($roles->role->role_id==4){?>
+                    <label for="formClient-Name">Rekomendasi Catatan</label>
+                <?php } ?>
+                  <textarea type="text" class="form-control" name="alasanMitigasi" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
                 </div>
           </div>
         </div>
-      </form>
+
+
         </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-primary">Submit</button>
+        <div class="modal-footer text-right">
+          <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          <?php if($penilaian > 0){
+                if($penilaian[0]->nilai_editorial == 0){?>
+          <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian editorial plan terlebih dahulu')">Kirim</button>
+        <?php } else { ?>
+          <button type="submit" class="btn btn-primary">Kirim</button>
+        <?php }} else { ?>
+          <button type="button" class="btn btn-primary" onclick="return alert('Lakukan penilaian editorial plan terlebih dahulu')">Kirim</button>
+
+        <?php } ?>
         </div>
+       <?php echo form_close(); ?>
+
+     <?php } else {?>
+       <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+       <div class="modal-header">
+         <?php if ($roles->role->role_id==2){?>
+         <h4 class="modal-title">Nilai Uraian Mitigasi</h4>
+       <?php } else if ($roles->role->role_id==4){?>
+         <h4 class="modal-title">Rekomendasi Nilai Uraian Mitigasi</h4>
+       <?php } ?>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+
+
+       <div class="row">
+         <div class="col-sm-12">
+             <input type="hidden" name="strakomId" value="<?php echo $strakom->id ?>">
+              <input type="hidden" name="komponen" value="3">
+           <!-- Default card -->
+           <div class="form-group col-sm-4">
+             <?php if ($roles->role->role_id==2){?>
+               <label for="formClient-Name">Beri Nilai (%)</label>
+           <?php } else if ($roles->role->role_id==4){?>
+               <label for="formClient-Name">Rekomendasi Nilai (%)</label>
+           <?php } ?>
+
+           <?php if($penilaianData[0]->nilai_mitigasi>0){ ?>
+             <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_mitigasi; ?>"></input>
+           <?php } else { ?>
+             <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo round($nilaiMitigasi,2); ?>"></input>
+
+           <?php } ?>
+           </div>
+
+               <div class="form-group">
+                 <?php if ($roles->role->role_id==2){?>
+                   <label for="formClient-Name">Catatan</label>
+               <?php } else if ($roles->role->role_id==4){?>
+                   <label for="formClient-Name">Rekomendasi Catatan</label>
+               <?php } ?>
+                 <textarea type="text" class="form-control" name="alasanMitigasi" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan_mitigasi; ?></textarea>
+               </div>
+         </div>
+       </div>
+
+
+       </div>
+       <div class="modal-footer text-right">
+         <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+         <button type="submit" class="btn btn-primary">Kirim</button>
+       </div>
+      <?php echo form_close(); ?>
+    <?php } ?>
       </div>
       <!-- /.modal-content -->
     </div>

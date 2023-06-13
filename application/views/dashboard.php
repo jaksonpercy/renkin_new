@@ -86,7 +86,7 @@ vertical-align: center;
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah SKPD/UKPD</span>
-                <span class="info-box-number">54 </span>
+                <span class="info-box-number"> <?php echo $listopdcount ?> </span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -99,7 +99,7 @@ vertical-align: center;
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah SKPD/UKPD Sudah Input</span>
-                <span class="info-box-number">53</span>
+                <span class="info-box-number"><?php echo $countstrakombylistopd ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -112,7 +112,7 @@ vertical-align: center;
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah SKPD/UKPD Belum Input</span>
-                <span class="info-box-number">25</span>
+                <span class="info-box-number"><?php echo ($listopdcount-$countstrakombylistopd) ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -135,6 +135,7 @@ vertical-align: center;
                   Rencana Kinerja Terbaru
                 </h3>
               </div><!-- /.card-header -->
+                <?php if ($roles->role->role_id==1){ ?>
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
@@ -161,6 +162,50 @@ vertical-align: center;
                   </tbody>
                 </table>
               </div><!-- /.card-body -->
+
+            <?php } else {?>
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-hover table-striped">
+                  <thead>
+                  <tr>
+                    <th>SKPD/UKPD</th>
+                    <th>Nama Program/Kegiatan Unggulan</th>
+                    <th>Tahapan Pelaksanaan Kegiatan</th>
+                    <th>Tanggal Buat</th>
+                    <th>Status</th>
+                    <th><?php echo lang('action') ?></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <?php foreach ($listrakom as $row): ?>
+                      <td><?php echo $row->name ?></td>
+                      <td><b><?php echo $row->nama_program ?></b></td>
+                      <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
+                      <td><?php echo $row->created_date ?></td>
+                      <td>  <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else {
+                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                        } ?></td>
+                      <td>
+                        <?php if($row->status == 1){ ?>
+                        <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
+                      <?php } else { ?>
+                        <a href="<?php echo url('Penilaian/view/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
+
+                      <?php } ?>
+                      </td>
+                    </tr>
+                  <?php endforeach ?>
+                  </tbody>
+                </table>
+              </div><!-- /.card-body -->
+            <?php } ?>
             </div>
             <!-- /.card -->
 
@@ -205,7 +250,7 @@ vertical-align: center;
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <table id="example1" class="table table-bordered table-hover table-striped">
+                <table id="example2" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -213,14 +258,16 @@ vertical-align: center;
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $no =0;
+                    foreach ($listopd as $row):
+                      $no++;
+                    ?>
                     <tr>
-                      <td>1</td>
-                      <td>Badan Pengembangan Sumber Daya Manusia</td>
+                      <td><?php echo $no;?></td>
+                      <td><?php echo $row->name;?></td>
                     </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Biro Pendidikan dan Mental Spiritual</td>
-                    </tr>
+                  <?php endforeach ?>
                   </tbody>
                 </table>
               </div>

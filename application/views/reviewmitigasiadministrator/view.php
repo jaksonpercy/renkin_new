@@ -98,13 +98,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <td>
 
                       <?php if ($mitigasi->status == 0) {
-                        echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                        echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                       } else if ($mitigasi->status == 1) {
-                        echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                        echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                       } else if ($mitigasi->status == 2) {
-                        echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                       } else {
-                        echo "<p class='text-danger'><strong>Ditolak</strong> (".$mitigasi->alasan.")</p>";
+                        echo "<p class='text-danger'><strong>Dikembalikan</strong> (".$mitigasi->alasan.")</p>";
                       } ?>
                     </td>
                   </tr>
@@ -118,13 +118,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 </div>
                 <?php
+                if(count($periodeCount)>0){
                   if($periode->status_verifikasi == 1){
                   if($roles->role->role_id==4){
                   if($mitigasi->status==1){ ?>
 
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-approvemitigasi">Setujui</button>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-rejectmitigasi">Tolak</button>
-              <?php }}} ?>
+              <?php }}}} ?>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
             </div>

@@ -35,9 +35,14 @@ class ReviewEditorialPlan extends MY_Controller {
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['userall'] = $this->users_model->get();
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount']) > 0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
       $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->load->view('revieweditorialplanadministrator/list', $this->page_data);
 	}

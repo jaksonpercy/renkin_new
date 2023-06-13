@@ -148,13 +148,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <td><strong>Status</strong>:</td>
                   <td>
                     <?php if ($strakom->status == 0) {
-                      echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
+                      echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($strakom->status == 1) {
-                      echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                      echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                     } else if ($strakom->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
                     } else {
-                      echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                      echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
                     } ?>
                   </td>
                 </tr>

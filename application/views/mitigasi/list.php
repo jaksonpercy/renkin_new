@@ -42,7 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 							if($i==$_GET['tahun_periode']){
 							echo '<option selected value="'.$i.'">'.$i.'</option>';
 							} else {
-							echo '<option value="'.$i.'">'.$i.'</option>';	
+							echo '<option value="'.$i.'">'.$i.'</option>';
 							}
 						}
 						?>
@@ -66,16 +66,30 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
                 </div>
                 <?php } ?>
+                <div class="col-3" style="display:none">
+                  <div class="card-body">
+                  <div class="form-group">
+                    <label for="formClient-Contact">Pilih SKPD/UKPD</label>
+                    <select name="user_id" id="user_id"  class="form-control select2">
+                      <option value="">Pilih SKPD/UKPD</option>
+                      <?php foreach ($userall as $row): ?>
+                        <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+                      <?php endforeach ?>
+                    </select>
+                  </div>
+                </div>
+              </div>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
                       <label for="formClient-Contact">Pilih Triwulan</label>
                       <select name="triwulan_periode" id="triwulan_periode" class="form-control">
                         <option value="">Pilih Triwulan</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan I"){echo "selected";} ?> value="Triwulan I">Triwulan I</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan II"){echo "selected";} ?> value="Triwulan II">Triwulan II</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan III"){echo "selected";} ?> value="Triwulan III">Triwulan III</option>
-                        <option <?php if($_GET['triwulan_periode'] == "Triwulan IV"){echo "selected";} ?> value="Triwulan IV">Triwulan IV</option>
+
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan I"){echo "selected";} ?> value="Triwulan I">Triwulan I</option>
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan II"){echo "selected";} ?> value="Triwulan II">Triwulan II</option>
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan III"){echo "selected";} ?> value="Triwulan III">Triwulan III</option>
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan IV"){echo "selected";} ?> value="Triwulan IV">Triwulan IV</option>
                       </select>
                     </div>
                   </div>
@@ -91,7 +105,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3">Uraian Materi Mitigasi Krisis</h3>
                 <div class="ml-auto p-2">
-                  <?php if ($roles->role->role_id==1){
+                  <?php
+                  if(count($periodeCount) > 0){
+                  if ($roles->role->role_id==1){
                     if ($periode->status_input_data == 1) {
                   ?>
                 <div class="ml-auto p-2">
@@ -99,7 +115,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <a href="<?php echo url('Mitigasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Uraian Mitigasi Krisis</a>
 
                 </div>
-              <?php }
+              <?php }}
               } ?>
               </div>
             </div>
@@ -113,8 +129,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th style="vertical-align:middle;text-align:center;">No</th>
                     <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                     <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                    <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                    <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                    <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                    <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                     <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                     <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                     <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
@@ -158,23 +174,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {
-                          echo "<p class='text-danger'><strong>Ditolak</strong> (".$row->alasan.")</p>";
+                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
                         } ?>
                       </td>
                       <td>
-                        <?php if ($roles->role->role_id==1){
+                        <?php
+                        if(count($periodeCount) > 0){
+                        if ($roles->role->role_id==1){
                           if ($periode->status_input_data == 1) {
                              if ($row->status == 0 || $row->status == 3) {
                         ?>
                         <a href="<?php echo url('Mitigasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
                         <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                      <?php }}} ?>
+                      <?php }}}} ?>
                         <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>
@@ -193,8 +211,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">No</th>
                           <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                           <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                           <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>

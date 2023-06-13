@@ -21,9 +21,14 @@ class ReviewMitigasi extends MY_Controller {
   {
     $this->page_data['page']->submenu = 'mitigasi';
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount']) > 0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
     $this->page_data['userall'] = $this->users_model->get();
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
@@ -144,9 +149,14 @@ class ReviewMitigasi extends MY_Controller {
     // load view
     $this->page_data['page']->submenu = 'mitigasi';
     $this->page_data['user'] = $this->users_model->get();
+    $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ]);
+    if(count($this->page_data['periodeCount']) > 0){
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+  }
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
