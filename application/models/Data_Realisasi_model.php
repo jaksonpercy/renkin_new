@@ -10,6 +10,13 @@ class Data_Realisasi_model extends MY_Model {
 		parent::__construct();
 	}
 
+	public function getListDataRealisasiByStrakomId($id)
+	{
+		$query = $this->db->query("SELECT * from tbl_data_realisasi where strakom_id = '".$id."'")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 }
 
 /* End of file Permissions_model.php */

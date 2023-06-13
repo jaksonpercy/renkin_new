@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item"><a href="<?php echo url('/Realisasi') ?>">Realisasi Strategi Komunikasi</a></li>
-              <li class="breadcrumb-item active">Tambah</li>
+
             </ol>
           </div>
         </div>
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <section class="content">
 
   <?php echo validation_errors(); ?>
-  <?php echo form_open_multipart('Realisasi/save', [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateForm()' ]); ?>
+  <?php echo form_open_multipart('Realisasi/updateNota/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateForm()' ]); ?>
 
 <div class="row">
   <div class="col-sm-12">
@@ -75,45 +75,35 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="form-group">
           <label for="formClient-Contact">Nama Program/Kegiatan Strategi Komunikasi<label class="text-danger">*</label></label>
-          <select name="namaProgram" id="namaProgram" class="form-control" style ="width:100%" required title="Bagian ini wajib diisi" onchange="gotoEdit()">
-            <option value="">Pilih Nama Program/Kegiatan Strategi Komunikasi</option>
-            <?php foreach ($strakom as $row):
-              // if ($row->ksd_id > 0){
-              //   foreach ($ksd as $rows):
-              //     if ($rows->id == $row->ksd_id ) {
-              //       echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
-              //     }
-              //  endforeach;
-              // } else {
-                  echo '<option value="'.$row->strakom_id.'">'. $row->nama_program .'</option>';
-              // }
+          <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" disabled>
+            <?php
+                  echo '<option value="'.$strakom->id.'">'. $strakom->nama_program .'</option>';
+
             ?>
 
-            <?php endforeach ?>
+
           </select>
         </div>
 
         <div class="form-group">
           <label for="formClient-Name">Nota Dinas<label class="text-danger">*</label></label>
-           <div class="custom-file">
-            <input type="file" class="custom-file-input" name="file" accept=".pdf" required title="Bagian ini wajib diisi" id="exampleInputFile">
-            <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-          </div>
+            <input type="file" class="form-control" name="fileNotaDinas" accept="application/pdf"/>
+
         </div>
 
         <div class="form-group">
           <label for="formClient-Contact">No Nota Dinas / Surat<label class="text-danger">*</label></label>
-          <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" required title="Bagian ini wajib diisi" placeholder="No Nota Dinas / Surat" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" placeholder="No Nota Dinas / Surat" value="<?php echo $strakom->no_nota_dinas ?>" autofocus />
         </div>
 
         <div class="form-group">
           <label for="formClient-Contact">Perihal Nota Dinas /Surat<label class="text-danger">*</label></label>
-          <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" required title="Bagian ini wajib diisi" placeholder="Perihal Nota Dinas /Surat" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <input type="text" class="form-control" name="namaLampiran" id="formClient-NamaLampiran" placeholder="Perihal Nota Dinas/Surat" value="<?php echo $strakom->perihal_nota ?>" autofocus />
         </div>
 
         <div class="form-group">
           <label for="formClient-Contact">Tanggal Nota Dinas /Surat<label class="text-danger">*</label></label>
-          <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" required title="Bagian ini wajib diisi" placeholder="Tanggal Nota Dinas /Surat" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+          <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" placeholder="Tanggal Lampiran" value="<?php echo $strakom->tanggal_nota ?>" autofocus />
         </div>
 
       </div>
@@ -124,6 +114,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
     <!-- Default card -->
 
+    <div class="card">
+      <div class="card-footer">
+        <div class="row">
+          <div class="col" style="display:none;"><a href="<?php echo url('/strakomunggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
+          <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
+        </div>
+      </div>
+      <!-- /.card-footer-->
+
+    </div>
+    <!-- /.card -->
+
+  <?php echo form_close(); ?>
     <!-- /.card -->
 
   </div>
@@ -136,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
           <div class="form-group">
             <div class="d-flex p-0">
-              <!-- <div class="ml-auto p-2">
+              <div class="ml-auto p-2">
                 <?php if ($roles->role->role_id==1){
                   if ($periode->status_realisasi == 1) {
                 ?>
@@ -144,7 +147,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               Tambah Data
             </button>
               <?php }} ?>
-          </div> -->
+          </div>
             </div>
             <table id="dataTable1" class="table table-bordered table-striped">
               <thead>
@@ -219,43 +222,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                <input type="hidden" class="form-control" name="idUser" required value="<?php echo $row->user_id; ?>" />
                                <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $row->periode_id; ?>" />
                                <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->opd_id; ?>" />
+                               <input type="hidden" class="form-control" name="namaProgramData" required value="<?php echo $row->strakom_id; ?>" />
 
 
-                               <div class="form-group">
-                                  <label for="formClient-Contact">Nama Judul Strategi Komunikasi<label class="text-danger">*</label></label>
-                                  <select name="namaProgramData" id="formClient-NamaProgram" class="form-control select2" style ="width:100%" required title="Bagian ini wajib diisi">
-                                    <option value="">Pilih Judul Strategi Komunikasi</option>
-                                    <?php foreach ($strakom as $rows):
 
-
-                                      if ($rows->ksd_id > 0){
-
-                                        foreach ($ksd as $rowss):
-
-                                          if ($rowss->id == $rows->ksd_id ) {
-                                            if ($row->strakom_id == $rows->id) {
-                                                echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
-                                            } else {
-                                               echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
-                                             }
-                                          }
-
-                                       endforeach;
-                                      } else {
-                                        $sel ="";
-                                        if ($row->strakom_id == $rows->id) {
-                                            echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
-                                        } else {
-                                          echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
-                                        }
-
-                                    }
-                                    ?>
-
-
-                                    <?php endforeach ?>
-                                  </select>
-                                </div>
                                 <div class="form-group">
                                   <label for="formClient-Name">Tanggal Realisasi<label class="text-danger">*</label></label>
                                   <input type="date" class="form-control" name="tglRealisasi" id="formClient-Tgl" required title="Bagian ini wajib diisi" value="<?php echo $row->tanggal_realisasi; ?>" placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
@@ -268,7 +238,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                                 <div class="form-group">
                                   <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
-                                  <select name="kanalpublikasi" id="kanalpublikasiedit" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required title="Bagian ini wajib diisi">
+                                  <select name="kanalpublikasi" id="formClient-kanalpublikasi" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required title="Bagian ini wajib diisi">
                                     <?php foreach ($rencanamedia as $rows):
                                       if ($row->kanal_publikasi == $rows->id) {
                                     ?>
@@ -279,38 +249,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                     <?php }
                                     endforeach ?>
                                   </select>
-                                  <input type="text" class="form-control" name="textlainnya" id="textlainnyaedit" value="<?php echo $row->text_lainnya; ?>" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+                                  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="<?php echo $row->text_lainnya; ?>" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
 
                                 </div>
-                                <?php if($row->kanal_publikasi == 1 || $row->kanal_publikasi == 2 || $row->kanal_publikasi == 3 || $row->kanal_publikasi == 7){ ?>
-                                  <div class="form-group" id="divDokumentasiEdit">
-                                    <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
-                                    <!-- <div class="custom-file"> -->
-                                      <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasiedit" accept="image/*"/>
 
-                                    <!-- </div> -->
-                                  </div>
-                                  <div class="form-group" id="divLinkTautanEdit" style="display:none;">
-                                    <label for="formClient-Name" >Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
+                                <div class="form-group">
+                                  <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
 
-                                    <input type="text" class="form-control" name="linktautan" id="linktautanedit" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-                                  </div>
-
-                                <?php } else { ?>
-                                  <div class="form-group" id="divDokumentasiEdit" style="display:none">
-                                    <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
-                                    <!-- <div class="custom-file"> -->
-                                      <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasiedit" accept="image/*"/>
-
-                                    <!-- </div> -->
-                                  </div>
-                                <div class="form-group" id="divLinkTautanEdit">
-                                  <label for="formClient-Name" >Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
-
-                                  <input type="text" class="form-control" name="linktautan" id="linktautanedit" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                                  <input type="text" class="form-control" name="linktautan" id="formClient-Name" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                                 </div>
 
-                              <?php } ?>
+                                <div class="form-group">
+                                  <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
+                                  <!-- <div class="custom-file"> -->
+                                    <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
+
+                                  <!-- </div> -->
+                                </div>
 
 
                              </div>
@@ -368,62 +323,45 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                      <input type="hidden" class="form-control" name="idUser" required value="<?php echo $user->id; ?>" />
                      <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $periode->id; ?>" />
                      <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $user->opd_upd; ?>" />
+                     <input type="hidden" class="form-control" name="namaProgramData" required value="<?php echo $strakom->id; ?>" />
+
 
 
                      <div class="form-group">
-                        <label for="formClient-Contact">Nama Judul Strategi Komunikasi<label class="text-danger">*</label></label>
-                        <select name="namaProgramData" id="formClient-namaProgramData" class="form-control select2" style ="width:100%" required title="Bagian ini wajib diisi">
-                          <option value="">Pilih Judul Strategi Komunikasi</option>
-                          <?php foreach ($strakom as $row):
-                            if ($row->ksd_id > 0){
-                              foreach ($ksd as $rows):
-                                if ($rows->id == $row->ksd_id ) {
-                                  echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
-                                }
-                             endforeach;
-                            } else {
-                                echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
-                            }
-                          ?>
+                       <label for="formClient-Name">Tanggal Realisasi<label class="text-danger">*</label></label>
+                       <input type="date" class="form-control" name="tglRealisasi" id="formClient-tglRealisasi" required title="Bagian ini wajib diisi" placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                     </div>
 
-                          <?php endforeach ?>
-                        </select>
-                      </div>
-                      <div class="form-group">
-                        <label for="formClient-Name">Tanggal Realisasi<label class="text-danger">*</label></label>
-                        <input type="date" class="form-control" name="tglRealisasi" id="formClient-tglRealisasi" required title="Bagian ini wajib diisi" placeholder="Tanggal Realisasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-                      </div>
+                     <div class="form-group">
+                       <label for="formClient-Name">Judul Publikasi<label class="text-danger">*</label></label>
+                       <input type="text" class="form-control" name="judulPublikasi" id="formClient-judulPublikasi" required title="Bagian ini wajib diisi" placeholder="Judul Publikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                     </div>
 
-                      <div class="form-group">
-                        <label for="formClient-Name">Judul Publikasi<label class="text-danger">*</label></label>
-                        <input type="text" class="form-control" name="judulPublikasi" id="formClient-judulPublikasi" required title="Bagian ini wajib diisi" placeholder="Judul Publikasi" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-                      </div>
+                     <div class="form-group">
+                       <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
+                       <select name="kanalpublikasi" id="kanalpublikasi" class="form-control" required title="Bagian ini wajib diisi" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
+                         <option value="0">Pilih Kanal Publikasi</option>
+                         <?php foreach ($rencanamedia as $row): ?>
+                           <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
+                         <?php endforeach ?>
+                       </select>
+                       <input type="text" class="form-control" name="textlainnya" id="textlainnya" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
 
-                      <div class="form-group">
-                        <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
-                        <select name="kanalpublikasi" id="kanalpublikasi" class="form-control" required title="Bagian ini wajib diisi" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required>
-                          <option value="0">Pilih Kanal Publikasi</option>
-                          <?php foreach ($rencanamedia as $row): ?>
-                            <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
-                          <?php endforeach ?>
-                        </select>
-                        <input type="text" class="form-control" name="textlainnya" id="textlainnya" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+                     </div>
 
-                      </div>
+                     <div class="form-group" style="display:none;" id="divLinkTautan">
+                       <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
 
-                      <div class="form-group" style="display:none;" id="divLinkTautan">
-                        <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
+                       <input type="text" class="form-control" name="linktautan" id="linktautan" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                     </div>
 
-                        <input type="text" class="form-control" name="linktautan" id="linktautan" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-                      </div>
+                     <div class="form-group" style="display:none;" id="divFileDokumentasi">
+                       <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
 
-                      <div class="form-group" style="display:none;" id="divFileDokumentasi">
-                        <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
-
-                          <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
+                         <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
 
 
-                      </div>
+                     </div>
 
 
                    </div>
@@ -466,28 +404,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   </div>
 
   <!-- Default card -->
-  <div class="card">
-    <div class="card-footer">
-      <div class="row">
-        <div class="col" style="display:none;"><a href="<?php echo url('/strakomunggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
-        <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
-      </div>
-    </div>
-    <!-- /.card-footer-->
 
-  </div>
-  <!-- /.card -->
-
-<?php echo form_close(); ?>
 
 </section>
 <!-- /.content -->
-
-<script type="text/javascript">
-function gotoEdit(){
-window.location="<?php echo url('Realisasi/tambah/')  ?>"+document.getElementById('namaProgram').value;
-}
-</script>
 
 <script type="text/javascript">
    const el = document.getElementById('kanalpublikasi');
@@ -538,6 +458,7 @@ window.location="<?php echo url('Realisasi/tambah/')  ?>"+document.getElementByI
       }
    });
 </script>
+
 
 <script>
   $(document).ready(function() {

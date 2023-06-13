@@ -33,7 +33,7 @@ vertical-align: center;
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-      <?php if ($roles->role->role_id==1):?>
+      <?php if ($roles->role->role_id==1 || $roles->role->role_id==3):?>
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
@@ -135,7 +135,7 @@ vertical-align: center;
                   Rencana Kinerja Terbaru
                 </h3>
               </div><!-- /.card-header -->
-                <?php if ($roles->role->role_id==1){ ?>
+                <?php if ($roles->role->role_id==1 || $roles->role->role_id==3 ){ ?>
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>

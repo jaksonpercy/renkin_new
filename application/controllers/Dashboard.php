@@ -17,7 +17,7 @@ class Dashboard extends MY_Controller {
 		$role_data = $this->users_model->getById($this->session->userdata('logged')['id']);
 		$this->page_data['pemberitahuan'] = $this->Pemberitahuan_model->getDataSort("DESC");
 		$this->page_data['countstrakombyid'] = $this->Strakom_model->countAllByUserId($this->session->userdata('logged')['id']);
-		if($role_data->role > 1){
+		if($role_data->role == 2 ||$role_data->role == 4 ){
 		$this->page_data['listopdcount'] = count($this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['countstrakombylistopd'] = count($this->Strakom_model->getCountStrakomByListOpd("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['listopd'] = $this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")");
