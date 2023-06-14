@@ -39,7 +39,7 @@ class ReviewStrakomUnggulan extends MY_Controller {
     $this->page_data['userbyid'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     if ($this->page_data['roles']->role->role_id == 1) {
         $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
-    } else if ($this->page_data['roles']->role->role_id == 2) {
+    } else if ($this->page_data['roles']->role->role_id == 2 || $this->page_data['roles']->role->role_id == 4) {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
     } else  {
       $this->page_data['strakom'] = $this->Strakom_model->get();
@@ -109,7 +109,10 @@ class ReviewStrakomUnggulan extends MY_Controller {
 
     $this->page_data['strakomList'] = $this->Strakom_model->get();
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataByStrakomId($id);
+    $this->page_data['counteditorialrejected'] = count($this->Editorial_model->getDataEditorialByStrakomIdAndStatus($id,"3"));
+
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getListMitigasiByStrakom($id);
+    $this->page_data['countmitigasirejected'] = count($this->Mitigasi_model->getDataMitigasiByStrakomIdAndStatus($id,"3"));
 
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['page']->submenu = 'strakom';

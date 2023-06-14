@@ -70,11 +70,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         						<td><?php echo $mitigasi->uraian_potensi ?></td>
         					</tr>
         					<tr>
-        						<td><strong>Stakeholder Pro Pemprov DKI Jakarta</strong>:</td>
+        						<td><strong>Stakeholder Pro Pemprov</strong>:</td>
         						<td><?php echo $mitigasi->stakeholder_pro ?></td>
         					</tr>
                   <tr>
-        						<td><strong>Stakeholder Kontra Pemprov DKI Jakarta</strong>:</td>
+        						<td><strong>Stakeholder Kontra Pemprov</strong>:</td>
         						<td><?php echo $mitigasi->stakeholder_kontra ?></td>
         					</tr>
                   <tr>
@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       } else if ($mitigasi->status == 2) {
                         echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                       } else {
-                        echo "<p class='text-danger'><strong>Dikembalikan</strong> (".$mitigasi->alasan.")</p>";
+                        echo "<p class='text-danger'><strong>Perlu Diperbaiki</strong></p>";
                       } ?>
                     </td>
                   </tr>

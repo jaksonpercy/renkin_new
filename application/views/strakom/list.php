@@ -274,7 +274,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <?php if ($row->status == 0) {
                           echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                            echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                          } else {
                           echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                          }
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {
@@ -375,7 +379,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <?php if ($row->status == 0) {
                           echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                            echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                          } else {
+                           echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                          }
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {

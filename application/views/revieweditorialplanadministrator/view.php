@@ -106,7 +106,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     } else if ($editorialplan->status == 2) {
                       echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                     } else {
-                      echo "<p class='text-danger'><strong>Dikembalikan</strong> (".$editorialplan->alasan.")</p>";
+                      echo "<p class='text-danger'><strong>Perlu Diperbaiki</strong></p>";
                     } ?>
                   </td>
                 </tr>
