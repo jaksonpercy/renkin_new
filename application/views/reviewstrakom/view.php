@@ -186,7 +186,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php if ($strakom->status == 0) {
                       echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($strakom->status == 1) {
-                      echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+											if($counteditorialrejected > 0 || $countmitigasirejected > 0){
+												echo "<p class='text-danger'><strong>Perlu Diperbaiki </strong></p>";
+											}else if($counteditorialbr > 0 || $countmitigasibr > 0){
+												echo "<p class='text-warning'><strong>Belum Dikirim </strong></p>";
+											} else {
+											echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+										}
+
                     } else if ($strakom->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
                     } else {
@@ -298,7 +305,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </div>
                         </div>
                   <!-- /.card-header -->
-                    <table id="example1" class="table table-bordered table-hover table-striped">
+                    <table id="example3" class="table table-bordered table-hover table-striped">
                       <thead>
                       <tr>
                         <th style="vertical-align:middle;text-align:center;">No</th>
@@ -522,7 +529,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </tbody>
                     </table>
                 <?php } else { ?>
-                    <table id="example1" class="table table-bordered table-hover table-striped">
+                    <table id="example3" class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
@@ -580,14 +587,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="tab-pane" id="tab_3">
                     <?php if ($roles->role->role_id==1):?>
-                      <table id="example1" class="table table-bordered table-hover table-striped">
+                      <table id="example2" class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
                           <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                           <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
@@ -636,14 +643,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           </tbody>
                       </table>
                       <?php else:?>
-                          <table id="example1" class="table table-bordered table-hover table-striped">
+                          <table id="example5" class="table table-bordered table-hover table-striped">
                             <thead>
                               <tr>
                                 <th style="vertical-align:middle;text-align:center;">No</th>
                                 <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                                 <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                                <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                                <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                                 <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                                 <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                                 <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
@@ -688,13 +695,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
-                <?php if ($strakom->status == 0){
+                <?php if ($strakom->status == 0 || $strakom->status == 1){
+									if($counteditorialbr > 0 || $countmitigasibr > 0){
 									if($countData >= 7){
 										if($counteditorialplan >= 15){
 											if($countmitigasi >= 1){
 								 	?>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
-              <?php }}}} ?>
+              <?php }}}}} ?>
               </div>
               <div class="modal-footer justify-content-between">
 

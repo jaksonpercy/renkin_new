@@ -63,11 +63,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td><?php echo $mitigasi->uraian_potensi ?></td>
       					</tr>
       					<tr>
-      						<td><strong>Stakeholder Pro Pemprov DKI Jakarta</strong>:</td>
+      						<td><strong>Stakeholder Pro Pemprov</strong>:</td>
       						<td><?php echo $mitigasi->stakeholder_pro ?></td>
       					</tr>
                 <tr>
-      						<td><strong>Stakeholder Kontra Pemprov DKI Jakarta</strong>:</td>
+      						<td><strong>Stakeholder Kontra Pemprov</strong>:</td>
       						<td><?php echo $mitigasi->stakeholder_kontra ?></td>
       					</tr>
                 <tr>
@@ -125,11 +125,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         						<td><?php echo $mitigasi->uraian_potensi ?></td>
         					</tr>
         					<tr>
-        						<td><strong>Stakeholder Pro Pemprov DKI Jakarta</strong>:</td>
+        						<td><strong>Stakeholder Pro Pemprov</strong>:</td>
         						<td><?php echo $mitigasi->stakeholder_pro ?></td>
         					</tr>
                   <tr>
-        						<td><strong>Stakeholder Kontra Pemprov DKI Jakarta</strong>:</td>
+        						<td><strong>Stakeholder Kontra Pemprov</strong>:</td>
         						<td><?php echo $mitigasi->stakeholder_kontra ?></td>
         					</tr>
                   <tr>

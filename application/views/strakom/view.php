@@ -157,7 +157,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php if ($strakom->status == 0) {
                       echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($strakom->status == 1) {
+											if($counteditorialrejected > 1 || $countmitigasirejected > 1){
+												echo "<p class='text-danger'><strong>Perlu Diperbaiki </strong></p>";
+											} else {
                       echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+										}
                     } else if ($strakom->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
                     } else {
@@ -421,7 +425,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 																		<?php } ?>
 																		</div>
-																		
+
                                     <div class="form-group">
                                       <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
                                       <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />

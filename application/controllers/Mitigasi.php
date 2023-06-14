@@ -148,6 +148,7 @@ class Mitigasi extends MY_Controller {
       'stakeholder_pro' => $this->input->post('stakeholderPro'),
       'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
       'pic_kegiatan' => $this->input->post('picKegiatan'),
+      'status' => "0",
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
@@ -168,8 +169,9 @@ class Mitigasi extends MY_Controller {
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
+      $idfile = uniqid();
+      $namaFile = "Copy-".$idfile.htmlspecialchars( basename( $_FILES["filePendukung"]["name"]));
+      $uploadOk = 1;
     }
 
     // Check file size
@@ -199,6 +201,7 @@ if ($uploadOk == 0) {
       'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
       'pic_kegiatan' => $this->input->post('picKegiatan'),
       'user_id' => $this->input->post('idUser'),
+      'status' => "0",
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
 
@@ -257,6 +260,7 @@ if ($uploadOk == 0) {
       'stakeholder_kontra' => $this->input->post('stakeholderKontra'),
       'pic_kegiatan' => $this->input->post('picKegiatan'),
       'user_id' => $this->input->post('idUser'),
+      'status' => "0",
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
 
@@ -320,9 +324,9 @@ public function update($id)
   $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
   if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    redirect($_SERVER['HTTP_REFERER']);
-    $uploadOk = 0;
+    $idfile = uniqid();
+    $namaFile = "Copy-".$idfile.htmlspecialchars( basename( $_FILES["filePendukung"]["name"]));
+    $uploadOk = 1;
   }
 
   // Check file size
