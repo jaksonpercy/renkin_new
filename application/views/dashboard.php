@@ -9,6 +9,8 @@ th {
 text-align: center;
 vertical-align: center;
 }
+
+
 </style>
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -40,21 +42,28 @@ vertical-align: center;
               <span class="info-box-icon bg-success"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Renkin.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Renkin</span>
+                  <a href="<?php echo url('StrakomUnggulan') ?>" style="color:black">
+                <span class="info-box-text">Jumlah Strakom</span>
+
                 <span class="info-box-number"><?php echo $countstrakombyid ?></span>
+                    </a>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-md-4 col-sm-6 col-12">
+            <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-info"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Realisasi(1).png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
+                <a href="<?php echo url('Realisasi') ?>" style="color:black">
                 <span class="info-box-text">Jumlah Realisasi</span>
-                <span class="info-box-number">53</span>
+
+
+                <span class="info-box-number"><?php echo $countrealisasi ?></span>
+                  </a>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -67,7 +76,7 @@ vertical-align: center;
 
               <div class="info-box-content">
                 <span class="info-box-text">Periode Dipilih</span>
-                <span class="info-box-number">Triwulan I - 2023</span>
+                <span class="info-box-number"><?php echo $periodeCount[0]->periode_aktif . " ".$periodeCount[0]->tahun ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
