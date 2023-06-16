@@ -38,6 +38,13 @@ class Strakom_model extends MY_Model {
 		return $query;
 	}
 
+	public function getListStrakomOrderByLimit()
+	{
+		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id from tbl_strakom_unggulan join tbl_periode on tbl_periode.id = tbl_strakom_unggulan.periode_id where tbl_periode.status_periode = 1 ORDER BY `tbl_strakom_unggulan`.`created_date` DESC LIMIT 5")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 }
 
 /* End of file Permissions_model.php */

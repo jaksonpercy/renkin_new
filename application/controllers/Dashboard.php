@@ -28,6 +28,8 @@ class Dashboard extends MY_Controller {
 		$this->page_data['listrakom'] = $this->Strakom_model->getListStrakomByListOpd();
 
 		}
+		$this->page_data['listrakomopd'] = $this->Strakom_model->getListStrakomOrderByLimit();
+
 		$this->load->view('dashboard', $this->page_data);
 	}
 

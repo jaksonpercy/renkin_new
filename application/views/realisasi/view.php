@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td><strong>Nota Dinas</strong>:</td>
       					  <td> <?php if(!empty($strakom->url_nota_dinas)){
                   ?>
-                  <a href="<?php echo url('Realisasi/downloadFile/'.$row->url_nota_dinas); ?>">Download File Nota Dinas</a>
+                  <a href="<?php echo url('Realisasi/downloadFile/'.$strakom->url_nota_dinas); ?>">Download File Nota Dinas</a>
 
                 <?php }  ?></td>
       					</tr>
@@ -340,7 +340,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <!-- /.modal-dialog -->
   </div>
 
-           
+
         <!-- /.row -->
         <!-- END CUSTOM TABS -->
 

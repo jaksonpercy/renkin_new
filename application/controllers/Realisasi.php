@@ -40,18 +40,17 @@ class Realisasi extends MY_Controller {
 
   public function downloadFile($name)
   {
-  header('Content-Description: File Transfer');
-   header('Content-Type: application/force-download');
-   header("Content-Disposition: attachment; filename=\"" . basename($name) . "\";");
-   header('Content-Transfer-Encoding: binary');
-   header('Expires: 0');
-   header('Cache-Control: must-revalidate');
-   header('Pragma: public');
-   header('Content-Length: ' . filesize($name));
-   ob_clean();
+
+clearstatcache();
+    //Define header information
+header('Content-Description: File Transfer');
+header('Content-Type: application/octet-stream');
+header('Content-Disposition: attachment; filename="'.basename(str_replace("/index.php","", base_url('/uploads/datanotadinas/'.$name))).'"');
+header('Content-Length: ' . filesize(str_replace("/index.php","", base_url('/uploads/datanotadinas/'.$name))));
+header('Pragma: public');
    flush();
    readfile(str_replace("/index.php","", base_url('/uploads/datanotadinas/'.$name))); //showing the path to the server where the file is to be download
-   exit;
+   die();
   }
   public function add(){
     // load view
@@ -225,9 +224,9 @@ class Realisasi extends MY_Controller {
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
-        redirect($_SERVER['HTTP_REFERER']);
+      $idfile = uniqid();
+      $namaFile = "Copy-".$idfile.htmlspecialchars( basename( $_FILES["fileDokumentasi"]["name"]));
+      $uploadOk = 1;
     }
 
     // Check file size
@@ -312,10 +311,9 @@ class Realisasi extends MY_Controller {
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
-
-      redirect($_SERVER['HTTP_REFERER']);
+      $idfile = uniqid();
+      $namaFile = "Copy-".$idfile.htmlspecialchars( basename( $_FILES["fileDokumentasi"]["name"]));
+      $uploadOk = 1;
     }
 
     // Check file size
@@ -399,10 +397,9 @@ class Realisasi extends MY_Controller {
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
     if (file_exists($target_file)) {
-      echo "Sorry, file already exists.";
-      $uploadOk = 0;
-
-      redirect($_SERVER['HTTP_REFERER']);
+      $idfile = uniqid();
+      $namaFile = "Copy-".$idfile.htmlspecialchars( basename( $_FILES["fileNotaDinas"]["name"]));
+      $uploadOk = 1;
     }
 
     // Check file size

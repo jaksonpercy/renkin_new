@@ -58,15 +58,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group" id="divNoKSD">
             <label for="formClient-Contact" class="col-sm-12">Nama KSD<label class="text-danger">*</label></label>
-            <input type="text" class="form-control" name="namaKSD" value="<?php $strakom->ksd_id ?>" id="formClient-namaKSD" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama KSD" />
-            <!-- <select name="ksd" id="formClient-ksd" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'">
-              <?php foreach ($ksd as $row):
-                $sel = $row->id==$strakom->ksd_id ? 'selected' : ''
-                ?>
-                <option value="<?php echo $row->id ?>" <?php echo $sel ?> ><?php echo $row->nama ?></option>
-              <?php endforeach ?>
+            <input type="text" class="form-control" name="namaKSD" value="<?php echo $strakom->nama_program ?>" id="formClient-namaKSD" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" />
 
-            </select> -->
           </div>
           <div class="form-group"  style="display:none" id="divNamaProgram">
             <label for="formClient-Name">Nama Program/Kegiatan<label class="text-danger">*</label></label>

@@ -149,7 +149,7 @@ vertical-align: center;
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th>SKPD/UKPD</th>
+                    <th>No</th>
                     <th>Nama Program/Kegiatan Unggulan</th>
                     <th>Tahapan Pelaksanaan Kegiatan</th>
                     <th>Tanggal Buat</th>
@@ -158,16 +158,30 @@ vertical-align: center;
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $no=0;
+                    foreach ($listrakomopd as $row):
+                      $no++;
+                    ?>
                     <tr>
-                      <td>Badan Pengembangan Sumber Daya Manusia</td>
-                      <td><b>Pengembangan Sumber Daya Aparatur</b></td>
-                      <td>Triwulan I - 2023</td>
-                      <td>07 Maret 2023 11:00:00</td>
-                      <td>Disetujui</td>
+                      <td><?php echo $no; ?></td>
+                      <td><b><?php echo $row->nama_program; ?></b></td>
+                      <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
+                      <td><?php echo $row->created_date ?></td>
+                      <td><?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else {
+                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                        } ?></td>
                       <td>
-                        <a href="<?php echo url('Penilaian/view') ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
+                        <a href="<?php echo url('StrakomUnggulan/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
                       </td>
                     </tr>
+                  <?php endforeach ?>
                   </tbody>
                 </table>
               </div><!-- /.card-body -->
