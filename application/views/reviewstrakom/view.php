@@ -698,8 +698,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <?php if ($strakom->status == 0 || $strakom->status == 1){
 									if($counteditorialbr > 0 || $countmitigasibr > 0){
 									if($countData >= 7){
-										if($counteditorialplan >= 15){
-											if($countmitigasi >= 1){
+										if(($counteditorialplan + $counteditorialbr) >= 15){
+											if(($countmitigasi + $countmitigasibr ) >= 1){
 								 	?>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
               <?php }}}}} ?>
