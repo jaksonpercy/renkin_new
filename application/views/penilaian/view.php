@@ -289,8 +289,9 @@ $nilaiMitigasi =0;
               $nilaiStrakom = ($countStrakom/8)*20;
               ?>
 
+              <?php if($periode->status_penilaian > 0){ ?>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-strakom">Nilai</button>
-
+            <?php } ?>
             </div>
           <?php endif ?>
       	</div>
@@ -355,8 +356,9 @@ $nilaiMitigasi =0;
                         ?>
                       </tbody>
                     </table>
+                      <?php if($periode->status_penilaian > 0){ ?>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-editorial">Nilai</button>
-
+        <?php } ?>
                   </div>
 
 
@@ -440,9 +442,9 @@ $nilaiMitigasi =0;
                          ?>
                         </tbody>
                     </table>
-
+  <?php if($periode->status_penilaian > 0){ ?>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-mitigasi">Nilai</button>
-
+<?php } ?>
                   </div>
 
                   <div class="tab-pane" id="tab_4">

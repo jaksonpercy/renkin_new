@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <h3 class="profile-username text-center"><?php echo $user->name ?></h3>
 
-          <p class="text-muted text-center"><?php echo $user->role->title ?></p>
+          <p class="text-muted text-center"><?php echo $user->jabatan ?></p>
 
           <ul class="list-group list-group-unbordered">
             <li class="list-group-item">
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <b><?php echo lang('user_last_login') ?></b> <a class="pull-right"><?php echo date( setting('date_format'), strtotime($user->last_login)) ?></a>
             </li>
             <li class="list-group-item">
-              <b><?php echo lang('member_since') ?> </b> <a class="pull-right"><?php echo date( setting('date_format'), strtotime($user->created_at)) ?></a>
+              <b><?php echo lang('member_since') ?> </b> <a class="pull-right"><?php echo date( setting('date_format'), strtotime($user->created_date)) ?></a>
             </li>
           </ul>
 
@@ -64,10 +64,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <ul class="nav nav-pills">
           <li class="nav-item"><a href="#viewProfile" class="nav-link <?php echo $activeTab=='profile'?'active':'' ?>" data-toggle="tab"><?php echo lang('profile') ?></a></li>
           <li class="nav-item"><a href="#editProfile" class="nav-link <?php echo $activeTab=='edit'?'active':'' ?>" data-toggle="tab"><?php echo lang('edit') ?></a></li>
-          <li class="nav-item"><a href="#editProfilePic" class="nav-link <?php echo $activeTab=='change_pic'?'active':'' ?>" data-toggle="tab"><?php echo lang('change_profile_image') ?></a></li>
+          <!-- <li class="nav-item"><a href="#editProfilePic" class="nav-link <?php echo $activeTab=='change_pic'?'active':'' ?>" data-toggle="tab"><?php echo lang('change_profile_image') ?></a></li> -->
           <li class="nav-item"><a href="#changePassword" class="nav-link <?php echo $activeTab=='change_password'?'active':'' ?>" data-toggle="tab"><?php echo lang('change_password') ?></a></li>
 
-          
+
         </ul>
       </div>
 
@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </tr>
                 <tr>
                   <td><strong><?php echo lang('user_role') ?></strong>:</td>
-                  <td><?php echo $user->role->title ?></td>
+                  <td><?php echo $user->role->role_name ?></td>
                 </tr>
                 <tr>
                   <td><strong><?php echo lang('user_contact') ?></strong>:</td>
@@ -100,20 +100,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <td><strong><?php echo lang('user_address') ?></strong>:</td>
                   <td><?php echo nl2br($user->address) ?></td>
                 </tr>
-                <tr>
+                <!-- <tr>
                   <td><strong><?php echo lang('user_last_login') ?></strong>:</td>
                   <td><?php echo ($user->last_login!='0000-00-00 00:00:00')?date( setting('datetime_format'), strtotime($user->last_login)):'No Record' ?></td>
                 </tr>
                 <tr>
                   <td><strong><?php echo lang('member_since') ?></strong>:</td>
-                  <td><?php echo ($user->created_at!='0000-00-00 00:00:00')?date( setting('datetime_format'), strtotime($user->created_at)):'No Record' ?></td>
-                </tr>
+                  <td><?php echo ($user->created_date!='0000-00-00 00:00:00')?date( setting('datetime_format'), strtotime($user->created_date)):'No Record' ?></td>
+                </tr> -->
               </tbody>
             </table>
           </div>
 
           <div class="<?php echo $activeTab=='edit'?'active':'' ?> tab-pane" id="editProfile">
-            <?php echo form_open('/profile/updateProfile', ['method' => 'POST', 'autocomplete' => 'off', 'class' => 'form-horizontal form-validate']); ?> 
+            <?php echo form_open('/profile/updateProfile', ['method' => 'POST', 'autocomplete' => 'off', 'class' => 'form-horizontal form-validate']); ?>
 
 
               <div class="form-group">
@@ -136,9 +136,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <label for="inputEmail" class="col-sm-2 control-label"><?php echo lang('user_email') ?></label>
 
                 <div class="col-sm-10">
-                  <input type="email" name="email" required 
-                   data-rule-remote="<?php echo url('users/check?notId='.$user->id) ?>" data-msg-remote="<?php echo lang('user_email_exists') ?>"
-                   class="form-control" id="inputEmail" placeholder="<?php echo lang('user_email') ?>" value="<?php echo $user->email ?>">
+                  <input type="email" name="email"
+                   class="form-control" placeholder="<?php echo lang('user_email') ?>" value="<?php echo $user->email ?>">
                 </div>
               </div>
 
@@ -158,19 +157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </div>
               </div>
 
-              <div class="form-group hidden">
-                <label for="inputContact" class="col-sm-2 control-label"><?php echo lang('user_role') ?></label>
 
-                <div class="col-sm-10">
-                  <select name="role" id="inputRole" class="form-control select2" style="width:100%;">
-                    <option value=""><?php echo lang('user_select_role') ?></option>
-                    <?php foreach ($this->roles_model->get() as $row): ?>
-                      <?php $sel = !empty($user->role) && $user->role->id==$row->id ? 'selected' : '' ?>
-                      <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->title ?></option>
-                    <?php endforeach ?>
-                  </select>
-                </div>
-              </div>
 
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
@@ -181,7 +168,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <!-- /.tab-pane -->
           <div class="<?php echo $activeTab=='change_password'?'active':'' ?> tab-pane" id="changePassword">
-            <?php echo form_open('/profile/updatePassword', ['method' => 'POST', 'autocomplete' => 'off', 'class' => 'form-horizontal form-validate']); ?> 
+            <?php echo form_open('/profile/updatePassword', ['method' => 'POST', 'autocomplete' => 'off', 'class' => 'form-horizontal form-validate']); ?>
 
               <div class="alert alert-warning">
                 <?php echo lang('message_login_again_after_password') ?>
@@ -215,7 +202,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               </div>
 
               <div class="form-group">
-               
+
                 <label for="inputContact" class="col-sm-2 control-label"><?php echo lang('confirm_new_password') ?></label>
 
                 <div class="col-sm-10">
@@ -227,9 +214,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               </div>
 
-              
 
-              
+
+
 
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
@@ -240,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </div>
           <!-- /.tab-pane -->
           <div class="<?php echo $activeTab=='change_pic'?'active':'' ?> tab-pane" id="editProfilePic">
-            <?php echo form_open('/profile/updateProfilePic', ['method' => 'POST', 'autocomplete' => 'off', 'class' => 'form-horizontal form-validate', 'enctype' => 'multipart/form-data']); ?> 
+            <?php echo form_open('/profile/updateProfilePic', ['method' => 'POST', 'autocomplete' => 'off', 'class' => 'form-horizontal form-validate', 'enctype' => 'multipart/form-data']); ?>
 
               <div class="form-group">
                 <label for="formAdmin-Image" class="col-sm-2 control-label"><?php echo lang('user_profile_image') ?></label>
@@ -248,7 +235,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="col-sm-10">
                   <input type="file" class="form-control" name="image" id="formAdmin-Image" placeholder="Upload Image" required accept="image/*" onchange="previewImage(this, '#imagePreview')">
                 </div>
-              </div>       
+              </div>
               <div class="form-group" id="imagePreview">
                 <div class="col-sm-10">
                   <img src="<?php echo userProfile($user->id) ?>" class="img-circle" width="150" alt="<?php echo lang('user_profile_image') ?>">
@@ -263,7 +250,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <?php echo form_close(); ?>
           </div>
           <!-- /.tab-pane -->
-          
+
 
           </div>
           <!-- /.tab-content -->

@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       } else if ($mitigasi->status == 2) {
                         echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                       } else {
-                        echo "<p class='text-danger'><strong>Perlu Diperbaiki</strong></p>";
+                     echo "<p class='text-danger'><strong>Perlu Diperbaiki ($mitigasi->alasan) </strong></p>";
                       } ?>
                     </td>
                   </tr>
@@ -119,7 +119,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </div>
                 <?php
                 if(count($periodeCount)>0){
-                  if($periode->status_verifikasi == 1){
+                  if($periode->status_input_data == 1){
                   if($roles->role->role_id==4){
                   if($mitigasi->status==1){ ?>
 

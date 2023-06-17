@@ -48,7 +48,7 @@ class PengaturanPeriode extends MY_Controller {
 
 		$periode = $this->Periode_model->create([
 			'periode_aktif' => $this->input->post('periode_aktif'),
-			'tahun' => $year,
+			'tahun' => $this->input->post('tahun_periode'),
 			'status_periode' => $this->input->post('status'),
 			'status_penilaian' => $this->input->post('periode_penilaian'),
 			'status_realisasi' => $this->input->post('periode_realisasi'),
@@ -73,7 +73,7 @@ class PengaturanPeriode extends MY_Controller {
 		$year = date("Y");
 		$data = [
 			'periode_aktif' => $this->input->post('periode_aktif'),
-			'tahun' => $year,
+				'tahun' => $this->input->post('tahun_periode'),
 			'status_periode' => $this->input->post('status'),
 			'status_penilaian' => $this->input->post('periode_penilaian'),
 			'status_realisasi' => $this->input->post('periode_realisasi'),
@@ -96,12 +96,12 @@ class PengaturanPeriode extends MY_Controller {
 
 		// ifPermissions('permissions_delete');
 
-		$this->permissions_model->delete($id);
+		$this->Periode_model->delete($id);
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Permission has been Deleted Successfully');
+		$this->session->set_flashdata('alert', 'Pengaturan Periode Berhasil Dihapus');
 
-		$this->activity_model->add("Permission #$permission Deleted by User: #".logged('id'));
+		$this->activity_model->add("Pengaturan Periode #$permission Dihapur oleh User: #".logged('id'));
 
 		redirect('PengaturanPeriode');
 

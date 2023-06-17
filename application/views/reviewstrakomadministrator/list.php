@@ -236,7 +236,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Dikembalikan</strong></p>';
+                          echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                         } ?>
                       </td>
                       <td>
@@ -327,14 +327,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
                           if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
-                            echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                           } else {
                            echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                           }
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Dikembalikan</strong></p>';
+                         echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                         } ?>
                       </td>
                       <td>

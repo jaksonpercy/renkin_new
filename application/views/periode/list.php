@@ -42,6 +42,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <tr>
             <th><?php echo lang('id') ?></th>
             <th>Nama Periode</th>
+            <th>Tahun</th>
             <th>Periode Input Data</th>
             <th>Periode Realisasi</th>
             <th>Periode Penilaian</th>
@@ -51,11 +52,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </thead>
         <tbody>
 
-          <?php foreach ($periode as $row): ?>
+          <?php
+          $no =0;
+          foreach ($periode as $row):
+            $no++;
+            ?>
             <tr>
-              <td width="60"><?php echo $row->id ?></td>
+              <td width="60"><?php echo $no ?></td>
               <td>
-                <?php echo $row->periode_aktif . $row->tahun ?>
+                <?php echo $row->periode_aktif ?>
+              </td>
+              <td>
+                  <?php echo $row->tahun ?>
               </td>
               <td>
                 <?php

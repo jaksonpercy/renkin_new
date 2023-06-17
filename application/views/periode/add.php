@@ -53,6 +53,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </div>
 
             <div class="form-group">
+              <label for="formClient-Contact">Pilih Tahun</label>
+              <select name="tahun_periode" class="form-control">
+                <option value="">Pilih Tahun</option>
+    <?php
+    for ($i=date('Y'); $i>2000; $i--){
+
+      echo '<option value="'.$i.'">'.$i.'</option>';
+      
+    }
+    ?>
+
+              </select>
+            </div>
+
+            <div class="form-group">
               <label for="formSetting-Company-Name">Periode Penginputkan Data</label>
               <select name="periode_input_data" class="form-control select2">
               <option value="Yes">Yes</option>
