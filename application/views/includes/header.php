@@ -92,25 +92,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
+          <span class="badge badge-warning navbar-badge"><?php echo count(getNewNotif()); ?></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 <?php echo lang('notifications') ?></span>
-          <div class="dropdown-divider"></div>
+          <span class="dropdown-item dropdown-header"><?php echo count(getNewNotif()); ?> <?php echo lang('notifications') ?></span>
+          <?php
+          $new_notif = getNewNotif();
+          for($i=0;$i<count(getNewNotif());$i++){
+            if($i<3){
+            echo '
+            <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+            <p>'.$new_notif[$i]->judul_notifikasi.'</p>
+            <span class="float-right text-muted text-sm">'.getTimeAgo($new_notif[$i]->created_date).'</span>
           </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
+            ';
+            }
+          }
+          ?>
           <div class="dropdown-divider"></div>
           <a href="<?php echo url('Dashboard/notification') ?>" class="dropdown-item dropdown-footer"><?php echo lang('see_all_notifications') ?></a>
         </div>

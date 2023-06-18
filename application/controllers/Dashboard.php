@@ -35,9 +35,14 @@ class Dashboard extends MY_Controller {
 
 	public function notification(){
     // load view
+	if(empty($this->session->userdata('logged')['opd'])){
+		$this->page_data['new_notif'] = $this->db->query("Select * from tbl_notifikasi where opd_id in (".$this->session->userdata('logged')['skpd'].");")->result();
+	}else{
+		$this->page_data['new_notif'] = $this->db->query("Select * from tbl_notifikasi where opd_id=".$this->session->userdata('logged')['opd'].";")->result();
+	}
     $this->load->view('notification/notification', $this->page_data);
 
-  }
+  	}
 
 }
 
