@@ -191,7 +191,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </li>
 <?php endif ?>
 
-<?php if (hasRoles('permissions_list') == 3): ?>
+<!-- <?php if (hasRoles('permissions_list') == 3): ?>
   <li class="nav-item">
     <a href="<?php echo url('Permissions') ?>" class="nav-link <?php echo ($page->menu=='permissions')?'active':'' ?>">
       <i class="nav-icon fas fa-user"></i>
@@ -200,7 +200,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </p>
     </a>
   </li>
-<?php endif ?>
+<?php endif ?> -->
 
 <?php if (hasRoles('backup_db') == 3): ?>
   <li class="nav-item">
@@ -236,7 +236,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php endif ?>
 
 
-<?php if (hasRoles('backup_db') == 3): ?>
+<!-- <?php if (hasRoles('backup_db') == 3): ?>
   <li class="nav-item">
     <a href="<?php echo url('JenisKegiatan') ?>" class="nav-link <?php echo ($page->menu=='jeniskegiatan')?'active':'' ?>">
       <i class="nav-icon fas fa-cog"></i>
@@ -245,9 +245,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </p>
     </a>
   </li>
-<?php endif ?>
+<?php endif ?> -->
 
-<?php if (hasRoles('backup_db')== 3): ?>
+<!-- <?php if (hasRoles('backup_db')== 3): ?>
   <li class="nav-item">
     <a href="<?php echo url('KSD') ?>" class="nav-link <?php echo ($page->menu=='ksd')?'active':'' ?>">
       <i class="nav-icon fas fa-cog"></i>
@@ -256,7 +256,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </p>
     </a>
   </li>
-<?php endif ?>
+<?php endif ?> -->
 
 <?php if (hasRoles('backup_db')== 3): ?>
   <li class="nav-item">
@@ -308,27 +308,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </li>
 
     <li class="nav-item">
-      <a href="<?php echo url('Settings/company') ?>" class="nav-link <?php echo ($page->submenu=='company')?'active':'' ?>">
-        <i class="far fa-circle nav-icon"></i> <p>  <?php echo lang('company_setings') ?> </p>
+      <a href="<?php echo url('Settings/dokumentasi') ?>" class="nav-link <?php echo ($page->submenu=='dokumentasi')?'active':'' ?>">
+        <i class="far fa-circle nav-icon"></i> <p> Link Dokumentasi & <br>Paparan Renkin </p>
       </a>
     </li>
 
-    <li class="nav-item">
+    <!-- <li class="nav-item">
       <a href="<?php echo url('Settings/email_templates') ?>" class="nav-link <?php echo ($page->submenu=='email_templates')?'active':'' ?>">
         <i class="far fa-circle nav-icon"></i> <p> <?php echo lang('manage_email_template') ?></p>
       </a>
-    </li>
+    </li> -->
   </ul>
 </li>
 </li>
 <?php endif ?>
 
-
-  <li class="nav-header">
-<a href="<?php echo url() ?>">
-    <strong>  Buku Panduan  </strong> &nbsp;
-  </a>
+<li class="nav-item">
+    <a href="<?php echo setting('url_dokumentasi') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>" target="_blank">
+      <p>
+        Dokumentasi Aplikasi
+      </p>
+    </a>
   </li>
+
+  <li class="nav-item">
+      <a href="<?php echo setting('url_paparan_renkin') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>" target="_blank">
+        <p>
+        Paparan Renkin
+        </p>
+      </a>
+    </li>
+
   <li class="nav-header">
 <a href="<?php echo url('/Logout') ?>">
     <strong>  Keluar  </strong> &nbsp;</a>
