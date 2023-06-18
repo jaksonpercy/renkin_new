@@ -58,7 +58,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </p>
       </a>
     </li>
-      <?php endif ?>
+  <?php endif ?>
   <?php endif ?>
   <li class="nav-item">
     <a href="<?php echo url('Realisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
@@ -104,6 +104,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <i class="nav-icon"></i>
     <p>
     Uraian Materi Mitigasi <br> Krisis
+    </p>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="<?php echo url('ReviewRealisasi') ?>" class="nav-link <?php echo ($page->submenu=='realisasi')?'active':'' ?>">
+    <i class="nav-icon"></i>
+    <p>
+      Realisasi Strategi Komunikasi
     </p>
   </a>
 </li>

@@ -59,6 +59,8 @@ class ReviewStrakom extends MY_Controller {
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
+    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getListDataRealisasiByStrakomId($id);
+
     $this->page_data['user'] = $this->users_model->get();
     $this->page_data['jeniskegiatan'] = $this->JenisKegiatan_model->getByStatusActive(1);
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);

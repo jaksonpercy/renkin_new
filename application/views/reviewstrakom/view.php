@@ -55,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
+					<li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Realisasi</a></li>
 
 
                 </ul>
@@ -689,6 +690,58 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           </table>
                       <?php endif ?>
                   </div>
+
+
+
+									<div class="tab-pane" id="tab_4">
+
+										<table id="dataTable1" class="table table-bordered table-striped">
+											<thead>
+											<tr>
+												<th style="vertical-align:middle;text-align:center;">No</th>
+												<th style="vertical-align:middle;text-align:center;">Tanggal Realisasi</th>
+												<th style="vertical-align:middle;text-align:center;">Judul</th>
+												<th style="vertical-align:middle;text-align:center;">Kanal Publikasi</th>
+												<th style="vertical-align:middle;text-align:center;">Link Tautan</th>
+												<th style="vertical-align:middle;text-align:center;">Dokumentasi</th>
+
+											</tr>
+											</thead>
+											<tbody>
+												<?php
+												$no=0;
+												foreach ($datarealisasi as $row):
+												$no++;
+													if ($row->user_id == $this->session->userdata('logged')['id']) {
+												?>
+												<tr>
+													<td><?php echo $no ?></td>
+													<td><?php echo $row->tanggal_realisasi ?></td>
+													<td><?php echo $row->judul_publikasi ?></td>
+													<td>
+														<?php
+															foreach ($rencanamedia as $rows):
+																if ($rows->id == $row->kanal_publikasi ) {
+																	echo $rows->nama;
+																}
+														 endforeach;
+														?>
+													</td>
+													<td><?php echo $row->link_tautan ?></td>
+												 <td>
+													 <?php if(!empty($row->file_dokumentasi)){ ?>
+													<a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+												<?php } ?>
+													</td>
+
+												</tr>
+												<?php
+												}
+												endforeach ?>
+												</tbody>
+
+								 </table>
+									</div>
 
                 </div>
                 <!-- /.tab-content -->

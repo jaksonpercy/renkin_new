@@ -186,7 +186,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     ?>
                   </td>
                   <td> <a href="<?php echo $row->link_tautan ?>" target="_blank"><?php echo $row->link_tautan ?></a> </td>
-                
+
                  <td>
                    <?php if(!empty($row->file_dokumentasi)) { ?>
                   <a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
@@ -240,7 +240,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                                 <div class="form-group">
                                   <label for="formClient-Address">Kanal Publikasi<label class="text-danger">*</label></label>
-                                  <select name="kanalpublikasi" id="formClient-kanalpublikasi" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required title="Bagian ini wajib diisi">
+                                  <select name="kanalpublikasi" id="kanalpublikasiedit" class="form-control" data-placeholder="Pilih Rencana Media/Kanal Publikasi" style="width: 100%;" required title="Bagian ini wajib diisi">
                                     <?php foreach ($rencanamedia as $rows):
                                       if ($row->kanal_publikasi == $rows->id) {
                                     ?>
@@ -251,23 +251,38 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                     <?php }
                                     endforeach ?>
                                   </select>
-                                  <input type="text" class="form-control" name="textlainnya" id="textlainnya" value="<?php echo $row->text_lainnya; ?>" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
+                                  <input type="text" class="form-control" name="textlainnya" id="textlainnyaedit" value="<?php echo $row->text_lainnya; ?>" placeholder="Lainnya" style="display:none; margin-top:1%;" autofocus />
 
                                 </div>
+                                <?php if($row->kanal_publikasi == 1 || $row->kanal_publikasi == 2 || $row->kanal_publikasi == 3 || $row->kanal_publikasi == 7){ ?>
+                                  <div class="form-group" id="divDokumentasiEdit">
+                                    <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
+                                    <!-- <div class="custom-file"> -->
+                                      <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasiedit" accept="image/*"/>
 
-                                <div class="form-group">
-                                  <label for="formClient-Name">Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Instagram, Facebook, LinkedIn dan Website)
+                                    <!-- </div> -->
+                                  </div>
+                                  <div class="form-group" id="divLinkTautanEdit" style="display:none;">
+                                    <label for="formClient-Name" >Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
 
-                                  <input type="text" class="form-control" name="linktautan" id="formClient-Name" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                                    <input type="text" class="form-control" name="linktautan" id="linktautanedit" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
+                                  </div>
+
+                                <?php } else { ?>
+                                  <div class="form-group" id="divDokumentasiEdit" style="display:none">
+                                    <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
+                                    <!-- <div class="custom-file"> -->
+                                      <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasiedit" accept="image/*"/>
+
+                                    <!-- </div> -->
+                                  </div>
+                                <div class="form-group" id="divLinkTautanEdit">
+                                  <label for="formClient-Name" >Link Tautan</label> (<label class="text-danger">*</label>Wajib diisi ketika memilih Kanal Publikasi Media Sosial dan Website)
+
+                                  <input type="text" class="form-control" name="linktautan" id="linktautanedit" value="<?php echo $row->link_tautan; ?>" placeholder="Link Tautan" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
                                 </div>
 
-                                <div class="form-group">
-                                  <label for="formClient-Name">Dokumentasi<label class="text-danger">*</label></label>
-                                  <!-- <div class="custom-file"> -->
-                                    <input type="file" class="form-control" required title="Bagian ini wajib diisi" name="fileDokumentasi" id="fileDokumentasi" accept="image/*"/>
-
-                                  <!-- </div> -->
-                                </div>
+                              <?php } ?>
 
 
                              </div>
