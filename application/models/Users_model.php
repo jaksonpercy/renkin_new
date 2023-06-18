@@ -58,6 +58,8 @@ class Users_model extends MY_Model {
 					'name' => $row->name,
 					'time' => $time,
 					'role' => $row->role,
+					'opd'  => $row->opd_upd,
+					'skpd' => $row->skpd_renkin,
 				]
 			];
 			$this->session->set_userdata( $array );

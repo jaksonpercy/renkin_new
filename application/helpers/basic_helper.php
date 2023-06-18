@@ -461,6 +461,65 @@ if (!function_exists('hasRoles')) {
 
 }
 
+if (!function_exists('getNewNotif')) {
+
+	function getNewNotif() {
+
+		$CI =& get_instance();
+		$new_notif = array();
+		if(empty($CI->session->userdata('logged')['opd'])){
+			$new_notif = $CI->db->query("Select * from tbl_notifikasi where status_read='0' and opd_id in (".$CI->session->userdata('logged')['skpd'].");")->result();
+		}else{
+			$new_notif = $CI->db->query("Select * from tbl_notifikasi where status_read='0' and opd_id=".$CI->session->userdata('logged')['opd'].";")->result();
+		}
+
+	    return $new_notif;
+
+	}
+
+}
+
+if (!function_exists('getDetailUser')) {
+	function getDetailUser($user){
+		$CI =& get_instance();
+		$userdata = $CI->db->query("select * from tbl_users where id='".$user."';")->result();
+		return $userdata;
+	}
+}
+
+
+
+if (!function_exists('getTimeAgo')){
+	function getTimeAgo($datetime, $full = false) {
+		$now = new DateTime;
+		$ago = new DateTime($datetime);
+		$diff = $now->diff($ago);
+	
+		$diff->w = floor($diff->d / 7);
+		$diff->d -= $diff->w * 7;
+	
+		$string = array(
+			'y' => 'year',
+			'm' => 'month',
+			'w' => 'week',
+			'd' => 'day',
+			'h' => 'hour',
+			'i' => 'minute',
+			's' => 'second',
+		);
+		foreach ($string as $k => &$v) {
+			if ($diff->$k) {
+				$v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+			} else {
+				unset($string[$k]);
+			}
+		}
+	
+		if (!$full) $string = array_slice($string, 0, 1);
+		return $string ? implode(', ', $string) . ' ago' : 'just now';
+	}
+}
+
 if (!function_exists('hasRolesUser')) {
 
 	function hasRolesUser() {

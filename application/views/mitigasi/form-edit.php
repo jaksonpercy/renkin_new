@@ -131,6 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <label for="formClient-Name">Data Pendukung Kegiatan<label class="text-danger">*</label></label>
               <textarea type="text" class="form-control" name="dataPendukung" id="formClient-dataPendukung" placeholder="Data pendukung kegiatan (cth: standby statement, press release, talking point, FAQ, Data Teknis, Dll)" rows="3"><?php echo $mitigasi->data_pendukung_text ?></textarea>
             <!-- <div class="custom-file" style="margin-top:3%"> -->
+
               <input type="file" class="form-control" name="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
               <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
             <!-- </div> -->

@@ -43,13 +43,23 @@
             <div class="card-body p-0">
                 <table class="table table-hover">
                   <tbody>
+                  <?php
+                    $no=0;
+                    foreach ($new_notif as $row):
+                    $no++;
+
+                    ?>
                   <tr>
-                    <td class="mailbox-star"><a href="#"><i class="fas fa-star text-warning"></i></a></td>
-                    <td class="mailbox-name"><a href="read-mail.html">Alexander Pierce</a></td>
-                    <td class="mailbox-subject"><b>AdminLTE 3.0 Issue</b> - Trying to find a solution to this problem...
+                    <td class="mailbox-star"><a href="#"><i class="fas fa-eye text-warning"></i></a></td>
+                    <td class="mailbox-name"><a href="#"><?php echo getDetailUser($row->user_id)[0]->name; ?></a></td>
+                    <td class="mailbox-subject"><?php echo $row->judul_notifikasi; ?>
                     </td>
-                    <td class="mailbox-date">5 mins ago</td>
+                    <td class="mailbox-date"><?php echo getTimeAgo($row->created_date) ?></td>
                   </tr>
+
+                  <?php
+                  endforeach
+                  ?>
 
                   </tbody>
                 </table>

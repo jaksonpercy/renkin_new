@@ -141,6 +141,70 @@ header('Pragma: public');
 
   }
 
+  public function export($id){
+    // load view
+    $this->page_data['page']->submenu = 'realisasi';
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['strakom'] = $this->Strakom_model->getById($id);
+
+    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getListDataRealisasiByStrakomId($id);
+
+    ///////////////////////////////////////////////////////////////
+    require_once(APPPATH.'libraries/xlsxwriter.class.php');
+	  $fname='uploads/realisasi_strakom.xlsx';
+
+    $realisasi = array(
+      array('REALISASI STRAKOM'),
+      array('Strakom',$this->page_data['strakom']->nama_program),
+      array('Nomor Nota Dinas',$this->page_data['strakom']->no_nota_dinas),
+      array('Tanggal Nota Dinas',$this->page_data['strakom']->tanggal_nota),
+      array('Perihal Nota Dinas',$this->page_data['strakom']->perihal_nota),
+      array(''),
+      array('NO.','TANGGAL','JUDUL','MEDIA DAN TAUTAN','DOKUMENTASI'),
+    );
+
+    $no=0;
+    foreach ($this->page_data['datarealisasi'] as $row){
+      $no++;
+
+      $kanalkomunikasi='';
+      foreach ($this->page_data['rencanamedia'] as $rows){
+        if ($rows->id == $row->kanal_publikasi ) {
+          $kanalkomunikasi = $rows->nama;
+        }
+      }
+
+      array_push($realisasi,
+      array(
+        $no,
+        $row->tanggal_realisasi,
+        $row->judul_publikasi,
+        $kanalkomunikasi,
+        empty($row->file_dokumentasi)?'':str_replace("/index.php","", base_url('/uploads/datarealisasi/'.$row->file_dokumentasi))
+      )
+    );
+    }
+
+    $writer = new XLSXWriter();
+    $styles7 = array( 'border'=>'left,right,top,bottom');
+
+    foreach($realisasi as $row)
+	    $writer->writeSheetRow('Rekap Realisasi', $row, $styles7);
+
+      $writer->writeToFile($fname);   // creates XLSX file (in current folder)
+      redirect($fname.'?date='.date('Ymdis'));
+
+  }
+
   public function realisasiview(){
     // load view
     $this->load->view('realisasi/realisasi-view', $this->page_data);
