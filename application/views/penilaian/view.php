@@ -424,9 +424,9 @@ $nilaiMitigasi =0;
                             $jumlah+=5;
                           }
                           if(empty($row->data_pendukung_text)){ ?>
-                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                          <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
                         <?php } else { ?>
-                          <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
+                          <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
                         <?php } ?>
                           </td>
                           <td>
