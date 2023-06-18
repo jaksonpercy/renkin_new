@@ -67,6 +67,7 @@ class Penilaian extends MY_Controller {
     $this->page_data['penilaian'] = count($this->Penilaian_model->getDataByStrakomIdAndPeriode($id,$this->page_data['periode']->id));
 
     $this->page_data['penilaianData'] = $this->Penilaian_model->getDataByStrakomIdAndPeriode($id,$this->page_data['periode']->id);
+    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getListDataRealisasiByStrakomId($id);
 
 
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
@@ -199,10 +200,31 @@ class Penilaian extends MY_Controller {
     ]);
   }
 
-    $this->activity_model->add("Data Strategi Komunikasi Unggulan Telah Dinilai #$periode oleh User: #".logged('name'));
+  if ($komponen == 1) {
+    $this->activity_model->add("Data Nilai Strategi Komunikasi Unggulan Telah Dinilai oleh User: #".logged('name'));
 
     $this->session->set_flashdata('alert-type', 'success');
-    $this->session->set_flashdata('alert', 'Data Strategi Komunikasi Unggulan Berhasil Dinilai');
+    $this->session->set_flashdata('alert', 'Data Nilai Strategi Komunikasi Unggulan Berhasil Dinilai');
+
+} else if($komponen == 2){
+  $this->activity_model->add("Data Nilai Editorial Plan Telah Dinilai oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Editorial Plan Berhasil Dinilai');
+
+} else if($komponen == 3){
+  $this->activity_model->add("Data Nilai Uraian Mitigasi Telah Dinilai oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Uraian Mitigasi Berhasil Dinilai');
+
+} else {
+  $this->activity_model->add("Data Nilai Realisasi Telah Dinilai oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Realisasi Berhasil Dinilai');
+
+}
 
     redirect('Penilaian/view/'.$this->input->post('strakomId'));
   }
@@ -266,10 +288,32 @@ class Penilaian extends MY_Controller {
 
   $permission = $this->Penilaian_model->update($id, $data);
 
-  $this->activity_model->add("Data Strategi Komunikasi Unggulan Telah Diubah oleh User: #".logged('name'));
+  if ($komponen == 1) {
+    $this->activity_model->add("Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #".logged('name'));
+
+    $this->session->set_flashdata('alert-type', 'success');
+    $this->session->set_flashdata('alert', 'Data Nilai Strategi Komunikasi Unggulan Berhasil Diubah');
+
+} else if($komponen == 2){
+  $this->activity_model->add("Data Nilai Editorial Plan Telah Diubah oleh User: #".logged('name'));
 
   $this->session->set_flashdata('alert-type', 'success');
-  $this->session->set_flashdata('alert', 'Data Strategi Komunikasi Unggulan Berhasil Diubah');
+  $this->session->set_flashdata('alert', 'Data Nilai Editorial Plan Berhasil Diubah');
+
+} else if($komponen == 3){
+  $this->activity_model->add("Data Nilai Uraian Mitigasi Telah Diubah oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Uraian Mitigasi Berhasil Diubah');
+
+} else {
+  $this->activity_model->add("Data Nilai Realisasi Telah Diubah oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Realisasi Berhasil Diubah');
+
+}
+
 
     redirect('Penilaian/view/'.$this->input->post('strakomId'));
   }

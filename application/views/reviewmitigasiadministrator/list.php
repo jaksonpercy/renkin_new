@@ -148,7 +148,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td><?php echo $row->pic_kegiatan ?></td>
                       <td>
                       <?php if(empty($row->data_pendukung_text)){ ?>
-                      <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a>
+                      <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
                     <?php } else {
                         echo $row->data_pendukung_text;
                       }
@@ -212,7 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <td><?php echo $row->pic_kegiatan ?></td>
                           <td>
                           <?php if(empty($row->data_pendukung_text)){ ?>
-                          <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a>
+                          <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
                         <?php } else {
                             echo $row->data_pendukung_text;
                           }

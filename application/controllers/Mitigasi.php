@@ -462,7 +462,7 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
 
 public function downloadFile($name)
 {
- redirect(str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$name)));
+ redirect(str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$name))); //showing the path to the server where the file is to be download
 }
 
 	// }

@@ -73,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header">
 
                 <?php echo form_open_multipart('Realisasi/realisasi', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
-              
+
                   <div class="row">
                     <div class="col-2">
                       <div class="card-body">
@@ -159,7 +159,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
                         <?php if(!empty($row->url_nota_dinas)){
                         ?>
-                        <a href="<?php echo url('Realisasi/downloadFile/'.$row->url_nota_dinas); ?>">Download File Nota Dinas</a>
+                        <a href="<?php echo base_url('/uploads/datanotadinas/'.$row->url_nota_dinas); ?>">Download File Nota Dinas</a>
 
                       <?php }  ?>
                     </td>

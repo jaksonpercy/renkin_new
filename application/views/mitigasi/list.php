@@ -167,12 +167,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php if(!empty($row->data_pendukung_text) && !empty($row->data_pendukung_file) ){
                           echo $row->data_pendukung_text . "<br>"; ?>
                       <!-- <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a> -->
-                      <a href="<?php echo url('Mitigasi/downloadFile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                      <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
 
                     <?php } else {
                       if(empty($row->data_pendukung_text) && !empty($row->data_pendukung_file)) {
                      ?>
-                     <a href="<?php echo url('Mitigasi/downloadFile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                     <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
 
                     <?php
                     } else {
