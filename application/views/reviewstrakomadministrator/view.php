@@ -772,9 +772,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <td><?php echo $row->pic_kegiatan ?></td>
                                 <td>
                                 <?php if(empty($row->data_pendukung_text)){ ?>
-                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                                <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
                               <?php } else { ?>
-                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
+                                <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
                               <?php } ?>
                                 </td>
 																<td>
