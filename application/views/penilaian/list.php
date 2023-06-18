@@ -163,9 +163,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <?php echo form_close(); ?>
               </div>
 
-              <div class="card-header d-flex p-0">
+              <div class="card-header p-0">
                 <h3 class="card-title p-3">Strategi Komunikasi Unggulan</h3>
-
+                <a href="<?php echo url('Penilaian/download/') ?>" target="_blank" class="btn btn-success" style="float:right; margin-top:7px">Download Penilaian</a>
               </div>
 
 
@@ -239,7 +239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <a href="<?php echo url('Penilaian/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                        <a href="<?php echo url('Penilaian/download/'.$row->strakom_id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
 

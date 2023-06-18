@@ -289,7 +289,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-finalisasi<?php echo $row->strakom_id ?>"><i class="fa fa-paper-plane" title="Finalisasi"></i></button>
                         <?php }}}}} ?>
                         <a href="<?php echo url('ReviewStrakom/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                        <a href="<?php echo url('StrakomUnggulan/download/'.$row->strakom_id).'?date='.date("Ymis") ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
 

@@ -896,7 +896,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
+              <a href="<?php echo url('StrakomUnggulan/download/'.$strakom->id).'?date='.date("Ymis") ?>" target="_blank"><button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button></a>
 
               </div>
 
