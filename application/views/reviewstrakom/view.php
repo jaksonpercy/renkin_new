@@ -8,21 +8,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	color:#ff0000;
 }
 </style>
+
+<?php
+	$countData =0; ?>
 <!-- Content Header (Page header) -->
 <section class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
             <h1>
-              <?php if ($strakom->ksd_id > 0){
-                foreach ($ksd as $rows):
-                  if ($rows->id == $strakom->ksd_id ) {
-                    echo $rows->nama;
-                  }
-               endforeach;
-              } else {
+              <?php
+							// if ($strakom->ksd_id > 0){
+              //   foreach ($ksd as $rows):
+              //     if ($rows->id == $strakom->ksd_id ) {
+              //       echo $rows->nama;
+              //     }
+              //  endforeach;
+              // } else {
                   echo $strakom->nama_program;
-              }
+              // }
               ?>
             </h1>
           </div>
@@ -51,6 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
+					<li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Realisasi</a></li>
 
 
                 </ul>
@@ -59,7 +64,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">
 				  <div class="row">
-          <?php if ($roles->role->role_id==1):?>
+          <?php if ($roles->role->role_id==1):
+						?>
       		<div class="col-sm-12">
       			<table class="table table-bordered table-striped">
       				<tbody>
@@ -83,19 +89,22 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 								<?php } else { ?>
 										<td width="160"><strong>Nama Program Unggulan</strong>:</td>
 								<?php } ?>
-      						<td><?php if ($strakom->ksd_id > 0){
-                    foreach ($ksd as $rows):
-                      if ($rows->id == $strakom->ksd_id ) {
-                        echo $rows->nama;
-                      }
-                   endforeach;
-                  } else {
+      						<td><?php
+									if(!empty($strakom->nama_program)){
+										$countData ++;
+									}
+									// if ($strakom->ksd_id > 0){
+                  //   foreach ($ksd as $rows):
+                  //     if ($rows->id == $strakom->ksd_id ) {
+                  //       echo $rows->nama;
+                  //     }
+                  //  endforeach;
+                  // } else {
                       echo $strakom->nama_program;
-                  }
+                  // }
                   ?></td>
       					</tr>
                 <?php if (!empty($strakom->jenis_kegiatan)) {
-
                 ?>
       					<tr>
       						<td><strong>Jenis Kegiatan</strong>:</td>
@@ -109,28 +118,56 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <?php } ?>
       					<tr>
       						<td><strong>Deskripsi Singkat Kegiatan</strong>:</td>
-      						<td><?php echo $strakom->deskripsi ?></td>
+      						<td><?php
+									if(!empty($strakom->deskripsi)){
+										$countData ++;
+									}
+									echo $strakom->deskripsi ?></td>
       					</tr>
       					<tr>
       						<td><strong>Analisis Situasi</strong>:</td>
-      						<td><?php echo $strakom->analisis_situasi ?></td>
+      						<td><?php
+									if(!empty($strakom->analisis_situasi)){
+										$countData ++;
+									}
+									echo $strakom->analisis_situasi ?></td>
       					</tr>
       					<tr>
       						<td><strong>Identifikasi Masalah/Isu Utama</strong>:</td>
-      						<td><?php echo $strakom->identifikasi_masalah ?></td>
+      						<td><?php
+									if(!empty($strakom->identifikasi_masalah)){
+										$countData ++;
+									}
+									echo $strakom->identifikasi_masalah ?></td>
       					</tr>
       					<tr>
       						<td><strong>Narasi Utama Publikasi Program</strong>:</td>
-      						<td><?php echo $strakom->narasi_utama ?></td>
+      						<td><?php
+									if(!empty($strakom->narasi_utama)){
+										$countData ++;
+									}
+									echo $strakom->narasi_utama ?></td>
       					</tr>
                 <tr>
                   <td><strong>Target Audiens</strong>:</td>
-                  <td>Pro : <?php echo $strakom->target_pro ?> <br> Kontra :
-                  <?php echo $strakom->target_kontra ?></td>
+                  <td>
+										Pro : <?php
+										if(!empty($strakom->target_pro)){
+											$countData ++;
+										}
+										echo $strakom->target_pro ?> <br> Kontra :
+                  <?php
+									if(!empty($strakom->target_kontra)){
+										$countData ++;
+									}
+									echo $strakom->target_kontra ?></td>
                 </tr>
                 <tr>
                   <td><strong>Rencana Media/Kanal Publikasi</strong>:</td>
                   <td><?php
+									if(!empty($strakom->kanal_publikasi)){
+										$countData ++;
+									}
                   $namaRencana = array();
                   $my_array1 = explode(",", $strakom->kanal_publikasi);
                   foreach ($my_array1 as $row){
@@ -150,11 +187,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php if ($strakom->status == 0) {
                       echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($strakom->status == 1) {
-                      echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+											if($counteditorialrejected > 0 || $countmitigasirejected > 0){
+												 echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
+											}else if($counteditorialbr > 0 || $countmitigasibr > 0){
+												echo "<p class='text-warning'><strong>Belum Dikirim </strong></p>";
+											} else {
+											echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+										}
+
                     } else if ($strakom->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
                     } else {
-                      echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                       echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
                     } ?>
                   </td>
                 </tr>
@@ -262,7 +306,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </div>
                         </div>
                   <!-- /.card-header -->
-                    <table id="example1" class="table table-bordered table-hover table-striped">
+                    <table id="example3" class="table table-bordered table-hover table-striped">
                       <thead>
                       <tr>
                         <th style="vertical-align:middle;text-align:center;">No</th>
@@ -486,7 +530,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </tbody>
                     </table>
                 <?php } else { ?>
-                    <table id="example1" class="table table-bordered table-hover table-striped">
+                    <table id="example3" class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
@@ -544,14 +588,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="tab-pane" id="tab_3">
                     <?php if ($roles->role->role_id==1):?>
-                      <table id="example1" class="table table-bordered table-hover table-striped">
+                      <table id="example2" class="table table-bordered table-hover table-striped">
                         <thead>
                         <tr>
                           <th style="vertical-align:middle;text-align:center;">No</th>
                           <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                           <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
@@ -600,14 +644,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           </tbody>
                       </table>
                       <?php else:?>
-                          <table id="example1" class="table table-bordered table-hover table-striped">
+                          <table id="example5" class="table table-bordered table-hover table-striped">
                             <thead>
                               <tr>
                                 <th style="vertical-align:middle;text-align:center;">No</th>
                                 <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                                 <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                                <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                                <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                                 <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                                 <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                                 <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
@@ -647,14 +691,71 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php endif ?>
                   </div>
 
+
+
+									<div class="tab-pane" id="tab_4">
+
+										<table id="dataTable1" class="table table-bordered table-striped">
+											<thead>
+											<tr>
+												<th style="vertical-align:middle;text-align:center;">No</th>
+												<th style="vertical-align:middle;text-align:center;">Tanggal Realisasi</th>
+												<th style="vertical-align:middle;text-align:center;">Judul</th>
+												<th style="vertical-align:middle;text-align:center;">Kanal Publikasi</th>
+												<th style="vertical-align:middle;text-align:center;">Link Tautan</th>
+												<th style="vertical-align:middle;text-align:center;">Dokumentasi</th>
+
+											</tr>
+											</thead>
+											<tbody>
+												<?php
+												$no=0;
+												foreach ($datarealisasi as $row):
+												$no++;
+													if ($row->user_id == $this->session->userdata('logged')['id']) {
+												?>
+												<tr>
+													<td><?php echo $no ?></td>
+													<td><?php echo $row->tanggal_realisasi ?></td>
+													<td><?php echo $row->judul_publikasi ?></td>
+													<td>
+														<?php
+															foreach ($rencanamedia as $rows):
+																if ($rows->id == $row->kanal_publikasi ) {
+																	echo $rows->nama;
+																}
+														 endforeach;
+														?>
+													</td>
+													<td><?php echo $row->link_tautan ?></td>
+												 <td>
+													 <?php if(!empty($row->file_dokumentasi)){ ?>
+													<a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+												<?php } ?>
+													</td>
+
+												</tr>
+												<?php
+												}
+												endforeach ?>
+												</tbody>
+
+								 </table>
+									</div>
+
                 </div>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
-                <?php if ($strakom->status == 0): ?>
+                <?php if ($strakom->status == 0 || $strakom->status == 1){
+									if($counteditorialbr > 0 || $countmitigasibr > 0){
+									if($countData >= 7){
+										if(($counteditorialplan + $counteditorialbr) >= 15){
+											if(($countmitigasi + $countmitigasibr ) >= 1){
+								 	?>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
-              <?php endif; ?>
+              <?php }}}}} ?>
               </div>
               <div class="modal-footer justify-content-between">
 
@@ -674,20 +775,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Finalisasi</h4>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
+								<div class="modal-header">
+									<h4 class="modal-title">Perhatian!</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span>
+									</button>
+								</div>
                 <div class="modal-body">
 									<input type="hidden" name="nama_strakom" value="<?php echo $strakom->nama_program; ?>">
-                  <p>Apakah kamu yakin untuk melakukan finalisasi Strategi Komunikasi Unggulan untuk Judul <b><?php echo $strakom->nama_program ?> </b> ini ?</p>
+                  <p>Apakah Anda yakin akan mengirimkan data rencana kinerja yang telah disusun dalam <b><?php echo $strakom->nama_program ?> </b> ?</p>
                 </div>
-                <div class="modal-footer justify-content-between">
-                  <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                  <button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
-                </div>
+								<div class="modal-footer text-right">
+									<button type="button" style ="display:none" class="btn btn-default" data-dismiss="modal">Tidak</button>
+									<button type="submit" class="btn btn-primary">Kirim</button>
+								</div>
               </div>
               <!-- /.modal-content -->
             </div>

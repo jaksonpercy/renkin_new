@@ -200,6 +200,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tbody>
                     <?php
                     $no=0;
+                    $count=0;
                     foreach ($strakom as $row):
                     $no++;
                       if ($row->user_id == $this->session->userdata('logged')['id']) {
@@ -211,17 +212,43 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td><?php echo $no ?></td>
                       <td>
                         <?php
+                        if(!empty($row->nama_program)){
+                          $count++;
+                        }
                             echo $row->nama_program;
                         ?>
 
                       </td>
-                      <td><?php echo $row->deskripsi ?></td>
-                      <td><?php echo $row->identifikasi_masalah ?></td>
-                      <td><?php echo $row->narasi_utama ?></td>
-                      <td><?php echo $row->target_pro ?></td>
-                      <td><?php echo $row->target_kontra ?></td>
+                      <td><?php
+                      if(!empty($row->deskripsi)){
+                        $count++;
+                      }
+                      echo $row->deskripsi ?></td>
+                      <td><?php
+                      if(!empty($row->identifikasi_masalah)){
+                        $count++;
+                      }
+                      echo $row->identifikasi_masalah ?></td>
+                      <td><?php
+                      if(!empty($row->narasi_utama)){
+                        $count++;
+                      }
+                      echo $row->narasi_utama ?></td>
+                      <td><?php
+                      if(!empty($row->target_pro)){
+                        $count++;
+                      }
+                      echo $row->target_pro ?></td>
+                      <td><?php
+                      if(!empty($row->target_kontra)){
+                        $count++;
+                      }
+                      echo $row->target_kontra ?></td>
                       <td>
                         <?php
+                        if(!empty($row->kanal_publikasi)){
+                          $count++;
+                        }
                         $namaRencana = array();
                         $my_array1 = explode(",", $row->kanal_publikasi);
                         foreach ($my_array1 as $rowss){
@@ -240,17 +267,27 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <?php if ($row->status == 0) {
                           echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                          } else if($row->EditorialCountBR > 0 || $row->MitigasiCountBR > 0){
+                            echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                          } else {
                           echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                          }
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                         echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                         } ?>
                       </td>
                       <td>
-                        <?php if($row->status ==0){ ?>
+                        <?php if($row->status == 0 || $row->status == 1){
+                          if($row->EditorialCountBR > 0 || $row->MitigasiCountBR > 0){
+                          if($count >=7){
+                          if(($row->EditorialCount + $row->EditorialCountBR) >= 15){
+                            if(($row->MitigasiCount + $row->MitigasiCountBR ) > 0){ ?>
                           <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-finalisasi<?php echo $row->strakom_id ?>"><i class="fa fa-paper-plane" title="Finalisasi"></i></button>
-                        <?php } ?>
+                        <?php }}}}} ?>
                         <a href="<?php echo url('ReviewStrakom/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url() ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
@@ -263,18 +300,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <div class="modal-dialog">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h4 class="modal-title">Finalisasi</h4>
+                              <h4 class="modal-title">Perhatian!</h4>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
                             </div>
                             <div class="modal-body">
                               <input type="hidden" name="nama_strakom" value="<?php echo $row->nama_program; ?>">
-                              <p>Apakah kamu yakin untuk melakukan finalisasi Strategi Komunikasi Unggulan untuk Judul <b><?php echo $row->nama_program ?> </b> ini ?</p>
+                              <p>Apakah Anda yakin akan mengirimkan data rencana kinerja yang telah disusun dalam <b><?php echo $row->nama_program ?> </b> ?</p>
                             </div>
-                            <div class="modal-footer justify-content-between">
-                              <button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
-                              <button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+                            <div class="modal-footer text-right">
+                              <button type="button" style ="display:none" class="btn btn-default" data-dismiss="modal">Tidak</button>
+                              <button type="submit" class="btn btn-primary">Kirim</button>
                             </div>
                           </div>
                           <!-- /.modal-content -->

@@ -149,11 +149,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php if ($strakom->status == 0) {
                       echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                     } else if ($strakom->status == 1) {
-                      echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+											if($counteditorialrejected > 0 || $countmitigasirejected > 0){
+											echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
+											} else {
+											 echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+											}
                     } else if ($strakom->status == 2) {
                       echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                     } else {
-                      echo "<p class='text-danger'><strong>Dikembalikan ($strakom->alasan) </strong></p>";
+                    echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
                     } ?>
                   </td>
                 </tr>
@@ -253,25 +257,29 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 											<?php if ($strakom->status == 0) {
 												echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
 											} else if ($strakom->status == 1) {
-												echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+												if($counteditorialrejected > 0 || $countmitigasirejected > 0){
+												  echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
+												} else {
+												 echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+												}
 											} else if ($strakom->status == 2) {
 												echo '<p class="text-success"><strong>Telah Direview</strong></p>';
 											} else {
-											  echo "<p class='text-danger'><strong>Dikemnbalikan</strong> (".$strakom->alasan.")</p>";
-											} ?>
+											 	  echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";	} ?>
 										</td>
 									</tr>
                 </tbody>
               </table>
 							<?php
 								if(count($periodeCount)>0){
-								if($periode->status_verifikasi == 1){
+								if($periode->status_input_data == 1){
 								if($roles->role->role_id==4){
-								if($strakom->status==1){ ?>
+								if($strakom->status==1){
+								if($counteditorialrejected == 0 && $countmitigasirejected == 0){?>
 
 							<button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-approve">Setujui</button>
 							<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal-reject">Tolak</button>
-						<?php }}}} ?>
+						<?php }}}}} ?>
             </div>
           <?php endif ?>
       	</div>
@@ -572,7 +580,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <td>
 														<?php
 														if(count($periodeCount) > 0){
-															if($periode->status_verifikasi == 1){
+															if($periode->status_input_data == 1){
 															if($roles->role->role_id==4){
 															if($row->status==1){ ?>
 																<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approveeditorial<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
@@ -657,7 +665,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <?php } ?>
 								<?php
 									if(count($periodeCount)>0){
-									if($periode->status_verifikasi == 1){
+									if($periode->status_input_data == 1){
 									if($roles->role->role_id==4){
 									if($strakom->status==1){ ?>
 
@@ -675,8 +683,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">No</th>
                           <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                           <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
@@ -738,8 +746,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <th style="vertical-align:middle;text-align:center;">No</th>
                                 <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                                 <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                                <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                                <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Pro</th>
+                                <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                                 <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                                 <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
 															  <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
@@ -783,7 +791,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <td>
 																	<?php
 																		if(count($periodeCount)>0){
-																		if($periode->status_verifikasi == 1){
+																		if($periode->status_input_data == 1){
 																		if($roles->role->role_id==4){
 																		if($row->status==1){ ?>
 																			<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approvemitigasi<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
@@ -869,7 +877,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php endif ?>
 											<?php
 												if(count($periodeCount)>0){
-												if($periode->status_verifikasi == 1){
+												if($periode->status_input_data == 1){
 												if($roles->role->role_id==4){
 												if($strakom->status==1){ ?>
 
@@ -903,7 +911,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </section>
 
 <div class="modal fade" id="modal-approve">
-	<?php echo form_open_multipart('StrakomUnggulan/change_status_strakom/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+	<?php echo form_open_multipart('ReviewStrakom/change_status_finalisasi/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -937,7 +945,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
 <div class="modal fade" id="modal-reject">
-	<?php echo form_open_multipart('StrakomUnggulan/change_status_strakom/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+	<?php echo form_open_multipart('ReviewStrakom/change_status_finalisasi/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
@@ -969,7 +977,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </div>
 
 <section class="content">
-  <?php echo form_open_multipart('StrakomUnggulan/saveEditorialPlan/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+  <?php echo form_open_multipart('ReviewStrakom/saveEditorialPlan/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
   <div class="container-fluid">
     <div class="row">

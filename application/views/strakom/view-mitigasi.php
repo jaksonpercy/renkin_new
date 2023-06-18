@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#"><?php echo lang('home') ?></a></li>
-              <li class="breadcrumb-item"><a href="<?php echo url('/Mitigasi') ?>">Uraian Materi Mitigasi Krisis</a></li>
+              <li class="breadcrumb-item"><a href="<?php echo url('StrakomUnggulan/view/'.$mitigasi->strakom_id) ?>">Uraian Materi Mitigasi Krisis</a></li>
 
             </ol>
           </div>
@@ -163,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </div>
             <div class="modal-footer justify-content-between">
 
-              <a href="<?php echo url('/Mitigasi') ?>" class="btn btn-flat btn-secondary">Kembali</a>
+              <a href="<?php echo url('StrakomUnggulan/view/'.$mitigasi->strakom_id) ?>" class="btn btn-flat btn-secondary">Kembali</a>
             </div>
             <!-- ./card -->
           </div>

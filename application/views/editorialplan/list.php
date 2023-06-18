@@ -193,7 +193,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                         } ?>
                       </td>
                       <td>
@@ -209,176 +209,179 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>
-                    </tr>
-                    <section class="content">
-                      <?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+											<section class="content">
+	                      <?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
-                      <div class="container-fluid">
-                        <div class="row">
-                    <div class="modal fade" id="modal-lg-edit<?php echo $row->id ?>">
-                    <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Edit Materi</h4>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-
-
-                        <div class="row">
-                          <div class="col-sm-6">
-                            <!-- Default card -->
-                            <div class="card">
-                              <input type="hidden" class="form-control" name="idUser" required value="<?php echo $row->user_id; ?>" />
-                              <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $row->periode_id; ?>" />
-                              <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->opd_id; ?>" />
+	                      <div class="container-fluid">
+	                        <div class="row">
+	                    <div class="modal fade" id="modal-lg-edit<?php echo $row->id ?>">
+	                    <div class="modal-dialog modal-xl">
+	                    <div class="modal-content">
+	                    <div class="modal-header">
+	                      <h4 class="modal-title">Edit Materi</h4>
+	                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                        <span aria-hidden="true">&times;</span>
+	                      </button>
+	                    </div>
+	                    <div class="modal-body">
 
 
-                              <div class="card-body">
+	                        <div class="row">
+	                          <div class="col-sm-6">
+	                            <!-- Default card -->
+	                            <div class="card">
+	                              <input type="hidden" class="form-control" name="idUser" required value="<?php echo $row->user_id; ?>" />
+	                              <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $row->periode_id; ?>" />
+	                              <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->opd_id; ?>" />
+																<input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->id; ?>" />
 
-                                <div class="form-group">
-                                  <label for="formClient-Contact">Nama Strategi Komunikasi Unggulan<label class="text-danger">*</label></label>
-                                  <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required title="Bagian ini wajib diisi">
-                                    <?php foreach ($strakom as $rows):
+
+	                              <div class="card-body">
+
+	                                <div class="form-group">
+	                                  <label for="formClient-Contact">Nama Strategi Komunikasi Unggulan<label class="text-danger">*</label></label>
+	                                  <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required title="Bagian ini wajib diisi">
+	                                    <?php foreach ($strakom as $rows):
 
 
-                                      // if ($rows->ksd_id > 0){
-																			//
-                                      //   foreach ($ksd as $rowss):
-																			//
-                                      //     if ($rowss->id == $rows->ksd_id ) {
-                                      //       if ($row->strakom_id == $rows->id) {
-                                      //           echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
-                                      //       } else {
-                                      //          echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
-                                      //        }
-                                      //     }
-																			//
-                                      //  endforeach;
-                                      // } else {
-                                        $sel ="";
-                                        if ($row->strakom_id == $rows->id) {
-                                            echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
-                                        } else {
-                                          echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
-                                        }
+	                                      // if ($rows->ksd_id > 0){
+																				//
+	                                      //   foreach ($ksd as $rowss):
+																				//
+	                                      //     if ($rowss->id == $rows->ksd_id ) {
+	                                      //       if ($row->strakom_id == $rows->id) {
+	                                      //           echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+	                                      //       } else {
+	                                      //          echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+	                                      //        }
+	                                      //     }
+																				//
+	                                      //  endforeach;
+	                                      // } else {
+	                                        $sel ="";
+	                                        if ($row->strakom_id == $rows->id) {
+	                                            echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
+	                                        }
+																					else {
+	                                          echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
+	                                        }
 
-                                    // }
-                                    ?>
+	                                    // }
+	                                    ?>
 
-                                    <?php endforeach ?>
-                                  </select>
-                                </div>
+	                                    <?php endforeach ?>
+	                                  </select>
+	                                </div>
 
-																<div class="form-group">
-																	<label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
-																	<select name="produkKomunikasi" id="formClient-produkKomunikasiEdit" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi">
-																		<?php foreach ($produkkomunikasi as $rows):
-																			if ($row->produk_komunikasi == $rows->id) {
+																	<div class="form-group">
+																		<label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
+																		<select name="produkKomunikasi" id="formClient-produkKomunikasiEdit" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi">
+																			<?php foreach ($produkkomunikasi as $rows):
+																				if ($row->produk_komunikasi == $rows->id) {
+																			?>
+																				<option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
+																			<?php } else { ?>
+																				<option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
+
+																			<?php }
+																			endforeach ?>
+
+																		</select>
+																		<?php
+																		if($row->produk_komunikasi == 11){
 																		?>
-																			<option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
-																		<?php } else { ?>
-																			<option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
+																		<input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
+																	<?php } else {?>
+																		<input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
 
-																		<?php }
-																		endforeach ?>
+																	<?php } ?>
+																	</div>
 
-																	</select>
-																	<?php
-																	if($row->produk_komunikasi == 11){
-																	?>
-																	<input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
-																<?php } else {?>
-																	<input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
+	                                <div class="form-group">
+	                                  <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
+	                                  <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+	                                </div>
 
-																<?php } ?>
-																</div>
-
-                                <div class="form-group">
-                                  <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
-                                  <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
-                                </div>
-
-                                <div class="form-group">
-                                  <label for="formClient-Address">Pesan Utama<label class="text-danger">*</label></label>
-                                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Pesan" required title="Bagian ini wajib diisi" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
-                                </div>
+	                                <div class="form-group">
+	                                  <label for="formClient-Address">Pesan Utama<label class="text-danger">*</label></label>
+	                                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Pesan" required title="Bagian ini wajib diisi" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
+	                                </div>
 
 
 
-                              </div>
-                              <!-- /.card-body -->
+	                              </div>
+	                              <!-- /.card-body -->
 
-                            </div>
-                            <!-- /.card -->
+	                            </div>
+	                            <!-- /.card -->
 
-                            <!-- Default card -->
+	                            <!-- Default card -->
 
-                            <!-- /.card -->
+	                            <!-- /.card -->
 
-                          </div>
-                          <div class="col-sm-6">
-                            <div class="card">
-                              <div class="card-body">
-
-
-
-                                    <div class="form-group">
-                                      <label for="formClient-Address">Khalayak<label class="text-danger">*</label></label>
-                                      <textarea type="text" class="form-control" name="khalayak" id="formClient-Khalayak" required title="Bagian ini wajib diisi" placeholder="Khalayak" rows="3"><?php echo $row->khalayak; ?></textarea>
-                                    </div>
+	                          </div>
+	                          <div class="col-sm-6">
+	                            <div class="card">
+	                              <div class="card-body">
 
 
-                                <div class="form-group">
-                                  <label for="formClient-Contact">Kanal Komunikasi<label class="text-danger">*</label></label>
-                                  <select name="kanalKomunikasi" id="formClient-kanalKomunikasiEdit" class="form-control" required title="Bagian ini wajib diisi">
 
-                                    <?php foreach ($rencanamedia as $rows):
-                                      if ($row->kanal_komunikasi == $rows->id) {
-                                    ?>
-                                      <option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
-                                    <?php } else { ?>
-                                      <option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
-
-                                    <?php }
-                                    endforeach ?>
-
-                                  </select>
-                                  <?php
-                                  if($row->kanal_komunikasi == 9){
-                                  ?>
-                                  <input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasiEdit" placeholder="Lainnya" value="<?php echo $row->txtLainKanalKomunikasi ?>" autofocus />
-                                <?php } else {?>
-                                  <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasiEdit" placeholder="Lainnya" value="<?php echo $row->txtLainKanalKomunikasi ?>" autofocus />
-
-                                <?php } ?>
-                                </div>
+	                                    <div class="form-group">
+	                                      <label for="formClient-Address">Khalayak<label class="text-danger">*</label></label>
+	                                      <textarea type="text" class="form-control" name="khalayak" id="formClient-Khalayak" required title="Bagian ini wajib diisi" placeholder="Khalayak" rows="3"><?php echo $row->khalayak; ?></textarea>
+	                                    </div>
 
 
-                              </div>
-                              <!-- /.card-body -->
+	                                <div class="form-group">
+	                                  <label for="formClient-Contact">Kanal Komunikasi<label class="text-danger">*</label></label>
+	                                  <select name="kanalKomunikasi" id="formClient-kanalKomunikasiEdit" class="form-control" required title="Bagian ini wajib diisi">
 
-                            </div>
-                          </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer text-right">
-                      <button type="submit" class="btn btn-primary">Simpan</button>
-                    </div>
-                    </div>
-                    <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                    </div>
+	                                    <?php foreach ($rencanamedia as $rows):
+	                                      if ($row->kanal_komunikasi == $rows->id) {
+	                                    ?>
+	                                      <option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
+	                                    <?php } else { ?>
+	                                      <option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
 
-                  </div>
-                  <!-- /.row -->
-                </div>
-                  <?php echo form_close(); ?>
-                <!-- /.container-fluid -->
-                </section>
+	                                    <?php }
+	                                    endforeach ?>
+
+	                                  </select>
+	                                  <?php
+	                                  if($row->kanal_komunikasi == 9){
+	                                  ?>
+	                                  <input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasiEdit" placeholder="Lainnya" value="<?php echo $row->txtLainKanalKomunikasi ?>" autofocus />
+	                                <?php } else {?>
+	                                  <input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaKanalKomunikasi" id="txtLainnyaKanalKomunikasiEdit" placeholder="Lainnya" value="<?php echo $row->txtLainKanalKomunikasi ?>" autofocus />
+
+	                                <?php } ?>
+	                                </div>
+
+
+	                              </div>
+	                              <!-- /.card-body -->
+
+	                            </div>
+	                          </div>
+	                        </div>
+	                    </div>
+	                    <div class="modal-footer text-right">
+	                      <button type="submit" class="btn btn-primary">Simpan</button>
+	                    </div>
+	                    </div>
+	                    <!-- /.modal-content -->
+	                    </div>
+	                    <!-- /.modal-dialog -->
+	                    </div>
+
+	                  </div>
+	                  <!-- /.row -->
+	                </div>
+	                  <?php echo form_close(); ?>
+	                <!-- /.container-fluid -->
+	                </section>
+                    </tr>
+
 
 
                     <?php
@@ -451,7 +454,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                         echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                         } ?>
                       </td>
                       <td>

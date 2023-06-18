@@ -171,7 +171,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Dikembalikan</strong></p>';
+                         echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                         } ?>
                       </td>
                       <td>

@@ -11,7 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
       <b>Version</b> 2.0
     </div>
-    <strong>Copyright &copy; 2020-2023 <a href="<?php echo url('/') ?>">Dinas Komunikasi & Informasi Publik</a>.</strong> All rights
+    <strong>Copyright &copy; 2020-2023 <a href="<?php echo url('/') ?>">Dinas Komunikasi, Informatika dan Statistik</a>.</strong> All rights
     reserved.
   </footer>
 

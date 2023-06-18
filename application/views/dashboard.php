@@ -9,6 +9,8 @@ th {
 text-align: center;
 vertical-align: center;
 }
+
+
 </style>
 <!-- Content Header (Page header) -->
 <div class="content-header">
@@ -33,28 +35,35 @@ vertical-align: center;
     <section class="content">
       <div class="container-fluid">
         <!-- Small boxes (Stat box) -->
-      <?php if ($roles->role->role_id==1):?>
+      <?php if ($roles->role->role_id==1 || $roles->role->role_id==3):?>
         <div class="row">
           <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-success"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Renkin.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
-                <span class="info-box-text">Jumlah Renkin</span>
+                  <a href="<?php echo url('StrakomUnggulan') ?>" style="color:black">
+                <span class="info-box-text">Jumlah Strakom</span>
+
                 <span class="info-box-number"><?php echo $countstrakombyid ?></span>
+                    </a>
               </div>
               <!-- /.info-box-content -->
             </div>
             <!-- /.info-box -->
           </div>
           <!-- /.col -->
-          <div class="col-md-4 col-sm-6 col-12">
+            <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-info"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Realisasi(1).png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
+                <a href="<?php echo url('Realisasi') ?>" style="color:black">
                 <span class="info-box-text">Jumlah Realisasi</span>
-                <span class="info-box-number">53</span>
+
+
+                <span class="info-box-number"><?php echo $countrealisasi ?></span>
+                  </a>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -67,7 +76,7 @@ vertical-align: center;
 
               <div class="info-box-content">
                 <span class="info-box-text">Periode Dipilih</span>
-                <span class="info-box-number">Triwulan I - 2023</span>
+                <span class="info-box-number"><?php echo $periodeCount[0]->periode_aktif . " ".$periodeCount[0]->tahun ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -135,12 +144,12 @@ vertical-align: center;
                   Rencana Kinerja Terbaru
                 </h3>
               </div><!-- /.card-header -->
-                <?php if ($roles->role->role_id==1){ ?>
+                <?php if ($roles->role->role_id==1 || $roles->role->role_id==3 ){ ?>
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
-                    <th>SKPD/UKPD</th>
+                    <th>No</th>
                     <th>Nama Program/Kegiatan Unggulan</th>
                     <th>Tahapan Pelaksanaan Kegiatan</th>
                     <th>Tanggal Buat</th>
@@ -149,16 +158,30 @@ vertical-align: center;
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $no=0;
+                    foreach ($listrakomopd as $row):
+                      $no++;
+                    ?>
                     <tr>
-                      <td>Badan Pengembangan Sumber Daya Manusia</td>
-                      <td><b>Pengembangan Sumber Daya Aparatur</b></td>
-                      <td>Triwulan I - 2023</td>
-                      <td>07 Maret 2023 11:00:00</td>
-                      <td>Disetujui</td>
+                      <td><?php echo $no; ?></td>
+                      <td><b><?php echo $row->nama_program; ?></b></td>
+                      <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
+                      <td><?php echo $row->created_date ?></td>
+                      <td><?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else {
+                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                        } ?></td>
                       <td>
-                        <a href="<?php echo url('Penilaian/view') ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
+                        <a href="<?php echo url('StrakomUnggulan/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
                       </td>
                     </tr>
+                  <?php endforeach ?>
                   </tbody>
                 </table>
               </div><!-- /.card-body -->

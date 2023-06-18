@@ -31,7 +31,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Realisasi</span>
-                <span class="info-box-number">150</span>
+                <span class="info-box-number"><?php echo $countrealisasi ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -44,7 +44,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Realisasi Disetujui</span>
-                <span class="info-box-number">53</span>
+                <span class="info-box-number">0</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -57,7 +57,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Realisasi Ditolak</span>
-                <span class="info-box-number">73</span>
+                <span class="info-box-number">0</span>
               </div>
               <!-- /.info-box-content -->
             </div>
@@ -72,59 +72,47 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="card">
               <div class="card-header">
 
-                <?php echo form_open_multipart('StrakomUnggulan/strakom', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
-                <div class="row">
-                  <div class="col-2">
-                    <div class="card-body">
-                    <div class="form-group">
-                      <label for="formClient-Contact">Pilih Tahun</label>
-                      <select name="tahun_periode" id="tahun_periode" class="form-control">
-                        <option value="">Pilih Tahun</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
+                <?php echo form_open_multipart('Realisasi/realisasi', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
+              
+                  <div class="row">
+                    <div class="col-2">
+                      <div class="card-body">
+                      <div class="form-group">
+                        <label for="formClient-Contact">Pilih Tahun</label>
+                        <select name="tahun_periode" id="tahun_periode" class="form-control">
+                          <option value="">Pilih Tahun</option>
+              <?php
+              for ($i=date('Y'); $i>2000; $i--){
+                if($i==$_GET['tahun_periode']){
+                echo '<option selected value="'.$i.'">'.$i.'</option>';
+                } else {
+                echo '<option value="'.$i.'">'.$i.'</option>';
+                }
+              }
+              ?>
 
-                      </select>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                    <div class="col-3">
+                      <div class="card-body">
+                      <div class="form-group">
+                        <label for="formClient-Contact">Pilih Triwulan</label>
+                        <select name="triwulan_periode" id="triwulan_periode" class="form-control">
+                          <option value="">Pilih Triwulan</option>
+
+                          <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan I"){echo "selected";} ?> value="Triwulan I">Triwulan I</option>
+                          <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan II"){echo "selected";} ?> value="Triwulan II">Triwulan II</option>
+                          <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan III"){echo "selected";} ?> value="Triwulan III">Triwulan III</option>
+                          <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan IV"){echo "selected";} ?> value="Triwulan IV">Triwulan IV</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
-                  <?php if ($roles->role->role_id>1){ ?>
-                  <div class="col-3">
-                    <div class="card-body">
-                    <div class="form-group">
-                      <label for="formClient-Contact">Pilih SKPD/UKPD</label>
-                      <select name="user_id" id="user_id" class="form-control select2">
-                        <option value="">Pilih SKPD/UKPD</option>
-                        <?php foreach ($userall as $row): ?>
-                          <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
-                        <?php endforeach ?>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                  <?php } ?>
-                  <div class="col-3">
-                    <div class="card-body">
-                    <div class="form-group">
-                      <label for="formClient-Contact">Pilih Triwulan</label>
-                      <select name="triwulan_periode" id="triwulan_periode" class="form-control">
-                        <option value="">Pilih Triwulan</option>
-                        <option value="Triwulan I">Triwulan I</option>
-                        <option value="Triwulan II">Triwulan II</option>
-                        <option value="Triwulan III">Triwulan III</option>
-                        <option value="Triwulan IV">Triwulan IV</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col"><button type="submit" class="btn btn-flat btn-primary">Tampilkan</button></div>
+                <div class="col"><button type="submit" class="btn btn-flat btn-primary">Tampilkan</button></div>
 
 
 
@@ -158,22 +146,32 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </tr>
                   </thead>
                   <tbody>
+                    <?php
+                    $no =0;
+                    foreach ($listrealisasi as $row):
+                      $no++; ?>
                     <tr>
-                      <td>1</td>
-                      <td>Publikasi Layanan JakWifi</td>
-                      <td>Lamp-001</td>
-                      <td>Lampiran Kesatu</td>
-                      <td>03-04-2019</td>
-                      <td> <a href="#">Download File Nota Dinas</a> </td>
+                      <td><?php echo $no ?></td>
+                      <td><?php echo $row->nama_program ?></td>
+                      <td><?php echo $row->no_nota_dinas ?></td>
+                      <td><?php echo $row->perihal_nota ?></td>
+                      <td><?php echo $row->tanggal_nota ?></td>
                       <td>
-                        <a href="<?php echo url('Realisasi/edit/') ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                        <a href="<?php echo url('Realisasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url('Realisasi/delete/') ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                        <a href="<?php echo url('Realisasi/printExport/') ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                        <?php if(!empty($row->url_nota_dinas)){
+                        ?>
+                        <a href="<?php echo url('Realisasi/downloadFile/'.$row->url_nota_dinas); ?>">Download File Nota Dinas</a>
+
+                      <?php }  ?>
+                    </td>
+                      <td>
+                        <a href="<?php echo url('Realisasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
+                        <a href="<?php echo url('Realisasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo url('Realisasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                        <a href="" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
                     </tr>
-
+                  <?php endforeach; ?>
                   </tbody>
                 </table>
               </div>

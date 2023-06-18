@@ -13,7 +13,10 @@ class Profile extends MY_Controller {
 	public function index($tab = 'profile')
 	{
 		$this->page_data['user'] = $this->users_model->getById(logged('id'));
-		$this->page_data['user']->role = $this->roles_model->getById( logged('role') );
+		$this->page_data['user']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['user']->role
+    ])[0];
+		// $this->page_data['user']->role = $this->roles_model->getById( logged('role') );
 		$this->page_data['activeTab'] = $tab;
 		$this->load->view('account/profile', $this->page_data);
 	}
@@ -22,11 +25,10 @@ class Profile extends MY_Controller {
 	{
 
 		$id = logged('id');
-		
+
 		postAllowed();
 
 		$data = [
-			'role' => post('role'),
 			'name' => post('name'),
 			'username' => post('username'),
 			'email' => post('email'),
@@ -39,8 +41,8 @@ class Profile extends MY_Controller {
 		$this->activity_model->add("User #$id updated the profile");
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Profile has been Updated Successfully');
-		
+		$this->session->set_flashdata('alert', 'Mengubah Profil Berhasil');
+
 		redirect('profile/index/edit');
 
 	}
@@ -49,7 +51,7 @@ class Profile extends MY_Controller {
 	{
 
 		$id = logged('id');
-		
+
 		postAllowed();
 
 		if ( post('password') !== post('password_confirm') ) {
@@ -57,7 +59,7 @@ class Profile extends MY_Controller {
 			$this->session->set_flashdata('alert', 'Password does not matches with Confirm Password !');
 			redirect('profile/index/change_password');
 		}
-		
+
 		if ( strlen(post('password')) < 6 ) {
 			$this->session->set_flashdata('alert-type', 'danger');
 			$this->session->set_flashdata('alert', 'Password must have atleast 6 Characters');
@@ -81,7 +83,7 @@ class Profile extends MY_Controller {
 
 		$this->session->set_flashdata('message_type', 'success');
 		$this->session->set_flashdata('message', 'Password Changed, You need to Login Again !');
-		
+
 		redirect('login');
 
 	}
@@ -90,7 +92,7 @@ class Profile extends MY_Controller {
 	{
 
 		$id = logged('id');
-		
+
 		if (!empty($_FILES['image']['name'])) {
 
 			$path = $_FILES['image']['name'];

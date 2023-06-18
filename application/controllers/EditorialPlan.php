@@ -131,6 +131,7 @@ class EditorialPlan extends MY_Controller {
 			'khalayak' => $this->input->post('khalayak'),
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
+      'status' => '0',
       'opd_id' => $this->input->post('idOPD'),
 
 		]);
@@ -195,6 +196,7 @@ class EditorialPlan extends MY_Controller {
 			'kanal_komunikasi' => $this->input->post('kanalKomunikasi'),
       'pesan_utama' => $this->input->post('pesanUtama'),
 			'khalayak' => $this->input->post('khalayak'),
+      'status' => "0",
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),

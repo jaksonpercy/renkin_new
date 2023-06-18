@@ -113,8 +113,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <th style="vertical-align:middle;text-align:center;">No</th>
                     <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                     <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                    <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                    <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                    <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov</th>
+                    <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov</th>
                     <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                     <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                     <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
@@ -179,8 +179,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">No</th>
                           <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
                           <th style="vertical-align:middle;text-align:center;">Uraian Potensi Krisis</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov DKI Jakarta</th>
-                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov DKI Jakarta</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Pro Pemprov</th>
+                          <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra Pemprov</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
                           <th style="vertical-align:middle;text-align:center;">Data Pendukung Kegiatan</th>
@@ -227,7 +227,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             } else if ($row->status == 2) {
                               echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                             } else {
-                              echo "<p class='text-danger'><strong>Dikembalikan</strong> (".$row->alasan.")</p>";
+                               echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                             } ?>
                           </td>
                           <td>
