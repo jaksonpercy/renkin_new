@@ -21,11 +21,11 @@ class Strakom_model extends MY_Model {
 	{
 		$filter = "";
 		if (!empty($tahun)) {
-			$filter .= " AND tahun_periode = '".$tahun."' ";
+			$filter .= " AND tbl_periode.tahun = '".$tahun."' ";
 		}
 
 		if (!empty($triwulan)) {
-			$filter .= " AND triwulan_periode = '".$triwulan."' ";
+			$filter .= " AND tbl_periode.periode_aktif = '".$triwulan."' ";
 		}
 
 		if (!empty($userId)) {

@@ -32,7 +32,7 @@ class EditorialPlan extends MY_Controller {
 
     $this->page_data['userall'] = $this->users_model->get();
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
-    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByUserId($this->session->userdata('logged')['id']);
     if ($this->page_data['roles']->role->role_id == 1) {
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomId($this->session->userdata('logged')['id'],$tahun,$triwulan);
   } else {

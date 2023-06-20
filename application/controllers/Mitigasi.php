@@ -59,7 +59,8 @@ class Mitigasi extends MY_Controller {
     ])[0];
 
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
-    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByUserId($this->session->userdata('logged')['id']);
+    
     $this->load->view('mitigasi/form-add', $this->page_data);
 
   }

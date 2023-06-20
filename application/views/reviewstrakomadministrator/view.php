@@ -889,7 +889,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button>
+								<a href="<?php echo url('ReviewStrakomUnggulan/download/'.$strakom->id).'?date='.date("Ymis") ?>" target="_blank"><button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button></a>
 
               </div>
 
@@ -911,7 +911,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </section>
 
 <div class="modal fade" id="modal-approve">
-	<?php echo form_open_multipart('ReviewStrakom/change_status_finalisasi/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+	<?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_strakom/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 		<div class="modal-dialog">
 			<div class="modal-content">

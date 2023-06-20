@@ -763,7 +763,6 @@ $nilaiRealisasi =0;
 
            <?php } ?>
 
-          </div>
 
                <div class="form-group">
                  <?php if ($roles->role->role_id==2){?>
@@ -777,11 +776,12 @@ $nilaiRealisasi =0;
 
                <?php } ?>
                   </div>
+
+                            </div>
            </div>
          </div>
 
 
-         </div>
          <div class="modal-footer text-right">
            <button style ="display:none" type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
            <button type="submit" class="btn btn-primary">Kirim</button>
@@ -885,7 +885,6 @@ $nilaiRealisasi =0;
 
          <?php } ?>
 
-        </div>
 
              <div class="form-group">
                <?php if ($roles->role->role_id==2){?>
