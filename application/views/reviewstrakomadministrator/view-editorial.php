@@ -130,7 +130,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
               <div class="modal-footer justify-content-between">
 
-                <a href="<?php echo url('/ReviewEditorialPlan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
+                <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$editorialplan->strakom_id) ?>" class="btn btn-flat btn-secondary">Kembali</a>
               </div>
             </div>
             <!-- ./card -->
@@ -143,7 +143,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </section>
 
 <div class="modal fade" id="modal-approveeditorial">
-  <?php echo form_open_multipart('ReviewEditorialPlan/change_status_editorial_detail/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+  <?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_editorial_detail/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
     <div class="modal-dialog">
       <div class="modal-content">
@@ -178,7 +178,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
 <div class="modal fade" id="modal-rejecteditorial">
-  <?php echo form_open_multipart('ReviewEditorialPlan/change_status_editorial_detail/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+  <?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_editorial_detail/'.$editorialplan->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 <div class="modal-dialog modal-lg">
 <div class="modal-content">

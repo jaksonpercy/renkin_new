@@ -326,18 +326,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <li class="nav-item">
     <a href="<?php echo setting('url_dokumentasi') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>" target="_blank">
       <p>
-        Dokumentasi Aplikasi
+        Tutorial
       </p>
     </a>
   </li>
 
-  <li class="nav-item">
+  <!-- <li class="nav-item">
       <a href="<?php echo setting('url_paparan_renkin') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>" target="_blank">
         <p>
         Paparan Renkin
         </p>
       </a>
-    </li>
+    </li> -->
 
   <li class="nav-header">
 <a href="<?php echo url('/Logout') ?>">

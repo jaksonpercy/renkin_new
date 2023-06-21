@@ -338,12 +338,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             <?php
 														if(count($periodeCount)>0){
 														if ($periode->status_input_data == 1) {
-															if($strakom->status == 0){
                               // code...
                             ?>
                             <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
                             <a href="<?php echo url('StrakomUnggulan/deleteEditorialPlan/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
-                          <?php }}} ?>
+                          <?php }}?>
                             <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                           </td>
@@ -522,7 +521,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         endforeach ?>
                       </tbody>
                     </table>
-                <?php } else { ?>
+                <?php } else {
+
+									$no=0; ?>
                     <table id="example2" class="table table-bordered table-hover table-striped">
                       <thead>
                         <tr>
@@ -538,7 +539,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </thead>
                       <tbody>
                         <?php
-                        $no=0;
                         foreach ($editorialplan as $row):
 
                         $no++;
@@ -581,13 +581,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 														<?php
 														if(count($periodeCount) > 0){
 															if($periode->status_input_data == 1){
-															if($roles->role->role_id==4){
-															if($row->status==1){ ?>
+															if($roles->role->role_id==4){?>
 																<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approveeditorial<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
 																<button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-rejecteditorial<?php echo $row->id ?>"><i class="fa fa-times" title="Tolak"></i></button>
 
-			                      <?php }}}} ?>
-                          <a href="<?php echo url('ReviewEditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+			                      <?php }}} ?>
+                          <a href="<?php echo url('ReviewStrakomUnggulan/view_editorial/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                           </td>
                         </tr>
@@ -663,15 +662,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </tbody>
                     </table>
                 <?php } ?>
-								<?php
-									if(count($periodeCount)>0){
-									if($periode->status_input_data == 1){
-									if($roles->role->role_id==4){
-									if($strakom->status==1){ ?>
+								<?php if($no > 0){ ?>
+								<div class="" style="margin-top:2%; margin-bottom:2%">
+									<?php echo form_open_multipart('ReviewStrakomUnggulan/change_all_status_editorial/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+									<input type="hidden" name="strakom_id" value="<?php echo $strakom->id ?>">
+									<input type="hidden" name="status_strakom" value="2">
+										<input type="hidden" name="user_id" value="<?php echo $strakom->user_id ?>">
+											<input type="hidden" name="periode_id" value="<?php echo $strakom->periode_id ?>">
+												<input type="hidden" name="opd_id" value="<?php echo $strakom->opd_id ?>">
+									<input type="submit" class="btn btn-success" value="Setujui Semua"></button>
+									<?php echo form_close(); ?>
 
-								<button type="button" class="btn btn-success" style="display:none" data-toggle="modal" data-target="#modal-approve">Setujui</button>
+								</div>
+							<?php }?>
 								<button type="button" class="btn btn-danger" style="display:none" data-toggle="modal" data-target="#modal-reject">Tolak</button>
-							<?php }}}} ?>
+
                   </div>
 
 
@@ -792,12 +797,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																	<?php
 																		if(count($periodeCount)>0){
 																		if($periode->status_input_data == 1){
-																		if($roles->role->role_id==4){
-																		if($row->status==1){ ?>
+																		if($roles->role->role_id==4 || $roles->role->role_id == 2){?>
 																			<button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-approvemitigasi<?php echo $row->id ?>"><i class="fa fa-check" title="Setujui"></i></button>
 																			<button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-rejectmitigasi<?php echo $row->id ?>"><i class="fa fa-times" title="Tolak"></i></button>
 
-						                      <?php }}}} ?>
+						                      <?php }}} ?>
                                   <a href="<?php echo url('ReviewMitigasi/view/'.$row->id ) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                                 </td>

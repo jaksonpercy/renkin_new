@@ -112,6 +112,8 @@ class MY_Model extends CI_Model {
 		return $id;
 	}
 
+
+
 	function updateByStrakomId($id, $data)
 	{
 		$this->db->where('strakom_id', $id);
