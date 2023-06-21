@@ -184,11 +184,11 @@ if (!function_exists('is_logged')) {
 
 		$login_token_match = false;
 
-		$isLogged = !empty($CI->session->userdata('login')) &&  !empty($CI->session->userdata('logged')) ? (object) $CI->session->userdata('logged') : false;
+		$isLogged = !empty($CI->session->userdata('login')) &&  !empty($CI->session->userdata('logged')["role"]) ? (object) $CI->session->userdata('logged') : false;
 		$_token = $isLogged && !empty($CI->session->userdata('login_token')) ? $CI->session->userdata('login_token') : false;
 
 		if(!$isLogged){
-			$isLogged = get_cookie('login') && !empty(get_cookie('logged')) ? json_decode(get_cookie('logged')): false;
+			$isLogged = get_cookie('login') && !empty(get_cookie('logged')["role"]) ? json_decode(get_cookie('logged')): false;
 			$_token = $isLogged && !empty(get_cookie('login_token')) ? get_cookie('login_token') : false;
 		}
 

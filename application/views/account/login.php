@@ -113,11 +113,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       <div class="row">
         <div class="col-8">
-          <div class="checkbox icheck">
+          <!--div class="checkbox icheck">
             <label>
               <input type="checkbox" <?php echo post('remember_me')?'checked':'' ?> name="remember_me" /> Ingat Saya
             </label>
-          </div>
+          </div-->
         </div>
         <!-- /.col -->
 
