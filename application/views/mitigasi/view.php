@@ -76,11 +76,28 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       					</tr>
                 <tr>
                   <td><strong>Data Pendukung Kegiatan / Bahan Komunikasi</strong>:</td>
-                  <td>  <?php if(empty($mitigasi->data_pendukung_text)){ ?>
-                    <a href="<?php echo url('/uploads/mitigasifile/'.$mitigasi->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
-                  <?php } else { ?>
-                    <a href="<?php echo url($mitigasi->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
-                  <?php } ?></td>
+                  <td>
+                    <?php if(!empty($mitigasi->data_pendukung_text) && !empty($mitigasi->data_pendukung_file) ){
+                      ?>
+                      <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a>
+                      <br>
+                      <a href="<?php echo url('Mitigasi/downloadFile/'.$mitigasi->data_pendukung_file); ?>">Lihat Dokumen</a>
+                  <!--  -->
+                    <!-- <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a> -->
+                    <!-- <a href="<?php echo url('Mitigasi/downloadFile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a> -->
+                  <!--  -->
+                  <?php } else {
+                    if(empty($mitigasi->data_pendukung_text) && !empty($mitigasi->data_pendukung_file)) {
+                   ?>
+                   <a href="<?php echo url('Mitigasi/downloadFile/'.$mitigasi->data_pendukung_file); ?>">Lihat Dokumen</a>
+
+                  <?php
+                  } else {
+
+                   ?>
+                   <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $romitigasiw->data_pendukung_text ?></a>
+                  <?php }} ?>
+                </td>
                 </tr>
                 <tr>
                   <td><strong>PIC Kegiatan yang Dapat Dihubungi</strong>:</td>
@@ -118,7 +135,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         					</tr>
         					<tr>
         						<td width="160"><strong>Nama Kegiatan</strong>:</td>
-        						<td><?php echo $mitigasi->nama_kegiatan ?></td>
+        						<td><?php echo $mitigasi->nama_program ?></td>
         					</tr>
         					<tr>
         						<td><strong>Uraian Potensi Krisis</strong>:</td>
@@ -139,9 +156,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tr>
                     <td><strong>Data Pendukung Kegiatan / Bahan Komunikasi</strong>:</td>
                     <td>  <?php if(empty($mitigasi->data_pendukung_text)){ ?>
-                      <a href="<?php echo url('/uploads/mitigasifile/'.$mitigasi->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
+                      <a href="<?php echo base_url('/uploads/mitigasifile/'.$mitigasi->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
                     <?php } else { ?>
-                      <a href="<?php echo url($mitigasi->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
+                      <a href="<?php echo base_url($mitigasi->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
                     <?php } ?></td>
                   </tr>
                   <tr>

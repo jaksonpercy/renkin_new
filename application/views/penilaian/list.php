@@ -226,14 +226,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <td>
 
-                        <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Menunggu Finalisasi</strong></p>';
-                        } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Finalisasi</strong></p>';
-                        } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        <?php if ($row->status_penilaian == 0) {
+                          echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
+                        } else if ($row->status_penilaian == 1) {
+                          echo '<p class="text-primary"><strong>Rekomendasi Administrator Bidang</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Ditolak</strong></p>';
+                          echo '<p class="text-danger"><strong>Sudah Dinilai</strong></p>';
                         } ?>
                       </td>
                       <td>

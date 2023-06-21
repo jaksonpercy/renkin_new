@@ -59,7 +59,8 @@ class Mitigasi extends MY_Controller {
     ])[0];
 
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
-    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByUserId($this->session->userdata('logged')['id']);
+    
     $this->load->view('mitigasi/form-add', $this->page_data);
 
   }
@@ -462,7 +463,7 @@ if (move_uploaded_file($_FILES["filePendukung"]["tmp_name"], $target_file)) {
 
 public function downloadFile($name)
 {
- redirect(str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$name)));
+ redirect(str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$name))); //showing the path to the server where the file is to be download
 }
 
 	// }

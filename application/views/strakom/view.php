@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <div class="tab-content">
                   <div class="tab-pane active" id="tab_1">
 				  <div class="row">
-          <?php if ($roles->role->role_id==1):?>
+          <?php if ($roles->role->role_id==1){?>
       		<div class="col-sm-12">
       			<table class="table table-bordered table-striped">
       				<tbody>
@@ -174,7 +174,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       			</table>
       		</div>
 
-          <?php else:?>
+				<?php }else{?>
             <div class="col-sm-12">
               <table class="table table-bordered table-striped">
                 <tbody>
@@ -262,7 +262,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </tbody>
               </table>
             </div>
-          <?php endif ?>
+          <?php } ?>
       	</div>
                   </div>
                   <!-- /.tab-pane -->
@@ -366,43 +366,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	                                  <input type="hidden" class="form-control" name="idUser" required value="<?php echo $row->user_id; ?>" />
 	                                  <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $row->periode_id; ?>" />
 	                                  <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->opd_id; ?>" />
+																		 <input type="hidden" class="form-control" name="namaProgram" required value="<?php echo $row->strakom_id; ?>" />
 
 
 	                                  <div class="card-body">
 
-	                                    <div class="form-group">
-	                                      <label for="formClient-Contact">Nama Kegiatan<label class="text-danger">*</label></label>
-	                                      <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required title="Bagian ini wajib diisi">
-	                                        <?php foreach ($strakomList as $rows):
 
-
-	                                          // if ($rows->ksd_id > 0){
-																						//
-	                                          //   foreach ($ksd as $rowss):
-																						//
-	                                          //     if ($rowss->id == $rows->ksd_id ) {
-	                                          //       if ($row->strakom_id == $rows->id) {
-	                                          //           echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
-	                                          //       } else {
-	                                          //          echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
-	                                          //        }
-	                                          //     }
-																						//
-	                                          //  endforeach;
-	                                          // } else {
-	                                            $sel ="";
-	                                            if ($row->strakom_id == $rows->id) {
-	                                                echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
-	                                            } else {
-	                                              echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
-	                                            }
-
-	                                        // }
-	                                        ?>
-
-	                                        <?php endforeach ?>
-	                                      </select>
-	                                    </div>
 																			<div class="form-group">
 																				<label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
 																				<select name="produkKomunikasi" required title="Bagian ini wajib diisi" id="produkKomunikasiEdit" class="form-control select2" required>
@@ -429,7 +398,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	                                    <div class="form-group">
 	                                      <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
-	                                      <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+	                                      <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
 	                                    </div>
 
 	                                    <div class="form-group">
@@ -591,9 +560,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 												<a href="<?php echo url('StrakomUnggulan/addMitigasi') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Uraian Mitigasi Krisis</a>
 
                   <?php }}}
-                  } ?>
+                 ?>
                       </div>
                         </div>
+											<?php } ?>
                     <?php if ($roles->role->role_id==1):?>
                       <table id="example2" class="table table-bordered table-hover table-striped">
                         <thead>
@@ -675,13 +645,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             </thead>
                             <tbody>
                               <?php foreach ($mitigasi as $row):
-                                if ($row->user_id == $this->session->userdata('logged')['id']) {
-                                  // code...
 
                               ?>
                               <tr>
                                 <td><?php echo $row->id ?></td>
-                                <td><?php echo $row->nama_kegiatan ?></td>
+                                <td><?php echo $row->nama_program ?></td>
                                 <td><?php echo $row->uraian_potensi ?></td>
                                 <td><?php echo $row->stakeholder_pro ?></td>
                                 <td><?php echo $row->stakeholder_kontra ?></td>
@@ -689,18 +657,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <td><?php echo $row->pic_kegiatan ?></td>
                                 <td>
                                 <?php if(empty($row->data_pendukung_text)){ ?>
-                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                                <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
                               <?php } else { ?>
-                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
+                                <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
                               <?php } ?>
                                 </td>
                                 <td>
-                                  <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                                  <a href="<?php echo base_url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                                 </td>
                               </tr>
                               <?php
-                              }
+
                               endforeach ?>
                               </tbody>
                           </table>
@@ -724,6 +692,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 											</div>
 											</div>
 										<?php }}} ?>
+										<?php if ($roles->role->role_id==1):?>
 											<table id="dataTable1" class="table table-bordered table-striped">
 												<thead>
 												<tr>
@@ -763,7 +732,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 														<td><?php echo $row->link_tautan ?></td>
 													 <td>
 														 <?php if(!empty($row->file_dokumentasi)){ ?>
-														<a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+														<a href="<?php echo base_url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
 													<?php } ?>
 														</td>
 														<td>
@@ -890,6 +859,68 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 													</tbody>
 
 									 </table>
+								 <?php else:?>
+									 <table id="dataTable1" class="table table-bordered table-striped">
+										 <thead>
+										 <tr>
+											 <th style="vertical-align:middle;text-align:center;">No</th>
+											 <th style="vertical-align:middle;text-align:center;">Tanggal Realisasi</th>
+											 <th style="vertical-align:middle;text-align:center;">Judul</th>
+											 <th style="vertical-align:middle;text-align:center;">Kanal Publikasi</th>
+											 <th style="vertical-align:middle;text-align:center;">Link Tautan</th>
+											 <th style="vertical-align:middle;text-align:center;">Dokumentasi</th>
+											 <?php if ($roles->role->role_id==1){
+												 if ($periode->status_realisasi == 1) {
+											 ?>
+											 <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+												 <?php }} ?>
+										 </tr>
+										 </thead>
+										 <tbody>
+											 <?php
+											 $no=0;
+											 foreach ($datarealisasi as $row):
+											 $no++;
+												?>
+											 <tr>
+												 <td><?php echo $no ?></td>
+												 <td><?php echo $row->tanggal_realisasi ?></td>
+												 <td><?php echo $row->judul_publikasi ?></td>
+												 <td>
+													 <?php
+														 foreach ($rencanamedia as $rows):
+															 if ($rows->id == $row->kanal_publikasi ) {
+																 echo $rows->nama;
+															 }
+														endforeach;
+													 ?>
+												 </td>
+												 <td><?php echo $row->link_tautan ?></td>
+												<td>
+													<?php if(!empty($row->file_dokumentasi)){ ?>
+												 <a href="<?php echo base_url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+											 <?php } ?>
+												 </td>
+												 <td>
+													 <?php if ($roles->role->role_id==1){
+														 if ($periode->status_realisasi == 1) {
+															 if($row->status == 0 || $row->status == 3){
+													 ?>
+													 <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-ubah<?php echo $row->id ?>"><span class="pr-1"><i class="fa fa-edit"></i></span></button>
+													 <a href="<?php echo url('StrakomUnggulan/deleteDataRealisasi/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+												 <?php }}} ?>
+													 <!-- <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a> -->
+
+												 </td>
+											 </tr>
+
+											 <?php
+
+											 endforeach ?>
+											 </tbody>
+
+								</table>
+							<?php endif; ?>
 										</div>
 
                 </div>
@@ -1101,6 +1132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <input type="hidden" class="form-control" name="idUser" required value="<?php echo $strakom->user_id; ?>" />
             <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $strakom->periode_id; ?>" />
             <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $strakom->opd_id; ?>" />
+						  <input type="hidden" class="form-control" name="namaProgram" required value="<?php echo $strakom->id; ?>" />
 
             <div class="col-sm-6">
               <!-- Default card -->
@@ -1108,25 +1140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                 <div class="card-body">
 
-                  <div class="form-group">
-                    <label for="formClient-Contact">Nama Kegiatan<label class="text-danger">*</label></label>
-                    <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" style="width:100%;" required title="Bagian ini wajib diisi">
-                      <option value="">Pilih Nama Program/Kegiatan</option>
-                      <?php foreach ($strakomList as $row):
-                        // if ($row->ksd_id > 0){
-                        //   foreach ($ksd as $rows):
-                        //     if ($rows->id == $row->ksd_id ) {
-                        //       echo '<option value="'.$row->id.'">'. $rows->nama .'</option>';
-                        //     }
-                        //  endforeach;
-                        // } else {
-                            echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
-                        // }
-                      ?>
 
-                      <?php endforeach ?>
-                    </select>
-                  </div>
 
 									<div class="form-group">
                     <label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
@@ -1143,7 +1157,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <div class="form-group">
                     <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
-                    <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang (DD-MM-YYYY)" autofocus />
+                    <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang (DD-MM-YYYY)" autofocus />
                   </div>
 
                   <div class="form-group">

@@ -673,13 +673,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 <td><?php echo $row->pic_kegiatan ?></td>
                                 <td>
                                 <?php if(empty($row->data_pendukung_text)){ ?>
-                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
+                                <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
                               <?php } else { ?>
-                                <a href="<?php echo url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
+                                <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
                               <?php } ?>
                                 </td>
                                 <td>
-                                  <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                                  <a href="<?php echo base_url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                                 </td>
                               </tr>
@@ -730,7 +730,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 													<td><?php echo $row->link_tautan ?></td>
 												 <td>
 													 <?php if(!empty($row->file_dokumentasi)){ ?>
-													<a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+													<a href="<?php echo base_url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
 												<?php } ?>
 													</td>
 

@@ -84,9 +84,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tr>
                     <td><strong>Data Pendukung Kegiatan / Bahan Komunikasi</strong>:</td>
                     <td>  <?php if(empty($mitigasi->data_pendukung_text)){ ?>
-                      <a href="<?php echo url('/uploads/mitigasifile/'.$mitigasi->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
+                      <a href="<?php echo base_url('/uploads/mitigasifile/'.$mitigasi->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
                     <?php } else { ?>
-                      <a href="<?php echo url($mitigasi->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
+                      <a href="<?php echo base_url($mitigasi->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
                     <?php } ?></td>
                   </tr>
                   <tr>

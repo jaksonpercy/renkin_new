@@ -67,6 +67,7 @@ class Penilaian extends MY_Controller {
     $this->page_data['penilaian'] = count($this->Penilaian_model->getDataByStrakomIdAndPeriode($id,$this->page_data['periode']->id));
 
     $this->page_data['penilaianData'] = $this->Penilaian_model->getDataByStrakomIdAndPeriode($id,$this->page_data['periode']->id);
+    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getListDataRealisasiByStrakomId($id);
 
 
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
@@ -77,7 +78,7 @@ class Penilaian extends MY_Controller {
   public function download($id=null){
     // load view
     $this->page_data['asisten'] = $this->db->query("select * from tbl_users where skpd_renkin is not null")->result();
-    
+
     ////////////////////////////////////////////////////////////
 
     require_once(APPPATH.'libraries/xlsxwriter.class.php');
@@ -151,58 +152,164 @@ class Penilaian extends MY_Controller {
     $komponen = $this->input->post('komponen');
     $administratorId = "";
     $asistenId = "";
+    $strakom = $this->Strakom_model->getById($this->input->post('strakomId'));
+    $this->page_data['user'] = $this->users_model->getById($strakom->user_id);
+    $namaOpd = $this->page_data['user']->name;
     $roles = $this->users_model->getById($this->session->userdata('logged')['id']);
     if($roles->role == 2){
       $asistenId = $this->session->userdata('logged')['id'] ;
+      if ($komponen == 1) {
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_strakom' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '2',
+      ]);
+    } else if($komponen == 2){
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_editorial' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '2',
+      ]);
+    } else if($komponen == 3){
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_mitigasi' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '2',
+      ]);
+    } else {
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_realisasi' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '2',
+      ]);
+    }
     } else if($roles->role == 4){
       $administratorId = $this->session->userdata('logged')['id'] ;
+      if ($komponen == 1) {
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_strakom' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '1',
+      ]);
+    } else if($komponen == 2){
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_editorial' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '1',
+      ]);
+    } else if($komponen == 3){
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_mitigasi' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '1',
+      ]);
+    } else {
+      $periode = $this->Penilaian_model->create([
+        'id' => $uuid,
+        'strakom_id' => $this->input->post('strakomId'),
+        'nilai_realisasi' => $this->input->post('nilai'),
+        'asisten_id' => $asistenId,
+        'periode_id' => $periode->id,
+        'catatan' => $this->input->post('alasan'),
+        'administrator_id' => $administratorId,
+        'status' => '1',
+      ]);
     }
-    if ($komponen == 1) {
-    $periode = $this->Penilaian_model->create([
-      'id' => $uuid,
-      'strakom_id' => $this->input->post('strakomId'),
-      'nilai_strakom' => $this->input->post('nilai'),
-      'asisten_id' => $asistenId,
-      'periode_id' => $periode->id,
-      'catatan' => $this->input->post('alasan'),
-      'administrator_id' => $administratorId,
-    ]);
-  } else if($komponen == 2){
-    $periode = $this->Penilaian_model->create([
-      'id' => $uuid,
-      'strakom_id' => $this->input->post('strakomId'),
-      'nilai_editorial' => $this->input->post('nilai'),
-      'asisten_id' => $asistenId,
-      'periode_id' => $periode->id,
-      'catatan' => $this->input->post('alasan'),
-      'administrator_id' => $administratorId,
-    ]);
-  } else if($komponen == 3){
-    $periode = $this->Penilaian_model->create([
-      'id' => $uuid,
-      'strakom_id' => $this->input->post('strakomId'),
-      'nilai_mitigasi' => $this->input->post('nilai'),
-      'asisten_id' => $asistenId,
-      'periode_id' => $periode->id,
-      'catatan' => $this->input->post('alasan'),
-      'administrator_id' => $administratorId,
-    ]);
-  } else {
-    $periode = $this->Penilaian_model->create([
-      'id' => $uuid,
-      'strakom_id' => $this->input->post('strakomId'),
-      'nilai_realisasi' => $this->input->post('nilai'),
-      'asisten_id' => $asistenId,
-      'periode_id' => $periode->id,
-      'catatan' => $this->input->post('alasan'),
-      'administrator_id' => $administratorId,
-    ]);
-  }
+    }
 
-    $this->activity_model->add("Data Strategi Komunikasi Unggulan Telah Dinilai #$periode oleh User: #".logged('name'));
+
+  if ($komponen == 1) {
+    $this->activity_model->add("Data Nilai Strategi Komunikasi Unggulan Telah Dinilai oleh User: #".logged('name'));
 
     $this->session->set_flashdata('alert-type', 'success');
-    $this->session->set_flashdata('alert', 'Data Strategi Komunikasi Unggulan Berhasil Dinilai');
+    $this->session->set_flashdata('alert', 'Data Nilai Strategi Komunikasi Unggulan Berhasil Dinilai');
+
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Strategi Komunikasi Unggulan dengan nama $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+      'user_id' => $strakom->user_id,
+      'periode_id' =>  $strakom->periode_id,
+      'opd_id' =>  $strakom->opd_id,
+    ]);
+
+} else if($komponen == 2){
+  $this->activity_model->add("Data Nilai Editorial Plan Telah Dinilai oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Editorial Plan Berhasil Dinilai');
+
+  $periode = $this->Notifikasi_model->create([
+    'notifikasi_id' => $uuid,
+    'judul_notifikasi' => "Editorial Plan dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+    'user_id' => $strakom->user_id,
+    'periode_id' =>  $strakom->periode_id,
+    'opd_id' =>  $strakom->opd_id,
+  ]);
+
+} else if($komponen == 3){
+  $this->activity_model->add("Data Nilai Uraian Mitigasi Telah Dinilai oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Uraian Mitigasi Berhasil Dinilai');
+
+  $periode = $this->Notifikasi_model->create([
+    'notifikasi_id' => $uuid,
+    'judul_notifikasi' => "Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+    'user_id' => $strakom->user_id,
+    'periode_id' =>  $strakom->periode_id,
+    'opd_id' =>  $strakom->opd_id,
+  ]);
+
+} else {
+  $this->activity_model->add("Data Nilai Realisasi Telah Dinilai oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Realisasi Berhasil Dinilai');
+
+  $periode = $this->Notifikasi_model->create([
+    'notifikasi_id' => $uuid,
+    'judul_notifikasi' => "Realisasi dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+    'user_id' => $strakom->user_id,
+    'periode_id' =>  $strakom->periode_id,
+    'opd_id' =>  $strakom->opd_id,
+  ]);
+
+}
 
     redirect('Penilaian/view/'.$this->input->post('strakomId'));
   }
@@ -219,57 +326,154 @@ class Penilaian extends MY_Controller {
     $komponen = $this->input->post('komponen');
     $administratorId = "";
     $asistenId = "";
+    $strakom = $this->Strakom_model->getById($this->input->post('strakomId'));
+    $this->page_data['user'] = $this->users_model->getById($strakom->user_id);
+    $namaOpd = $this->page_data['user']->name;
     $roles = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $data=array();
+
     if($roles->role == 2){
       if($penilaianData[0]->asisten_id == $this->session->userdata('logged')['id'] ){
           $asistenId = $penilaianData[0]->asisten_id;
       } else {
           $asistenId = $this->session->userdata('logged')['id'] ;
       }
+      if ($komponen == 1) {
+        $data = [
+          'nilai_strakom'=> $this->input->post('nilai'),
+          'catatan' => $this->input->post('alasan'),
+          'asisten_id'=> $asistenId,
+          'administrator_id' => $administratorId,
+          'status' => '2',
+    		];
+    } else if($komponen == 2){
+      $data = [
+        'nilai_editorial'=> $this->input->post('nilaiEditorial'),
+        'catatan_editorial' => $this->input->post('alasanEditorial'),
+        'asisten_id'=> $asistenId,
+        'administrator_id' => $administratorId,
+        'status' => '2',
+      ];
+    } else if($komponen == 3){
+      $data = [
+        'nilai_mitigasi'=> $this->input->post('nilaiMitigasi'),
+        'catatan_mitigasi' => $this->input->post('alasanMitigasi'),
+        'asisten_id'=> $asistenId,
+        'administrator_id' => $administratorId,
+        'status' => '2',
+      ];
+    } else {
+      $data = [
+        'nilai_realisasi'=> $this->input->post('nilaiRealisasi'),
+        'catatan_realisasi' => $this->input->post('alasanRealisasi'),
+        'asisten_id'=> $asistenId,
+        'administrator_id' => $administratorId,
+        'status' => '2',
+      ];
+    }
     } else if($roles->role == 4){
       if($penilaianData[0]->administrator_id == $this->session->userdata('logged')['id'] ){
           $administratorId = $penilaianData[0]->administrator_id;
       } else {
           $administratorId = $this->session->userdata('logged')['id'] ;
       }
-    }
-    $data=array();
-    if ($komponen == 1) {
+
+      if ($komponen == 1) {
+        $data = [
+          'nilai_strakom'=> $this->input->post('nilai'),
+          'catatan' => $this->input->post('alasan'),
+          'asisten_id'=> $asistenId,
+          'administrator_id' => $administratorId,
+          'status' => '1'
+    		];
+    } else if($komponen == 2){
       $data = [
-        'nilai_strakom'=> $this->input->post('nilai'),
-        'catatan' => $this->input->post('alasan'),
+        'nilai_editorial'=> $this->input->post('nilaiEditorial'),
+        'catatan_editorial' => $this->input->post('alasanEditorial'),
         'asisten_id'=> $asistenId,
         'administrator_id' => $administratorId,
-  		];
-  } else if($komponen == 2){
-    $data = [
-      'nilai_editorial'=> $this->input->post('nilaiEditorial'),
-      'catatan_editorial' => $this->input->post('alasanEditorial'),
-      'asisten_id'=> $asistenId,
-      'administrator_id' => $administratorId,
-    ];
-  } else if($komponen == 3){
-    $data = [
-      'nilai_mitigasi'=> $this->input->post('nilaiMitigasi'),
-      'catatan_mitigasi' => $this->input->post('alasanMitigasi'),
-      'asisten_id'=> $asistenId,
-      'administrator_id' => $administratorId,
-    ];
-  } else {
-    $data = [
-      'nilai_realisasi'=> $this->input->post('nilaiRealisasi'),
-      'catatan_realisasi' => $this->input->post('alasanRealisasi'),
-      'asisten_id'=> $asistenId,
-      'administrator_id' => $administratorId,
-    ];
-  }
+        'status' => '1',
+      ];
+    } else if($komponen == 3){
+      $data = [
+        'nilai_mitigasi'=> $this->input->post('nilaiMitigasi'),
+        'catatan_mitigasi' => $this->input->post('alasanMitigasi'),
+        'asisten_id'=> $asistenId,
+        'administrator_id' => $administratorId,
+        'status' => '1',
+      ];
+    } else {
+      $data = [
+        'nilai_realisasi'=> $this->input->post('nilaiRealisasi'),
+        'catatan_realisasi' => $this->input->post('alasanRealisasi'),
+        'asisten_id'=> $asistenId,
+        'administrator_id' => $administratorId,
+        'status' => '1',
+      ];
+    }
+    }
+
 
   $permission = $this->Penilaian_model->update($id, $data);
 
-  $this->activity_model->add("Data Strategi Komunikasi Unggulan Telah Diubah oleh User: #".logged('name'));
+  if ($komponen == 1) {
+    $this->activity_model->add("Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #".logged('name'));
+
+    $this->session->set_flashdata('alert-type', 'success');
+    $this->session->set_flashdata('alert', 'Data Nilai Strategi Komunikasi Unggulan Berhasil Diubah');
+
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Strategi Komunikasi Unggulan dengan nama $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+      'user_id' => $strakom->user_id,
+      'periode_id' =>  $strakom->periode_id,
+      'opd_id' =>  $strakom->opd_id,
+    ]);
+
+} else if($komponen == 2){
+  $this->activity_model->add("Data Nilai Editorial Plan Telah Diubah oleh User: #".logged('name'));
 
   $this->session->set_flashdata('alert-type', 'success');
-  $this->session->set_flashdata('alert', 'Data Strategi Komunikasi Unggulan Berhasil Diubah');
+  $this->session->set_flashdata('alert', 'Data Nilai Editorial Plan Berhasil Diubah');
+
+  $periode = $this->Notifikasi_model->create([
+    'notifikasi_id' => $uuid,
+    'judul_notifikasi' => "Editorial Plan dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+    'user_id' => $strakom->user_id,
+    'periode_id' =>  $strakom->periode_id,
+    'opd_id' =>  $strakom->opd_id,
+  ]);
+
+} else if($komponen == 3){
+  $this->activity_model->add("Data Nilai Uraian Mitigasi Telah Diubah oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Uraian Mitigasi Berhasil Diubah');
+
+  $periode = $this->Notifikasi_model->create([
+    'notifikasi_id' => $uuid,
+    'judul_notifikasi' => "Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+    'user_id' => $strakom->user_id,
+    'periode_id' =>  $strakom->periode_id,
+    'opd_id' =>  $strakom->opd_id,
+  ]);
+
+} else {
+  $this->activity_model->add("Data Nilai Realisasi Telah Diubah oleh User: #".logged('name'));
+
+  $this->session->set_flashdata('alert-type', 'success');
+  $this->session->set_flashdata('alert', 'Data Nilai Realisasi Berhasil Diubah');
+
+  $periode = $this->Notifikasi_model->create([
+    'notifikasi_id' => $uuid,
+    'judul_notifikasi' => "Realisasi dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
+    'user_id' => $strakom->user_id,
+    'periode_id' =>  $strakom->periode_id,
+    'opd_id' =>  $strakom->opd_id,
+  ]);
+
+}
+
 
     redirect('Penilaian/view/'.$this->input->post('strakomId'));
   }

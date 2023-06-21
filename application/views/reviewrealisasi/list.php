@@ -150,11 +150,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <td><?php echo $row->link_tautan ?></td>
                        <td>
                          <?php if(!empty($row->file_dokumentasi)){ ?>
-                        <a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+                        <a href="<?php echo base_url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
                       <?php } ?>
                         </td>
                         <td>
-                          <a target="_blank" href="<?php echo url('') ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                          <a href="<?php echo url('Realisasi/export/'.$row->id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                         </td>
                       </tr>

@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       						<td><strong>Nota Dinas</strong>:</td>
       					  <td> <?php if(!empty($strakom->url_nota_dinas)){
                   ?>
-                  <a href="<?php echo url('Realisasi/downloadFile/'.$strakom->url_nota_dinas); ?>">Download File Nota Dinas</a>
+                  <a href="<?php echo base_url('/uploads/datanotadinas/'.$strakom->url_nota_dinas);  ?>">Download File Nota Dinas</a>
 
                 <?php }  ?></td>
       					</tr>
@@ -78,6 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
                   <!-- /.tab-pane -->
                   <div class="tab-pane" id="tab_2">
+                      <?php if ($roles->role->role_id==1){ ?>
                     <div class="d-flex p-0">
                     <div class="ml-auto p-2">
 
@@ -86,6 +87,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </button>
                     </div>
                     </div>
+                  <?php } ?>
+                    <?php if ($roles->role->role_id==1): ?>
                     <table id="dataTable1" class="table table-bordered table-striped">
                       <thead>
                       <tr>
@@ -247,10 +250,71 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         </div>
                         <?php
                         }
-                        endforeach ?>
+                      endforeach; ?>
                         </tbody>
 
                  </table>
+                 <?php else : ?>
+                   <table id="dataTable1" class="table table-bordered table-striped">
+                     <thead>
+                     <tr>
+                       <th style="vertical-align:middle;text-align:center;">No</th>
+                       <th style="vertical-align:middle;text-align:center;">Tanggal Realisasi</th>
+                       <th style="vertical-align:middle;text-align:center;">Judul</th>
+                       <th style="vertical-align:middle;text-align:center;">Kanal Publikasi</th>
+                       <th style="vertical-align:middle;text-align:center;">Link Tautan</th>
+                       <th style="vertical-align:middle;text-align:center;">Dokumentasi</th>
+                       <?php if ($roles->role->role_id==1){
+                         if ($periode->status_realisasi == 1) {
+                       ?>
+                       <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+                         <?php }} ?>
+                     </tr>
+                     </thead>
+                     <tbody>
+                       <?php
+                       $no=0;
+                       foreach ($datarealisasi as $row):
+                       $no++;
+                       ?>
+                       <tr>
+                         <td><?php echo $no ?></td>
+                         <td><?php echo $row->tanggal_realisasi ?></td>
+                         <td><?php echo $row->judul_publikasi ?></td>
+                         <td>
+                           <?php
+                             foreach ($rencanamedia as $rows):
+                               if ($rows->id == $row->kanal_publikasi ) {
+                                 echo $rows->nama;
+                               }
+                            endforeach;
+                           ?>
+                         </td>
+                         <td><?php echo $row->link_tautan ?></td>
+                        <td>
+                          <?php if(!empty($row->file_dokumentasi)){ ?>
+                         <a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+                       <?php } ?>
+                         </td>
+                         <td>
+                           <?php if ($roles->role->role_id==1){
+                             if ($periode->status_realisasi == 1) {
+                           ?>
+                           <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-ubah<?php echo $row->id ?>"><span class="pr-1"><i class="fa fa-edit"></i></span></button>
+                           <a href="<?php echo url('Realisasi/deleteData/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                         <?php }} ?>
+                           <!-- <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a> -->
+
+                         </td>
+                       </tr>
+
+                       <?php
+
+                     endforeach; ?>
+                       </tbody>
+
+                </table>
+              <?php endif; ?>
                   </div>
 
 
