@@ -111,15 +111,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <label for="formClient-Contact">Pilih Tahun</label>
                       <select name="tahun_periode" id="tahun_periode" class="form-control">
                         <option value="">Pilih Tahun</option>
-                        <option value="2023">2023</option>
-                        <option value="2022">2022</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
+						<?php
+						for ($i=date('Y'); $i>2000; $i--){
+							if($i==$_GET['tahun_periode']){
+							echo '<option selected value="'.$i.'">'.$i.'</option>';
+							} else {
+							echo '<option value="'.$i.'">'.$i.'</option>';
+							}
+						}
+						?>
 
                       </select>
                     </div>
@@ -133,23 +133,39 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <select name="user_id" id="user_id" class="form-control select2">
                         <option value="">Pilih SKPD/UKPD</option>
                         <?php foreach ($user as $row): ?>
-                          <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+                          <option  <?php if(!empty($_GET['user_id']) && $_GET['user_id'] == $row->id){echo "selected";} ?> value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
                         <?php endforeach ?>
                       </select>
                     </div>
                   </div>
                 </div>
-              <?php } ?>
+              <?php } else { ?>
+              <div class="col-3" style="display:none">
+                <div class="card-body">
+                <div class="form-group">
+                  <label for="formClient-Contact">Pilih SKPD/UKPD</label>
+                  <select name="user_id" id="user_id"  class="form-control select2">
+                    <option value="">Pilih SKPD/UKPD</option>
+                    <?php foreach ($userall as $row): ?>
+                      <option <?php if(!empty($_GET['user_id']) && $_GET['user_id'] == $row->id){echo "selected";} ?>  value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+                    <?php endforeach ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          <?php } ?>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
                       <label for="formClient-Contact">Pilih Triwulan</label>
                       <select name="triwulan_periode" id="triwulan_periode" class="form-control">
                         <option value="">Pilih Triwulan</option>
-                        <option value="Triwulan I">Triwulan I</option>
-                        <option value="Triwulan II">Triwulan II</option>
-                        <option value="Triwulan III">Triwulan III</option>
-                        <option value="Triwulan IV">Triwulan IV</option>
+
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan I"){echo "selected";} ?> value="Triwulan I">Triwulan I</option>
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan II"){echo "selected";} ?> value="Triwulan II">Triwulan II</option>
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan III"){echo "selected";} ?> value="Triwulan III">Triwulan III</option>
+                        <option <?php if(!empty($_GET['triwulan_periode']) && $_GET['triwulan_periode'] == "Triwulan IV"){echo "selected";} ?> value="Triwulan IV">Triwulan IV</option>
                       </select>
                     </div>
                   </div>
@@ -347,7 +363,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modal-reject<?php echo $row->id ?>"><i class="fa fa-times" title="Ditolak"></i></button>
 
                         <?php }}}} ?>
-                        <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                        <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                       </td>
                     </tr>

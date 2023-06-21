@@ -20,6 +20,12 @@ class ReviewMitigasi extends MY_Controller {
   public function mitigasi()
   {
     $this->page_data['page']->submenu = 'mitigasi';
+
+    $tahun = $this->input->get('tahun_periode');
+    // $skpd = $this->input->post('user_id');
+    $triwulan = $this->input->get('triwulan_periode');
+
+    $userId = $this->input->get('user_id');
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
@@ -29,7 +35,7 @@ class ReviewMitigasi extends MY_Controller {
       'status_periode'=> 1
     ])[0];
   }
-    $this->page_data['userall'] = $this->users_model->get();
+  $this->page_data['userall'] = $this->users_model->getListUserByAsisten("(".$this->page_data['user']->skpd_renkin.")");
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -39,7 +45,7 @@ class ReviewMitigasi extends MY_Controller {
     if ($this->page_data['roles']->role->role_id == 1) {
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id']);
     } else {
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable();
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByOpd("(".$this->page_data['user']->skpd_renkin.")", $tahun, $triwulan,$userId);
     }
     $this->load->view('reviewmitigasiadministrator/list', $this->page_data);
   }

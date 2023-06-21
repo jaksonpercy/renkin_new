@@ -214,6 +214,26 @@ class MY_Model extends CI_Model {
 		return $query;
 	}
 
+	public function getDataJoinThreeTableByOpd($id, $tahun = null, $triwulan = null, $userId = null)
+	{
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND tbl_periode.tahun = '".$tahun."' ";
+		}
+
+		if (!empty($triwulan)) {
+			$filter .= " AND tbl_periode.periode_aktif = '".$triwulan."' ";
+		}
+
+		if (!empty($userId)) {
+			$filter .= " AND tbl_mitigasi.user_id = '".$userId."' ";
+		}
+
+		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id join tbl_periode on tbl_mitigasi.periode_id = tbl_periode.id where tbl_mitigasi.opd_id in ".$id."".$filter)->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 	public function getListMitigasiByStrakom($id)
 	{
 		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id where tbl_mitigasi.strakom_id = '".$id."'")->result()	;
@@ -342,18 +362,22 @@ return $query;
 
 	}
 
-	public function getListStrakomByOpd($id, $tahun = null, $triwulan = null)
+	public function getListStrakomByOpd($id, $tahun = null, $triwulan = null, $user_id = null)
 	{
 		$filter = "";
 		if (!empty($tahun)) {
-			$filter .= " AND tahun_periode = '".$tahun."' ";
+			$filter .= " AND tbl_periode.tahun = '".$tahun."' ";
 		}
 
 		if (!empty($triwulan)) {
-			$filter .= " AND triwulan_periode = '".$triwulan."' ";
+			$filter .= " AND tbl_periode.periode_aktif = '".$triwulan."' ";
 		}
 
-		$query = $this->db->query("SELECT *, (select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 3) EditorialCountRejected,(select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 3) MitigasiCountRejected FROM $this->table WHERE opd_id IN ".$id."".$filter)->result()	;
+		if (!empty($user_id)) {
+			$filter .= " AND tbl_strakom_unggulan.user_id = '".$user_id."' ";
+		}
+
+		$query = $this->db->query("SELECT *, tbl_strakom_unggulan. id as strakom_id,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 3) EditorialCountRejected,(select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 3) MitigasiCountRejected FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE opd_id IN ".$id."".$filter)->result()	;
 		return $query;
 	}
 

@@ -19,10 +19,11 @@ class ReviewStrakomUnggulan extends MY_Controller {
   public function strakom()
 	{
 
-    // $tahun = $this->input->post('tahun_periode');
+    $tahun = $this->input->get('tahun_periode');
     // $skpd = $this->input->post('user_id');
-    // $triwulan = $this->input->post('triwulan_periode');
-    $filtered_get = array_filter($_POST);
+    $triwulan = $this->input->get('triwulan_periode');
+
+    $userId = $this->input->get('user_id');
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -35,12 +36,12 @@ class ReviewStrakomUnggulan extends MY_Controller {
       'status_periode'=> 1
     ])[0];
   }
-    $this->page_data['user'] = $this->users_model->get();
-    $this->page_data['userbyid'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+  $this->page_data['userbyid'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['user'] = $this->users_model->getListUserByAsisten("(".$this->page_data['userbyid']->skpd_renkin.")");
     if ($this->page_data['roles']->role->role_id == 1) {
         $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
     } else if ($this->page_data['roles']->role->role_id == 2 || $this->page_data['roles']->role->role_id == 4) {
-        $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
+        $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")", $tahun, $triwulan, $userId);
     } else  {
       $this->page_data['strakom'] = $this->Strakom_model->get();
     }

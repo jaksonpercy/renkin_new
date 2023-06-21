@@ -307,7 +307,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             </div>
                             <div class="modal-body">
                               <input type="hidden" name="nama_strakom" value="<?php echo $row->nama_program; ?>">
-                              <p>Apakah Anda yakin akan mengirimkan data rencana kinerja yang telah disusun dalam <b><?php echo $row->nama_program ?> </b> ?</p>
+                              <p>Apakah Anda yakin mengirimkan strategi komunikasi <b><?php echo $row->nama_program ?> </b> ?</p>
                             </div>
                             <div class="modal-footer text-right">
                               <button type="button" style ="display:none" class="btn btn-default" data-dismiss="modal">Tidak</button>

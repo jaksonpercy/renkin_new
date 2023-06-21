@@ -342,7 +342,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                               // code...
                             ?>
                             <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
-                            <a href="<?php echo url('StrakomUnggulan/deleteEditorialPlan/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                            <a href="<?php echo url('StrakomUnggulan/deleteEditorialPlan/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                           <?php }}} ?>
                             <a href="<?php echo url('EditorialPlan/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
@@ -612,7 +612,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																		<label for="formClient-Name">Alasan</label>
 																		<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
 																	</div>
-																	<p>Apakah kamu yakin untuk menyetujui Editorial Plan ini ?</p>
+																	<p>Apakah anda yakin untuk menyetujui Editorial Plan ini ?</p>
 																</div>
 																<div class="modal-footer justify-content-between">
 																	<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
@@ -728,7 +728,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																	if($strakom->status == 0){
                               ?>
                               <a href="<?php echo url('Mitigasi/edit/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Edit" data-toggle="tooltip"><i class="fas fa-edit"></i></a>
-                              <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah kamu yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
+                              <a href="<?php echo url('Mitigasi/delete/'.$row->id) ?>" class="btn btn-sm btn-danger" onclick="return confirm('Apakah anda yakin untuk menghapus data ini ?')" title="Hapus" data-toggle="tooltip"><i class="fa fa-trash"></i></a>
                             <?php }}} ?>
                               <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
@@ -823,7 +823,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																					<label for="formClient-Name">Alasan</label>
 																					<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
 																				</div>
-																				<p>Apakah kamu yakin untuk menyetujui Uraian Mitigasi Krisis ini ?</p>
+																				<p>Apakah anda yakin untuk menyetujui Uraian Mitigasi Krisis ini ?</p>
 																			</div>
 																			<div class="modal-footer justify-content-between">
 																				<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
@@ -930,7 +930,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 						<label for="formClient-Name">Alasan</label>
 						<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
 					</div>
-					<p>Apakah kamu yakin untuk menyetujui Strategi Komunikasi Unggulan untuk Judul <b><?php echo $strakom->nama_program ?> </b> ini ?</p>
+					<p>Apakah anda yakin untuk menyetujui Strategi Komunikasi <b><?php echo $strakom->nama_program ?> </b> ini ?</p>
 				</div>
 				<div class="modal-footer justify-content-between">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>

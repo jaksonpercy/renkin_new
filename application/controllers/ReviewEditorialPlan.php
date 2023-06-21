@@ -20,8 +20,14 @@ class ReviewEditorialPlan extends MY_Controller {
   public function editorialplan()
 	{
 		$this->page_data['page']->submenu = 'editorialplan';
+    $tahun = $this->input->get('tahun_periode');
+    // $skpd = $this->input->post('user_id');
+    $triwulan = $this->input->get('triwulan_periode');
+
+    $userId = $this->input->get('user_id');
     // load view
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
     ])[0];
@@ -29,11 +35,11 @@ class ReviewEditorialPlan extends MY_Controller {
     if ($this->page_data['roles']->role->role_id == 1) {
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomId($this->session->userdata('logged')['id']);
   } else {
-    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomIdAll();
+    $this->page_data['editorialplan'] = $this->Editorial_model->getDataJoinStrakomIdAll("(".$this->page_data['roles']->skpd_renkin.")", $userId, $tahun, $triwulan);
   }
     $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
-    $this->page_data['userall'] = $this->users_model->get();
+    $this->page_data['userall'] = $this->users_model->getListUserByAsisten("(".$this->page_data['roles']->skpd_renkin.")");
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
