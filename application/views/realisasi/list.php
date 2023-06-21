@@ -190,20 +190,30 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </tr>
                     </thead>
                     <tbody>
+                      <?php
+                      $no =0;
+                      foreach ($listrealisasi as $row):
+                        $no++; ?>
                       <tr>
-                        <td>1</td>
-                        <td>Publikasi Layanan JakWifi</td>
-                        <td>Lamp-001</td>
-                        <td>Lampiran Kesatu</td>
-                        <td>03-04-2019</td>
-                        <td> <a href="#">Download File Nota Dinas</a> </td>
+                        <td><?php echo $no ?></td>
+                        <td><?php echo $row->nama_program ?></td>
+                        <td><?php echo $row->no_nota_dinas ?></td>
+                        <td><?php echo $row->perihal_nota ?></td>
+                        <td><?php echo $row->tanggal_nota ?></td>
                         <td>
-                          <a href="<?php echo url('Realisasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                          <a href="<?php echo url('Realisasi/printExport/') ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                          <?php if(!empty($row->url_nota_dinas)){
+                          ?>
+                          <a href="<?php echo base_url('/uploads/datanotadinas/'.$row->url_nota_dinas); ?>">Download File Nota Dinas</a>
+
+                        <?php }  ?>
+                      </td>
+                        <td>
+                          <a href="<?php echo url('Realisasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                          <a href="<?php echo url('Realisasi/export/'.$row->id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                         </td>
                       </tr>
-
+                    <?php endforeach; ?>
                     </tbody>
                   </table>
                 </div>

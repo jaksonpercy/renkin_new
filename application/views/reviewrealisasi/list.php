@@ -154,7 +154,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php } ?>
                         </td>
                         <td>
-                          <a target="_blank" href="<?php echo url('') ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                          <a href="<?php echo url('Realisasi/export/'.$row->id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                         </td>
                       </tr>

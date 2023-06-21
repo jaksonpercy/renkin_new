@@ -53,6 +53,8 @@ class ReviewMitigasi extends MY_Controller {
     $statusstrakom = $this->input->post('status_strakom');
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $namaOpd = $this->page_data['user']->name;
+    $mitigasi = $this->Mitigasi_model->getById($id);
+
     $this->Mitigasi_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
     if ($statusstrakom == 1) {
       $status = "Final";
@@ -67,10 +69,10 @@ class ReviewMitigasi extends MY_Controller {
     $uuid = uniqid();
     $periode = $this->Notifikasi_model->create([
       'notifikasi_id' => $uuid,
-      'judul_notifikasi' => "Uraian Mitigasi Krisis dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
-      'user_id' => $this->session->userdata('logged')['id'],
-      'periode_id' =>  $this->input->post('userId'),
-      'opd_id' =>  $this->input->post('opdId'),
+      'judul_notifikasi' => "Uraian Mitigasi Krisis dengan Id $id milik SKPD $namaOpd $status oleh ".logged('name'),
+      'user_id' => $mitigasi->user_id,
+      'periode_id' =>  $mitigasi->periode_id,
+      'opd_id' =>  $mitigasi->opd_id,
     ]);
 
     redirect('ReviewMitigasi');
@@ -85,6 +87,8 @@ class ReviewMitigasi extends MY_Controller {
     $statusstrakom = $this->input->post('status_strakom');
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $namaOpd = $this->page_data['user']->name;
+    $mitigasi = $this->Mitigasi_model->getById($id);
+
     $this->Mitigasi_model->update($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id'], 'alasan' => $this->input->post('alasan')]);
     if ($statusstrakom == 1) {
       $status = "Final";
@@ -99,10 +103,10 @@ class ReviewMitigasi extends MY_Controller {
     $uuid = uniqid();
     $periode = $this->Notifikasi_model->create([
       'notifikasi_id' => $uuid,
-      'judul_notifikasi' => "Uraian Mitigasi Krisis dengan Id $id milik SKPD $namaOpd sudah disetujui oleh ".logged('name'),
-      'user_id' => $this->session->userdata('logged')['id'],
-      'periode_id' =>  $this->input->post('userId'),
-      'opd_id' =>  $this->input->post('opdId'),
+      'judul_notifikasi' => "Uraian Mitigasi Krisis dengan Id $id milik SKPD $namaOpd $status oleh ".logged('name'),
+      'user_id' => $mitigasi->user_id,
+      'periode_id' =>  $mitigasi->periode_id,
+      'opd_id' =>  $mitigasi->opd_id,
     ]);
 
     redirect('ReviewMitigasi/view/'.$id);

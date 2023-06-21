@@ -258,13 +258,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																				//
 	                                      //  endforeach;
 	                                      // } else {
-	                                        $sel ="";
-	                                        if ($row->strakom_id == $rows->id) {
-	                                            echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
-	                                        }
-																					else {
+	                                        // $sel ="";
+	                                        // if ($row->strakom_id == $rows->id) {
+	                                        //     echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
+	                                        // }
+																					// else {
 	                                          echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
-	                                        }
+	                                        // }
 
 	                                    // }
 	                                    ?>
@@ -299,7 +299,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	                                <div class="form-group">
 	                                  <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
-	                                  <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+	                                  <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
 	                                </div>
 
 	                                <div class="form-group">
@@ -546,7 +546,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <div class="form-group">
                         <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
-                        <input type="text" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang (DD-MM-YYYY)" autofocus />
+                        <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang (DD-MM-YYYY)" autofocus />
                       </div>
 
 											<div class="form-group">

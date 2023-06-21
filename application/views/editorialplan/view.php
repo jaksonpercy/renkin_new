@@ -170,20 +170,20 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <?php foreach ($strakom as $rows):
 
 
-                  if ($rows->ksd_id > 0){
-
-                    foreach ($ksd as $rowss):
-
-                      if ($rowss->id == $rows->ksd_id ) {
-                        if ($editorialplan->strakom_id == $rows->id) {
-                            echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
-                        } else {
-                           echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
-                         }
-                      }
-
-                   endforeach;
-                  } else {
+                  // if ($rows->ksd_id > 0){
+                  //
+                  //   foreach ($ksd as $rowss):
+                  //
+                  //     if ($rowss->id == $rows->ksd_id ) {
+                  //       if ($editorialplan->strakom_id == $rows->id) {
+                  //           echo '<option value="'.$rows->id.'" selected>'. $rowss->nama .'</option>';
+                  //       } else {
+                  //          echo '<option value="'.$rows->id.'">'. $rowss->nama .'</option>';
+                  //        }
+                  //     }
+                  //
+                  //  endforeach;
+                  // } else {
                     $sel ="";
                     if ($editorialplan->strakom_id == $rows->id) {
                         echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
@@ -191,7 +191,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
                     }
 
-                }
+                // }
                 ?>
 
                 <?php endforeach ?>
@@ -200,7 +200,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
             <div class="form-group">
               <label for="formClient-Name">Tanggal Rencana Tayang*</label>
-              <input type="text" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $editorialplan->tanggal_rencana;?>" />
+              <input type="date" class="form-control" name="tanggalRencanaTayang" required placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $editorialplan->tanggal_rencana;?>" />
             </div>
 
             <div class="form-group">

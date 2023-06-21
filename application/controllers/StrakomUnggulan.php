@@ -44,6 +44,7 @@ class StrakomUnggulan extends MY_Controller {
     } else if ($this->page_data['roles']->role->role_id == 2) {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
     } else  {
+
       $this->page_data['strakom'] = $this->Strakom_model->getListDataByFilter($tahun,$triwulan,$userId);
     }
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
@@ -187,7 +188,7 @@ class StrakomUnggulan extends MY_Controller {
                       }
                    }
                 }
-  
+
   /*$statusStrakom='';
   if ($this->page_data['strakom']->status == 0) {
     $statusStrakom='Belum Dikirim';
@@ -463,6 +464,7 @@ class StrakomUnggulan extends MY_Controller {
       'khalayak' => $this->input->post('khalayak'),
       'user_id' => $this->input->post('idUser'),
       'periode_id' => $this->input->post('idPeriode'),
+      'status' => '0',
       'opd_id' => $this->input->post('idOPD'),
     ];
 
@@ -473,7 +475,7 @@ class StrakomUnggulan extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Mengubah Data Editorial Plan Berhasil');
 
-		redirect('StrakomUnggulan/view/'. $this->input->post('namaProgram') );
+		redirect('StrakomUnggulan/view/'. $this->input->post('namaProgram').'#tab_2' );
 
 	}
 
@@ -506,6 +508,7 @@ class StrakomUnggulan extends MY_Controller {
       'pesan_utama' => $this->input->post('pesanUtama'),
       'khalayak' => $this->input->post('khalayak'),
       'user_id' => $this->input->post('idUser'),
+      'status' => '0',
       'periode_id' => $this->input->post('idPeriode'),
       'opd_id' => $this->input->post('idOPD'),
 
@@ -516,7 +519,7 @@ class StrakomUnggulan extends MY_Controller {
 		$this->session->set_flashdata('alert-type', 'success');
 		$this->session->set_flashdata('alert', 'Menambahkan data Editorial Plan Berhasil');
 
-		redirect('StrakomUnggulan/view/'. $id );
+		redirect('StrakomUnggulan/view/'. $id .'#tab_2');
 
 	}
 

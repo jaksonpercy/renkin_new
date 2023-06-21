@@ -28,7 +28,7 @@ class Settings extends MY_Controller {
 		ifPermissions('general_settings');
 
 		postAllowed();
-		
+
 		$this->settings_model->updateByKey('date_format', post('date_format'));
 		$this->settings_model->updateByKey('datetime_format', post('datetime_format'));
 		$this->settings_model->updateByKey('google_recaptcha_enabled', post('google_recaptcha_enabled') == 'ok' ? 1 : 0 );
@@ -41,8 +41,30 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert', 'Settings has been Updated Successfully');
 
 		$this->activity_model->add("Company Settings Updated by User: #".logged('id'));
-		
+
 		redirect('settings/general');
+	}
+
+
+	public function dokumentasi()
+	{
+		$this->page_data['page']->submenu = 'dokumentasi';
+		$this->load->view('settings/dokumentasi', $this->page_data);
+	}
+
+	public function dokumentasiUpdate()
+	{
+		postAllowed();
+
+		$this->settings_model->updateByKey('url_dokumentasi', post('url_dokumentasi'));
+		$this->settings_model->updateByKey('url_paparan_renkin', post('url_paparan_renkin'));
+
+		$this->session->set_flashdata('alert-type', 'success');
+		$this->session->set_flashdata('alert', 'Pengaturan URL Dokumentasi & Paparan Renkin Berhasil');
+
+		$this->activity_model->add("Pengaturan URL Dokumentasi & Paparan Renkin oleh User: #".logged('id'));
+
+		redirect('settings/dokumentasi');
 	}
 
 	public function company()
@@ -58,7 +80,7 @@ class Settings extends MY_Controller {
 		ifPermissions('company_settings');
 
 		postAllowed();
-		
+
 		$this->settings_model->updateByKey('company_name', post('company_name'));
 		$this->settings_model->updateByKey('company_email', post('company_email'));
 
@@ -66,7 +88,7 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert', 'Settings has been Updated Successfully');
 
 		$this->activity_model->add("Company Settings Updated by User: #".logged('id'));
-		
+
 		redirect('settings/company');
 	}
 
@@ -83,7 +105,7 @@ class Settings extends MY_Controller {
 		ifPermissions('login_theme');
 
 		postAllowed();
-		
+
 		$this->settings_model->updateByKey('login_theme', post('login_theme'));
 
 		if (!empty($_FILES['image']['name'])) {
@@ -116,7 +138,7 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert', 'Settings has been Updated Successfully');
 
 		$this->activity_model->add("Login Theme Updated by User: #".logged('id'));
-		
+
 		redirect('settings/login_theme');
 	}
 
@@ -141,7 +163,7 @@ class Settings extends MY_Controller {
 		ifPermissions('login_theme');
 
 		postAllowed();
-		
+
 		$this->templates_model->update($id, [
 			// 'code'	=>	post('code'),
 			'name'	=>	post('name'),
@@ -154,7 +176,7 @@ class Settings extends MY_Controller {
 		$this->session->set_flashdata('alert', 'Email Template has been Updated Successfully');
 
 		$this->activity_model->add("Email Template Updated by User: #".logged('id'));
-		
+
 		redirect('settings/email_templates');
 	}
 
