@@ -580,9 +580,9 @@ $nilaiRealisasi =0;
                  <input type="hidden" name="komponen" value="1">
                 <div class="form-group col-sm-4">
                   <?php if ($roles->role->role_id==2){?>
-                    <label for="formClient-Name">Beri Nilai (*maks 20%)</label>
+                    <label for="formClient-Name">Beri Nilai (*maks 20)</label>
                 <?php } else if ($roles->role->role_id==4){?>
-                    <label for="formClient-Name">Rekomendasi Nilai (*maks 20%)</label>
+                    <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
                 <?php } ?>
 
                   <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $nilaiStrakom; ?>"></input>
@@ -630,12 +630,12 @@ $nilaiRealisasi =0;
                <!-- Default card -->
                <div class="form-group col-sm-4">
                  <?php if ($roles->role->role_id==2){?>
-                   <label for="formClient-Name">Beri Nilai (*maks 20%)</label> <br>
+                   <label for="formClient-Name">Beri Nilai (*maks 20)</label> <br>
                      <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_strakom; ?></label>
                      <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $nilaiStrakom; ?>"></input>
 
                <?php } else if ($roles->role->role_id==4){?>
-                   <label for="formClient-Name">Rekomendasi Nilai (*maks 20%)</label>
+                   <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
                    <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
 
                <?php } ?>
@@ -696,9 +696,9 @@ $nilaiRealisasi =0;
                <input type="hidden" name="komponen" value="2">
               <div class="form-group col-sm-4">
                 <?php if ($roles->role->role_id==2){?>
-                  <label for="formClient-Name">Beri Nilai (*maks 20%)</label>
+                  <label for="formClient-Name">Beri Nilai (*maks 20)</label>
               <?php } else if ($roles->role->role_id==4){?>
-                  <label for="formClient-Name">Rekomendasi Nilai (*maks 20%)</label>
+                  <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
               <?php } ?>
 
                 <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial; ?>"></input>
@@ -752,13 +752,13 @@ $nilaiRealisasi =0;
                 <input type="hidden" name="komponen" value="2">
              <!-- Default card -->
              <?php if ($roles->role->role_id==2){?>
-               <label for="formClient-Name">Beri Nilai (*maks 20%)</label> <br>
+               <label for="formClient-Name">Beri Nilai (*maks 20)</label> <br>
 
                  <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_editorial; ?></label>
                  <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial; ?>"></input>
 
            <?php } else if ($roles->role->role_id==4){?>
-               <label for="formClient-Name">Rekomendasi Nilai (*maks 20%)</label>
+               <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
                <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
 
            <?php } ?>
@@ -819,9 +819,9 @@ $nilaiRealisasi =0;
              <input type="hidden" name="komponen" value="3">
             <div class="form-group col-sm-4">
               <?php if ($roles->role->role_id==2){?>
-                <label for="formClient-Name">Beri Nilai (*maks 30%)</label>
+                <label for="formClient-Name">Beri Nilai (*maks 30)</label>
             <?php } else if ($roles->role->role_id==4){?>
-                <label for="formClient-Name">Rekomendasi Nilai (*maks 30%)</label>
+                <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
             <?php } ?>
 
               <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo round($nilaiMitigasi,2); ?>"></input>
@@ -875,12 +875,12 @@ $nilaiRealisasi =0;
               <input type="hidden" name="komponen" value="3">
            <!-- Default card -->
            <?php if ($roles->role->role_id==2){?>
-             <label for="formClient-Name">Beri Nilai (*maks 30%)</label> <br>
+             <label for="formClient-Name">Beri Nilai (*maks 30)</label> <br>
                <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_mitigasi; ?></label>
                <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $nilaiMitigasi; ?>"></input>
 
          <?php } else if ($roles->role->role_id==4){?>
-             <label for="formClient-Name">Rekomendasi Nilai (*maks 30%)</label>
+             <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
              <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_mitigasi; ?>"></input>
 
          <?php } ?>
@@ -939,13 +939,13 @@ $nilaiRealisasi =0;
             <input type="hidden" name="strakomId" value="<?php echo $strakom->id ?>">
              <input type="hidden" name="komponen" value="4">
              <?php if ($roles->role->role_id==2){?>
-               <label for="formClient-Name">Beri Nilai (*maks 30%)</label> <br>
+               <label for="formClient-Name">Beri Nilai (*maks 30)</label> <br>
 
                  <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_realisasi; ?></label>
                  <input type="text" class="form-control" name="nilaiRealisasi" id="formClient-Nilai" value="<?php echo $nilaiRealisasi ?>"></input>
 
            <?php } else if ($roles->role->role_id==4){?>
-               <label for="formClient-Name">Rekomendasi Nilai (*maks 30%)</label>
+               <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
                <input type="text" class="form-control" name="nilaiRealisasi" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_realisasi; ?>"></input>
 
            <?php } ?>
@@ -1005,9 +1005,9 @@ $nilaiRealisasi =0;
            <!-- Default card -->
            <div class="form-group col-sm-4">
              <?php if ($roles->role->role_id==2){?>
-               <label for="formClient-Name">Beri Nilai (*maks 30%)</label>
+               <label for="formClient-Name">Beri Nilai (*maks 30)</label>
            <?php } else if ($roles->role->role_id==4){?>
-               <label for="formClient-Name">Rekomendasi Nilai (*maks 30%)</label>
+               <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
            <?php } ?>
 
            <?php if($penilaianData[0]->nilai_realisasi>0){ ?>

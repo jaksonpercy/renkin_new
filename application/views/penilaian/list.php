@@ -11,12 +11,21 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
   <div class="container-fluid">
     <div class="row mb-2">
       <div class="col-sm-6">
+        <?php if($roles->role->role_id == 4){ ?>
+        <h1>Rekomendasi Penilaian</h1>
+      <?php } else { ?>
         <h1>Penilaian</h1>
+      <?php } ?>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="<?php echo url('/') ?>"><?php echo lang('home') ?></a></li>
-          <li class="breadcrumb-item active">Penilaian</li>
+          <?php if($roles->role->role_id == 4){ ?>
+          <li class="breadcrumb-item active">Rekomendasi Penilaian</li>
+          <?php } else { ?>
+              <li class="breadcrumb-item active">Penilaian</li>
+
+            <?php } ?>
         </ol>
       </div>
     </div>

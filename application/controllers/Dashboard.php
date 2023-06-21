@@ -21,14 +21,17 @@ class Dashboard extends MY_Controller {
     ]);
 		$this->page_data['countstrakombyid'] = $this->Strakom_model->countAllByUserId($this->session->userdata('logged')['id']);
 		$this->page_data['countrealisasi'] = $this->Data_Realisasi_model->countAllByUserId($this->session->userdata('logged')['id']);
-		if($role_data->role == 2 ||$role_data->role == 4 ){
+		if($role_data->role == 1){
+			$this->page_data['listrakomopd'] = $this->Strakom_model->getListStrakomByLimitAndUserId($this->session->userdata('logged')['id']);
+		}
+		else if($role_data->role == 2 ||$role_data->role == 4 ){
 		$this->page_data['listopdcount'] = count($this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['countstrakombylistopd'] = count($this->Strakom_model->getCountStrakomByListOpd("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['listopd'] = $this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")");
 		$this->page_data['listrakom'] = $this->Strakom_model->getListStrakomByListOpd();
-
-		}
+	} else {
 		$this->page_data['listrakomopd'] = $this->Strakom_model->getListStrakomOrderByLimit();
+	}
 
 		$this->load->view('dashboard', $this->page_data);
 	}

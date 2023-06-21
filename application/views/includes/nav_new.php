@@ -139,7 +139,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </li>
 <?php endif ?>
 
-<?php if (hasRoles('users_list') == 2 ||hasRoles('users_list') == 4 ): ?>
+<?php if (hasRoles('users_list') == 2): ?>
   <li class="nav-item">
       <a href="<?php echo url('Penilaian') ?>" class="nav-link <?php echo ($page->menu=='penilaian')?'active':'' ?>">
         <p>
@@ -148,6 +148,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </a>
     </li>
 <?php endif ?>
+
+<?php if (hasRoles('users_list') == 4 ): ?>
+  <li class="nav-item">
+      <a href="<?php echo url('Penilaian') ?>" class="nav-link <?php echo ($page->menu=='penilaian')?'active':'' ?>">
+        <p>
+          Rekomendasi Penilaian
+        </p>
+      </a>
+    </li>
+<?php endif ?>
+
 <?php if (hasRoles('users_list') == 3): ?>
 <li class="nav-item has-treeview <?php echo ($page->menu=='rencanakinerja')?'menu-open':'' ?>">
   <a href="#" class="nav-link  <?php echo ($page->menu=='rencanakinerja')?'active':'' ?>">

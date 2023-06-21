@@ -258,7 +258,7 @@ class Penilaian extends MY_Controller {
 
     $this->session->set_flashdata('alert-type', 'success');
     $this->session->set_flashdata('alert', 'Data Nilai Strategi Komunikasi Unggulan Berhasil Dinilai');
-
+    if($roles->role == 2){
     $periode = $this->Notifikasi_model->create([
       'notifikasi_id' => $uuid,
       'judul_notifikasi' => "Strategi Komunikasi Unggulan dengan nama $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
@@ -266,13 +266,14 @@ class Penilaian extends MY_Controller {
       'periode_id' =>  $strakom->periode_id,
       'opd_id' =>  $strakom->opd_id,
     ]);
+  }
 
 } else if($komponen == 2){
   $this->activity_model->add("Data Nilai Editorial Plan Telah Dinilai oleh User: #".logged('name'));
 
   $this->session->set_flashdata('alert-type', 'success');
   $this->session->set_flashdata('alert', 'Data Nilai Editorial Plan Berhasil Dinilai');
-
+  if($roles->role == 2){
   $periode = $this->Notifikasi_model->create([
     'notifikasi_id' => $uuid,
     'judul_notifikasi' => "Editorial Plan dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
@@ -280,13 +281,14 @@ class Penilaian extends MY_Controller {
     'periode_id' =>  $strakom->periode_id,
     'opd_id' =>  $strakom->opd_id,
   ]);
+}
 
 } else if($komponen == 3){
   $this->activity_model->add("Data Nilai Uraian Mitigasi Telah Dinilai oleh User: #".logged('name'));
 
   $this->session->set_flashdata('alert-type', 'success');
   $this->session->set_flashdata('alert', 'Data Nilai Uraian Mitigasi Berhasil Dinilai');
-
+if($roles->role == 2){
   $periode = $this->Notifikasi_model->create([
     'notifikasi_id' => $uuid,
     'judul_notifikasi' => "Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
@@ -294,13 +296,14 @@ class Penilaian extends MY_Controller {
     'periode_id' =>  $strakom->periode_id,
     'opd_id' =>  $strakom->opd_id,
   ]);
+}
 
 } else {
   $this->activity_model->add("Data Nilai Realisasi Telah Dinilai oleh User: #".logged('name'));
 
   $this->session->set_flashdata('alert-type', 'success');
   $this->session->set_flashdata('alert', 'Data Nilai Realisasi Berhasil Dinilai');
-
+if($roles->role == 2){
   $periode = $this->Notifikasi_model->create([
     'notifikasi_id' => $uuid,
     'judul_notifikasi' => "Realisasi dengan nama Strategi Komunikasi Unggulan $strakom->nama_program milik SKPD $namaOpd telah dinilai oleh ".logged('name'),
@@ -308,7 +311,7 @@ class Penilaian extends MY_Controller {
     'periode_id' =>  $strakom->periode_id,
     'opd_id' =>  $strakom->opd_id,
   ]);
-
+}
 }
 
     redirect('Penilaian/view/'.$this->input->post('strakomId'));
