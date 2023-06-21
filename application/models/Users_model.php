@@ -67,9 +67,13 @@ class Users_model extends MY_Model {
 
 			$data = [
 				'id' => $row->id,
-				'time' => time(),
+				'name' => $row->name,
+				'time' => $time,
+				'role' => $row->role,
+				'opd'  => $row->opd_upd,
+				'skpd' => $row->skpd_renkin,
 			];
-			$expiry = strtotime('+7 days');
+			$expiry = time() + (86400 * 7);
 			set_cookie( 'login', true, $expiry );
 			set_cookie( 'logged', json_encode($data), $expiry );
 			set_cookie( 'login_token', $login_token, $expiry );

@@ -45,12 +45,12 @@
                   <tbody>
                   <?php
                     $no=0;
-                    foreach ($new_notif as $row):
+                    foreach ($new_notiff as $row):
                     $no++;
 
                     ?>
                   <tr>
-                    <td class="mailbox-star"><a href="#"><i class="fas fa-eye text-warning"></i></a></td>
+                    <td class="mailbox-star"><a href="#"><i class="fas fa-eye <?php if($row->status_read==0){echo "text-warning";}else{echo "text-secondary";} ?> "></i></a></td>
                     <td class="mailbox-name"><a href="#"><?php echo getDetailUser($row->user_id)[0]->name; ?></a></td>
                     <td class="mailbox-subject"><?php echo $row->judul_notifikasi; ?>
                     </td>
