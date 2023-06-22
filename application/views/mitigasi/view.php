@@ -95,7 +95,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   } else {
 
                    ?>
-                   <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $romitigasiw->data_pendukung_text ?></a>
+                   <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a>
                   <?php }} ?>
                 </td>
                 </tr>

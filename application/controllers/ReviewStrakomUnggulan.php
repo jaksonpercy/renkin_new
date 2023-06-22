@@ -583,7 +583,7 @@ class ReviewStrakomUnggulan extends MY_Controller {
       'opd_id' =>  $editorial->opd_id,
     ]);
 
-    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakomId'));
+    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakomId').'#tab_2');
   }
 
   public function change_all_status_editorial($id)
@@ -616,7 +616,7 @@ class ReviewStrakomUnggulan extends MY_Controller {
       'opd_id' =>   $this->input->post('opd_id'),
     ]);
 
-    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakom_id'));
+    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakom_id').'#tab_2');
   }
 
   public function view_editorial($id){
@@ -705,7 +705,7 @@ class ReviewStrakomUnggulan extends MY_Controller {
       'opd_id' =>  $mitigasi->opd_id,
     ]);
 
-    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakomId'));
+    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakomId').'#tab_3');
   }
 
   public function change_status_strakom_list($id)
