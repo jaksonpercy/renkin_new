@@ -42,7 +42,7 @@ class Dashboard extends MY_Controller {
 		$this->page_data['new_notiff'] = $this->db->query("Select * from tbl_notifikasi where opd_id in (".$this->session->userdata('logged')['skpd'].");")->result();
 		$this->page_data['update'] = $this->db->query("update tbl_notifikasi set status_read=1 where opd_id in (".$this->session->userdata('logged')['skpd'].");");
 	}else{
-		$this->page_data['new_notiff'] = $this->db->query("Select * from tbl_notifikasi where opd_id=".$this->session->userdata('logged')['opd'].";")->result();
+		$this->page_data['new_notiff'] = $this->db->query("Select * from tbl_notifikasi where opd_id=".$this->session->userdata('logged')['opd']." and judul_notifikasi not like '%sudah dilakukan finalisasi';")->result();
 		$this->page_data['update'] = $this->db->query("update tbl_notifikasi set status_read=1 where opd_id=".$this->session->userdata('logged')['opd'].";");
 	}
 
