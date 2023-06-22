@@ -1331,3 +1331,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       order: [[0, 'asc']]
     });
 </script>
+<script>
+    var url = window.location.href;
+    var activeTab = url.substring(url.indexOf("#") + 1);
+    if(activeTab != url) // check hash tag name for prevent error
+    {
+        $(".tab-pane").removeClass("active");
+        $("#" + activeTab).addClass("active");
+        $('a[href="#'+ activeTab +'"]').tab('show');
+    }else{
+        $(".tab-pane").removeClass("active");
+        $("#tab_1").addClass("active");
+        $('a[href="#tab_1"]').tab('show');
+    }
+</script>
