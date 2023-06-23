@@ -550,6 +550,7 @@ window.location="<?php echo url('Realisasi/tambah/')  ?>"+document.getElementByI
 
 <script>
 	$('#dataTable1').DataTable({
-    "order": []
+    "order": [],
+    "pageLength": 25,
   });
 </script>

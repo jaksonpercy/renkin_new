@@ -1158,7 +1158,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </script>
 <script>
 	$('#dataTable1').DataTable({
-    "order": []
+    "order": [],
+    "pageLength": 25,
   });
 </script>
 <script>

@@ -113,6 +113,7 @@ Service desk +62 852-1654-1900
 
 <script>
 	$('#dataTable1').DataTable({
-    "order": []
+    "order": [],
+    "pageLength": 25,
   });
 </script>
