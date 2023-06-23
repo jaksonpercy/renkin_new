@@ -917,6 +917,7 @@
     $("#example01").DataTable({
       "responsive": true,
       "autoWidth": false,
+      "pageLength": 25,
     });
     $('#example2').DataTable({
       "paging": true,
@@ -926,6 +927,7 @@
       "info": true,
       "autoWidth": false,
       "responsive": true,
+      "pageLength": 25,
     });
   });
 </script>

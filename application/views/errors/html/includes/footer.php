@@ -67,6 +67,7 @@
     $("#example1").DataTable({
       "responsive": true,
       "autoWidth": false,
+      "pageLength": 25,
     });
 
     $("input[data-bootstrap-switch]").each(function(){

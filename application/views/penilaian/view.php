@@ -1048,6 +1048,7 @@ $nilaiRealisasi =0;
 
 <script>
 	$('#dataTable1').DataTable({
-    "order": []
+    "order": [],
+    "pageLength": 25,
   });
 </script>

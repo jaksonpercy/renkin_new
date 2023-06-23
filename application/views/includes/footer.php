@@ -75,16 +75,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       "responsive": false,
       "autoWidth": false,
 	     "scrollX": true,
+       "pageLength": 25,
     });
 
     $("#example2").DataTable({
     "scrollX": false,
+    "pageLength": 25,
     });
     $("#example3").DataTable({
     "scrollX": false,
+    "pageLength": 25,
     });
     $("#example4").DataTable({
     "scrollX": false,
+    "pageLength": 25,
     });
 
     $("input[data-bootstrap-switch]").each(function(){

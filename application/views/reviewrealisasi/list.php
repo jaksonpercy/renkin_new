@@ -204,6 +204,7 @@ window.updateUserStatus = (id, status) => {
 </script>
 <script>
 	$('#dataTable1').DataTable({
-    "order": []
+    "order": [],
+    "pageLength": 25,
   });
   </script>

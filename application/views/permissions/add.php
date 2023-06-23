@@ -92,6 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
     $('.table-DT').DataTable({
       "ordering": false,
+      "pageLength": 25,
     });
   })
 
