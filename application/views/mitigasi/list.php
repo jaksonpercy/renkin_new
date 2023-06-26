@@ -167,8 +167,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php if(!empty($row->data_pendukung_text) && !empty($row->data_pendukung_file) ){
                        ?>
                       <!-- <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a> -->
-                      <a href="<?php echo $row->data_pendukung_text ?>" target="_blank"><?php echo $row->data_pendukung_text ?></a> <br>
-
+                      <?php if (!filter_var($row->data_pendukung_text, FILTER_VALIDATE_URL)) { ?>
+                        <a href="" onclick="alert('Invalid URL Format')"><?php echo $row->data_pendukung_text ?></a> <br>
+                      <?php } else { ?>
+                        <a href="<?php echo $row->data_pendukung_text ?>" target="_blank"><?php echo $row->data_pendukung_text ?></a> <br>
+                      <?php } ?>
                       <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
 
                     <?php } else {
@@ -178,7 +181,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                     <?php
                     } else {
-                        echo $row->data_pendukung_text;
+                    ?>
+                    <?php if (!filter_var($row->data_pendukung_text, FILTER_VALIDATE_URL)) { ?>
+                      <a href="" onclick="alert('Invalid URL Format')"><?php echo $row->data_pendukung_text ?></a> <br>
+                    <?php } else { ?>
+                      <a href="<?php echo $row->data_pendukung_text ?>" target="_blank"><?php echo $row->data_pendukung_text ?></a> <br>
+                    <?php } ?>
+                      <?php
+
                       } }
                      ?>
                       </td>
@@ -255,8 +265,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <td>
                           <?php if(!empty($row->data_pendukung_text) && !empty($row->data_pendukung_file) ){
                             ?>
+                          <?php if (!filter_var($row->data_pendukung_text, FILTER_VALIDATE_URL)) { ?>
+                            <a href="alert('Invalid URL Format')"><?php echo $row->data_pendukung_text ?></a> <br>
+                          <?php } else { ?>
                             <a href="<?php echo $row->data_pendukung_text ?>" target="_blank"><?php echo $row->data_pendukung_text ?></a> <br>
-
+                          <?php } ?>
                             <a href="<?php echo url('Mitigasi/downloadFile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
   <!--  -->
                           <!-- <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a> -->

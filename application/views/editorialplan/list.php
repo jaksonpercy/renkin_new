@@ -258,13 +258,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																				//
 	                                      //  endforeach;
 	                                      // } else {
-	                                        // $sel ="";
-	                                        // if ($row->strakom_id == $rows->id) {
-	                                        //     echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
-	                                        // }
-																					// else {
+	                                        $sel ="";
+	                                        if ($row->strakom_id == $rows->id) {
+	                                            echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
+	                                        }
+																					else {
 	                                          echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
-	                                        // }
+	                                        }
 
 	                                    // }
 	                                    ?>

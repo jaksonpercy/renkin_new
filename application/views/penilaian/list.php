@@ -201,8 +201,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php
                     $no=0;
                     foreach ($strakom as $row):
+                    if($row->EditorialApprove >= 15 && $row->MitigasiApprove > 0){
                     $no++;
-
                     ?>
 
                     <tr>
@@ -235,11 +235,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       <td>
 
-                        <?php if ($row->status_penilaian == 0) {
+                        <?php if ($row->status_strakom == 2) {
                           echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
-                        } else if ($row->status_penilaian == 1) {
+                        } else if ($row->status_strakom == 5) {
                           echo '<p class="text-primary"><strong>Rekomendasi Administrator Bidang</strong></p>';
-                        } else {
+                        }
+                        else {
                           echo '<p class="text-danger"><strong>Sudah Dinilai</strong></p>';
                         } ?>
                       </td>
@@ -253,7 +254,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </tr>
 
                   <?php
-
+                }
                   endforeach ?>
                   </tbody>
                 </table>

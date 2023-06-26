@@ -50,7 +50,7 @@ $nilaiRealisasi =0;
 
                 <ul class="nav nav-pills ml-auto p-2">
 
-					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Detail</a></li>
+					<li class="nav-item active"><a class="nav-link active" href="#tab_1" data-toggle="tab">Strategi Komunikasi Unggulan</a></li>
 					<li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Editorial Plan</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Uraian Mitigasi</a></li>
           <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Realisasi</a></li>
@@ -194,18 +194,13 @@ $nilaiRealisasi =0;
                   </tr>
                   <tr>
                     <td width="160"><strong>Nama Program/Kegiatan</strong>:</td>
-                    <td><?php if ($strakom->ksd_id > 0){
-                      foreach ($ksd as $rows):
-                        if ($rows->id == $strakom->ksd_id ) {
-                          echo $rows->nama;
-                        }
-                     endforeach;
-                    } else {
+                    <td>
+                    <?php
                         echo $strakom->nama_program;
-                    }
-                    ?></td>
+                  ?>
+                  </td>
                   </tr>
-                  <tr>
+                  <!-- <tr>
                     <td><strong>Jenis Kegiatan</strong>:</td>
                     <td><?php
                     foreach ($jeniskegiatan as $rows):
@@ -213,7 +208,7 @@ $nilaiRealisasi =0;
                           echo $rows->nama;
                         }
                      endforeach ?></td>
-                  </tr>
+                  </tr> -->
                   <tr>
                     <td><strong>Deskripsi Singkat Kegiatan</strong>:</td>
                     <td><?php echo $strakom->deskripsi ?></td>
@@ -290,7 +285,7 @@ $nilaiRealisasi =0;
               $nilaiStrakom = ($countStrakom/8)*20;
               ?>
 
-              <?php if($periode->status_penilaian > 0){ ?>
+              <?php if($periode->status_penilaian > 0 || $strakom->status == 2){ ?>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-strakom">Nilai</button>
             <?php } ?>
             </div>
@@ -357,7 +352,7 @@ $nilaiRealisasi =0;
                         ?>
                       </tbody>
                     </table>
-                      <?php if($periode->status_penilaian > 0){ ?>
+                      <?php if($periode->status_penilaian > 0 || $no >=15){ ?>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-editorial">Nilai</button>
         <?php } ?>
                   </div>
@@ -443,7 +438,7 @@ $nilaiRealisasi =0;
                          ?>
                         </tbody>
                     </table>
-  <?php if($periode->status_penilaian > 0){ ?>
+  <?php if($periode->status_penilaian > 0 || $no > 0){ ?>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-mitigasi">Nilai</button>
 <?php } ?>
                   </div>
@@ -632,8 +627,12 @@ $nilaiRealisasi =0;
                  <?php if ($roles->role->role_id==2){?>
                    <label for="formClient-Name">Beri Nilai (*maks 20)</label> <br>
                      <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_strakom; ?></label>
-                     <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $nilaiStrakom; ?>"></input>
+                     <?php if(empty($administrator_id)){ ?>
+                       <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
 
+                     <?php } else {?>
+                     <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $nilaiStrakom; ?>"></input>
+                   <?php } ?>
                <?php } else if ($roles->role->role_id==4){?>
                    <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
                    <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
@@ -646,8 +645,12 @@ $nilaiRealisasi =0;
                      <?php if ($roles->role->role_id==2){?>
                        <label for="formClient-Name">Catatan</label> <br>
                        <label for="formClient-Name">Rekomendasi Catatan : <?php echo $penilaianData[0]->catatan; ?></label>
+                       <?php if(empty($administrator_id)){ ?>
+                       <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan; ?></textarea>
+                     <?php } else {?>
                        <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
 
+                     <?php } ?>
                    <?php } else if ($roles->role->role_id==4){?>
                        <label for="formClient-Name">Rekomendasi Catatan</label>
                        <textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan; ?></textarea>
@@ -755,12 +758,20 @@ $nilaiRealisasi =0;
                <label for="formClient-Name">Beri Nilai (*maks 20)</label> <br>
 
                  <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_editorial; ?></label>
+                 <?php if(!empty($administrator_id)){ ?>
                  <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial; ?>"></input>
+               <?php } else { ?>
+                 <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
 
+               <?php } ?>
            <?php } else if ($roles->role->role_id==4){?>
                <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
+               <?php if($penilaianData[0]->nilai_editorial > 0){ ?>
                <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
+             <?php } else { ?>
+               <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial ?>"></input>
 
+             <?php } ?>
            <?php } ?>
 
 
@@ -768,8 +779,12 @@ $nilaiRealisasi =0;
                  <?php if ($roles->role->role_id==2){?>
                    <label for="formClient-Name">Catatan</label> <br>
                    <label for="formClient-Name">Rekomendasi Catatan : <?php echo $penilaianData[0]->catatan_editorial; ?></label>
+                  <?php if(!empty($administrator_id)){ ?>
                    <textarea type="text" class="form-control" name="alasanEditorial" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+                 <?php } else { ?>
+                   <textarea type="text" class="form-control" name="alasanEditorial" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan_editorial; ?></textarea>
 
+                 <?php } ?>
                <?php } else if ($roles->role->role_id==4){?>
                    <label for="formClient-Name">Rekomendasi Catatan</label>
                    <textarea type="text" class="form-control" name="alasanEditorial" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan_editorial; ?></textarea>
@@ -881,8 +896,12 @@ $nilaiRealisasi =0;
 
          <?php } else if ($roles->role->role_id==4){?>
              <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
+                <?php if($penilaianData[0]->nilai_mitigasi > 0){ ?>
              <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_mitigasi; ?>"></input>
+           <?php } else { ?>
+             <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $nilaiMitigasi; ?>"></input>
 
+          <?php } ?>
          <?php } ?>
 
 
@@ -890,8 +909,12 @@ $nilaiRealisasi =0;
                <?php if ($roles->role->role_id==2){?>
                  <label for="formClient-Name">Catatan</label> <br>
                  <label for="formClient-Name">Rekomendasi Catatan : <?php echo $penilaianData[0]->catatan_mitigasi; ?></label>
+                 <?php if(empty($penilaianData[0]->catatan_mitigasi)){ ?>
                  <textarea type="text" class="form-control" name="alasanMitigasi" id="formClient-Alasan" placeholder="Catatan" rows="5"></textarea>
+               <?php } else { ?>
+                 <textarea type="text" class="form-control" name="alasanMitigasi" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan_mitigasi; ?></textarea>
 
+               <?php } ?>
              <?php } else if ($roles->role->role_id==4){?>
                  <label for="formClient-Name">Rekomendasi Catatan</label>
                  <textarea type="text" class="form-control" name="alasanMitigasi" id="formClient-Alasan" placeholder="Catatan" rows="5"><?php echo $penilaianData[0]->catatan_mitigasi; ?></textarea>
@@ -1051,4 +1074,19 @@ $nilaiRealisasi =0;
     "order": [],
     "pageLength": 25,
   });
+</script>
+
+<script>
+    var url = window.location.href;
+    var activeTab = url.substring(url.indexOf("#") + 1);
+    if(activeTab != url) // check hash tag name for prevent error
+    {
+        $(".tab-pane").removeClass("active");
+        $("#" + activeTab).addClass("active");
+        $('a[href="#'+ activeTab +'"]').tab('show');
+    }else{
+        $(".tab-pane").removeClass("active");
+        $("#tab_1").addClass("active");
+        $('a[href="#tab_1"]').tab('show');
+    }
 </script>

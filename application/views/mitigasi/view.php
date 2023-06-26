@@ -79,7 +79,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <td>
                     <?php if(!empty($mitigasi->data_pendukung_text) && !empty($mitigasi->data_pendukung_file) ){
                       ?>
-                      <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a>
+                      <?php if (!filter_var($mitigasi->data_pendukung_text, FILTER_VALIDATE_URL)) { ?>
+                        <a href="" onclick="alert('Invalid URL Format')"><?php echo $mitigasi->data_pendukung_text ?></a> <br>
+                      <?php } else { ?>
+                        <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a> <br>
+                      <?php } ?>
                       <br>
                       <a href="<?php echo url('Mitigasi/downloadFile/'.$mitigasi->data_pendukung_file); ?>">Lihat Dokumen</a>
                   <!--  -->
@@ -93,9 +97,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                   <?php
                   } else {
-
                    ?>
-                   <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a>
+                   <?php if (!filter_var($mitigasi->data_pendukung_text, FILTER_VALIDATE_URL)) { ?>
+                     <a href="" onclick="alert('Invalid URL Format')"><?php echo $mitigasi->data_pendukung_text ?></a> <br>
+                   <?php } else { ?>
+                     <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a> <br>
+                   <?php } ?>
                   <?php }} ?>
                 </td>
                 </tr>
@@ -158,7 +165,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <td>  <?php if(empty($mitigasi->data_pendukung_text)){ ?>
                       <a href="<?php echo base_url('/uploads/mitigasifile/'.$mitigasi->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
                     <?php } else { ?>
-                      <a href="<?php echo base_url($mitigasi->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
+                      <?php if (!filter_var($mitigasi->data_pendukung_text, FILTER_VALIDATE_URL)) { ?>
+                        <a href="" onclick="alert('Invalid URL Format')"><?php echo $mitigasi->data_pendukung_text ?></a> <br>
+                      <?php } else { ?>
+                        <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a> <br>
+                      <?php } ?>
                     <?php } ?></td>
                   </tr>
                   <tr>
