@@ -419,11 +419,30 @@ $nilaiRealisasi =0;
                           if(!empty($row->data_pendukung_text) ||!empty($row->data_pendukung_file)  ){
                             $jumlah+=5;
                           }
-                          if(empty($row->data_pendukung_text)){ ?>
-                          <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a>
-                        <?php } else { ?>
-                          <a href="<?php echo base_url('/uploads/mitigasifile/'.$row->data_pendukung_text); ?>">Lihat Dokumen</a>
-                        <?php } ?>
+                         ?>
+                         <?php if(!empty($row->data_pendukung_text) && !empty($row->data_pendukung_file) ){
+                           ?>
+                         <?php if (!filter_var($row->data_pendukung_text, FILTER_VALIDATE_URL)) { ?>
+                           <a href="" onclick="alert('Invalid URL Format')"><?php echo $row->data_pendukung_text ?></a> <br>
+                         <?php } else { ?>
+                           <a href="<?php echo $row->data_pendukung_text ?>" target="_blank"><?php echo $row->data_pendukung_text ?></a> <br>
+                         <?php } ?>
+                           <a href="<?php echo url('Mitigasi/downloadFile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
+ <!--  -->
+                         <!-- <a href="<?php echo str_replace("/index.php","", base_url('/uploads/mitigasifile/'.$row->data_pendukung_file)); ?>" target="_blank">Lihat Dokumen</a> -->
+                         <!-- <a href="<?php echo url('Mitigasi/downloadFile/'.$row->data_pendukung_file); ?>">Lihat Dokumen</a> -->
+ <!--  -->
+                       <?php } else {
+                         if(empty($row->data_pendukung_text) && !empty($row->data_pendukung_file)) {
+                        ?>
+                        <a href="<?php echo url('Mitigasi/downloadFile/'.$row->data_pendukung_file); ?>" target="_blank">Lihat Dokumen</a>
+
+                       <?php
+                       } else {
+
+                        ?>
+                        <a href="<?php echo $row->data_pendukung_text ?>" target="_blank"><?php echo $row->data_pendukung_text ?></a>
+                      <?php }} ?>
                           </td>
                           <td>
                             <a href="<?php echo url('Mitigasi/view/') ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
@@ -467,7 +486,7 @@ $nilaiRealisasi =0;
                 						<td><strong>Nota Dinas</strong>:</td>
                 					  <td> <?php if(!empty($strakom->url_nota_dinas)){
                             ?>
-                            <a href="<?php echo base_url('/uploads/datanotadinas/'.$strakom->url_nota_dinas); ?>">Download File Nota Dinas</a>
+                            <a href="<?php echo base_url('Penilaian/downloadFileNotaDinas/'.$strakom->url_nota_dinas); ?>">Download File Nota Dinas</a>
 
                           <?php }  ?></td>
                 					</tr>
@@ -512,7 +531,7 @@ $nilaiRealisasi =0;
                           <td><?php echo $row->link_tautan ?></td>
                          <td>
                            <?php if(!empty($row->file_dokumentasi)){ ?>
-                          <a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+                          <a href="<?php echo url('Penilaian/downloadFileRealisasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
                         <?php } ?>
                           </td>
 

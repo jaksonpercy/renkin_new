@@ -75,6 +75,16 @@ class Penilaian extends MY_Controller {
 
   }
 
+  public function downloadFileRealisasi($name)
+  {
+   redirect(str_replace("/index.php","", base_url('/uploads/datarealisasi/'.$name))); //showing the path to the server where the file is to be download
+  }
+
+  public function downloadFileNotaDinas($name)
+  {
+   redirect(str_replace("/index.php","", base_url('/uploads/datanotadinas/'.$name))); //showing the path to the server where the file is to be download
+  }
+
   public function download($id=null){
     // load view
     $this->page_data['asisten'] = $this->db->query("select * from tbl_users where skpd_renkin is not null")->result();
