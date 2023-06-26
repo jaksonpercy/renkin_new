@@ -389,7 +389,6 @@ class StrakomUnggulan extends MY_Controller {
     }
 
 		$data = [
-      'id' => $uuid,
       'kategori_program' => $this->input->post('kategoriProgram'),
       'nama_program' => $namaProgram,
       'ksd_id' => $namaProgram,
