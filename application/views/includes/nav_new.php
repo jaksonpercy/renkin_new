@@ -2,6 +2,17 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 
+<style>
+.nav-link p{
+  color:#fff;
+  font-family: 'Plus Jakarta Sans';
+}
+
+.sidebar-dark-primary .nav-sidebar.nav-legacy>.nav-item>.nav-link.active, .sidebar-light-primary .nav-sidebar.nav-legacy>.nav-item>.nav-link.active {
+  border-color: #a0e8fa;
+}
+</style>
+
 <ul class="nav nav-pills nav-sidebar flex-column nav-legacy" data-widget="treeview" role="menu" data-accordion="false">
 
 
@@ -341,7 +352,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
   <li class="nav-header">
 <a href="<?php echo url('/Logout') ?>">
-    <strong>  Keluar  </strong> &nbsp;</a>
+    <strong style="color:#fff">  Keluar  </strong> &nbsp;</a>
   </li>
 
 
