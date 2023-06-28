@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     } else {
 
                      ?>
-                     <a href="<?php echo $row->data_pendukung_text ?>" target="_blank"><?php echo $row->data_pendukung_text ?></a>
+                     <a href="<?php echo $mitigasi->data_pendukung_text ?>" target="_blank"><?php echo $mitigasi->data_pendukung_text ?></a>
                    <?php }} ?>
                   </td>
                   </tr>
@@ -123,6 +123,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                       } else if ($mitigasi->status == 2) {
                         echo '<p class="text-success"><strong>Telah Direview</strong></p>';
+                      } else if ($mitigasi->status == 5 || $mitigasi->status == 6) {
+                        echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
                       } else {
                      echo "<p class='text-danger'><strong>Perlu Diperbaiki ($mitigasi->alasan) </strong></p>";
                       } ?>

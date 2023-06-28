@@ -285,7 +285,7 @@ $nilaiRealisasi =0;
               $nilaiStrakom = ($countStrakom/8)*20;
               ?>
 
-              <?php if($periode->status_penilaian > 0 || $strakom->status == 2){ ?>
+              <?php if($periode->status_penilaian > 0 || $strakom->status == 2 || $strakom->status == 5 || $strakom->status == 6){ ?>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-strakom">Nilai</button>
             <?php } ?>
             </div>
@@ -544,10 +544,11 @@ $nilaiRealisasi =0;
                         </tbody>
 
                  </table>
+                    <?php if($periode->status_penilaian > 0 || $nilaiRealisasi > 0){ ?>
+                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-realisasi">Nilai</button>
 
-                 <?php if($periode->status_penilaian > 0){ ?>
-                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-realisasi">Nilai</button>
-               <?php } ?>
+
+                    <?php } ?>
                   </div>
 
                 </div>

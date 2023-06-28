@@ -201,7 +201,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <?php
                     $no=0;
                     foreach ($strakom as $row):
-                    if($row->EditorialApprove >= 15 && $row->MitigasiApprove > 0){
+                    if(($row->EditorialApprove >= 15 && $row->MitigasiApprove > 0) || ($row->EditorialNilai >= 15 && $row->MitigasiNilai > 0)){
                     $no++;
                     ?>
 
@@ -238,10 +238,18 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <?php if ($row->status_strakom == 2) {
                           echo '<p class="text-warning"><strong>Menunggu Penilaian</strong></p>';
                         } else if ($row->status_strakom == 5) {
+                          if($roles->role->role_id == 2){
                           echo '<p class="text-primary"><strong>Rekomendasi Administrator Bidang</strong></p>';
+                        } else {
+                          echo '<p class="text-success"><strong>Sudah Dinilai</strong></p>';
+                        }
                         }
                         else {
-                          echo '<p class="text-danger"><strong>Sudah Dinilai</strong></p>';
+                         if($roles->role->role_id == 2){
+                          echo '<p class="text-success"><strong>Sudah Dinilai</strong></p>';
+                        } else {
+                          echo '<p class="text-primary"><strong>Dinilai Asisten</strong></p>';
+                        }
                         } ?>
                       </td>
                       <td>

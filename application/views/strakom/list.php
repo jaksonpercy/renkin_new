@@ -281,6 +281,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           }
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Dinilai</strong></p>';
                         } else {
                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
                         } ?>

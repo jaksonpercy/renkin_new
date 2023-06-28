@@ -141,15 +141,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <tr>
                   <td><strong>Status</strong>:</td>
                   <td>
-                    <?php if ($strakom->status == 0) {
+                    <?php if ($strakom->status_strakom == 0) {
                       echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
-                    } else if ($strakom->status == 1) {
+                    } else if ($strakom->status_strakom == 1) {
 											if($counteditorialrejected > 0 || $countmitigasirejected > 0){
 											echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
 											} else {
 											 echo '<p class="text-primary"><strong>Dikirim</strong></p>';
 											}
-                    } else if ($strakom->status == 2) {
+                    } else if ($strakom->status_strakom == 2) {
+                      echo '<p class="text-success"><strong>Telah Direview</strong></p>';
+                    } else if ($strakom->status_strakom == 5 || $strakom->status_strakom == 6) {
                       echo '<p class="text-success"><strong>Telah Direview</strong></p>';
                     } else {
                     echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";
@@ -260,6 +262,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 												}
 											} else if ($strakom->status == 2) {
 												echo '<p class="text-success"><strong>Telah Direview</strong></p>';
+											} else if ($strakom->status == 5 || $strakom->status == 6) {
+												echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
 											} else {
 											 	  echo "<p class='text-danger'><strong>Perlu Diperbaiki ($strakom->alasan) </strong></p>";	} ?>
 										</td>
@@ -569,6 +573,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 															echo '<p class="text-primary"><strong>Dikirim</strong></p>';
 														} else if ($row->status == 2) {
 															echo '<p class="text-success"><strong>Telah Direview</strong></p>';
+														} else if ($row->status == 5 || $row->status == 6 ) {
+															echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
 														} else {
 															echo "<p class='text-danger'><strong>Dikembalikan</strong> (".$row->alasan.")</p>";
 														} ?>
@@ -803,6 +809,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 																		echo '<p class="text-primary"><strong>Dikirim</strong></p>';
 																	} else if ($row->status == 2) {
 																		echo '<p class="text-success"><strong>Telah Direview</strong></p>';
+																	} else if ($row->status == 5 || $row->status == 6) {
+																		echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
 																	} else {
 																		echo "<p class='text-danger'><strong>Dikembalikan</strong> (".$row->alasan.")</p>";
 																	} ?>

@@ -120,6 +120,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                     } else if ($mitigasi->status == 2) {
                       echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                    } else if ($mitigasi->status == 5 || $mitigasi->status == 6) {
+                      echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
                     } else {
                       echo "<p class='text-danger'><strong>Perlu Diperbaiki </strong> (".$mitigasi->alasan.")</p>";
                     } ?>
