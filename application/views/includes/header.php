@@ -54,6 +54,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- Google Font: Source Sans Pro -->
   <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet"> -->
 
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Plus+Jakarta+Sans">
+
 
 <!-- jQuery -->
 <script src="<?php echo $url->assets ?>plugins/jquery/jquery.min.js"></script>
@@ -71,7 +73,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light" style="background:#ffcf56">
 
   <!-- Left navbar links -->
   <ul class="navbar-nav">
@@ -92,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
           <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge"><?php echo count(getNewNotif()); ?></span>
+          <span class="badge badge-primary navbar-badge"><?php echo count(getNewNotif()); ?></span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <span class="dropdown-item dropdown-header"><?php echo count(getNewNotif()); ?> <?php echo lang('notifications') ?></span>
@@ -123,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </a>
         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <!-- User image -->
-          <li class="user-header bg-primary">
+          <li class="user-header" style="background:#86baa1">
             <img src="<?php echo userProfile(logged('id')) ?>" class="img-circle elevation-2" alt="User Image">
 
             <p>
@@ -144,15 +146,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4" style="background:#3ab795; border-style:none">
     <!-- Brand Logo -->
-    <a href="<?php echo url('/') ?>" class="brand-link">
+    <a href="<?php echo url('/') ?>" class="brand-link" style="background:#3ab795; border-style:none; font-weight:bold">
 
-      <span class="brand-text font-weight-light"><center>STRAKOM RENKIN</center></span>
+      <span class="brand-text" style="font-weight:bold; font-family:'Plus Jakarta Sans';"><center>STRAKOM RENKIN</center></span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" style="background:#3ab795">
 
 
       <!-- Sidebar Menu -->
@@ -166,6 +168,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </aside>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
+  <div class="content-wrapper" style="background:#edead0">
+
+  <style>
+    .dataTables_scrollHead {
+      font-family: 'Plus Jakarta Sans';
+    }
+  </style>
 
   <?php include 'notifications.php'; ?>
