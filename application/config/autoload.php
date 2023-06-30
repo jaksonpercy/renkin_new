@@ -153,5 +153,6 @@ $autoload['model'] = array(
 	'Data_Realisasi_model',
 	'Pemberitahuan_model',
 	'Notifikasi_model',
-	'Penilaian_model'
+	'Penilaian_model',
+	'HistoryStrakom_model'
 );

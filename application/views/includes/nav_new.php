@@ -170,6 +170,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </li>
 <?php endif ?>
 
+  <li class="nav-item">
+      <a href="<?php echo url('HistoryStrakom') ?>" class="nav-link <?php echo ($page->menu=='historystrakom')?'active':'' ?>">
+        <p>
+          History Strategi Komunikasi <br> Unggulan
+        </p>
+      </a>
+    </li>
+
 <?php if (hasRoles('users_list') == 3): ?>
 <li class="nav-item has-treeview <?php echo ($page->menu=='rencanakinerja')?'menu-open':'' ?>">
   <a href="#" class="nav-link  <?php echo ($page->menu=='rencanakinerja')?'active':'' ?>">
@@ -361,9 +369,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </a>
     </li> -->
 
-  <li class="nav-header">
-<a href="<?php echo url('/Logout') ?>">
-    <strong style="color:#fff">  Keluar  </strong> &nbsp;</a>
+  <li class="nav-item">
+<a href="<?php echo url('/Logout') ?>" class="nav-link" >
+  <p> Keluar  </p>&nbsp;</a>
   </li>
 
 
