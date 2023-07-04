@@ -204,6 +204,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	                 ?>
 	                </td>
 	                </tr>
+									<tr>
+									 <td><strong>Tanggal Dibuat</strong>:</td>
+									 <td><?php
+									 echo $strakom->d_created_date;
+									?>
+								 </td>
+								 </tr>
 	                <tr>
 
 	                </tr>

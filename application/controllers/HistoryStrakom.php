@@ -20,6 +20,8 @@ class HistoryStrakom extends MY_Controller {
 	{
 
     $userId = $this->input->get('user_id');
+    $tahun = $this->input->get('tahun_periode');
+    $triwulan = $this->input->get('triwulan_periode');
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -29,9 +31,9 @@ class HistoryStrakom extends MY_Controller {
     ])[0];
     $this->page_data['user'] = $this->users_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
-        $this->page_data['strakom'] = $this->HistoryStrakom_model->getListStrakomByCreatedBy($this->session->userdata('logged')['id']);
+        $this->page_data['strakom'] = $this->HistoryStrakom_model->getListStrakomByCreatedBy($this->session->userdata('logged')['id'], $tahun, $triwulan);
     } else {
-      $this->page_data['strakom'] = $this->HistoryStrakom_model->getListStrakomFilterByCreatedBy($userId);
+      $this->page_data['strakom'] = $this->HistoryStrakom_model->getListStrakomFilterByCreatedBy($userId,$tahun, $triwulan);
     }
 
 		$this->page_data['page']->submenu = 'historystrakom';

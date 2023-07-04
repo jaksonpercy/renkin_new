@@ -17,20 +17,32 @@ class HistoryStrakom_model extends MY_Model {
 		return $query;
 	}
 
-	public function getListStrakomByCreatedBy($id)
+	public function getListStrakomByCreatedBy($id,$tahun, $triwulan)
 	{
-		$query = $this->db->query("SELECT * from $this->table where d_created_by ='".$id."'")->result()	;
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND year(d_created_date) = '".$tahun."' ";
+		}
+		if (!empty($triwulan)) {
+			$filter .= " AND tahapan_kegiatan = '".$triwulan."' ";
+		}
+		$query = $this->db->query("SELECT * from $this->table where d_created_by ='".$id."'".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}
 
-	public function getListStrakomFilterByCreatedBy($id)
+	public function getListStrakomFilterByCreatedBy($id,$tahun, $triwulan)
 	{
 		$filter = "";
 		if (!empty($id)) {
 			$filter .= " where d_created_by = '".$id."' ";
 		}
-
+		if (!empty($tahun)) {
+			$filter .= " AND year(d_created_date) = '".$tahun."' ";
+		}
+		if (!empty($triwulan)) {
+			$filter .= " AND tahapan_kegiatan = '".$triwulan."' ";
+		}
 		$query = $this->db->query("SELECT * from $this->table".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
