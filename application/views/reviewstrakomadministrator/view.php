@@ -971,7 +971,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
 <div class="modal fade" id="modal-reject">
-	<?php echo form_open_multipart('ReviewStrakom/change_status_finalisasi/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+	<?php echo form_open_multipart('ReviewStrakomUnggulan/change_status_strakom/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
 <div class="modal-dialog modal-lg">
 <div class="modal-content">
