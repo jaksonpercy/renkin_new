@@ -56,13 +56,17 @@ class Settings extends MY_Controller {
 	{
 		postAllowed();
 
-		$this->settings_model->updateByKey('url_dokumentasi', post('url_dokumentasi'));
-		$this->settings_model->updateByKey('url_paparan_renkin', post('url_paparan_renkin'));
+		$this->settings_model->updateByKey('url_video_pd', post('url_video_pd'));
+		$this->settings_model->updateByKey('url_panduan_pd', post('url_panduan_pd'));
+		$this->settings_model->updateByKey('url_video_asisten', post('url_video_asisten'));
+		$this->settings_model->updateByKey('url_panduan_asisten', post('url_panduan_asisten'));
+		$this->settings_model->updateByKey('url_video_super', post('url_video_super'));
+		$this->settings_model->updateByKey('url_panduan_super', post('url_panduan_super'));
 
 		$this->session->set_flashdata('alert-type', 'success');
-		$this->session->set_flashdata('alert', 'Pengaturan URL Dokumentasi & Paparan Renkin Berhasil');
+		$this->session->set_flashdata('alert', 'Pengaturan URL Dokumentasi & Panduan Berhasil');
 
-		$this->activity_model->add("Pengaturan URL Dokumentasi & Paparan Renkin oleh User: #".logged('id'));
+		$this->activity_model->add("Pengaturan URL Dokumentasi & Panduan oleh User: #".logged('id'));
 
 		redirect('settings/dokumentasi');
 	}

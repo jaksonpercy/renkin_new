@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <a class="list-group-item list-group-item-action <?php echo ($page->submenu=='general')?'active':'' ?>" href="<?php echo url('settings/general') ?>"><?php echo lang('general_setings') ?></a>
       <?php endif ?>
 
-      <a class="list-group-item list-group-item-action <?php echo ($page->submenu=='dokumentasi')?'active':'' ?>" href="<?php echo url('settings/dokumentasi') ?>">Link Dokumentasi & <br>Paparan Renkin</a>
+      <a class="list-group-item list-group-item-action <?php echo ($page->submenu=='dokumentasi')?'active':'' ?>" href="<?php echo url('settings/dokumentasi') ?>">Link Dokumentasi & <br>Panduan</a>
 
       <!-- <?php if (hasPermissions('company_settings')): ?>
         <a class="list-group-item list-group-item-action <?php echo ($page->submenu=='company')?'active':'' ?>" href="<?php echo url('settings/company') ?>"><?php echo lang('company_setings') ?></a>

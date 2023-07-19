@@ -339,7 +339,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <li class="nav-item">
       <a href="<?php echo url('Settings/dokumentasi') ?>" class="nav-link <?php echo ($page->submenu=='dokumentasi')?'active':'' ?>">
-        <i class="far fa-circle nav-icon"></i> <p> Link Dokumentasi & <br>Paparan Renkin </p>
+        <i class="far fa-circle nav-icon"></i> <p> Link Dokumentasi & <br>Panduan </p>
       </a>
     </li>
 
@@ -353,14 +353,62 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </li>
 <?php endif ?>
 
-<li class="nav-item">
-    <a href="<?php echo setting('url_dokumentasi') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>" target="_blank">
-      <p>
-        Tutorial
-      </p>
-    </a>
-  </li>
+<li class="nav-item has-treeview <?php echo ($page->menu=='settings')?'menu-open':'' ?>">
+  <a href="#" class="nav-link  <?php echo ($page->menu=='settings')?'active':'' ?>">
+  
+    <p>
+    Tutorial
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+    <?php if (hasRoles('users_list') == 1): ?>
+  <li class="nav-item">
+      <a href="<?php echo setting('url_video_pd') ?>" class="nav-link <?php echo ($page->submenu=='general')?'active':'' ?>" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p> Video </p>
+      </a>
+    </li>
 
+    <li class="nav-item">
+      <a href="<?php echo setting('url_panduan_pd') ?>" class="nav-link <?php echo ($page->submenu=='dokumentasi')?'active':'' ?>" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p>Buku Panduan </p>
+      </a>
+    </li>
+
+  <?php elseif (hasRoles('users_list') == 2): ?>
+    <li class="nav-item">
+        <a href="<?php echo setting('url_video_asisten') ?>" class="nav-link <?php echo ($page->submenu=='general')?'active':'' ?>" target="_blank">
+          <i class="far fa-circle nav-icon"></i> <p> Video </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="<?php echo setting('url_panduan_asisten') ?>" class="nav-link <?php echo ($page->submenu=='dokumentasi')?'active':'' ?>" target="_blank">
+          <i class="far fa-circle nav-icon"></i> <p>Buku Panduan </p>
+        </a>
+      </li>
+  <?php else : ?>
+    <li class="nav-item">
+        <a href="<?php echo setting('url_video_super') ?>" class="nav-link <?php echo ($page->submenu=='general')?'active':'' ?>" target="_blank">
+          <i class="far fa-circle nav-icon"></i> <p> Video </p>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a href="<?php echo setting('url_panduan_super') ?>" class="nav-link <?php echo ($page->submenu=='dokumentasi')?'active':'' ?>" target="_blank">
+          <i class="far fa-circle nav-icon"></i> <p>Buku Panduan </p>
+        </a>
+      </li>
+  <?php endif ?>
+
+    <!-- <li class="nav-item">
+      <a href="<?php echo url('Settings/email_templates') ?>" class="nav-link <?php echo ($page->submenu=='email_templates')?'active':'' ?>">
+        <i class="far fa-circle nav-icon"></i> <p> <?php echo lang('manage_email_template') ?></p>
+      </a>
+    </li> -->
+  </ul>
+</li>
+</li>
   <!-- <li class="nav-item">
       <a href="<?php echo setting('url_paparan_renkin') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>" target="_blank">
         <p>

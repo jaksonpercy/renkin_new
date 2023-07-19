@@ -35,22 +35,49 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       <!-- Default card -->
       <div class="card">
 
-        <div class="card-header with-border">
-          <h3 class="card-title">Link Dokumentasi & Paparan Renkin</h3>
+
+
+        <div class="card-header">
+          <h3 class="card-title">Perangkat Daerah</h3>
         </div>
 
         <?php echo form_open_multipart('settings/dokumentasiUpdate', [ 'class' => 'form-validate', 'autocomplete' => 'off', 'method' => 'post' ]); ?>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formSetting-Company-Name">URL Dokumentasi</label>
-            <input type="text" class="form-control" name="url_dokumentasi" value="<?php echo setting('url_dokumentasi') ?>" required placeholder="URL Dokumentasi" autofocus />
+            <label for="formSetting-Company-Name">URL Video</label>
+            <input type="text" class="form-control" name="url_video_pd" value="<?php echo setting('url_video_pd') ?>" placeholder="URL Video" autofocus />
           </div>
 
           <div class="form-group">
-            <label for="formSetting-Company-Email">URL Paparan Renkin</label>
-            <input type="text" class="form-control" name="url_paparan_renkin"value="<?php echo setting('url_paparan_renkin') ?>" required placeholder="URL Paparan Renkin" autofocus />
+            <label for="formSetting-Company-Email">URL Panduan </label>
+            <input type="text" class="form-control" name="url_panduan_pd" value="<?php echo setting('url_panduan_pd') ?>" placeholder="URL Panduan" autofocus />
           </div>
+<br>
+          <h3 class="card-title">Asisten Pemerintahan</h3> <br><br>
+
+          <div class="form-group">
+            <label for="formSetting-Company-Name">URL Video</label>
+            <input type="text" class="form-control" name="url_video_asisten" value="<?php echo setting('url_video_asisten') ?>" placeholder="URL Video" autofocus />
+          </div>
+
+          <div class="form-group">
+            <label for="formSetting-Company-Email">URL Panduan </label>
+            <input type="text" class="form-control" name="url_panduan_asisten" value="<?php echo setting('url_panduan_asisten') ?>" placeholder="URL Panduan" autofocus />
+          </div>
+
+          <br>
+                    <h3 class="card-title">Super Admin & Administrator Bidang</h3> <br><br>
+
+                    <div class="form-group">
+                      <label for="formSetting-Company-Name">URL Video</label>
+                      <input type="text" class="form-control" name="url_video_super" value="<?php echo setting('url_video_super') ?>" placeholder="URL Video" autofocus />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="formSetting-Company-Email">URL Panduan </label>
+                      <input type="text" class="form-control" name="url_panduan_super" value="<?php echo setting('url_panduan_super') ?>" placeholder="URL Panduan" autofocus />
+                    </div>
 
         </div>
         <!-- /.card-body -->
