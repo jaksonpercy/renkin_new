@@ -76,7 +76,13 @@ vertical-align: center;
 
               <div class="info-box-content">
                 <span class="info-box-text">Periode Dipilih</span>
-                <span class="info-box-number"><?php echo $periodeCount[0]->periode_aktif . " ".$periodeCount[0]->tahun ?></span>
+                <span class="info-box-number"><?php 
+                if(empty($periodeCount[0])){
+                  echo '-';
+                } else {
+                echo $periodeCount[0]->periode_aktif . " ".$periodeCount[0]->tahun; 
+                }
+                ?></span>
               </div>
               <!-- /.info-box-content -->
             </div>

@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
           <div class="form-group"  style="display:none" id="divNamaUnggulan">
             <label for="formClient-Address">Nama Program Unggulan<label class="text-danger">*</label></label>
-						<input type="text" class="form-control" name="namaProgramUnggulan" id="formClient-namaProgram" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" />
+						<input type="text" class="form-control" name="namaProgramUnggulan" id="formClient-namaProgramUnggulan" title="Bagian ini wajib diisi" onfocus="'this.style.color='#FF0000'" placeholder="Nama Program Unggulan" />
           </div>
 
         </div>
@@ -229,7 +229,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <script type="text/javascript">
    const el = document.getElementById('kategoriProgram');
    const divNoKSD = document.getElementById('divNoKSD');
-   // const divNamaKSD = document.getElementById('divNamaKSD');
+   const etNameKSD = document.getElementById('formClient-namaKSD');
+   const etNameProgramUnggulan = document.getElementById('formClient-namaProgramUnggulan');
    const divNamaProgram = document.getElementById('divNamaProgram');
    const divJenisProgram = document.getElementById('divJenisProgram');
    const divNamaUnggulan = document.getElementById('divNamaUnggulan');
@@ -244,14 +245,17 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         divNamaProgram.style.display = 'none';
          divJenisProgram.style.display = 'none';
         document.getElementById('divNoKSD').style.display = 'block';
+        etNameKSD.required = true;
         divNamaUnggulan.style.display = 'none';
          // document.getElementById('divNamaKSD').style.display = 'block';
       } else if (event.target.value == '3') {
         divNamaProgram.style.display = 'none';
          divJenisProgram.style.display = 'none';
         document.getElementById('divNoKSD').style.display = 'none';
+        
          // document.getElementById('divNamaKSD').style.display = 'none';
            divNamaUnggulan.style.display = 'block';
+           etNameProgramUnggulan.required = true;
       } else {
         divNamaProgram.style.display = 'none';
          divJenisProgram.style.display = 'none';

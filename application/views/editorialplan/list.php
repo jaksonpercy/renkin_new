@@ -212,7 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       </td>
 											<section class="content">
-	                      <?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+	                      <?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validates', 'autocomplete' => 'off' ]); ?>
 
 	                      <div class="container-fluid">
 	                        <div class="row">
@@ -301,12 +301,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	                                <div class="form-group">
 	                                  <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
-	                                  <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-Tanggal" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+	                                  <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-TanggalEdit" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
 	                                </div>
 
 	                                <div class="form-group">
 	                                  <label for="formClient-Address">Pesan Utama<label class="text-danger">*</label></label>
-	                                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-Pesan" required title="Bagian ini wajib diisi" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
+	                                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-PesanEdit" required title="Bagian ini wajib diisi" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
 	                                </div>
 
 
@@ -330,7 +330,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	                                    <div class="form-group">
 	                                      <label for="formClient-Address">Khalayak<label class="text-danger">*</label></label>
-	                                      <textarea type="text" class="form-control" name="khalayak" id="formClient-Khalayak" required title="Bagian ini wajib diisi" placeholder="Khalayak" rows="3"><?php echo $row->khalayak; ?></textarea>
+	                                      <textarea type="text" class="form-control" name="khalayak" id="formClient-KhalayakEdit" required title="Bagian ini wajib diisi" placeholder="Khalayak" rows="3"><?php echo $row->khalayak; ?></textarea>
 	                                    </div>
 
 
@@ -536,7 +536,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 											<div class="form-group">
 												<label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
 												<select name="produkKomunikasi" id="formClient-produkKomunikasi" class="form-control" style="width:100%" required title="Bagian ini wajib diisi">
-													<option value="-">Pilih Produk Komunikasi</option>
+													<option value="">Pilih Produk Komunikasi</option>
 													<?php foreach ($produkkomunikasi as $row): ?>
 														<option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
 													<?php endforeach ?>
@@ -582,7 +582,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <div class="form-group">
                         <label for="formClient-Contact">Kanal Komunikasi<label class="text-danger">*</label></label>
                         <select name="kanalKomunikasi" id="formClient-kanalKomunikasi" required title="Bagian ini wajib diisi" class="form-control" style="width:100%">
-                          <option value="-">Pilih Kanal Komunikasi</option>
+                          <option value="" >Pilih Kanal Komunikasi</option>
                           <?php foreach ($rencanamedia as $row): ?>
                             <option value="<?php echo $row->id ?>"><?php echo $row->nama ?></option>
                           <?php endforeach ?>
