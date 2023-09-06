@@ -112,16 +112,20 @@ class Penilaian extends MY_Controller {
         );
         $no=1;
         foreach($cekpenilaian as $nilai){
+          $nilaiakhirStrakom = ($nilai->nilai_strakom/100) * 20;
+          $nilaiakhirEditorial = ($nilai->nilai_editorial/100) * 20;
+          $nilaiakhirMitigasi = ($nilai->nilai_mitigasi/100) * 30;
+          $nilaiakhirRealisasi = ($nilai->nilai_realisasi/100) * 30;
           array_push(
             $penilaian,
             array($no,
             $nilai->opd_upd_name,
             $nilai->nama_program,
-            $nilai->nilai_strakom,
-            $nilai->nilai_editorial,
-            $nilai->nilai_mitigasi,
-            $nilai->nilai_realisasi,
-            $nilai->nilai_strakom+$nilai->nilai_editorial+$nilai->nilai_mitigasi+$nilai->nilai_realisasi,
+            $nilaiakhirStrakom,
+            $nilaiakhirEditorial,
+            $nilaiakhirMitigasi,
+            $nilaiakhirRealisasi,
+            $nilaiakhirStrakom+$nilaiakhirEditorial+$nilaiakhirMitigasi+$nilaiakhirRealisasi,
             $nilai->catatan)
           );
           $no++;

@@ -574,7 +574,7 @@ $nilaiRealisasi =0;
           <div class="modal-content">
 
             <?php if($penilaian==0){ ?>
-            <?php echo form_open_multipart('Penilaian/addNilai', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+            <?php echo form_open_multipart('Penilaian/addNilai', [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateNilaiStrakom()' ]); ?>
             <div class="modal-header">
               <?php if ($roles->role->role_id==2){?>
               <h4 class="modal-title">Nilai Strategi Komunikasi Unggulan</h4>
@@ -595,12 +595,15 @@ $nilaiRealisasi =0;
                  <input type="hidden" name="komponen" value="1">
                 <div class="form-group col-sm-4">
                   <?php if ($roles->role->role_id==2){?>
-                    <label for="formClient-Name">Beri Nilai (*maks 20)</label>
+                    <label for="formClient-Name">Beri Nilai (0-100)</label>
                 <?php } else if ($roles->role->role_id==4){?>
-                    <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
+                    <label for="formClient-Name">Rekomendasi Nilai (0-100)</label>
                 <?php } ?>
 
-                  <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $nilaiStrakom; ?>"></input>
+                <?php
+                $strakomNilai = ($nilaiStrakom/20) * 100;
+                ?>
+                  <input type="text" class="form-control" name="nilai" id="formClient-NilaiStrakom" value="<?php echo $strakomNilai; ?>"></input>
                 </div>
 
                     <div class="form-group">
@@ -624,7 +627,7 @@ $nilaiRealisasi =0;
            <?php echo form_close(); ?>
 
          <?php } else {?>
-           <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+           <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateUpdateNilaiStrakom()' ]); ?>
            <div class="modal-header">
              <?php if ($roles->role->role_id==2){?>
              <h4 class="modal-title">Nilai Strategi Komunikasi Unggulan</h4>
@@ -645,17 +648,17 @@ $nilaiRealisasi =0;
                <!-- Default card -->
                <div class="form-group col-sm-4">
                  <?php if ($roles->role->role_id==2){?>
-                   <label for="formClient-Name">Beri Nilai (*maks 20)</label> <br>
+                   <label for="formClient-Name">Beri Nilai (0-100)</label> <br>
                      <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_strakom; ?></label>
                      <?php if(empty($administrator_id)){ ?>
-                       <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
+                       <input type="text" class="form-control" name="nilai" id="nilaiUpdateStrakom" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
 
                      <?php } else {?>
-                     <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $nilaiStrakom; ?>"></input>
+                     <input type="text" class="form-control" name="nilai" id="nilaiUpdateStrakom" value="<?php echo $nilaiStrakom; ?>"></input>
                    <?php } ?>
                <?php } else if ($roles->role->role_id==4){?>
-                   <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
-                   <input type="text" class="form-control" name="nilai" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
+                   <label for="formClient-Name">Rekomendasi Nilai (0-100)</label>
+                   <input type="text" class="form-control" name="nilai" id="nilaiUpdateStrakom" value="<?php echo $penilaianData[0]->nilai_strakom; ?>"></input>
 
                <?php } ?>
 
@@ -698,7 +701,7 @@ $nilaiRealisasi =0;
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <?php if($penilaian==0){ ?>
-          <?php echo form_open_multipart('Penilaian/addNilai', [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+          <?php echo form_open_multipart('Penilaian/addNilai', [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateNilaiEditorial()' ]); ?>
           <div class="modal-header">
             <?php if ($roles->role->role_id==2){?>
             <h4 class="modal-title">Nilai Editorial Plan</h4>
@@ -719,12 +722,15 @@ $nilaiRealisasi =0;
                <input type="hidden" name="komponen" value="2">
               <div class="form-group col-sm-4">
                 <?php if ($roles->role->role_id==2){?>
-                  <label for="formClient-Name">Beri Nilai (*maks 20)</label>
+                  <label for="formClient-Name">Beri Nilai (0-100)</label>
               <?php } else if ($roles->role->role_id==4){?>
-                  <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
+                  <label for="formClient-Name">Rekomendasi Nilai (0-100)</label>
               <?php } ?>
 
-                <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial; ?>"></input>
+              <?php
+              $editorialSkor = ($nilaiEditorial/20) * 100;
+              ?>
+                <input type="text" class="form-control" name="nilaiEditorial" id="nilaiEditorial" value="<?php echo $editorialSkor; ?>"></input>
               </div>
 
                   <div class="form-group">
@@ -755,7 +761,7 @@ $nilaiRealisasi =0;
          <?php echo form_close(); ?>
 
        <?php } else {?>
-         <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+         <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateUpdateEditorial()' ]); ?>
          <div class="modal-header">
            <?php if ($roles->role->role_id==2){?>
            <h4 class="modal-title">Nilai Editorial Plan</h4>
@@ -775,21 +781,34 @@ $nilaiRealisasi =0;
                 <input type="hidden" name="komponen" value="2">
              <!-- Default card -->
              <?php if ($roles->role->role_id==2){?>
-               <label for="formClient-Name">Beri Nilai (*maks 20)</label> <br>
+               <label for="formClient-Name">Beri Nilai (0-100)</label> <br>
 
                  <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_editorial; ?></label>
-                 <?php if(!empty($administrator_id)){ ?>
-                 <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial; ?>"></input>
+                 <?php if(!empty($administrator_id)){
+                  $editorialSkor =0;
+                   if($nilaiEditorial > 20){
+                     $editorialSkor = 100;
+                   } else {
+                    $editorialSkor = ($nilaiEditorial/20) * 100;
+                  }
+                  ?>
+                 <input type="text" class="form-control" name="nilaiEditorial" id="nilaiUpdateEditorial" value="<?php echo $editorialSkor; ?>"></input>
                <?php } else { ?>
-                 <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
+                 <input type="text" class="form-control" name="nilaiEditorial" id="nilaiUpdateEditorial" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
 
                <?php } ?>
            <?php } else if ($roles->role->role_id==4){?>
-               <label for="formClient-Name">Rekomendasi Nilai (*maks 20)</label>
+               <label for="formClient-Name">Rekomendasi Nilai (0-100)</label>
                <?php if($penilaianData[0]->nilai_editorial > 0){ ?>
-               <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
-             <?php } else { ?>
-               <input type="text" class="form-control" name="nilaiEditorial" id="formClient-Nilai" value="<?php echo $nilaiEditorial ?>"></input>
+               <input type="text" class="form-control" name="nilaiEditorial" id="nilaiUpdateEditorial" value="<?php echo $penilaianData[0]->nilai_editorial; ?>"></input>
+             <?php } else {
+               if($nilaiEditorial > 20){
+                 $editorialSkor = 100;
+               } else {
+                $editorialSkor = ($nilaiEditorial/20) * 100;
+              }
+             ?>
+               <input type="text" class="form-control" name="nilaiEditorial" id="nilaiUpdateEditorial" value="<?php echo $editorialSkor ?>"></input>
 
              <?php } ?>
            <?php } ?>
@@ -854,9 +873,9 @@ $nilaiRealisasi =0;
              <input type="hidden" name="komponen" value="3">
             <div class="form-group col-sm-4">
               <?php if ($roles->role->role_id==2){?>
-                <label for="formClient-Name">Beri Nilai (*maks 30)</label>
+                <label for="formClient-Name">Beri Nilai (0-100)</label>
             <?php } else if ($roles->role->role_id==4){?>
-                <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
+                <label for="formClient-Name">Rekomendasi Nilai (0-100)</label>
             <?php } ?>
 
               <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo round($nilaiMitigasi,2); ?>"></input>
@@ -890,7 +909,7 @@ $nilaiRealisasi =0;
        <?php echo form_close(); ?>
 
      <?php } else {?>
-       <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+       <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateUpdateMitigasi()' ]); ?>
        <div class="modal-header">
          <?php if ($roles->role->role_id==2){?>
          <h4 class="modal-title">Nilai Uraian Mitigasi</h4>
@@ -910,16 +929,33 @@ $nilaiRealisasi =0;
               <input type="hidden" name="komponen" value="3">
            <!-- Default card -->
            <?php if ($roles->role->role_id==2){?>
-             <label for="formClient-Name">Beri Nilai (*maks 30)</label> <br>
+             <label for="formClient-Name">Beri Nilai (0-100)</label> <br>
                <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_mitigasi; ?></label>
-               <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $nilaiMitigasi; ?>"></input>
+               <?php
+                $mitigasiNilai = 0;
+               if($nilaiMitigasi > 30){
+                  $mitigasiNilai = 100;
+               } else {
+                  $mitigasiNilai = ($nilaiMitigasi/30) * 100;
+               }
+
+               ?>
+               <input type="text" class="form-control" name="nilaiMitigasi" id="nilaiUpdateMitigasi" value="<?php echo $mitigasiNilai; ?>"></input>
 
          <?php } else if ($roles->role->role_id==4){?>
-             <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
+             <label for="formClient-Name">Rekomendasi Nilai (0-100)</label>
                 <?php if($penilaianData[0]->nilai_mitigasi > 0){ ?>
-             <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_mitigasi; ?>"></input>
-           <?php } else { ?>
-             <input type="text" class="form-control" name="nilaiMitigasi" id="formClient-Nilai" value="<?php echo $nilaiMitigasi; ?>"></input>
+             <input type="text" class="form-control" name="nilaiMitigasi" id="nilaiUpdateMitigasi" value="<?php echo $penilaianData[0]->nilai_mitigasi; ?>"></input>
+           <?php } else {
+             $mitigasiNilai = 0;
+            if($nilaiMitigasi > 30){
+               $mitigasiNilai = 100;
+            } else {
+               $mitigasiNilai = ($nilaiMitigasi/30) * 100;
+            }
+
+            ?>
+             <input type="text" class="form-control" name="nilaiMitigasi" id="nilaiUpdateMitigasi" value="<?php echo $mitigasiNilai; ?>"></input>
 
           <?php } ?>
          <?php } ?>
@@ -1027,7 +1063,7 @@ $nilaiRealisasi =0;
        <?php echo form_close(); ?>
 
      <?php } else {?>
-       <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
+       <?php echo form_open_multipart('Penilaian/updateNilai/'.$penilaianData[0]->id, [ 'class' => 'form-validate', 'autocomplete' => 'off', 'onsubmit' => 'return validateUpdateRealisasi()' ]); ?>
        <div class="modal-header">
          <?php if ($roles->role->role_id==2){?>
          <h4 class="modal-title">Nilai Realisasi</h4>
@@ -1047,21 +1083,35 @@ $nilaiRealisasi =0;
               <input type="hidden" name="komponen" value="4">
            <!-- Default card -->
            <?php if ($roles->role->role_id==2){?>
-             <label for="formClient-Name">Beri Nilai (*maks 30)</label> <br>
+             <label for="formClient-Name">Beri Nilai (0-100)</label> <br>
 
                <label for="formClient-Name">Rekomendasi Nilai : <?php echo $penilaianData[0]->nilai_realisasi; ?></label>
                <?php if($penilaianData[0]->nilai_realisasi > 0){ ?>
-               <input type="text" class="form-control" name="nilaiRealisasi" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_realisasi ?>"></input>
-             <?php } else { ?>
-               <input type="text" class="form-control" name="nilaiRealisasi" id="formClient-Nilai" value="<?php echo $nilaiRealisasi ?>"></input>
+               <input type="text" class="form-control" name="nilaiRealisasi" id="nilaiUpdateRealisasi" value="<?php echo $penilaianData[0]->nilai_realisasi ?>"></input>
+             <?php } else {
+               $realisasiNilai = 0;
+              if($nilaiRealisasi > 30){
+                 $realisasiNilai = 100;
+              } else {
+                 $realisasiNilai = ($nilaiRealisasi/30) * 100;
+              }
+            ?>
+               <input type="text" class="form-control" name="nilaiRealisasi" id="nilaiUpdateRealisasi" value="<?php echo $realisasiNilai ?>"></input>
 
              <?php } ?>
          <?php } else if ($roles->role->role_id==4){?>
-             <label for="formClient-Name">Rekomendasi Nilai (*maks 30)</label>
+             <label for="formClient-Name">Rekomendasi Nilai (0-100)</label>
              <?php if($penilaianData[0]->nilai_realisasi > 0){ ?>
-             <input type="text" class="form-control" name="nilaiRealisasi" id="formClient-Nilai" value="<?php echo $penilaianData[0]->nilai_realisasi ?>"></input>
-           <?php } else { ?>
-             <input type="text" class="form-control" name="nilaiRealisasi" id="formClient-Nilai" value="<?php echo $nilaiRealisasi ?>"></input>
+             <input type="text" class="form-control" name="nilaiRealisasi" id="nilaiUpdateRealisasi" value="<?php echo $penilaianData[0]->nilai_realisasi ?>"></input>
+           <?php } else {
+             $realisasiNilai = 0;
+            if($nilaiRealisasi > 30){
+               $realisasiNilai = 100;
+            } else {
+               $realisasiNilai = ($nilaiRealisasi/30) * 100;
+            }
+           ?>
+             <input type="text" class="form-control" name="nilaiRealisasi" id="nilaiUpdateRealisasi" value="<?php echo $realisasiNilai ?>"></input>
 
            <?php } ?>
          <?php } ?>
@@ -1094,6 +1144,67 @@ $nilaiRealisasi =0;
 
 <?php include viewPath('includes/footer'); ?>
 
+<script type="text/javascript">
+  function validateNilaiStrakom(){
+    var a = document.getElementById('formClient-NilaiStrakom').value;
+    if(a < 0){
+      alert("Nilai Tidak Boleh kurang dari 0");
+      return false;
+    }
+    else if (a > 100) {
+      alert("Nilai Tidak Boleh melebihi 100");
+      return false;
+    }
+  }
+
+  function validateUpdateNilaiStrakom(){
+    var a = document.getElementById('nilaiUpdateStrakom').value;
+    if(a < 0){
+      alert("Nilai Tidak Boleh kurang dari 0");
+      return false;
+    }
+    else if (a > 100) {
+      alert("Nilai Tidak Boleh melebihi 100");
+      return false;
+    }
+  }
+
+  function validateUpdateEditorial(){
+    var a = document.getElementById('nilaiUpdateEditorial').value;
+    if(a < 0){
+      alert("Nilai Tidak Boleh kurang dari 0");
+      return false;
+    }
+    else if (a > 100) {
+      alert("Nilai Tidak Boleh melebihi 100");
+      return false;
+    }
+  }
+
+  function validateUpdateMitigasi(){
+    var a = document.getElementById('nilaiUpdateMitigasi').value;
+    if(a < 0){
+      alert("Nilai Tidak Boleh kurang dari 0");
+      return false;
+    }
+    else if (a > 100) {
+      alert("Nilai Tidak Boleh melebihi 100");
+      return false;
+    }
+  }
+
+  function validateUpdateRealisasi(){
+    var a = document.getElementById('nilaiUpdateRealisasi').value;
+    if(a < 0){
+      alert("Nilai Tidak Boleh kurang dari 0");
+      return false;
+    }
+    else if (a > 100) {
+      alert("Nilai Tidak Boleh melebihi 100");
+      return false;
+    }
+  }
+</script>
 <script>
 	$('#dataTable1').DataTable({
     "order": [],

@@ -113,9 +113,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
             <div class="form-group">
               <label for="formClient-Name">Data Pendukung Kegiatan<label class="text-danger">*</label></label>
-                <textarea type="text" class="form-control" name="dataPendukung" id="formClient-dataPendukung" required title="Bagian ini wajib diisi" placeholder="Link Data pendukung kegiatan (cth: standby statement, press release, talking point, FAQ, Data Teknis, Dll)" rows="3"></textarea>
+                <textarea type="text" class="form-control" name="dataPendukung" id="formClient-dataPendukung" title="Bagian ini wajib diisi" placeholder="Link Data pendukung kegiatan (cth: standby statement, press release, talking point, FAQ, Data Teknis, Dll)" rows="3"></textarea>
               <!-- <div class="custom-file" style="margin-top:3%"> -->
-                <input type="file" class="form-control" name="filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
+                <input type="file" class="form-control" name="filePendukung"  id="formClient-filePendukung" style="margin-top:2%" accept="application/msword,application/msexcel,application/pdf,.ppt,.pptx"/>
                 <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
               <!-- </div> -->
             </div>
@@ -189,8 +189,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <script type="text/javascript">
   function validateForm() {
-    var a = document.getElementById('dataPendukung').value;
-    var b = document.getElementById('filePendukung').value;
+    var a = document.getElementById('formClient-dataPendukung').value;
+    var b = document.getElementById('formClient-filePendukung').value;
     if ((a == null || a == "") && (b == null || b == "")) {
       alert("Data Pendukung Wajib Diisi");
       return false;
