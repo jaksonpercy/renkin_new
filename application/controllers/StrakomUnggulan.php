@@ -44,7 +44,6 @@ class StrakomUnggulan extends MY_Controller {
     } else if ($this->page_data['roles']->role->role_id == 2) {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
     } else  {
-
       $this->page_data['strakom'] = $this->Strakom_model->getListDataByFilter($tahun,$triwulan,$userId);
     }
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();

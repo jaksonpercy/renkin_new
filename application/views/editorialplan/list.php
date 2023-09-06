@@ -33,7 +33,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             <div class="card">
 							<div class="card-header">
 
-                <?php echo form_open_multipart('EditorialPlan/editorialplan', [ 'class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
+                <?php echo form_open_multipart('EditorialPlan/editorialplan', ['class' => 'form-validate', 'autocomplete' => 'off','method'=> 'GET' ]); ?>
                 <div class="row">
                   <div class="col-2">
                     <div class="card-body">
@@ -212,7 +212,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       </td>
 											<section class="content">
-	                      <?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validates', 'autocomplete' => 'off' ]); ?>
+	                      <?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validate-edit', 'autocomplete' => 'off' ]); ?>
 
 	                      <div class="container-fluid">
 	                        <div class="row">
@@ -301,7 +301,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 	                                <div class="form-group">
 	                                  <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
-	                                  <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-TanggalEdit" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" autofocus value="<?php echo $row->tanggal_rencana;?>" />
+	                                  <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-TanggalEdit" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" value="<?php echo $row->tanggal_rencana;?>" />
 	                                </div>
 
 	                                <div class="form-group">
@@ -484,7 +484,6 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <!-- /.content -->
 
     <section class="content">
-      <?php echo form_open_multipart('EditorialPlan/save', [ 'class' => 'form-validates', 'autocomplete' => 'off' ]); ?>
 
       <div class="container-fluid">
         <div class="row">
@@ -499,6 +498,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
             </button>
           </div>
           <div class="modal-body">
+						<?php echo form_open_multipart('EditorialPlan/save', [ 'class' => 'form-validates', 'autocomplete' => 'off' ]); ?>
 
 
               <div class="row">
@@ -598,12 +598,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   </div>
                 </div>
               </div>
+							<div class="modal-footer text-right">
 
+								<button type="submit" class="btn btn-primary">Simpan</button>
+							</div>
+							<?php echo form_close(); ?>
           </div>
-          <div class="modal-footer text-right">
 
-            <button type="submit" class="btn btn-primary">Simpan</button>
-          </div>
         </div>
         <!-- /.modal-content -->
       </div>
@@ -615,14 +616,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         </div>
         <!-- /.row -->
       </div>
-      <?php echo form_close(); ?>
       <!-- /.container-fluid -->
     </section>
     <script>
     $(document).ready(function() {
-      $('.form-validates').validate();
-      $('.form-validate').validate();
 
+			$('.form-validates').validate();
         // Initialize Select2 Elements
       $('.select2').select2()
 

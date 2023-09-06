@@ -204,6 +204,8 @@ class MY_Model extends CI_Model {
 		if (!empty($triwulan)) {
 			$filter .= " AND tbl_periode.periode_aktif = '".$triwulan."' ";
 		}
+
+		$filter .= " ORDER BY tbl_mitigasi.created_date DESC";
 		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from tbl_mitigasi join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id join tbl_periode on tbl_mitigasi.periode_id = tbl_periode.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id where tbl_mitigasi.user_id = '".$id."'".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
@@ -211,7 +213,7 @@ class MY_Model extends CI_Model {
 
 	public function getDataJoinThreeTable()
 	{
-		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id")->result()	;
+		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id ORDER BY tbl_mitigasi.created_date DESC")->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}
@@ -230,6 +232,10 @@ class MY_Model extends CI_Model {
 		if (!empty($userId)) {
 			$filter .= " AND tbl_mitigasi.user_id = '".$userId."' ";
 		}
+
+		$filter .= " AND tbl_mitigasi.status > 0";
+
+		$filter .= " ORDER BY tbl_mitigasi.created_date DESC";
 
 		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id join tbl_periode on tbl_mitigasi.periode_id = tbl_periode.id where tbl_mitigasi.opd_id in ".$id."".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
@@ -272,6 +278,8 @@ class MY_Model extends CI_Model {
 		if (!empty($userId)) {
 			$filter .= " AND user_id = '".$userId."' ";
 		}
+
+		$filter .= " ORDER BY tbl_strakom_unggulan.created_date DESC";
 
 		$query = $this->db->query("SELECT tbl_strakom_unggulan.id ,tbl_strakom_unggulan.kategori_program, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.ksd_id, tbl_strakom_unggulan.jenis_kegiatan, tbl_strakom_unggulan.deskripsi, tbl_strakom_unggulan.analisis_situasi, tbl_strakom_unggulan.identifikasi_masalah, tbl_strakom_unggulan.narasi_utama, tbl_strakom_unggulan.target_pro, tbl_strakom_unggulan.target_kontra, tbl_strakom_unggulan.kanal_publikasi, tbl_strakom_unggulan.kanal_publikasi_lainnya, tbl_strakom_unggulan.user_id, tbl_strakom_unggulan.periode_id, tbl_strakom_unggulan.opd_id, tbl_strakom_unggulan.status, tbl_strakom_unggulan.alasan,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id) EditorialCount, (select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id) MitigasiCount,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 3) EditorialCountRejected,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 0) EditorialCountBR,(select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 3) MitigasiCountRejected,(select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 0) MitigasiCountBR FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = 1 ".$filter)->result()	;
 		return $query;
@@ -378,6 +386,10 @@ return $query;
 		if (!empty($user_id)) {
 			$filter .= " AND tbl_strakom_unggulan.user_id = '".$user_id."' ";
 		}
+
+		$filter .= " AND tbl_strakom_unggulan.status > 0";
+
+		$filter .= " ORDER BY tbl_strakom_unggulan.created_date DESC";
 
 		$query = $this->db->query("SELECT *, tbl_strakom_unggulan. id as strakom_id,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 3) EditorialCountRejected,(select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 3) MitigasiCountRejected FROM $this->table join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE opd_id IN ".$id."".$filter)->result()	;
 		return $query;
