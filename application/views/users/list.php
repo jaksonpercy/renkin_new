@@ -30,9 +30,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <div class="card-header d-flex p-0">
                 <h3 class="card-title p-3"><?php echo lang('users') ?></h3>
                 <div class="ml-auto p-2">
-                    <!-- <?php if (hasPermissions('users_add')): ?>
+                    <?php if (hasPermissions('users_add')): ?>
                       <a href="<?php echo url('users/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> <?php echo lang('new_user') ?></a>
-                    <?php endif ?> -->
+                    <?php endif ?>
                 </div>
               </div>
 

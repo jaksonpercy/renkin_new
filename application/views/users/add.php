@@ -37,15 +37,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Name"><?php echo lang('user_name') ?></label>
+            <label for="formClient-Name">Nama*</label>
             <input type="text" class="form-control" name="name" id="formClient-Name" required placeholder="<?php echo lang('user_enter_name') ?>" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
           </div>
 
           <div class="form-group">
-            <label for="formClient-Contact"><?php echo lang('user_contact') ?></label>
+            <label for="formClient-Contact">No Telepon</label>
             <input type="text" class="form-control" name="phone" id="formClient-Contact" placeholder="<?php echo lang('user_enter_contact') ?>" />
           </div>
 
+          <div class="form-group">
+            <label for="formClient-Status">Jabatan*</label>
+            <select name="jabatan" id="formClient-Jabatan" required class="form-control">
+              <option value="">Pilih Jabatan</option>
+              <option value="skpd">SKPD</option>
+              <option value="asisten">Asisten</option>
+            </select>
+          </div>
         </div>
         <!-- /.card-body -->
 
@@ -60,22 +68,22 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Email"><?php echo lang('user_email') ?></label>
+            <label for="formClient-Email"><?php echo lang('user_email') ?>*</label>
             <input type="email" class="form-control" name="email" data-rule-remote="<?php echo url('users/check') ?>" data-msg-remote="<?php echo lang('user_email_exists') ?>" id="formClient-Email" required placeholder="Enter email">
           </div>
 
           <div class="form-group">
-            <label for="formClient-Username"><?php echo lang('user_username') ?></label>
+            <label for="formClient-Username"><?php echo lang('user_username') ?>*</label>
             <input type="text" class="form-control" data-rule-remote="<?php echo url('users/check') ?>" data-msg-remote="<?php echo lang('user_username_take') ?>" name="username" id="formClient-Username" required placeholder="<?php echo lang('user_enter_username') ?>" />
           </div>
 
           <div class="form-group">
-            <label for="formClient-Password"><?php echo lang('user_password') ?></label>
+            <label for="formClient-Password"><?php echo lang('user_password') ?>*</label>
             <input type="password" class="form-control" name="password" minlength="6" id="formClient-Password" required placeholder="<?php echo lang('user_password') ?>">
           </div>
 
           <div class="form-group">
-            <label for="formClient-ConfirmPassword"><?php echo lang('user_password_confirm') ?></label>
+            <label for="formClient-ConfirmPassword"><?php echo lang('user_password_confirm') ?>*</label>
             <input type="password" class="form-control" name="confirm_password" equalTo="#formClient-Password" id="formClient-ConfirmPassword" required placeholder="<?php echo lang('user_password_confirm') ?>">
           </div>
 
@@ -84,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       </div>
       <!-- /.card -->
-      
+
     </div>
     <div class="col-sm-6">
       <!-- Default card -->
@@ -95,17 +103,26 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="card-body">
 
           <div class="form-group">
-            <label for="formClient-Address"><?php echo lang('user_address') ?></label>
+            <label for="formClient-Address">Alamat</label>
             <textarea type="text" class="form-control" name="address" id="formClient-Address" placeholder="<?php echo lang('user_enter_address') ?>" rows="3"></textarea>
           </div>
 
           <div class="form-group">
-            <label for="formClient-Role"><?php echo lang('user_role') ?></label>
-            <select name="role" id="formClient-Role" class="form-control select2" required>
-              <option value=""><?php echo lang('user_select_role') ?></option>
+            <label for="formClient-Role">OPD*</label>
+            <select name="opd" id="formClient-OPD" class="form-control select2" required>
+              <option value="">Pilih OPD</option>
+              <?php foreach ($this->OPD_model->get() as $row): ?>
+                <option value="<?php echo $row->id ?>"><?php echo $row->opd_upd_name ?></option>
+              <?php endforeach ?>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="formClient-Role"><?php echo lang('user_role') ?>*</label>
+            <select name="role" id="formClient-Role" class="form-control select3" required>
+              <option value="">Pilih Role</option>
               <?php foreach ($this->roles_model->get() as $row): ?>
-                <?php $sel = !empty(get('role')) && get('role')==$row->id ? 'selected' : '' ?>
-                <option value="<?php echo $row->id ?>" <?php echo $sel ?>><?php echo $row->title ?></option>
+                <option value="<?php echo $row->role_id ?>"><?php echo $row->role_name ?></option>
               <?php endforeach ?>
             </select>
           </div>
@@ -123,7 +140,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       </div>
       <!-- /.card -->
-    
+
       <!-- Default card -->
       <div class="card">
         <div class="card-header">
@@ -172,7 +189,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     $('.form-validate').validate();
 
       //Initialize Select2 Elements
-    $('.select2').select2()
+    $('.select2').select2();
+    $('.select3').select2()
 
   })
 
@@ -205,4 +223,3 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 </script>
 
 <?php include viewPath('includes/footer'); ?>
-

@@ -154,5 +154,6 @@ $autoload['model'] = array(
 	'Pemberitahuan_model',
 	'Notifikasi_model',
 	'Penilaian_model',
-	'HistoryStrakom_model'
+	'HistoryStrakom_model',
+	'OPD_model'
 );

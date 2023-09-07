@@ -27,15 +27,20 @@ class Users extends MY_Controller {
 	{
 		ifPermissions('users_add');
 		postAllowed();
-
+		$t=time();
 		$id = $this->users_model->create([
+			'id' => uniqid(),
 			'role' => post('role'),
 			'name' => post('name'),
+			'jabatan' => post('jabatan'),
 			'username' => post('username'),
 			'email' => post('email'),
 			'phone' => post('phone'),
 			'address' => post('address'),
 			'status' => (int) post('status'),
+			'opd_upd' => (int) post('opd'),
+			'created_by' => logged('id'),
+			'created_date' => date("Y-m-d h:i:s",$t),
 			'password' => hash( "sha256", post('password') ),
 		]);
 
