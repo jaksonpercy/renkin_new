@@ -297,6 +297,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
                         <th style="vertical-align:middle;text-align:center;">Khalayak</th>
                         <th style="vertical-align:middle;text-align:center;">Kanal Komunikasi</th>
+                        <th style="vertical-align:middle;text-align:center;">Status</th>
                         <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                       </tr>
                       </thead>
@@ -332,10 +333,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             ?>
                           </td>
                           <td>
+                          <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        }else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
+                        } else {
+                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                        } ?>
+                          </td>
+                          <td>
                             <?php
 														if(count($periodeCount)>0){
 														if ($periode->status_input_data == 1) {
-															if($strakom->status == 0){
+															if($row->status == 0 || $row->status == 3){
                               // code...
                             ?>
                             <button class="btn btn-sm btn-primary" title="Edit" data-toggle="modal" data-target="#modal-lg-edit<?php echo $row->id ?>"><i class="fas fa-edit"></i></button>
@@ -578,6 +592,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                          <th style="vertical-align:middle;text-align:center;">Status</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                         </tr>
                         </thead>
@@ -613,6 +628,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             <a href="<?php echo url($row->data_pendukung_text); ?>" target="_blank">Lihat Dokumen</a>
                           <?php } ?>
                             </td> -->
+                          	<td>
+                            <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        }else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
+                        } else {
+                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                        } ?>
+                            </td>
                             <td>
                               <?php
 															if(count($periodeCount)>0){

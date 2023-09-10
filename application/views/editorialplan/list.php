@@ -212,35 +212,36 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                       </td>
 											<section class="content">
-	                      <?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validate-edit', 'autocomplete' => 'off' ]); ?>
 
-	                      <div class="container-fluid">
-	                        <div class="row">
-	                    <div class="modal fade" id="modal-lg-edit<?php echo $row->id ?>">
-	                    <div class="modal-dialog modal-xl">
-	                    <div class="modal-content">
-	                    <div class="modal-header">
-	                      <h4 class="modal-title">Edit Materi</h4>
-	                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	                        <span aria-hidden="true">&times;</span>
-	                      </button>
-	                    </div>
-	                    <div class="modal-body">
+	                          <div class="container-fluid">
+	                            <div class="row">
+																<?php echo form_open_multipart('EditorialPlan/updateData/'.$row->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
 
-
-	                        <div class="row">
-	                          <div class="col-sm-6">
-	                            <!-- Default card -->
-	                            <div class="card">
-	                              <input type="hidden" class="form-control" name="idUser" required value="<?php echo $row->user_id; ?>" />
-	                              <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $row->periode_id; ?>" />
-	                              <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->opd_id; ?>" />
-																<input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->id; ?>" />
+	                        <div class="modal fade" id="modal-lg-edit<?php echo $row->id ?>">
+	                        <div class="modal-dialog modal-xl">
+	                        <div class="modal-content">
+	                        <div class="modal-header">
+	                          <h4 class="modal-title">Edit Editorial Plan</h4>
+	                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	                            <span aria-hidden="true">&times;</span>
+	                          </button>
+	                        </div>
+	                        <div class="modal-body">
 
 
-	                              <div class="card-body">
+	                            <div class="row">
+	                              <div class="col-sm-6">
+	                                <!-- Default card -->
+	                                <div class="card">
+	                                  <input type="hidden" class="form-control" name="idUser" required value="<?php echo $row->user_id; ?>" />
+	                                  <input type="hidden" class="form-control" name="idPeriode" required value="<?php echo $row->periode_id; ?>" />
+	                                  <input type="hidden" class="form-control" name="idOPD" required value="<?php echo $row->opd_id; ?>" />
+																		 <input type="hidden" class="form-control" name="namaProgram" required value="<?php echo $row->strakom_id; ?>" />
 
-	                                <div class="form-group">
+
+	                                  <div class="card-body">
+
+                                    <div class="form-group">
 	                                  <label for="formClient-Contact">Nama Strategi Komunikasi Unggulan<label class="text-danger">*</label></label>
 	                                  <select name="namaProgram" id="formClient-NamaProgram" class="form-control select2" required title="Bagian ini wajib diisi">
 	                                    <?php foreach ($strakom as $rows):
@@ -275,31 +276,31 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	                                  </select>
 	                                </div>
 
-																	<div class="form-group">
-																		<label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
-																		<select name="produkKomunikasi" id="formClient-produkKomunikasiEdit" class="form-control select2" style="width:100%" required title="Bagian ini wajib diisi">
-																			<?php foreach ($produkkomunikasi as $rows):
-																				if ($row->produk_komunikasi == $rows->id) {
-																			?>
-																				<option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
-																			<?php } else { ?>
-																				<option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
+                                  <div class="form-group">
+																				<label for="formClient-Contact">Produk Komunikasi<label class="text-danger">*</label></label>
+																				<select name="produkKomunikasi" required title="Bagian ini wajib diisi" id="produkKomunikasiEdit" class="form-control select2" required>
+																					<?php foreach ($produkkomunikasi as $rows):
+																						if ($row->produk_komunikasi == $rows->id) {
+																					?>
+																						<option value="<?php echo $rows->id ?>" selected><?php echo $rows->nama ?></option>
+																					<?php } else { ?>
+																						<option value="<?php echo $rows->id ?>"><?php echo $rows->nama ?></option>
 
-																			<?php }
-																			endforeach ?>
+																					<?php }
+																					endforeach ?>
 
-																		</select>
-																		<?php
-																		if($row->produk_komunikasi == 11){
-																		?>
-																		<input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
-																	<?php } else {?>
-																		<input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" required placeholder="Lainnya 1, Lainnya 2, Lainnya 3, ..." value="<?php echo $row->txtLainProdukKomunikasi ?>" autofocus />
+																				</select>
+																				<?php
+																				if($row->produk_komunikasi == 11){
+																				?>
+																				<input type="text" style="display:block;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" placeholder="Lainnya" value="<?php echo $row->txtLainProdukKomunikasi ?>" />
+																			<?php } else {?>
+																				<input type="text" style="display:none;margin-top:1%" class="form-control" name="txtLainnyaProdukKomunikasi" id="txtLainnyaProdukKomunikasiEdit" placeholder="Lainnya" value="<?php echo $row->txtLainProdukKomunikasi ?>" />
 
-																	<?php } ?>
-																	</div>
+																			<?php } ?>
+																			</div>
 
-	                                <div class="form-group">
+                                  <div class="form-group">
 	                                  <label for="formClient-Name">Tanggal Rencana Tayang<label class="text-danger">*</label></label>
 	                                  <input type="date" class="form-control" name="tanggalRencanaTayang" id="formClient-TanggalEdit" required title="Bagian ini wajib diisi" placeholder="Tanggal Rencana Tayang" value="<?php echo $row->tanggal_rencana;?>" />
 	                                </div>
@@ -308,27 +309,24 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	                                  <label for="formClient-Address">Pesan Utama<label class="text-danger">*</label></label>
 	                                  <textarea type="text" class="form-control" name="pesanUtama" id="formClient-PesanEdit" required title="Bagian ini wajib diisi" placeholder="Deskripsi Kegiatan" rows="5"><?php echo $row->pesan_utama; ?></textarea>
 	                                </div>
+	                              </div>
+	                                  <!-- /.card-body -->
 
+	                                </div>
+	                                <!-- /.card -->
 
+	                                <!-- Default card -->
+
+	                                <!-- /.card -->
 
 	                              </div>
-	                              <!-- /.card-body -->
-
-	                            </div>
-	                            <!-- /.card -->
-
-	                            <!-- Default card -->
-
-	                            <!-- /.card -->
-
-	                          </div>
-	                          <div class="col-sm-6">
-	                            <div class="card">
-	                              <div class="card-body">
+	                              <div class="col-sm-6">
+	                                <div class="card">
+	                                  <div class="card-body">
 
 
 
-	                                    <div class="form-group">
+                                    <div class="form-group">
 	                                      <label for="formClient-Address">Khalayak<label class="text-danger">*</label></label>
 	                                      <textarea type="text" class="form-control" name="khalayak" id="formClient-KhalayakEdit" required title="Bagian ini wajib diisi" placeholder="Khalayak" rows="3"><?php echo $row->khalayak; ?></textarea>
 	                                    </div>
@@ -360,28 +358,30 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	                                </div>
 
 
+
+	                                  </div>
+	                                  <!-- /.card-body -->
+
+	                                </div>
 	                              </div>
-	                              <!-- /.card-body -->
-
 	                            </div>
-	                          </div>
 	                        </div>
-	                    </div>
-	                    <div class="modal-footer text-right">
-	                      <button type="submit" class="btn btn-primary">Simpan</button>
-	                    </div>
-	                    </div>
-	                    <!-- /.modal-content -->
-	                    </div>
-	                    <!-- /.modal-dialog -->
-	                    </div>
+	                        <div class="modal-footer text-right">
+	                          <!-- <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button> -->
+	                          <button type="submit" class="btn btn-primary">Simpan</button>
+	                        </div>
+	                        </div>
+	                        <!-- /.modal-content -->
+	                        </div>
+	                        <!-- /.modal-dialog -->
+	                        </div>
 
-	                  </div>
-	                  <!-- /.row -->
-	                </div>
-	                  <?php echo form_close(); ?>
-	                <!-- /.container-fluid -->
-	                </section>
+													<?php echo form_close(); ?>
+	                      </div>
+	                      <!-- /.row -->
+	                    </div>
+	                    <!-- /.container-fluid -->
+	                    </section>
                     </tr>
 
 

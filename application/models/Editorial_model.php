@@ -36,7 +36,7 @@ class Editorial_model extends MY_Model {
 
 	public function getDataEditorialByStrakomIdAndStatus($userid,$status)
 	{
-		$query = $this->db->query("SELECT * FROM tbl_editorial_plan join tbl_strakom_unggulan on tbl_editorial_plan.strakom_id = tbl_strakom_unggulan.id WHERE tbl_editorial_plan.status = '".$status."' AND tbl_editorial_plan.strakom_id = '".$userid."'")->result()	;
+		$query = $this->db->query("SELECT * FROM tbl_editorial_plan join tbl_strakom_unggulan on tbl_editorial_plan.strakom_id = tbl_strakom_unggulan.id WHERE tbl_editorial_plan.status in ( '".$status."') AND tbl_editorial_plan.strakom_id = '".$userid."'")->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}

@@ -317,6 +317,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         <th style="vertical-align:middle;text-align:center;">Produk Komunikasi</th>
                         <th style="vertical-align:middle;text-align:center;">Khalayak</th>
                         <th style="vertical-align:middle;text-align:center;">Kanal Komunikasi</th>
+                        <th style="vertical-align:middle;text-align:center;">Status</th>
                         <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                       </tr>
                       </thead>
@@ -350,6 +351,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                                 }
                              endforeach;
                             ?>
+                          </td>
+                          <td>
+                          <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        }else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
+                        } else {
+                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                        } ?>
                           </td>
                           <td>
 
@@ -600,6 +614,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <th style="vertical-align:middle;text-align:center;">Stakeholder Kontra</th>
                           <th style="vertical-align:middle;text-align:center;">Juru Bicara</th>
                           <th style="vertical-align:middle;text-align:center;">PIC Kegiatan yang Dapat Dihubungi</th>
+                          <th style="vertical-align:middle;text-align:center;">Status</th>
                           <th style="width:10%;vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                         </tr>
                         </thead>
@@ -636,9 +651,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           <?php } ?>
                             </td> -->
                             <td>
+                          <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                        } else if ($row->status == 2) {
+                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        }else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
+                        } else {
+                           echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                        } ?>
+                          </td>
+                            <td>
                               <a href="<?php echo url('Mitigasi/view/'.$row->id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
 
                             </td>
+                            
                           </tr>
                           <?php
                           }
@@ -750,14 +779,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
                 <a href="<?php echo url('StrakomUnggulan/download/'.$strakom->id).'?date='.date("Ymis") ?>" target="_blank"><button type="button" class="btn btn-primary">Download Strategi Komunikasi Unggulan</button></a>
-                <?php if ($strakom->status == 0 || $strakom->status == 1){
+                <?php 
 									if($counteditorialbr > 0 || $countmitigasibr > 0){
 									if($countData >= 7){
-										if(($counteditorialplan) >= 15){
-											if(($countmitigasi ) >= 1){
+										if(($counteditorialplan) >= 15 || ($countmitigasi) >= 0){
+											
 								 	?>
                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
-              <?php }}}}} ?>
+              <?php }}} ?>
               </div>
               <div class="modal-footer justify-content-between">
 

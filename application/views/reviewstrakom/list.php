@@ -275,7 +275,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                           echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                           }
                         } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                            echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->EditorialCountRejected Editorial Plan & $row->MitigasiCountRejected Uraian Mitigasi ) </strong></p>";
+                           } else if($row->EditorialCountBR > 0 || $row->MitigasiCountBR > 0){
+                             echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                           } else {
+                           echo '<p class="text-primary"><strong>Disetujui</strong></p>';
+                           }
+                         
                         } else if ($row->status == 5 || $row->status == 6) {
                           echo '<p class="text-success"><strong>Telah Dinilai</strong></p>';
                         } else {
@@ -283,13 +290,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         } ?>
                       </td>
                       <td>
-                        <?php if($row->status == 0 || $row->status == 1){
+                        <?php 
                           if($row->EditorialCountBR > 0 || $row->MitigasiCountBR > 0){
                           if($count >=7){
                           if(($row->EditorialCount) >= 15){
                             if(($row->MitigasiCount ) > 0){ ?>
                           <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#modal-finalisasi<?php echo $row->strakom_id ?>"><i class="fa fa-paper-plane" title="Finalisasi"></i></button>
-                        <?php }}}}} ?>
+                        <?php }}}} ?>
                         <a href="<?php echo url('ReviewStrakom/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
                         <a href="<?php echo url('StrakomUnggulan/download/'.$row->strakom_id).'?date='.date("Ymis") ?>" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
