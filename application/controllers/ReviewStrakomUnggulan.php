@@ -37,11 +37,20 @@ class ReviewStrakomUnggulan extends MY_Controller {
     ])[0];
   }
   $this->page_data['userbyid'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    if(!empty($this->page_data['userbyid']->skpd_renkin)){
     $this->page_data['user'] = $this->users_model->getListUserByAsisten("(".$this->page_data['userbyid']->skpd_renkin.")");
+    } else {
+      $this->page_data['user'] = $this->users_model->getListUserByAsisten("(0)");
+    
+    }
     if ($this->page_data['roles']->role->role_id == 1) {
         $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
     } else if ($this->page_data['roles']->role->role_id == 2 || $this->page_data['roles']->role->role_id == 4) {
+        if(empty($this->page_data['userbyid']->skpd_renkin)){
+          $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(0)", $tahun, $triwulan, $userId);
+        } else {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")", $tahun, $triwulan, $userId);
+        }
     } else  {
       $this->page_data['strakom'] = $this->Strakom_model->get();
     }

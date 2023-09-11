@@ -190,7 +190,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
       //Initialize Select2 Elements
     $('.select2').select2();
-    $('.select3').select2()
+    $('.select3').select2();
 
   })
 

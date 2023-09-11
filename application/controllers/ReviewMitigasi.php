@@ -35,7 +35,11 @@ class ReviewMitigasi extends MY_Controller {
       'status_periode'=> 1
     ])[0];
   }
+  if(!empty($this->page_data['user']->skpd_renkin)){
   $this->page_data['userall'] = $this->users_model->getListUserByAsisten("(".$this->page_data['user']->skpd_renkin.")");
+  } else {
+    $this->page_data['userall'] = [];
+  }
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -45,7 +49,11 @@ class ReviewMitigasi extends MY_Controller {
     if ($this->page_data['roles']->role->role_id == 1) {
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id']);
     } else {
+      if(!empty($this->page_data['user']->skpd_renkin)){
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByOpd("(".$this->page_data['user']->skpd_renkin.")", $tahun, $triwulan,$userId);
+      } else {
+        $this->page_data['mitigasi'] = [];
+      }
     }
     $this->load->view('reviewmitigasiadministrator/list', $this->page_data);
   }
