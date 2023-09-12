@@ -193,6 +193,12 @@ class MY_Model extends CI_Model {
 		return count($query);
 	}
 
+	public function getDataByFilterRole($roleid)
+	{
+		$query = $this->db->query("SELECT * FROM $this->table WHERE role =  '".$roleid."' OR jabatan = 'asisten'")->result()	;
+		return $query;
+	}
+
 	public function getDataJoinThreeTableByUserId($id, $tahun = null, $triwulan = null)
 	{
 
@@ -400,6 +406,13 @@ return $query;
 		$query = $this->db->query("SELECT * FROM $this->table WHERE opd_upd IN ".$id."")->result()	;
 		return $query;
 	}
+
+	public function getListOPDBySkpd($id)
+	{
+		$query = $this->db->query("SELECT * FROM $this->table WHERE id IN ".$id."")->result()	;
+		return $query;
+	}
+
 	public function getCountStrakomByListOpd($id)
 	{
 		$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;

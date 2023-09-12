@@ -221,6 +221,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </li>
 <?php endif ?>
 
+<?php if (hasRoles('roles_list') == 3): ?>
+  <li class="nav-item">
+    <a href="<?php echo url('MappingSkpd') ?>" class="nav-link <?php echo ($page->menu=='mappingskpd')?'active':'' ?>">
+      <i class="nav-icon fas fa-user"></i>
+      <p>
+      Mapping OPD
+      </p>
+    </a>
+  </li>
+<?php endif ?>
+
 <!-- <?php if (hasRoles('permissions_list') == 3): ?>
   <li class="nav-item">
     <a href="<?php echo url('Permissions') ?>" class="nav-link <?php echo ($page->menu=='permissions')?'active':'' ?>">
