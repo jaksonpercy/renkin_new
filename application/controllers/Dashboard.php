@@ -29,7 +29,7 @@ class Dashboard extends MY_Controller {
 		$this->page_data['listopdcount'] = count($this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['countstrakombylistopd'] = count($this->Strakom_model->getCountStrakomByListOpd("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['listopd'] = $this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")");
-		$this->page_data['listrakom'] = $this->Strakom_model->getListStrakomByListOpd();
+		$this->page_data['listrakom'] = $this->Strakom_model->getListStrakomByListOpdNew("(".	$this->page_data['roles']->skpd_renkin.")");
 		} else {
 			$this->page_data['listopdcount'] = "0";
 		$this->page_data['countstrakombylistopd'] = "0";
