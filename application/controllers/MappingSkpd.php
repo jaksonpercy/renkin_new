@@ -65,7 +65,10 @@ class MappingSkpd extends MY_Controller {
 		$skpd = $this->page_data['User']->skpd_renkin;
 
 		$this->page_data['opd'] = $this->OPD_model->get();
-		$permissions = $this->OPD_model->getListOPDBySkpd("($skpd)");
+		$permissions = [];
+		if(!empty($skpd)){
+			$permissions = $this->OPD_model->getListOPDBySkpd("($skpd)");
+		}
 
 		$permissions = array_map(function($data)
 		{
