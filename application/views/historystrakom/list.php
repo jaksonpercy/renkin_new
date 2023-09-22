@@ -121,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               <?php if ($roles->role->role_id==1):?>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example3" class="table table-bordered table-hover table-striped">
+                <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
                     <th style="vertical-align:middle;text-align:center;">No</th>
@@ -185,7 +185,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
               </div>
             <?php else:?>
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover table-striped">
+                <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
                     <th style="vertical-align:middle;text-align:center;">No</th>

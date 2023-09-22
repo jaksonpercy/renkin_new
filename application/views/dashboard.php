@@ -76,11 +76,11 @@ vertical-align: center;
 
               <div class="info-box-content">
                 <span class="info-box-text">Periode Dipilih</span>
-                <span class="info-box-number"><?php 
+                <span class="info-box-number"><?php
                 if(empty($periodeCount[0])){
                   echo '-';
                 } else {
-                echo $periodeCount[0]->periode_aktif . " ".$periodeCount[0]->tahun; 
+                echo $periodeCount[0]->periode_aktif . " ".$periodeCount[0]->tahun;
                 }
                 ?></span>
               </div>
@@ -174,12 +174,15 @@ vertical-align: center;
                       <td><b><?php echo $row->nama_program; ?></b></td>
                       <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
                       <td><?php echo $row->created_date ?></td>
-                      <td><?php if ($row->status == 0) {
+                      <td>
+                        <?php if ($row->status == 0) {
                           echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
                           echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Dinilai</strong></p>';
                         } else {
                           echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
                         } ?></td>
@@ -212,12 +215,14 @@ vertical-align: center;
                       <td><b><?php echo $row->nama_program ?></b></td>
                       <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
                       <td><?php echo $row->created_date ?></td>
-                      <td>  <?php if ($row->status == 0) {
+                      <td>    <?php if ($row->status == 0) {
                           echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
                           echo '<p class="text-primary"><strong>Dikirim</strong></p>';
                         } else if ($row->status == 2) {
                           echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                        } else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Dinilai</strong></p>';
                         } else {
                           echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
                         } ?></td>

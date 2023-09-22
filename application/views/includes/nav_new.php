@@ -170,6 +170,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </li>
 <?php endif ?>
 
+<?php if (hasRoles('users_list') == 1 ): ?>
+<li class="nav-item">
+    <a href="" class="nav-link <?php echo ($page->menu=='')?'active':'' ?>">
+      <p>
+      Dashboard Krisis
+      </p>
+    </a>
+  </li>
+<?php endif ?>
   <li class="nav-item">
       <a href="<?php echo url('HistoryStrakom') ?>" class="nav-link <?php echo ($page->menu=='historystrakom')?'active':'' ?>">
         <p>
@@ -366,7 +375,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <li class="nav-item has-treeview <?php echo ($page->menu=='settings')?'menu-open':'' ?>">
   <a href="#" class="nav-link  <?php echo ($page->menu=='settings')?'active':'' ?>">
-  
+
     <p>
     Tutorial
       <i class="right fas fa-angle-left"></i>
