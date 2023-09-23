@@ -215,17 +215,17 @@ vertical-align: center;
                       <td><b><?php echo $row->nama_program ?></b></td>
                       <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
                       <td><?php echo $row->created_date ?></td>
-                      <td>    <?php if ($row->status == 0) {
-                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
-                        } else if ($row->status == 1) {
-                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
-                        } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
-                        } else if ($row->status == 5 || $row->status == 6) {
-                          echo '<p class="text-success"><strong>Dinilai</strong></p>';
-                        } else {
-                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
-                        } ?></td>
+                      <td>  <?php if ($row->status == 0) {
+                        echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                      } else if ($row->status == 1) {
+                        echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                      } else if ($row->status == 2) {
+                        echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                      } else if ($row->status == 5 || $row->status == 6) {
+                        echo '<p class="text-success"><strong>Dinilai</strong></p>';
+                      } else {
+                        echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
+                      } ?></td>
                       <td>
                         <?php if($row->status == 1){ ?>
                         <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
@@ -280,7 +280,7 @@ vertical-align: center;
             <div class="card">
               <div class="card-header">
                 <h3 class="card-title">
-                  Daftar OPD yang belum input
+                  Daftar OPD
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">

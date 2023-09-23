@@ -25,33 +25,33 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-4 col-sm-6 col-12">
+          <!-- <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-info"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Renkin.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Realisasi</span>
                 <span class="info-box-number"><?php echo $countrealisasi ?></span>
-              </div>
+              </div> -->
               <!-- /.info-box-content -->
-            </div>
+            <!-- </div> -->
             <!-- /.info-box -->
-          </div>
+          <!-- </div> -->
           <!-- /.col -->
-          <div class="col-md-4 col-sm-6 col-12">
+          <!-- <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-success"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Strakom-Disetujui.png'))?>" width="30px" /></span>
 
               <div class="info-box-content">
                 <span class="info-box-text">Jumlah Realisasi Disetujui</span>
                 <span class="info-box-number">0</span>
-              </div>
+              </div> -->
               <!-- /.info-box-content -->
-            </div>
+            <!-- </div> -->
             <!-- /.info-box -->
-          </div>
+          <!-- </div> -->
           <!-- /.col -->
-          <div class="col-md-4 col-sm-6 col-12">
+          <!-- <div class="col-md-4 col-sm-6 col-12">
             <div class="info-box">
               <span class="info-box-icon bg-danger"><img src="<?php echo str_replace("/index.php","", base_url('assets/img/icon/Jumlah-Strakom-Ditolak.png'))?>" width="30px" /></span>
 
@@ -59,10 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <span class="info-box-text">Jumlah Realisasi Ditolak</span>
                 <span class="info-box-number">0</span>
               </div>
-              <!-- /.info-box-content -->
+              /.info-box-content
             </div>
-            <!-- /.info-box -->
-          </div>
+            /.info-box
+          </div> -->
           <!-- /.col -->
 
           <!-- /.col -->
@@ -138,10 +138,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <tr>
                     <th style="vertical-align:middle;text-align:center;">No</th>
                     <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                    <th style="vertical-align:middle;text-align:center;">Nota Dinas</th>
                     <th style="vertical-align:middle;text-align:center;">No Nota Dinas / Surat</th>
                     <th style="vertical-align:middle;text-align:center;">Perihal Nota Dinas /Surat</th>
                     <th style="vertical-align:middle;text-align:center;">Tanggal Nota Dinas /Surat</th>
+                    <th style="vertical-align:middle;text-align:center;">Lampiran Nota Dinas</th>
                     <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                   </tr>
                   </thead>
@@ -181,11 +181,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     <thead>
                       <tr>
                         <th style="vertical-align:middle;text-align:center;">No</th>
+                        <th style="vertical-align:middle;text-align:center;">Nama SKPD</th>
                         <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
-                        <th style="vertical-align:middle;text-align:center;">Nota Dinas</th>
                         <th style="vertical-align:middle;text-align:center;">No Nota Dinas / Surat</th>
                         <th style="vertical-align:middle;text-align:center;">Perihal Nota Dinas /Surat</th>
                         <th style="vertical-align:middle;text-align:center;">Tanggal Nota Dinas /Surat</th>
+                        <th style="vertical-align:middle;text-align:center;">Lampiran Nota Dinas</th>
                         <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
                       </tr>
                     </thead>
@@ -196,6 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         $no++; ?>
                       <tr>
                         <td><?php echo $no ?></td>
+                        <td><?php echo $row->name ?></td>
                         <td><?php echo $row->nama_program ?></td>
                         <td><?php echo $row->no_nota_dinas ?></td>
                         <td><?php echo $row->perihal_nota ?></td>

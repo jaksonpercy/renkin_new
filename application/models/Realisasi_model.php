@@ -35,6 +35,50 @@ class Realisasi_model extends MY_Model {
 		return $query;
 	}
 
+	public function getListStrakomByRealisasiAndUserId($tahun = null, $triwulan = null, $userId = null)
+	{
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND tahun_periode = '".$tahun."' ";
+		}
+
+		if (!empty($triwulan)) {
+			$filter .= " AND triwulan_periode = '".$triwulan."' ";
+		}
+
+		if (!empty($userId)) {
+			$filter .= " AND user_id = '".$userId."' ";
+		}
+
+		$filter .= " ORDER BY tbl_strakom_unggulan.created_date DESC";
+
+		$query = $this->db->query("SELECT *, (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id) as countData from tbl_strakom_unggulan where (no_nota_dinas != '' OR url_nota_dinas != '' OR perihal_nota != '' OR tanggal_nota != '' OR (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id)) $filter ")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
+	public function getListStrakomByRealisasiAndOpdId($tahun = null, $triwulan = null, $userId = null)
+	{
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND tahun_periode = '".$tahun."' ";
+		}
+
+		if (!empty($triwulan)) {
+			$filter .= " AND triwulan_periode = '".$triwulan."' ";
+		}
+
+		if (!empty($userId)) {
+			$filter .= " AND opd_id IN $userId";
+		}
+
+		$filter .= " ORDER BY tbl_strakom_unggulan.created_date DESC";
+
+		$query = $this->db->query("SELECT *, (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id) as countData from tbl_strakom_unggulan where (no_nota_dinas != '' OR url_nota_dinas != '' OR perihal_nota != '' OR tanggal_nota != '' OR (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id) > 0) $filter ")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 }
 
 /* End of file Permissions_model.php */

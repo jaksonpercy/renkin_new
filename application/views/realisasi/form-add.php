@@ -92,7 +92,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           </select>
         </div>
 
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="formClient-Name">Nota Dinas<label class="text-danger">*</label></label>
            <div class="custom-file">
             <input type="file" class="custom-file-input" name="file" accept=".pdf" id="exampleInputFile">
@@ -113,7 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         <div class="form-group">
           <label for="formClient-Contact">Tanggal Nota Dinas /Surat<label class="text-danger">*</label></label>
           <input type="date" class="form-control" name="tanggalLampiran" id="formClient-TanggalLampiran" placeholder="Tanggal Nota Dinas /Surat" onkeyup="$('#formClient-Username').val(createUsername(this.value))" autofocus />
-        </div>
+        </div> -->
 
       </div>
       <!-- /.card-body -->
@@ -124,16 +124,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     <!-- Default card -->
 
     <!-- /.card -->
-    <div class="card">
+    <!-- <div class="card">
       <div class="card-footer">
         <div class="row">
           <div class="col" style="display:none;"><a href="<?php echo url('/strakomunggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
           <div class="col text-right"><button type="submit" class="btn btn-flat btn-primary"><?php echo lang('submit') ?></button></div>
         </div>
-      </div>
+      </div> -->
       <!-- /.card-footer-->
 
-    </div>
+    <!-- </div> -->
     <!-- /.card -->
 
     <?php echo form_close(); ?>

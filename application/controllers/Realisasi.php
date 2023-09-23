@@ -21,18 +21,28 @@ class Realisasi extends MY_Controller {
 		$this->page_data['page']->submenu = 'realisasi';
     $tahun = $this->input->get('tahun_periode');
     $triwulan = $this->input->get('triwulan_periode');
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
     $this->page_data['countrealisasi'] = count($this->Data_Realisasi_model->get());
-    $this->page_data['listrealisasi'] = $this->Realisasi_model->getListStrakomByRealisasi($tahun,$triwulan);
-
+    if ($this->page_data['roles']->role->role_id == 1) {
+      $this->page_data['listrealisasi'] = $this->Realisasi_model->getListStrakomByRealisasiAndUserId($tahun,$triwulan,$this->session->userdata('logged')['id']);
+    } else if ($this->page_data['roles']->role->role_id == 4) {
+      if(empty($this->page_data['userbyid']->skpd_renkin)){
+        $this->page_data['listrealisasi'] = [];
+      } else {
+        $this->page_data['listrealisasi'] = $this->Realisasi_model->getListStrakomByRealisasiAndOpdId($tahun,$triwulan,"(".$this->page_data['userbyid']->skpd_renkin.")");
+      }
+    } else {
+        $this->page_data['listrealisasi'] = $this->Realisasi_model->getListStrakomByRealisasi($tahun,$triwulan);
+    }
     $this->page_data['userall'] = $this->users_model->get();
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
-    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
-    $this->page_data['roles']->role = $this->roles_model->getByWhere([
-      'role_id'=> $this->page_data['roles']->role
-    ])[0];
+
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Strakom_model->get();
     $this->load->view('realisasi/list', $this->page_data);
@@ -67,7 +77,7 @@ header('Pragma: public');
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
     $this->page_data['strakom'] = $this->Realisasi_model->getListStrakomByStatusAndUserId($this->session->userdata('logged')['id'],2);
 
-    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->get();
+    $this->page_data['datarealisasi'] = [];
     $this->load->view('realisasi/form-add', $this->page_data);
 
   }
@@ -242,6 +252,7 @@ header('Pragma: public');
     ];
 
     $permission = $this->Strakom_model->update($id, $data);
+    $deleteData = $this->Data_Realisasi_model->deleteDataByStrakomId($id);
 
     $this->activity_model->add("Data Nota Dinas #$id Dihapus oleh:".logged('name'));
 

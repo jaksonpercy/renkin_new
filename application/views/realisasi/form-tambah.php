@@ -87,10 +87,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
         <div class="form-group">
           <label for="formClient-Name">Nota Dinas<label class="text-danger">*</label></label>
+
             <input type="file" class="form-control" name="fileNotaDinas" accept="application/pdf"/>
 
         </div>
 
+        <?php if(!empty($strakom->url_nota_dinas)) { ?>
+        <div class="form-group">
+       <a href="<?php echo base_url('/uploads/datanotadinas/'.$strakom->url_nota_dinas); ?>" target="_blank">Lihat Nota Dinas</a>
+       </div>
+       <?php } ?>
         <div class="form-group">
           <label for="formClient-Contact">No Nota Dinas / Surat<label class="text-danger">*</label></label>
           <input type="text" class="form-control" name="noLampiran" id="formClient-NoLampiran" placeholder="No Nota Dinas / Surat" value="<?php echo $strakom->no_nota_dinas ?>" autofocus />
@@ -109,12 +115,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       </div>
       <!-- /.card-body -->
 
-    </div>
     <!-- /.card -->
 
     <!-- Default card -->
 
-    <div class="card">
+    <!-- <div class="card"> -->
       <div class="card-footer">
         <div class="row">
           <div class="col" style="display:none;"><a href="<?php echo url('/strakomunggulan') ?>" onclick="return confirm('Are you sure you want to leave?')" class="btn btn-flat btn-danger"><?php echo lang('cancel') ?></a></div>
@@ -123,13 +128,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
       </div>
       <!-- /.card-footer-->
 
-    </div>
+    <!-- </div> -->
     <!-- /.card -->
 
   <?php echo form_close(); ?>
     <!-- /.card -->
 
-  </div>
 </div>
   <div class="row">
     <div class="col-sm-12">
