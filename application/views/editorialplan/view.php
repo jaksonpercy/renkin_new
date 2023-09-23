@@ -125,8 +125,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
-
+                <?php if ($roles->role->role_id==2){ ?>
+                 <a href="<?php echo url('/Penilaian/view/'.$editorialplan->idstrakom) ?>" class="btn btn-flat btn-secondary">Kembali</a>
+                <?php } else { ?>
                 <a href="<?php echo url('/EditorialPlan') ?>" class="btn btn-flat btn-secondary">Kembali</a>
+                <?php } ?>
               </div>
             </div>
             <!-- ./card -->

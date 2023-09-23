@@ -10,9 +10,15 @@ class Strakom_model extends MY_Model {
 		parent::__construct();
 	}
 
-	public function getListStrakomByStatus($status)
+	public function getListStrakomByStatus($status,$opd)
 	{
-		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id, tbl_strakom_unggulan.status as status_strakom, (select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 2) as EditorialApprove,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status in (5,6)) as EditorialNilai, (select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 2) as MitigasiApprove, (select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status in (5,6)) as MitigasiNilai from tbl_strakom_unggulan join tbl_periode on tbl_periode.id = tbl_strakom_unggulan.periode_id where tbl_periode.status_periode = 1 AND tbl_strakom_unggulan.status in ".$status." ORDER BY tbl_strakom_unggulan.created_date DESC")->result()	;
+		$filter = "";
+		$filter .= " AND tbl_strakom_unggulan.status in $status";
+		if (!empty($opd)) {
+			$filter .= " AND tbl_strakom_unggulan.opd_id in $opd ";
+		}
+		$filter .= "ORDER BY tbl_strakom_unggulan.created_date DESC";
+		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id, tbl_strakom_unggulan.status as status_strakom, (select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 2) as EditorialApprove,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status in (5,6)) as EditorialNilai, (select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 2) as MitigasiApprove, (select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status in (5,6)) as MitigasiNilai from tbl_strakom_unggulan join tbl_periode on tbl_periode.id = tbl_strakom_unggulan.periode_id where tbl_periode.status_periode = 1".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}

@@ -31,7 +31,7 @@ class Penilaian extends MY_Controller {
         $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
     } else {
 
-      $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByStatus("(2,5,6)");
+      $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByStatus("(2,5,6)","(".$this->page_data['roles']->skpd_renkin.")");
 
     }
 
