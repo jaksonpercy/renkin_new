@@ -372,7 +372,71 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </li>
 </li>
 <?php endif ?>
+<?php if (hasRoles('users_list') == 1): ?>
+<li class="nav-item has-treeview <?php echo ($page->menu=='settings')?'menu-open':'' ?>">
+  <a href="#" class="nav-link  <?php echo ($page->menu=='settings')?'active':'' ?>">
 
+    <p>
+    Tutorial Video
+      <i class="right fas fa-angle-left"></i>
+    </p>
+  </a>
+  <ul class="nav nav-treeview">
+  <li class="nav-item">
+      <a href="https://youtu.be/HGp2W8rbMA0?si=Qk973CjtgPW9ZR3J" class="nav-link" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p> Strategi Komunikasi <br> Unggulan </p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="https://youtu.be/DoW_gpuhGDc?si=pMgCdZ6_crXErbgd" class="nav-link" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p> Editorial Plan</p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="https://youtu.be/er_2wOJr1w0?si=m5OzS08wF0kOv6ju" class="nav-link" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p> Uraian Mitigasi <br> Krisis</p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="https://youtu.be/tnaYTRELVE4?si=Wwblm8BczQInDPCP" class="nav-link" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p> Realisasi</p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="https://youtu.be/deZeaDzXLws?si=GVb25XmJ3JqL-Xa8" class="nav-link" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p> Finalisasi Strategi <br> Komunikasi Unggulan</p>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a href="<?php echo setting('url_panduan_pd') ?>" class="nav-link" target="_blank">
+        <i class="far fa-circle nav-icon"></i> <p> Tutorial Lengkap</p>
+      </a>
+    </li>
+
+
+    <!-- <li class="nav-item">
+      <a href="<?php echo url('Settings/email_templates') ?>" class="nav-link <?php echo ($page->submenu=='email_templates')?'active':'' ?>">
+        <i class="far fa-circle nav-icon"></i> <p> <?php echo lang('manage_email_template') ?></p>
+      </a>
+    </li> -->
+  </ul>
+</li>
+<li class="nav-item">
+  <a href="<?php echo setting('url_panduan_pd') ?>" class="nav-link">
+
+    <p>
+    Tutorial Buku
+    </p>
+  </a>
+</li>
+<?php endif ?>
+
+<?php if (hasRoles('users_list') > 1): ?>
 <li class="nav-item has-treeview <?php echo ($page->menu=='settings')?'menu-open':'' ?>">
   <a href="#" class="nav-link  <?php echo ($page->menu=='settings')?'active':'' ?>">
 
@@ -428,6 +492,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </li> -->
   </ul>
 </li>
+<?php endif ?>
 </li>
   <!-- <li class="nav-item">
       <a href="<?php echo setting('url_paparan_renkin') ?>" class="nav-link <?php echo ($page->menu=='dashboard')?'active':'' ?>" target="_blank">
