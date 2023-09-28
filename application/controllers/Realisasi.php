@@ -193,12 +193,14 @@ header('Pragma: public');
         }
       }
 
+      // $linkTautan = echo "&lt;br>Link Tautan : ".$row->link_tautan ;
+      // exit;
       array_push($realisasi,
       array(
         $no,
         $row->tanggal_realisasi,
         $row->judul_publikasi,
-        $kanalkomunikasi,
+        $kanalkomunikasi . ". Link Tautan : ". $row->link_tautan,
         empty($row->file_dokumentasi)?'':str_replace("/index.php","", base_url('/uploads/datarealisasi/'.$row->file_dokumentasi))
       )
     );

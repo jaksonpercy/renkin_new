@@ -171,13 +171,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?php endif ?>
 
 <?php if (hasRoles('users_list') == 1 ): ?>
-<li class="nav-item">
-    <a href="" class="nav-link <?php echo ($page->menu=='')?'active':'' ?>">
-      <p>
-      Dashboard Krisis
-      </p>
-    </a>
-  </li>
+  <li class="nav-item">
+      <a href="https://poap.jakarta.go.id/crisis/" target = "_blank" class="nav-link <?php echo ($page->menu=='')?'active':'' ?>">
+        <p>
+        Dashboard Krisis
+        </p>
+      </a>
+    </li>
 <?php endif ?>
   <li class="nav-item">
       <a href="<?php echo url('HistoryStrakom') ?>" class="nav-link <?php echo ($page->menu=='historystrakom')?'active':'' ?>">
