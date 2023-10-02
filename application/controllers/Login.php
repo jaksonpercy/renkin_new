@@ -54,6 +54,7 @@ class Login extends CI_Controller {
 
 		 // $this->data['captchaImg'] = $captcha_text_color;
 		 $this->data['captcha_code'] = $captcha_code;
+		 $this->session->set_userdata('valuecaptchaCode', $captcha_code);
 		 $this->load->view('account/login', $this->data, FALSE);
 	}
 	public function generateCaptcha()
@@ -94,9 +95,9 @@ class Login extends CI_Controller {
 
 	public function check()
 	{
-
+		
         $this->load->library('form_validation');
-
+		$this->load->library('session');
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|xss_clean|callback_validate_username');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|xss_clean');
 
@@ -121,8 +122,15 @@ class Login extends CI_Controller {
       // else if($this->session->userdata('CAPTCHA_CODE') == $captchaUser){
         $username = post('username');
         $password = post('password');
+		$captcha = post('captcha');
 
         $attempt = $this->users_model->attempt( compact('username', 'password') );
+
+		if($this->session->userdata('valuecaptchaCode') != $captcha ){
+		$attempt = 'invalid';
+		$this->data['message'] = 'Invalid Captcha';
+		$this->data['message_type'] = 'danger';
+		}
 
         if( $attempt=='valid' ){
 
@@ -135,6 +143,15 @@ class Login extends CI_Controller {
         	// Show Message if invalid password
 
             $this->data['message'] = 'Invalid Password';
+            $this->data['message_type'] = 'danger';
+
+            $this->index();
+            return;
+        }elseif( $attempt=='invalid' ){
+
+        	// Show Message if invalid password
+
+            $this->data['message'] = 'Invalid Captcha';
             $this->data['message_type'] = 'danger';
 
             $this->index();
