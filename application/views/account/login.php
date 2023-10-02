@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <?php echo form_error('password', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?>
         </div>
 
-        <!-- <div class="input-group mb-3">
+        <div class="input-group mb-3">
 
           <div class="row">
                  <div class="form-group col-6">
@@ -93,14 +93,25 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                  </div>
                  <div class="form-group col-6">
                    <label>Captcha Code</label>
-                   <img src="<?php echo $assets ?>plugins/captcha/captcha.php" alt="PHP Captcha">
+                   <?php
+                   $layer = imagecreatetruecolor(168, 37);
+               		$captcha_bg = imagecolorallocate($layer, 247, 174, 71);
+               		imagefill($layer, 0, 0, $captcha_bg);
+               		$captcha_text_color = imagecolorallocate($layer, 0, 0, 0);
+                   imagestring($layer, 5, 55, 10, $captcha_code, $captcha_text_color);
+                    // header("Content-type: image/jpeg");
+           				 ;
+                    ?>
+                   <p><?php echo $captcha_code  ?></p>
+                   <!-- <a href="javascript:void(0);" class="captcha-refresh" ><img src="<?php echo base_url().'images/refresh.png'; ?>"/></a> -->
+                   <img src="<?php echo imagejpeg($layer) ?>" alt="PHP Captcha">
                  </div>
-               </div> -->
+               </div>
 
           <!-- <div id="html_element"></div> -->
           <!-- <div class="g-recaptcha" data-sitekey="6LdcBC0mAAAAAHwTiw1FooOXWX1DqVBCLxyOtoSy"></div> -->
           <!-- <?php echo form_error('g-recaptcha-response', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?> -->
-        <!-- </div> -->
+        </div>
 
 
       <!-- <?php if (setting('google_recaptcha_enabled') == '1'): ?> -->
@@ -188,6 +199,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
     $('#modal-lg').modal('show');
 });
 <?php } ?>
+
+$(document).ready(function(){
+         $('.captcha-refresh').on('click', function(){
+             $.get('<?php echo base_url().'captcha/refresh'; ?>', function(data){
+                 $('#image_captcha').html(data);
+             });
+         });
+     });
 </script>
 
 <!-- <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"

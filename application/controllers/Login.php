@@ -9,6 +9,8 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
 		date_default_timezone_set( 'Asia/Jakarta' );
+		$this->load->helper('captcha');
+	  $this->load->library('session');
 
 		if( !empty($this->db->username) && !empty($this->db->hostname) && !empty($this->db->database) ){ }else{
 			die('Database is not configured');
@@ -28,8 +30,66 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$this->data['pemberitahuan'] = $this->Pemberitahuan_model->getDataLimit('DESC',1);
-		$this->load->view('account/login', $this->data, FALSE);
+		// $configuration = array(
+		// 			 'img_url' => base_url() . 'uploads/image_for_captcha/',
+		// 			 'img_path' => 'image_for_captcha/',
+		// 			 'img_height' => 60,
+		// 			 'expiration' => 90,
+		// 			 'img_width' => '200',
+		// 			 'font_path' => './system/fonts/impact.ttf'
+		// 	 );
+		// 	 $captcha = create_captcha($configuration);
+		// 	 $datamasuk = array(
+		// 	 'captcha_time' => $captcha['time'] = isset($captcha['time']) ? $captcha['time'] : '',
+		// 	 'ip_address' => $this->input->ip_address(),
+		// 	 'word' => $captcha['word'] = isset($captcha['word']) ? $captcha['word'] : ''
+		// 	 );
+		// 	 $this->session->unset_userdata('valuecaptchaCode');
+		// 	 $this->session->set_userdata('valuecaptchaCode', $captcha['word']??= 'default value') ;
+		// 	 // $this->data['captchaImg'] = $captcha['image'];
+		// 	 $this->data['captchaImg'] = $captcha['image'] ??= 'default value';
+
+		$random_num    = md5(random_bytes(64));
+		$captcha_code  = substr($random_num, 0, 6);
+
+		 // $this->data['captchaImg'] = $captcha_text_color;
+		 $this->data['captcha_code'] = $captcha_code;
+		 $this->load->view('account/login', $this->data, FALSE);
 	}
+	public function generateCaptcha()
+	    {
+				$random_num    = md5(random_bytes(64));
+				$captcha_code  = substr($random_num, 0, 6);
+
+				// // Assign captcha in session
+				// // $this->session->set_userdata('CAPTCHA_CODE', $captcha_code);
+				// $_SESSION['CAPTCHA_CODE'] = $captcha_code;
+				//
+				// Create captcha image
+				$layer = imagecreatetruecolor(168, 37);
+				$captcha_bg = imagecolorallocate($layer, 247, 174, 71);
+				imagefill($layer, 0, 0, $captcha_bg);
+				$captcha_text_color = imagecolorallocate($layer, 0, 0, 0);
+				imagestring($layer, 5, 55, 10, $captcha_code, $captcha_text_color);
+				header("Content-type: image/jpeg");
+				imagejpeg($layer);
+			}
+	public function refresh()
+	    {
+	        $config = array(
+	            'img_url' => base_url() . 'uploads/image_for_captcha/',
+	            'img_path' => 'image_for_captcha/',
+	            'img_height' => 45,
+	            'word_length' => 5,
+	            'img_width' => '45',
+	            'font_size' => 10
+	        );
+	        $captcha = create_captcha($config);
+	        $this->session->unset_userdata('valuecaptchaCode');
+	        $this->session->set_userdata('valuecaptchaCode', $captcha['word']);
+	        echo $captcha['image'];
+	    }
+
 
 
 	public function check()
@@ -39,6 +99,7 @@ class Login extends CI_Controller {
 
         $this->form_validation->set_rules('username', 'Username', 'trim|required|min_length[5]|xss_clean|callback_validate_username');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|xss_clean');
+
 
         // $is_recaptcha_enabled = (setting('google_recaptcha_enabled') == '1');
 				//
