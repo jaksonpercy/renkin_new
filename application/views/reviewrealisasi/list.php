@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 
                 <div class="card-body">
-                  <table id="dataTable1" class="table table-bordered table-striped">
+                  <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
                       <th style="vertical-align:middle;text-align:center;">No</th>
@@ -211,9 +211,3 @@ window.updateUserStatus = (id, status) => {
 }
 
 </script>
-<script>
-	$('#dataTable1').DataTable({
-    "order": [],
-    "pageLength": 25,
-  });
-  </script>

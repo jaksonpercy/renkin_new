@@ -30,7 +30,7 @@ class Realisasi_model extends MY_Model {
 
 		$filter .= " ORDER BY tbl_strakom_unggulan.created_date DESC";
 
-		$query = $this->db->query("SELECT * from tbl_strakom_unggulan where (no_nota_dinas != '' OR url_nota_dinas != '' OR perihal_nota != '' OR tanggal_nota != '') $filter ")->result()	;
+		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id from tbl_strakom_unggulan join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id where (no_nota_dinas != '' OR url_nota_dinas != '' OR perihal_nota != '' OR tanggal_nota != '') $filter ")->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}

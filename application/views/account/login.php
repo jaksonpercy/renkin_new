@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
           <?php echo form_error('password', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?>
         </div>
 
-        <div class="input-group mb-3">
+        <!-- <div class="input-group mb-3">
 
           <div class="row">
                  <div class="form-group col-6">
@@ -95,12 +95,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                    <label>Captcha Code</label>
                    <img src="<?php echo $assets ?>plugins/captcha/captcha.php" alt="PHP Captcha">
                  </div>
-               </div>
+               </div> -->
 
           <!-- <div id="html_element"></div> -->
           <!-- <div class="g-recaptcha" data-sitekey="6LdcBC0mAAAAAHwTiw1FooOXWX1DqVBCLxyOtoSy"></div> -->
           <!-- <?php echo form_error('g-recaptcha-response', '<span style="display:block" class="error invalid-feedback">', '</span>'); ?> -->
-        </div>
+        <!-- </div> -->
 
 
       <!-- <?php if (setting('google_recaptcha_enabled') == '1'): ?> -->
