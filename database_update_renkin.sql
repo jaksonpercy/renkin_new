@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 31 Agu 2023 pada 13.51
--- Versi server: 10.6.14-MariaDB-cll-lve
--- Versi PHP: 8.1.16
+-- Generation Time: Oct 04, 2023 at 03:06 PM
+-- Server version: 10.6.14-MariaDB-cll-lve
+-- PHP Version: 8.1.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `activity_logs`
+-- Table structure for table `activity_logs`
 --
 
 CREATE TABLE `activity_logs` (
@@ -37,7 +37,7 @@ CREATE TABLE `activity_logs` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `activity_logs`
+-- Dumping data for table `activity_logs`
 --
 
 INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, `updated_at`) VALUES
@@ -1575,12 +1575,814 @@ INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, 
 (1525, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-08-30 07:48:59', '0000-00-00 00:00:00'),
 (1526, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-08-30 07:49:13', '0000-00-00 00:00:00'),
 (1527, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-08-31 01:51:23', '0000-00-00 00:00:00'),
-(1528, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-08-31 05:02:56', '0000-00-00 00:00:00');
+(1528, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-08-31 05:02:56', '0000-00-00 00:00:00'),
+(1529, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '112.78.162.130', '2023-09-01 02:39:04', '0000-00-00 00:00:00'),
+(1530, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '112.78.162.130', '2023-09-01 02:39:23', '0000-00-00 00:00:00'),
+(1531, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-01 02:39:37', '0000-00-00 00:00:00'),
+(1532, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '112.78.162.130', '2023-09-01 02:40:15', '0000-00-00 00:00:00'),
+(1533, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-01 02:43:13', '0000-00-00 00:00:00'),
+(1534, 'Mengubah Data Strategi Komunikasi Unggulan #64f14fc1dbe86 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-01 02:43:33', '0000-00-00 00:00:00'),
+(1535, 'Strategi Komunikasi Unggulan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-01 02:44:13', '0000-00-00 00:00:00'),
+(1536, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-03 11:16:43', '0000-00-00 00:00:00'),
+(1537, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-03 11:44:41', '0000-00-00 00:00:00'),
+(1538, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 01:56:30', '0000-00-00 00:00:00'),
+(1539, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:11:30', '0000-00-00 00:00:00'),
+(1540, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-04 02:11:36', '0000-00-00 00:00:00'),
+(1541, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-04 02:42:33', '0000-00-00 00:00:00'),
+(1542, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:42:46', '0000-00-00 00:00:00'),
+(1543, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:44:47', '0000-00-00 00:00:00'),
+(1544, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:46:05', '0000-00-00 00:00:00'),
+(1545, 'Editorial Plan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:46:23', '0000-00-00 00:00:00'),
+(1546, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:46:33', '0000-00-00 00:00:00'),
+(1547, 'Editorial Plan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:46:51', '0000-00-00 00:00:00'),
+(1548, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:47:03', '0000-00-00 00:00:00'),
+(1549, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:47:34', '0000-00-00 00:00:00'),
+(1550, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 02:47:55', '0000-00-00 00:00:00'),
+(1551, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 04:24:36', '0000-00-00 00:00:00'),
+(1552, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-04 07:27:01', '0000-00-00 00:00:00'),
+(1553, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-05 02:30:22', '0000-00-00 00:00:00'),
+(1554, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-05 02:42:07', '0000-00-00 00:00:00'),
+(1555, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-05 02:42:44', '0000-00-00 00:00:00'),
+(1556, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 02:07:10', '0000-00-00 00:00:00'),
+(1557, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 02:32:50', '0000-00-00 00:00:00'),
+(1558, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 02:33:00', '0000-00-00 00:00:00'),
+(1559, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 02:37:50', '0000-00-00 00:00:00'),
+(1560, 'Strategi Komunikasi Unggulan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 02:38:11', '0000-00-00 00:00:00'),
+(1561, 'Strategi Komunikasi Unggulan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 02:38:16', '0000-00-00 00:00:00'),
+(1562, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 02:39:40', '0000-00-00 00:00:00'),
+(1563, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 02:42:15', '0000-00-00 00:00:00'),
+(1564, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 02:44:50', '0000-00-00 00:00:00'),
+(1565, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:05:39', '0000-00-00 00:00:00'),
+(1566, 'Mengubah Data Editorial Plan #64f7ec83e32f3 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:08:30', '0000-00-00 00:00:00'),
+(1567, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:11:08', '0000-00-00 00:00:00'),
+(1568, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:23:01', '0000-00-00 00:00:00'),
+(1569, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:23:46', '0000-00-00 00:00:00'),
+(1570, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:24:23', '0000-00-00 00:00:00'),
+(1571, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:24:49', '0000-00-00 00:00:00'),
+(1572, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:25:52', '0000-00-00 00:00:00'),
+(1573, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:26:19', '0000-00-00 00:00:00'),
+(1574, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:34:35', '0000-00-00 00:00:00'),
+(1575, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:35:00', '0000-00-00 00:00:00'),
+(1576, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:35:19', '0000-00-00 00:00:00'),
+(1577, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:36:09', '0000-00-00 00:00:00'),
+(1578, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:36:49', '0000-00-00 00:00:00'),
+(1579, 'Menambahkan Data Mitigasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:38:39', '0000-00-00 00:00:00'),
+(1580, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:39:10', '0000-00-00 00:00:00'),
+(1581, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 03:45:46', '0000-00-00 00:00:00'),
+(1582, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 03:45:53', '0000-00-00 00:00:00'),
+(1583, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 06:46:37', '0000-00-00 00:00:00'),
+(1584, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 06:49:13', '0000-00-00 00:00:00'),
+(1585, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 06:57:41', '0000-00-00 00:00:00'),
+(1586, 'Mengubah Status Uraian Mitigasi Krisis menjadi Ditolak dengan alasan kurang jelas oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 06:58:04', '0000-00-00 00:00:00'),
+(1587, 'Mengubah Data Mitigasi #64f7f43f32caa oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 07:00:21', '0000-00-00 00:00:00'),
+(1588, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '112.78.162.130', '2023-09-06 07:00:35', '0000-00-00 00:00:00'),
+(1589, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Kurang Jelas oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 07:01:04', '0000-00-00 00:00:00'),
+(1590, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Kurang Jelas oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 07:01:05', '0000-00-00 00:00:00'),
+(1591, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '112.78.162.130', '2023-09-06 07:01:34', '0000-00-00 00:00:00'),
+(1592, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 01:37:45', '0000-00-00 00:00:00'),
+(1593, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 02:32:20', '0000-00-00 00:00:00'),
+(1594, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-07 02:33:15', '0000-00-00 00:00:00'),
+(1595, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-07 02:35:36', '0000-00-00 00:00:00'),
+(1596, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 02:35:42', '0000-00-00 00:00:00'),
+(1597, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 02:40:50', '0000-00-00 00:00:00'),
+(1598, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-07 02:41:04', '0000-00-00 00:00:00'),
+(1599, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 03:18:27', '0000-00-00 00:00:00'),
+(1600, 'Mengubah Status Uraian Mitigasi Krisis menjadi Ditolak dengan alasan Kurang jelas oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 03:19:11', '0000-00-00 00:00:00'),
+(1601, 'Menambahkan Data Mitigasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-07 03:42:54', '0000-00-00 00:00:00'),
+(1602, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-07 03:43:55', '0000-00-00 00:00:00'),
+(1603, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 03:44:18', '0000-00-00 00:00:00'),
+(1604, 'Mengubah Status Uraian Mitigasi Krisis menjadi Ditolak dengan alasan Perjelas lagi maksud nya apa oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 03:45:19', '0000-00-00 00:00:00'),
+(1605, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-07 03:53:30', '0000-00-00 00:00:00'),
+(1606, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.5', '2023-09-08 01:32:57', '0000-00-00 00:00:00'),
+(1607, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.5', '2023-09-08 01:34:58', '0000-00-00 00:00:00'),
+(1608, 'Editorial Plan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.5', '2023-09-08 01:35:10', '0000-00-00 00:00:00'),
+(1609, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.5', '2023-09-08 01:36:03', '0000-00-00 00:00:00'),
+(1610, 'Mengubah Data Mitigasi #64e46b50c4758 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.5', '2023-09-08 01:40:42', '0000-00-00 00:00:00'),
+(1611, 'Mengubah Data Mitigasi #64e46b50c4758 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.5', '2023-09-08 01:41:31', '0000-00-00 00:00:00'),
+(1612, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.51', '2023-09-08 02:27:05', '0000-00-00 00:00:00'),
+(1613, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.51', '2023-09-08 02:27:12', '0000-00-00 00:00:00'),
+(1614, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.27', '2023-09-08 06:42:34', '0000-00-00 00:00:00'),
+(1615, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.27', '2023-09-08 06:45:03', '0000-00-00 00:00:00'),
+(1616, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.27', '2023-09-08 06:45:08', '0000-00-00 00:00:00'),
+(1617, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.27', '2023-09-08 06:45:29', '0000-00-00 00:00:00'),
+(1618, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.27', '2023-09-08 06:46:18', '0000-00-00 00:00:00'),
+(1619, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 06:57:58', '0000-00-00 00:00:00'),
+(1620, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:04:31', '0000-00-00 00:00:00'),
+(1621, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:04:44', '0000-00-00 00:00:00'),
+(1622, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:04:47', '0000-00-00 00:00:00'),
+(1623, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:04:50', '0000-00-00 00:00:00'),
+(1624, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:04:54', '0000-00-00 00:00:00'),
+(1625, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan kurang jelas oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:05:05', '0000-00-00 00:00:00'),
+(1626, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:05:18', '0000-00-00 00:00:00'),
+(1627, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:05:21', '0000-00-00 00:00:00'),
+(1628, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:08:11', '0000-00-00 00:00:00'),
+(1629, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan kurang jelas oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:08:21', '0000-00-00 00:00:00'),
+(1630, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:08:36', '0000-00-00 00:00:00'),
+(1631, 'Mengubah Status Uraian Mitigasi Krisis menjadi Ditolak dengan alasan kurang jelas oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:08:49', '0000-00-00 00:00:00'),
+(1632, 'Mengubah Data Mitigasi #64e46b50c4758 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:11:45', '0000-00-00 00:00:00'),
+(1633, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:12:20', '0000-00-00 00:00:00'),
+(1634, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:15:17', '0000-00-00 00:00:00'),
+(1635, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:15:22', '0000-00-00 00:00:00'),
+(1636, 'Mengubah Data Periode # oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:15:37', '0000-00-00 00:00:00'),
+(1637, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:15:40', '0000-00-00 00:00:00'),
+(1638, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:15:48', '0000-00-00 00:00:00'),
+(1639, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:17:12', '0000-00-00 00:00:00'),
+(1640, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:17:20', '0000-00-00 00:00:00'),
+(1641, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:18:43', '0000-00-00 00:00:00'),
+(1642, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:18:53', '0000-00-00 00:00:00'),
+(1643, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:35:39', '0000-00-00 00:00:00'),
+(1644, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:35:48', '0000-00-00 00:00:00'),
+(1645, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:45:05', '0000-00-00 00:00:00'),
+(1646, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:45:11', '0000-00-00 00:00:00'),
+(1647, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:46:08', '0000-00-00 00:00:00'),
+(1648, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:46:16', '0000-00-00 00:00:00'),
+(1649, 'Mengubah Data Periode # oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:46:45', '0000-00-00 00:00:00'),
+(1650, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 07:46:50', '0000-00-00 00:00:00'),
+(1651, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:47:00', '0000-00-00 00:00:00'),
+(1652, 'Data Realisasi #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:47:45', '0000-00-00 00:00:00'),
+(1653, 'Menambahkan Data Nota Dinas #64f7e5fe3c775 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:49:04', '0000-00-00 00:00:00'),
+(1654, 'Menambahkan Data Nota Dinas #64f7e5fe3c775 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:49:26', '0000-00-00 00:00:00'),
+(1655, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:51:48', '0000-00-00 00:00:00'),
+(1656, 'Mengubah Data Realisasi #64fad294a1fcd oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:52:28', '0000-00-00 00:00:00'),
+(1657, 'Menambahkan Data Nota Dinas #64f7e5fe3c775 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 07:53:02', '0000-00-00 00:00:00'),
+(1658, 'Data Nilai Strategi Komunikasi Unggulan Telah Dinilai oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:55:03', '0000-00-00 00:00:00'),
+(1659, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:55:16', '0000-00-00 00:00:00'),
+(1660, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:55:30', '0000-00-00 00:00:00'),
+(1661, 'Data Nilai Realisasi Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:55:42', '0000-00-00 00:00:00'),
+(1662, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 07:56:32', '0000-00-00 00:00:00'),
+(1663, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 07:56:37', '0000-00-00 00:00:00'),
+(1664, 'Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 07:57:49', '0000-00-00 00:00:00'),
+(1665, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 07:58:00', '0000-00-00 00:00:00'),
+(1666, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 07:58:07', '0000-00-00 00:00:00'),
+(1667, 'Data Nilai Realisasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 07:58:12', '0000-00-00 00:00:00'),
+(1668, 'Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:16:32', '0000-00-00 00:00:00'),
+(1669, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:16:47', '0000-00-00 00:00:00'),
+(1670, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:16:57', '0000-00-00 00:00:00'),
+(1671, 'Data Nilai Realisasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:17:05', '0000-00-00 00:00:00'),
+(1672, 'Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:27:09', '0000-00-00 00:00:00'),
+(1673, 'Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:28:49', '0000-00-00 00:00:00'),
+(1674, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:30:17', '0000-00-00 00:00:00'),
+(1675, 'Data Nilai Realisasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:31:44', '0000-00-00 00:00:00'),
+(1676, 'Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:31:50', '0000-00-00 00:00:00'),
+(1677, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:31:58', '0000-00-00 00:00:00'),
+(1678, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:32:04', '0000-00-00 00:00:00'),
+(1679, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '114.142.172.19', '2023-09-08 08:32:50', '0000-00-00 00:00:00'),
+(1680, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 08:33:12', '0000-00-00 00:00:00'),
+(1681, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.172.19', '2023-09-08 08:36:38', '0000-00-00 00:00:00'),
+(1682, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 08:44:17', '0000-00-00 00:00:00'),
+(1683, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 08:44:26', '0000-00-00 00:00:00'),
+(1684, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '114.142.172.19', '2023-09-08 08:44:43', '0000-00-00 00:00:00'),
+(1685, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.172.19', '2023-09-08 08:44:50', '0000-00-00 00:00:00'),
+(1686, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:13:37', '0000-00-00 00:00:00'),
+(1687, 'Menambahkan Data Periode #11 oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:14:15', '0000-00-00 00:00:00'),
+(1688, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:14:28', '0000-00-00 00:00:00'),
+(1689, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:14:32', '0000-00-00 00:00:00'),
+(1690, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:14:43', '0000-00-00 00:00:00'),
+(1691, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:14:50', '0000-00-00 00:00:00'),
+(1692, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:16:48', '0000-00-00 00:00:00'),
+(1693, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:16:53', '0000-00-00 00:00:00'),
+(1694, 'Mengubah Data Periode # oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:17:27', '0000-00-00 00:00:00'),
+(1695, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:17:31', '0000-00-00 00:00:00'),
+(1696, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:17:36', '0000-00-00 00:00:00'),
+(1697, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:18:58', '0000-00-00 00:00:00'),
+(1698, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:19:02', '0000-00-00 00:00:00'),
+(1699, 'Mengubah Data Periode # oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:19:50', '0000-00-00 00:00:00'),
+(1700, 'Pengaturan Periode # Dihapur oleh User: #aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:19:55', '0000-00-00 00:00:00'),
+(1701, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:20:16', '0000-00-00 00:00:00'),
+(1702, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:20:25', '0000-00-00 00:00:00'),
+(1703, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:22:05', '0000-00-00 00:00:00'),
+(1704, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:22:09', '0000-00-00 00:00:00'),
+(1705, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:23:31', '0000-00-00 00:00:00'),
+(1706, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:25:39', '0000-00-00 00:00:00'),
+(1707, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:25:46', '0000-00-00 00:00:00'),
+(1708, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan di perjelas lagi oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:26:04', '0000-00-00 00:00:00'),
+(1709, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan kanal komukasi tidak sesuai seharus nya facebook\r\n oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:26:40', '0000-00-00 00:00:00'),
+(1710, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:26:52', '0000-00-00 00:00:00'),
+(1711, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:27:58', '0000-00-00 00:00:00'),
+(1712, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:28:02', '0000-00-00 00:00:00'),
+(1713, 'Mengubah Data Editorial Plan #64e466f082cc0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:30:59', '0000-00-00 00:00:00'),
+(1714, 'Mengubah Data Editorial Plan #64e464359ebb1 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:31:17', '0000-00-00 00:00:00'),
+(1715, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:32:25', '0000-00-00 00:00:00'),
+(1716, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:32:51', '0000-00-00 00:00:00'),
+(1717, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:32:55', '0000-00-00 00:00:00'),
+(1718, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:34:31', '0000-00-00 00:00:00'),
+(1719, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:34:44', '0000-00-00 00:00:00'),
+(1720, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 01:34:48', '0000-00-00 00:00:00'),
+(1721, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:37:22', '0000-00-00 00:00:00'),
+(1722, 'Menambahkan Data Nota Dinas #64e4639e086fa oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:38:43', '0000-00-00 00:00:00'),
+(1723, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.15.18', '2023-09-11 01:54:03', '0000-00-00 00:00:00'),
+(1724, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 01:54:07', '0000-00-00 00:00:00'),
+(1725, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 02:25:39', '0000-00-00 00:00:00'),
+(1726, 'Asisten Pembangunan dan Lingkungan Hidup (asistenpembangunan) Logged in', '0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', '116.206.15.18', '2023-09-11 02:26:06', '0000-00-00 00:00:00'),
+(1727, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '116.206.15.18', '2023-09-11 02:27:36', '0000-00-00 00:00:00');
+INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, `updated_at`) VALUES
+(1728, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 02:27:44', '0000-00-00 00:00:00'),
+(1729, 'User: Asisten Pembangunan dan Lingkungan Hidup Logged Out', '0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', '116.206.15.18', '2023-09-11 02:29:17', '0000-00-00 00:00:00'),
+(1730, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.15.18', '2023-09-11 02:29:21', '0000-00-00 00:00:00'),
+(1731, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.15.18', '2023-09-11 02:31:16', '0000-00-00 00:00:00'),
+(1732, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '116.206.15.18', '2023-09-11 02:31:20', '0000-00-00 00:00:00'),
+(1733, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '116.206.15.18', '2023-09-11 02:31:43', '0000-00-00 00:00:00'),
+(1734, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 02:35:53', '0000-00-00 00:00:00'),
+(1735, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.15.18', '2023-09-11 02:35:59', '0000-00-00 00:00:00'),
+(1736, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 02:55:42', '0000-00-00 00:00:00'),
+(1737, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:15:43', '0000-00-00 00:00:00'),
+(1738, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:17:21', '0000-00-00 00:00:00'),
+(1739, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:19:16', '0000-00-00 00:00:00'),
+(1740, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:29:51', '0000-00-00 00:00:00'),
+(1741, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:32:45', '0000-00-00 00:00:00'),
+(1742, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:39:43', '0000-00-00 00:00:00'),
+(1743, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:40:23', '0000-00-00 00:00:00'),
+(1744, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:40:44', '0000-00-00 00:00:00'),
+(1745, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:41:05', '0000-00-00 00:00:00'),
+(1746, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:41:31', '0000-00-00 00:00:00'),
+(1747, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:42:13', '0000-00-00 00:00:00'),
+(1748, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:42:15', '0000-00-00 00:00:00'),
+(1749, 'Editorial Plan #1 Dihapus oleh:Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:42:22', '0000-00-00 00:00:00'),
+(1750, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:42:58', '0000-00-00 00:00:00'),
+(1751, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:43:28', '0000-00-00 00:00:00'),
+(1752, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:43:51', '0000-00-00 00:00:00'),
+(1753, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:44:34', '0000-00-00 00:00:00'),
+(1754, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:45:07', '0000-00-00 00:00:00'),
+(1755, 'Menambahkan Data Mitigasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 03:47:31', '0000-00-00 00:00:00'),
+(1756, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 04:11:57', '0000-00-00 00:00:00'),
+(1757, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.50', '2023-09-11 04:12:03', '0000-00-00 00:00:00'),
+(1758, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:12:11', '0000-00-00 00:00:00'),
+(1759, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Ditolak dengan alasan Perbaiki Bagian Analisis Situasi oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:13:01', '0000-00-00 00:00:00'),
+(1760, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:13:07', '0000-00-00 00:00:00'),
+(1761, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Perbaiki Kembali\r\n oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:13:23', '0000-00-00 00:00:00'),
+(1762, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:13:32', '0000-00-00 00:00:00'),
+(1763, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:13:36', '0000-00-00 00:00:00'),
+(1764, 'Mengubah Data Strategi Komunikasi Unggulan #64fe865f15c57 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 04:14:23', '0000-00-00 00:00:00'),
+(1765, 'Mengubah Data Editorial Plan #64fe8d4301759 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 04:14:56', '0000-00-00 00:00:00'),
+(1766, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 04:15:20', '0000-00-00 00:00:00'),
+(1767, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:15:37', '0000-00-00 00:00:00'),
+(1768, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:15:41', '0000-00-00 00:00:00'),
+(1769, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Perbaiki oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.50', '2023-09-11 04:15:56', '0000-00-00 00:00:00'),
+(1770, 'Mengubah Data Editorial Plan #64fe8734341f5 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 04:17:11', '0000-00-00 00:00:00'),
+(1771, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.50', '2023-09-11 04:20:00', '0000-00-00 00:00:00'),
+(1772, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:08:15', '0000-00-00 00:00:00'),
+(1773, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Perbaiki oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:09:24', '0000-00-00 00:00:00'),
+(1774, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Perbaiki oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:10:01', '0000-00-00 00:00:00'),
+(1775, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:10:38', '0000-00-00 00:00:00'),
+(1776, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:10:50', '0000-00-00 00:00:00'),
+(1777, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.21', '2023-09-11 06:10:55', '0000-00-00 00:00:00'),
+(1778, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.21', '2023-09-11 06:11:22', '0000-00-00 00:00:00'),
+(1779, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.21', '2023-09-11 06:11:42', '0000-00-00 00:00:00'),
+(1780, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:11:45', '0000-00-00 00:00:00'),
+(1781, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Perbaiki oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:12:05', '0000-00-00 00:00:00'),
+(1782, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:12:16', '0000-00-00 00:00:00'),
+(1783, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Perbaiki oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:12:25', '0000-00-00 00:00:00'),
+(1784, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:12:35', '0000-00-00 00:00:00'),
+(1785, 'Mengubah Data Editorial Plan #64fe8ce0b0488 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.21', '2023-09-11 06:13:56', '0000-00-00 00:00:00'),
+(1786, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.21', '2023-09-11 06:14:04', '0000-00-00 00:00:00'),
+(1787, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:14:27', '0000-00-00 00:00:00'),
+(1788, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:14:31', '0000-00-00 00:00:00'),
+(1789, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Perbaiki oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:14:44', '0000-00-00 00:00:00'),
+(1790, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.14.21', '2023-09-11 06:19:07', '0000-00-00 00:00:00'),
+(1791, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:19:22', '0000-00-00 00:00:00'),
+(1792, 'Mengubah Data Editorial Plan #64e468e2396d6 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:21:45', '0000-00-00 00:00:00'),
+(1793, 'Mengubah Data Editorial Plan #64eeb15598aad oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:21:50', '0000-00-00 00:00:00'),
+(1794, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:21:57', '0000-00-00 00:00:00'),
+(1795, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:22:21', '0000-00-00 00:00:00'),
+(1796, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:22:26', '0000-00-00 00:00:00'),
+(1797, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '116.206.14.21', '2023-09-11 06:22:32', '0000-00-00 00:00:00'),
+(1798, 'Mengubah Data Realisasi #64fe6f52273ad oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:23:04', '0000-00-00 00:00:00'),
+(1799, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.21', '2023-09-11 06:25:31', '0000-00-00 00:00:00'),
+(1800, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.21', '2023-09-11 06:25:37', '0000-00-00 00:00:00'),
+(1801, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '101.128.102.80', '2023-09-11 06:29:33', '0000-00-00 00:00:00'),
+(1802, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.21', '2023-09-11 06:39:09', '0000-00-00 00:00:00'),
+(1803, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '116.206.14.21', '2023-09-11 06:39:14', '0000-00-00 00:00:00'),
+(1804, 'New User $0 Created by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '101.128.102.80', '2023-09-11 06:44:46', '0000-00-00 00:00:00'),
+(1805, 'User #1 Deleted by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '101.128.102.80', '2023-09-11 06:44:58', '0000-00-00 00:00:00'),
+(1806, 'New User $0 Created by User:Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '116.206.14.21', '2023-09-11 06:46:51', '0000-00-00 00:00:00'),
+(1807, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '116.206.14.21', '2023-09-11 06:47:00', '0000-00-00 00:00:00'),
+(1808, 'Nori (nori) Logged in', '64feb7dbd18c7', '116.206.14.21', '2023-09-11 06:47:08', '0000-00-00 00:00:00'),
+(1809, 'User: Nori Logged Out', '64feb7dbd18c7', '116.206.14.21', '2023-09-11 06:47:55', '0000-00-00 00:00:00'),
+(1810, 'Nori (nori) Logged in', '64feb7dbd18c7', '116.206.14.21', '2023-09-11 06:48:00', '0000-00-00 00:00:00'),
+(1811, 'User: Nori Logged Out', '64feb7dbd18c7', '116.206.14.21', '2023-09-11 06:48:32', '0000-00-00 00:00:00'),
+(1812, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.21', '2023-09-11 06:49:13', '0000-00-00 00:00:00'),
+(1813, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.21', '2023-09-11 06:50:01', '0000-00-00 00:00:00'),
+(1814, 'Nori (nori) Logged in', '64feb7dbd18c7', '116.206.14.21', '2023-09-11 06:50:07', '0000-00-00 00:00:00'),
+(1815, 'User: Nori Logged Out', '64feb7dbd18c7', '116.206.14.21', '2023-09-11 06:51:01', '0000-00-00 00:00:00'),
+(1816, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.21', '2023-09-11 06:51:09', '0000-00-00 00:00:00'),
+(1817, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '113.11.180.115', '2023-09-11 15:00:37', '0000-00-00 00:00:00'),
+(1818, 'User #-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs Updated by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '113.11.180.115', '2023-09-11 15:01:43', '0000-00-00 00:00:00'),
+(1819, 'New User $0 Created by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '113.11.180.115', '2023-09-11 15:04:30', '0000-00-00 00:00:00'),
+(1820, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '113.11.180.115', '2023-09-11 15:04:33', '0000-00-00 00:00:00'),
+(1821, 'Khaerul Umam (khaerul_umam) Logged in', '64ff2c7e33200', '113.11.180.115', '2023-09-11 15:04:40', '0000-00-00 00:00:00'),
+(1822, 'User: Khaerul Umam Logged Out', '64ff2c7e33200', '113.11.180.115', '2023-09-11 15:21:11', '0000-00-00 00:00:00'),
+(1823, 'Nori (nori) Logged in', '64feb7dbd18c7', '202.180.29.59', '2023-09-12 01:31:07', '0000-00-00 00:00:00'),
+(1824, 'User: Nori Logged Out', '64feb7dbd18c7', '202.180.29.59', '2023-09-12 01:31:24', '0000-00-00 00:00:00'),
+(1825, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 01:31:33', '0000-00-00 00:00:00'),
+(1826, 'User #64feb7dbd18c7 Updated by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 01:31:47', '0000-00-00 00:00:00'),
+(1827, 'Nori (nori) Logged in', '64feb7dbd18c7', '202.180.29.59', '2023-09-12 01:32:10', '0000-00-00 00:00:00'),
+(1828, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 02:04:58', '0000-00-00 00:00:00'),
+(1829, 'Nori (nori) Logged in', '64feb7dbd18c7', '202.180.29.59', '2023-09-12 02:05:06', '0000-00-00 00:00:00'),
+(1830, 'User: Nori Logged Out', '64feb7dbd18c7', '202.180.29.59', '2023-09-12 02:05:18', '0000-00-00 00:00:00'),
+(1831, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 02:05:21', '0000-00-00 00:00:00'),
+(1832, 'User #64feb7dbd18c7 Updated by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 02:05:35', '0000-00-00 00:00:00'),
+(1833, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 02:05:44', '0000-00-00 00:00:00'),
+(1834, 'Nori (nori) Logged in', '64feb7dbd18c7', '202.180.29.59', '2023-09-12 02:05:51', '0000-00-00 00:00:00'),
+(1835, 'User: Nori Logged Out', '64feb7dbd18c7', '202.180.29.59', '2023-09-12 02:11:39', '0000-00-00 00:00:00'),
+(1836, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 02:11:41', '0000-00-00 00:00:00'),
+(1837, 'User #1 Deleted by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 02:12:02', '0000-00-00 00:00:00'),
+(1838, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 02:21:53', '0000-00-00 00:00:00'),
+(1839, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 03:22:47', '0000-00-00 00:00:00'),
+(1840, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 03:22:56', '0000-00-00 00:00:00'),
+(1841, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 03:23:02', '0000-00-00 00:00:00'),
+(1842, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-12 03:23:08', '0000-00-00 00:00:00'),
+(1843, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-12 03:23:21', '0000-00-00 00:00:00'),
+(1844, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '112.78.162.130', '2023-09-12 12:09:38', '0000-00-00 00:00:00'),
+(1845, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '112.78.162.130', '2023-09-12 12:10:16', '0000-00-00 00:00:00'),
+(1846, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '113.11.180.115', '2023-09-12 12:10:22', '0000-00-00 00:00:00'),
+(1847, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-13 01:25:42', '0000-00-00 00:00:00'),
+(1848, 'New User $0 Created by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-13 01:58:20', '0000-00-00 00:00:00'),
+(1849, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '139.255.164.36', '2023-09-13 02:33:44', '0000-00-00 00:00:00'),
+(1850, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.36', '2023-09-13 02:34:01', '0000-00-00 00:00:00'),
+(1851, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '36.69.196.93', '2023-09-13 02:35:09', '0000-00-00 00:00:00'),
+(1852, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-13 02:35:45', '0000-00-00 00:00:00'),
+(1853, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-13 02:35:57', '0000-00-00 00:00:00'),
+(1854, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '139.255.164.36', '2023-09-13 02:37:35', '0000-00-00 00:00:00'),
+(1855, 'Mapping OPD #6501173cadc47 Updated by User: #aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-13 02:37:57', '0000-00-00 00:00:00'),
+(1856, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-13 02:38:18', '0000-00-00 00:00:00'),
+(1857, 'Nori (nori) Logged in', '6501173cadc47', '202.180.29.59', '2023-09-13 02:38:23', '0000-00-00 00:00:00'),
+(1858, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.164.12.220', '2023-09-13 02:49:53', '0000-00-00 00:00:00'),
+(1859, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '103.164.12.220', '2023-09-13 02:50:07', '0000-00-00 00:00:00'),
+(1860, 'User: Nori Logged Out', '6501173cadc47', '202.180.29.59', '2023-09-13 02:52:31', '0000-00-00 00:00:00'),
+(1861, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-13 02:52:35', '0000-00-00 00:00:00'),
+(1862, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '139.255.164.36', '2023-09-13 02:55:11', '0000-00-00 00:00:00'),
+(1863, 'Nori (nori) Logged in', '6501173cadc47', '139.255.164.36', '2023-09-13 02:55:21', '0000-00-00 00:00:00'),
+(1864, 'Data Nilai Strategi Komunikasi Unggulan Telah Dinilai oleh User: #Nori', '6501173cadc47', '139.255.164.36', '2023-09-13 03:00:53', '0000-00-00 00:00:00'),
+(1865, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Nori', '6501173cadc47', '139.255.164.36', '2023-09-13 03:01:07', '0000-00-00 00:00:00'),
+(1866, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Nori', '6501173cadc47', '139.255.164.36', '2023-09-13 03:01:15', '0000-00-00 00:00:00'),
+(1867, 'Data Nilai Realisasi Telah Diubah oleh User: #Nori', '6501173cadc47', '139.255.164.36', '2023-09-13 03:01:34', '0000-00-00 00:00:00'),
+(1868, 'User: Nori Logged Out', '6501173cadc47', '103.164.12.220', '2023-09-13 03:52:19', '0000-00-00 00:00:00'),
+(1869, 'Nori (nori) Logged in', '6501173cadc47', '139.255.164.36', '2023-09-13 03:57:21', '0000-00-00 00:00:00'),
+(1870, 'User: Nori Logged Out', '6501173cadc47', '139.255.164.36', '2023-09-13 03:57:43', '0000-00-00 00:00:00'),
+(1871, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '139.255.164.36', '2023-09-13 03:58:15', '0000-00-00 00:00:00'),
+(1872, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '139.255.164.36', '2023-09-13 03:58:51', '0000-00-00 00:00:00'),
+(1873, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '139.255.164.36', '2023-09-13 03:59:07', '0000-00-00 00:00:00'),
+(1874, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '36.69.196.93', '2023-09-13 04:27:11', '0000-00-00 00:00:00'),
+(1875, 'Nori (nori) Logged in', '6501173cadc47', '36.69.196.93', '2023-09-13 04:27:17', '0000-00-00 00:00:00'),
+(1876, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-13 04:28:52', '0000-00-00 00:00:00'),
+(1877, 'Nori (nori) Logged in', '6501173cadc47', '103.164.12.220', '2023-09-13 04:28:58', '0000-00-00 00:00:00'),
+(1878, 'User: Nori Logged Out', '6501173cadc47', '103.164.12.220', '2023-09-13 04:29:18', '0000-00-00 00:00:00'),
+(1879, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-13 04:29:30', '0000-00-00 00:00:00'),
+(1880, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-13 04:29:45', '0000-00-00 00:00:00'),
+(1881, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '139.255.164.36', '2023-09-13 04:30:47', '0000-00-00 00:00:00'),
+(1882, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '139.255.164.36', '2023-09-13 04:31:10', '0000-00-00 00:00:00'),
+(1883, 'Nori (nori) Logged in', '6501173cadc47', '139.255.164.36', '2023-09-13 04:31:41', '0000-00-00 00:00:00'),
+(1884, 'User: Nori Logged Out', '6501173cadc47', '139.255.164.36', '2023-09-13 04:32:32', '0000-00-00 00:00:00'),
+(1885, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '139.255.164.36', '2023-09-13 04:33:40', '0000-00-00 00:00:00'),
+(1886, 'Mapping OPD #6501173cadc47 Updated by User: #aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.164.12.220', '2023-09-13 04:37:43', '0000-00-00 00:00:00'),
+(1887, 'Mapping OPD #6501173cadc47 Updated by User: #aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '139.255.164.36', '2023-09-13 04:38:25', '0000-00-00 00:00:00'),
+(1888, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '139.255.164.36', '2023-09-13 04:38:31', '0000-00-00 00:00:00'),
+(1889, 'Nori (nori) Logged in', '6501173cadc47', '139.255.164.36', '2023-09-13 04:38:37', '0000-00-00 00:00:00'),
+(1890, 'Mapping OPD #6501173cadc47 Updated by User: #6501173cadc47', '6501173cadc47', '139.255.164.36', '2023-09-13 04:39:21', '0000-00-00 00:00:00'),
+(1891, 'Mapping OPD #6501173cadc47 Updated by User: #6501173cadc47', '6501173cadc47', '202.180.29.59', '2023-09-13 04:46:18', '0000-00-00 00:00:00'),
+(1892, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '139.255.164.36', '2023-09-13 04:46:33', '0000-00-00 00:00:00'),
+(1893, 'Nori (nori) Logged in', '6501173cadc47', '139.255.164.36', '2023-09-13 04:46:42', '0000-00-00 00:00:00'),
+(1894, 'User: Nori Logged Out', '6501173cadc47', '103.164.12.220', '2023-09-13 05:58:03', '0000-00-00 00:00:00'),
+(1895, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.164.12.220', '2023-09-13 05:58:05', '0000-00-00 00:00:00'),
+(1896, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-13 06:25:52', '0000-00-00 00:00:00'),
+(1897, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-13 06:26:07', '0000-00-00 00:00:00'),
+(1898, 'Strategi Komunikasi Unggulan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-13 06:47:30', '0000-00-00 00:00:00'),
+(1899, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.36', '2023-09-13 07:09:42', '0000-00-00 00:00:00'),
+(1900, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-13 07:12:26', '0000-00-00 00:00:00'),
+(1901, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-13 07:50:32', '0000-00-00 00:00:00'),
+(1902, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-13 08:01:20', '0000-00-00 00:00:00'),
+(1903, 'Nori (nori) Logged in', '6501173cadc47', '103.164.12.220', '2023-09-13 08:01:30', '0000-00-00 00:00:00'),
+(1904, 'User #6501173cadc47 changed the password !', '0', '103.164.12.220', '2023-09-13 08:02:02', '0000-00-00 00:00:00'),
+(1905, 'Nori (nori) Logged in', '6501173cadc47', '103.164.12.220', '2023-09-13 08:02:09', '0000-00-00 00:00:00'),
+(1906, 'User: Nori Logged Out', '6501173cadc47', '103.164.12.220', '2023-09-13 08:02:14', '0000-00-00 00:00:00'),
+(1907, 'Nori (nori) Logged in', '6501173cadc47', '103.164.12.220', '2023-09-13 08:02:27', '0000-00-00 00:00:00'),
+(1908, 'User: Nori Logged Out', '6501173cadc47', '139.255.164.36', '2023-09-13 08:07:41', '0000-00-00 00:00:00'),
+(1909, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.36', '2023-09-13 08:07:56', '0000-00-00 00:00:00'),
+(1910, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-13 08:08:33', '0000-00-00 00:00:00'),
+(1911, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-13 08:08:38', '0000-00-00 00:00:00'),
+(1912, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-13 08:13:55', '0000-00-00 00:00:00'),
+(1913, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-13 08:14:05', '0000-00-00 00:00:00'),
+(1914, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 22:35:12', '0000-00-00 00:00:00'),
+(1915, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 23:38:38', '0000-00-00 00:00:00'),
+(1916, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.101.228.95', '2023-09-13 23:38:45', '0000-00-00 00:00:00'),
+(1917, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.101.228.95', '2023-09-13 23:40:00', '0000-00-00 00:00:00'),
+(1918, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 23:40:28', '0000-00-00 00:00:00'),
+(1919, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 23:44:50', '0000-00-00 00:00:00'),
+(1920, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.101.228.95', '2023-09-13 23:45:06', '0000-00-00 00:00:00'),
+(1921, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.101.228.95', '2023-09-13 23:45:33', '0000-00-00 00:00:00'),
+(1922, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 23:45:49', '0000-00-00 00:00:00'),
+(1923, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 23:50:31', '0000-00-00 00:00:00'),
+(1924, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 23:52:43', '0000-00-00 00:00:00'),
+(1925, 'Strategi Komunikasi Unggulan #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.101.228.95', '2023-09-13 23:54:22', '0000-00-00 00:00:00'),
+(1926, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:14:35', '0000-00-00 00:00:00'),
+(1927, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:15:21', '0000-00-00 00:00:00'),
+(1928, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:26:50', '0000-00-00 00:00:00'),
+(1929, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:28:23', '0000-00-00 00:00:00'),
+(1930, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:29:01', '0000-00-00 00:00:00'),
+(1931, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:30:58', '0000-00-00 00:00:00'),
+(1932, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:31:33', '0000-00-00 00:00:00'),
+(1933, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:32:03', '0000-00-00 00:00:00'),
+(1934, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:32:53', '0000-00-00 00:00:00'),
+(1935, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:33:53', '0000-00-00 00:00:00'),
+(1936, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:34:59', '0000-00-00 00:00:00'),
+(1937, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:36:18', '0000-00-00 00:00:00'),
+(1938, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:39:09', '0000-00-00 00:00:00'),
+(1939, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:40:31', '0000-00-00 00:00:00'),
+(1940, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:41:42', '0000-00-00 00:00:00'),
+(1941, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:42:37', '0000-00-00 00:00:00'),
+(1942, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:43:02', '0000-00-00 00:00:00'),
+(1943, 'Menambahkan Data Mitigasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:45:02', '0000-00-00 00:00:00'),
+(1944, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:46:33', '0000-00-00 00:00:00'),
+(1945, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 01:55:22', '0000-00-00 00:00:00'),
+(1946, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 02:17:45', '0000-00-00 00:00:00'),
+(1947, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-14 02:19:36', '0000-00-00 00:00:00'),
+(1948, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-14 02:19:40', '0000-00-00 00:00:00'),
+(1949, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-14 02:40:25', '0000-00-00 00:00:00'),
+(1950, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.36', '2023-09-14 02:47:34', '0000-00-00 00:00:00'),
+(1951, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-14 02:58:27', '0000-00-00 00:00:00'),
+(1952, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-14 02:59:13', '0000-00-00 00:00:00'),
+(1953, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '103.164.12.220', '2023-09-14 02:59:27', '0000-00-00 00:00:00'),
+(1954, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-14 03:01:29', '0000-00-00 00:00:00'),
+(1955, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '103.164.12.220', '2023-09-14 03:02:05', '0000-00-00 00:00:00'),
+(1956, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '103.164.12.220', '2023-09-14 03:02:12', '0000-00-00 00:00:00'),
+(1957, 'Data Nilai Strategi Komunikasi Unggulan Telah Dinilai oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-14 03:03:32', '0000-00-00 00:00:00'),
+(1958, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-14 03:03:54', '0000-00-00 00:00:00'),
+(1959, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-14 03:04:03', '0000-00-00 00:00:00'),
+(1960, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '103.164.12.220', '2023-09-14 03:05:35', '0000-00-00 00:00:00'),
+(1961, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-14 03:05:50', '0000-00-00 00:00:00'),
+(1962, 'Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-14 03:07:00', '0000-00-00 00:00:00'),
+(1963, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-14 03:07:21', '0000-00-00 00:00:00'),
+(1964, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-14 03:07:33', '0000-00-00 00:00:00'),
+(1965, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-14 03:57:41', '0000-00-00 00:00:00'),
+(1966, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-18 01:14:08', '0000-00-00 00:00:00'),
+(1967, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-18 01:20:22', '0000-00-00 00:00:00'),
+(1968, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-18 01:53:39', '0000-00-00 00:00:00'),
+(1969, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-18 03:24:17', '0000-00-00 00:00:00');
+INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, `updated_at`) VALUES
+(1970, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-18 03:56:32', '0000-00-00 00:00:00'),
+(1971, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.164.12.220', '2023-09-18 03:56:41', '0000-00-00 00:00:00'),
+(1972, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.164.12.220', '2023-09-18 03:56:57', '0000-00-00 00:00:00'),
+(1973, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-18 03:57:07', '0000-00-00 00:00:00'),
+(1974, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-18 03:58:53', '0000-00-00 00:00:00'),
+(1975, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-18 03:59:01', '0000-00-00 00:00:00'),
+(1976, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-18 04:04:16', '0000-00-00 00:00:00'),
+(1977, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.164.12.220', '2023-09-18 04:24:33', '0000-00-00 00:00:00'),
+(1978, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-18 06:28:16', '0000-00-00 00:00:00'),
+(1979, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-18 06:28:30', '0000-00-00 00:00:00'),
+(1980, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '103.164.12.220', '2023-09-18 06:31:08', '0000-00-00 00:00:00'),
+(1981, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '103.164.12.220', '2023-09-18 06:31:41', '0000-00-00 00:00:00'),
+(1982, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '103.164.12.220', '2023-09-18 06:31:46', '0000-00-00 00:00:00'),
+(1983, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.36', '2023-09-18 06:40:10', '0000-00-00 00:00:00'),
+(1984, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.36', '2023-09-18 06:40:33', '0000-00-00 00:00:00'),
+(1985, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.36', '2023-09-18 06:40:39', '0000-00-00 00:00:00'),
+(1986, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-18 06:57:31', '0000-00-00 00:00:00'),
+(1987, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 01:24:30', '0000-00-00 00:00:00'),
+(1988, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 01:24:55', '0000-00-00 00:00:00'),
+(1989, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:25:13', '0000-00-00 00:00:00'),
+(1990, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:42:31', '0000-00-00 00:00:00'),
+(1991, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:43:23', '0000-00-00 00:00:00'),
+(1992, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:44:21', '0000-00-00 00:00:00'),
+(1993, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:45:10', '0000-00-00 00:00:00'),
+(1994, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:45:43', '0000-00-00 00:00:00'),
+(1995, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:46:30', '0000-00-00 00:00:00'),
+(1996, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:47:30', '0000-00-00 00:00:00'),
+(1997, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:48:01', '0000-00-00 00:00:00'),
+(1998, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:48:26', '0000-00-00 00:00:00'),
+(1999, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:48:55', '0000-00-00 00:00:00'),
+(2000, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:49:22', '0000-00-00 00:00:00'),
+(2001, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:49:53', '0000-00-00 00:00:00'),
+(2002, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:50:27', '0000-00-00 00:00:00'),
+(2003, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:51:05', '0000-00-00 00:00:00'),
+(2004, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:51:39', '0000-00-00 00:00:00'),
+(2005, 'Menambahkan Data Editorial Plan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:52:23', '0000-00-00 00:00:00'),
+(2006, 'Menambahkan Data Mitigasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:57:25', '0000-00-00 00:00:00'),
+(2007, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:57:47', '0000-00-00 00:00:00'),
+(2008, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:57:52', '0000-00-00 00:00:00'),
+(2009, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 01:58:27', '0000-00-00 00:00:00'),
+(2010, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 01:58:40', '0000-00-00 00:00:00'),
+(2011, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 01:58:47', '0000-00-00 00:00:00'),
+(2012, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 01:58:56', '0000-00-00 00:00:00'),
+(2013, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 01:59:04', '0000-00-00 00:00:00'),
+(2014, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 01:59:14', '0000-00-00 00:00:00'),
+(2015, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:02:22', '0000-00-00 00:00:00'),
+(2016, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:03:38', '0000-00-00 00:00:00'),
+(2017, 'Menambahkan Data Nota Dinas #6508fc87b8df0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:05:05', '0000-00-00 00:00:00'),
+(2018, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:08:43', '0000-00-00 00:00:00'),
+(2019, 'Mengubah Data Realisasi #6509012e8519f oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:09:09', '0000-00-00 00:00:00'),
+(2020, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:09:58', '0000-00-00 00:00:00'),
+(2021, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 02:10:05', '0000-00-00 00:00:00'),
+(2022, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 02:12:14', '0000-00-00 00:00:00'),
+(2023, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:12:22', '0000-00-00 00:00:00'),
+(2024, 'Data Nota Dinas #6508fc87b8df0 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:14:05', '0000-00-00 00:00:00'),
+(2025, 'Data Realisasi #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:14:46', '0000-00-00 00:00:00'),
+(2026, 'Data Realisasi #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:14:50', '0000-00-00 00:00:00'),
+(2027, 'Data Realisasi #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:14:55', '0000-00-00 00:00:00'),
+(2028, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:17:42', '0000-00-00 00:00:00'),
+(2029, 'Menambahkan Data Nota Dinas #6508fc87b8df0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:18:18', '0000-00-00 00:00:00'),
+(2030, 'Data Realisasi #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:19:41', '0000-00-00 00:00:00'),
+(2031, 'Menambahkan Data Nota Dinas #6508fc87b8df0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:25:48', '0000-00-00 00:00:00'),
+(2032, 'Menambahkan Data Realisasi #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:34:45', '0000-00-00 00:00:00'),
+(2033, 'Menambahkan Data Nota Dinas #6508fc87b8df0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:36:23', '0000-00-00 00:00:00'),
+(2034, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:54:42', '0000-00-00 00:00:00'),
+(2035, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 02:54:53', '0000-00-00 00:00:00'),
+(2036, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 02:58:25', '0000-00-00 00:00:00'),
+(2037, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 02:58:35', '0000-00-00 00:00:00'),
+(2038, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 03:11:39', '0000-00-00 00:00:00'),
+(2039, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 03:11:44', '0000-00-00 00:00:00'),
+(2040, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 03:13:29', '0000-00-00 00:00:00'),
+(2041, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 03:13:37', '0000-00-00 00:00:00'),
+(2042, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 03:15:08', '0000-00-00 00:00:00'),
+(2043, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:15:12', '0000-00-00 00:00:00'),
+(2044, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:15:36', '0000-00-00 00:00:00'),
+(2045, 'Asisten Perekonomian dan Keuangan (asistenperekonomian) Logged in', '5LvxHnhI4BTwVabvZgWlt9eM_6D3gcoUb8aD35lx1Gok-hS37rcLs-quHestfcrcKn3z1H7ksXTSQR3qLQV5Wj9RFUYski7wLXlVr6IiGO_sr_qpNIQ9Fsh1YG21zwhC', '202.180.29.59', '2023-09-19 03:15:44', '0000-00-00 00:00:00'),
+(2046, 'User: Asisten Perekonomian dan Keuangan Logged Out', '5LvxHnhI4BTwVabvZgWlt9eM_6D3gcoUb8aD35lx1Gok-hS37rcLs-quHestfcrcKn3z1H7ksXTSQR3qLQV5Wj9RFUYski7wLXlVr6IiGO_sr_qpNIQ9Fsh1YG21zwhC', '202.180.29.59', '2023-09-19 03:16:00', '0000-00-00 00:00:00'),
+(2047, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:16:04', '0000-00-00 00:00:00'),
+(2048, 'User #5LvxHnhI4BTwVabvZgWlt9eM_6D3gcoUb8aD35lx1Gok-hS37rcLs-quHestfcrcKn3z1H7ksXTSQR3qLQV5Wj9RFUYski7wLXlVr6IiGO_sr_qpNIQ9Fsh1YG21zwhC Updated by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:16:29', '0000-00-00 00:00:00'),
+(2049, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:16:35', '0000-00-00 00:00:00'),
+(2050, 'Asisten Perekonomian dan Keuangan (asistenperekonomian) Logged in', '5LvxHnhI4BTwVabvZgWlt9eM_6D3gcoUb8aD35lx1Gok-hS37rcLs-quHestfcrcKn3z1H7ksXTSQR3qLQV5Wj9RFUYski7wLXlVr6IiGO_sr_qpNIQ9Fsh1YG21zwhC', '202.180.29.59', '2023-09-19 03:16:39', '0000-00-00 00:00:00'),
+(2051, 'User: Asisten Perekonomian dan Keuangan Logged Out', '5LvxHnhI4BTwVabvZgWlt9eM_6D3gcoUb8aD35lx1Gok-hS37rcLs-quHestfcrcKn3z1H7ksXTSQR3qLQV5Wj9RFUYski7wLXlVr6IiGO_sr_qpNIQ9Fsh1YG21zwhC', '202.180.29.59', '2023-09-19 03:17:52', '0000-00-00 00:00:00'),
+(2052, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:17:57', '0000-00-00 00:00:00'),
+(2053, 'User #0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~ Updated by User:JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:18:20', '0000-00-00 00:00:00'),
+(2054, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-19 03:18:36', '0000-00-00 00:00:00'),
+(2055, 'Asisten Pembangunan dan Lingkungan Hidup (asistenpembangunan) Logged in', '0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', '202.180.29.59', '2023-09-19 03:18:41', '0000-00-00 00:00:00'),
+(2056, 'User: Asisten Pembangunan dan Lingkungan Hidup Logged Out', '0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', '202.180.29.59', '2023-09-19 05:51:04', '0000-00-00 00:00:00'),
+(2057, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 05:51:15', '0000-00-00 00:00:00'),
+(2058, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 05:51:35', '0000-00-00 00:00:00'),
+(2059, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 05:51:40', '0000-00-00 00:00:00'),
+(2060, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-19 05:51:47', '0000-00-00 00:00:00'),
+(2061, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 05:52:04', '0000-00-00 00:00:00'),
+(2062, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-19 06:08:59', '0000-00-00 00:00:00'),
+(2063, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-19 06:09:10', '0000-00-00 00:00:00'),
+(2064, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '36.80.110.171', '2023-09-19 15:16:40', '0000-00-00 00:00:00'),
+(2065, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '36.80.110.171', '2023-09-19 15:20:25', '0000-00-00 00:00:00'),
+(2066, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '36.80.110.171', '2023-09-19 15:26:36', '0000-00-00 00:00:00'),
+(2067, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 01:12:08', '0000-00-00 00:00:00'),
+(2068, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 01:12:38', '0000-00-00 00:00:00'),
+(2069, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 01:12:49', '0000-00-00 00:00:00'),
+(2070, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 02:19:26', '0000-00-00 00:00:00'),
+(2071, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 02:19:32', '0000-00-00 00:00:00'),
+(2072, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 02:23:21', '0000-00-00 00:00:00'),
+(2073, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 02:38:55', '0000-00-00 00:00:00'),
+(2074, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 02:42:58', '0000-00-00 00:00:00'),
+(2075, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 02:43:04', '0000-00-00 00:00:00'),
+(2076, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:25:24', '0000-00-00 00:00:00'),
+(2077, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-20 03:27:04', '0000-00-00 00:00:00'),
+(2078, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-20 03:27:44', '0000-00-00 00:00:00'),
+(2079, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 03:28:00', '0000-00-00 00:00:00'),
+(2080, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 03:30:20', '0000-00-00 00:00:00'),
+(2081, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:30:33', '0000-00-00 00:00:00'),
+(2082, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:32:31', '0000-00-00 00:00:00'),
+(2083, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 03:32:54', '0000-00-00 00:00:00'),
+(2084, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 03:34:17', '0000-00-00 00:00:00'),
+(2085, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:34:29', '0000-00-00 00:00:00'),
+(2086, 'Data Nilai Strategi Komunikasi Unggulan Telah Dinilai oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:35:48', '0000-00-00 00:00:00'),
+(2087, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:36:08', '0000-00-00 00:00:00'),
+(2088, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:36:18', '0000-00-00 00:00:00'),
+(2089, 'Data Nilai Realisasi Telah Diubah oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:36:33', '0000-00-00 00:00:00'),
+(2090, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-20 03:36:51', '0000-00-00 00:00:00'),
+(2091, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 03:37:01', '0000-00-00 00:00:00'),
+(2092, 'Data Nilai Strategi Komunikasi Unggulan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 03:37:48', '0000-00-00 00:00:00'),
+(2093, 'Data Nilai Editorial Plan Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 03:37:56', '0000-00-00 00:00:00'),
+(2094, 'Data Nilai Uraian Mitigasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 03:38:05', '0000-00-00 00:00:00'),
+(2095, 'Data Nilai Realisasi Telah Diubah oleh User: #Asisten Pemerintahan', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 03:38:10', '0000-00-00 00:00:00'),
+(2096, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-20 04:03:30', '0000-00-00 00:00:00'),
+(2097, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 04:03:44', '0000-00-00 00:00:00'),
+(2098, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 07:03:12', '0000-00-00 00:00:00'),
+(2099, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 07:45:39', '0000-00-00 00:00:00'),
+(2100, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-20 07:45:55', '0000-00-00 00:00:00'),
+(2101, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '103.164.12.220', '2023-09-20 07:48:24', '0000-00-00 00:00:00'),
+(2102, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '139.255.164.40', '2023-09-20 08:13:19', '0000-00-00 00:00:00'),
+(2103, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 02:48:36', '0000-00-00 00:00:00'),
+(2104, 'Data Realisasi #1 Dihapus oleh:Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 03:42:46', '0000-00-00 00:00:00'),
+(2105, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 03:45:21', '0000-00-00 00:00:00'),
+(2106, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 03:45:32', '0000-00-00 00:00:00'),
+(2107, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 04:13:55', '0000-00-00 00:00:00'),
+(2108, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 04:23:07', '0000-00-00 00:00:00'),
+(2109, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 04:24:24', '0000-00-00 00:00:00'),
+(2110, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 04:28:06', '0000-00-00 00:00:00'),
+(2111, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:16:11', '0000-00-00 00:00:00'),
+(2112, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:16:42', '0000-00-00 00:00:00'),
+(2113, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:20:49', '0000-00-00 00:00:00'),
+(2114, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:21:27', '0000-00-00 00:00:00'),
+(2115, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:22:07', '0000-00-00 00:00:00'),
+(2116, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:22:55', '0000-00-00 00:00:00'),
+(2117, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:23:37', '0000-00-00 00:00:00'),
+(2118, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:24:25', '0000-00-00 00:00:00'),
+(2119, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:25:26', '0000-00-00 00:00:00'),
+(2120, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:26:36', '0000-00-00 00:00:00'),
+(2121, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:31:22', '0000-00-00 00:00:00'),
+(2122, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:31:49', '0000-00-00 00:00:00'),
+(2123, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:32:11', '0000-00-00 00:00:00'),
+(2124, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:32:50', '0000-00-00 00:00:00'),
+(2125, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-21 06:38:20', '0000-00-00 00:00:00'),
+(2126, 'Menambahkan Data Mitigasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:45:16', '0000-00-00 00:00:00'),
+(2127, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:48:48', '0000-00-00 00:00:00'),
+(2128, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-21 06:50:56', '0000-00-00 00:00:00'),
+(2129, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-21 06:51:34', '0000-00-00 00:00:00'),
+(2130, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-21 06:52:18', '0000-00-00 00:00:00'),
+(2131, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-21 06:52:26', '0000-00-00 00:00:00'),
+(2132, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-21 06:52:35', '0000-00-00 00:00:00'),
+(2133, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:53:07', '0000-00-00 00:00:00'),
+(2134, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 06:53:15', '0000-00-00 00:00:00'),
+(2135, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 06:53:42', '0000-00-00 00:00:00'),
+(2136, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 06:53:53', '0000-00-00 00:00:00'),
+(2137, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-21 07:10:33', '0000-00-00 00:00:00'),
+(2138, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-21 07:10:49', '0000-00-00 00:00:00'),
+(2139, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-21 07:14:32', '0000-00-00 00:00:00'),
+(2140, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 07:16:55', '0000-00-00 00:00:00'),
+(2141, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 07:18:02', '0000-00-00 00:00:00'),
+(2142, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 07:18:07', '0000-00-00 00:00:00'),
+(2143, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 07:23:29', '0000-00-00 00:00:00'),
+(2144, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 07:31:04', '0000-00-00 00:00:00'),
+(2145, 'Menambahkan Data Nota Dinas #650bc303e7161 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 07:37:24', '0000-00-00 00:00:00'),
+(2146, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 07:39:44', '0000-00-00 00:00:00'),
+(2147, 'Data Nota Dinas #650bc303e7161 Dihapus oleh:Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 07:50:28', '0000-00-00 00:00:00'),
+(2148, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 07:57:55', '0000-00-00 00:00:00'),
+(2149, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 07:58:01', '0000-00-00 00:00:00'),
+(2150, 'Menambahkan Data Nota Dinas #650bc303e7161 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 08:09:07', '0000-00-00 00:00:00'),
+(2151, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-21 08:13:33', '0000-00-00 00:00:00'),
+(2152, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-21 08:13:44', '0000-00-00 00:00:00'),
+(2153, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-21 08:18:26', '0000-00-00 00:00:00'),
+(2154, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-21 08:18:34', '0000-00-00 00:00:00'),
+(2155, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-21 08:33:01', '0000-00-00 00:00:00'),
+(2156, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 08:35:11', '0000-00-00 00:00:00'),
+(2157, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-21 08:35:26', '0000-00-00 00:00:00'),
+(2158, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-21 08:35:45', '0000-00-00 00:00:00'),
+(2159, 'Asisten Pembangunan dan Lingkungan Hidup (asistenpembangunan) Logged in', '0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', '202.180.29.59', '2023-09-21 08:35:59', '0000-00-00 00:00:00'),
+(2160, 'User: Asisten Pembangunan dan Lingkungan Hidup Logged Out', '0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', '202.180.29.59', '2023-09-21 08:41:12', '0000-00-00 00:00:00'),
+(2161, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-21 08:41:21', '0000-00-00 00:00:00'),
+(2162, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-22 01:22:58', '0000-00-00 00:00:00'),
+(2163, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '36.72.195.44', '2023-09-22 02:13:55', '0000-00-00 00:00:00'),
+(2164, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-22 02:16:46', '0000-00-00 00:00:00'),
+(2165, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-22 02:25:23', '0000-00-00 00:00:00'),
+(2166, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-22 02:30:20', '0000-00-00 00:00:00'),
+(2167, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-22 02:30:39', '0000-00-00 00:00:00'),
+(2168, 'Pengaturan URL Dokumentasi & Panduan oleh User: #aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-22 02:41:14', '0000-00-00 00:00:00'),
+(2169, 'Pengaturan URL Dokumentasi & Panduan oleh User: #aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-22 02:41:33', '0000-00-00 00:00:00'),
+(2170, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-22 02:41:36', '0000-00-00 00:00:00'),
+(2171, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-22 02:41:42', '0000-00-00 00:00:00'),
+(2172, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '36.72.195.44', '2023-09-22 02:47:58', '0000-00-00 00:00:00'),
+(2173, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '36.72.195.44', '2023-09-22 02:48:28', '0000-00-00 00:00:00'),
+(2174, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-09-22 02:48:31', '0000-00-00 00:00:00'),
+(2175, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.164.12.220', '2023-09-22 06:29:21', '0000-00-00 00:00:00'),
+(2176, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-22 07:33:26', '0000-00-00 00:00:00'),
+(2177, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-22 07:33:34', '0000-00-00 00:00:00'),
+(2178, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-22 07:36:38', '0000-00-00 00:00:00'),
+(2179, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-22 07:37:01', '0000-00-00 00:00:00'),
+(2180, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-22 07:42:03', '0000-00-00 00:00:00'),
+(2181, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-22 07:42:08', '0000-00-00 00:00:00'),
+(2182, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-22 07:43:05', '0000-00-00 00:00:00'),
+(2183, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-22 07:43:12', '0000-00-00 00:00:00'),
+(2184, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '202.180.29.59', '2023-09-22 07:43:38', '0000-00-00 00:00:00'),
+(2185, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-22 07:43:45', '0000-00-00 00:00:00'),
+(2186, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '36.80.106.121', '2023-09-22 17:26:26', '0000-00-00 00:00:00'),
+(2187, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '36.80.106.121', '2023-09-22 17:26:30', '0000-00-00 00:00:00'),
+(2188, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '36.80.106.121', '2023-09-22 17:26:42', '0000-00-00 00:00:00');
+INSERT INTO `activity_logs` (`id`, `title`, `user`, `ip_address`, `created_at`, `updated_at`) VALUES
+(2189, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '36.80.106.121', '2023-09-23 05:28:58', '0000-00-00 00:00:00'),
+(2190, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 09:54:00', '0000-00-00 00:00:00'),
+(2191, 'Data Nota Dinas #650bc303e7161 Dihapus oleh:Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 10:52:40', '0000-00-00 00:00:00'),
+(2192, 'Menambahkan Data Nota Dinas #650bc303e7161 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 10:53:59', '0000-00-00 00:00:00'),
+(2193, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 10:55:01', '0000-00-00 00:00:00'),
+(2194, 'Mengubah Data Realisasi #651015851b2cb oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 10:56:07', '0000-00-00 00:00:00'),
+(2195, 'Data Realisasi #1 Dihapus oleh:Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 10:56:31', '0000-00-00 00:00:00'),
+(2196, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 10:57:31', '0000-00-00 00:00:00'),
+(2197, 'Mengubah Data Realisasi #6510161bdacc1 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 10:58:45', '0000-00-00 00:00:00'),
+(2198, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.101.229.90', '2023-09-24 13:11:34', '0000-00-00 00:00:00'),
+(2199, 'Pengaturan URL Dokumentasi & Panduan oleh User: #aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.101.229.90', '2023-09-24 13:13:44', '0000-00-00 00:00:00'),
+(2200, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '103.101.229.90', '2023-09-24 13:13:48', '0000-00-00 00:00:00'),
+(2201, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 13:13:55', '0000-00-00 00:00:00'),
+(2202, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '36.80.106.121', '2023-09-24 18:45:49', '0000-00-00 00:00:00'),
+(2203, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '36.80.106.121', '2023-09-24 18:46:58', '0000-00-00 00:00:00'),
+(2204, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:29:44', '0000-00-00 00:00:00'),
+(2205, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:39:25', '0000-00-00 00:00:00'),
+(2206, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:41:40', '0000-00-00 00:00:00'),
+(2207, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:42:47', '0000-00-00 00:00:00'),
+(2208, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:43:53', '0000-00-00 00:00:00'),
+(2209, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:44:36', '0000-00-00 00:00:00'),
+(2210, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:45:12', '0000-00-00 00:00:00'),
+(2211, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:46:36', '0000-00-00 00:00:00'),
+(2212, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:47:27', '0000-00-00 00:00:00'),
+(2213, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:48:55', '0000-00-00 00:00:00'),
+(2214, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:49:32', '0000-00-00 00:00:00'),
+(2215, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:50:07', '0000-00-00 00:00:00'),
+(2216, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:51:23', '0000-00-00 00:00:00'),
+(2217, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:51:59', '0000-00-00 00:00:00'),
+(2218, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:52:32', '0000-00-00 00:00:00'),
+(2219, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:54:52', '0000-00-00 00:00:00'),
+(2220, 'Menambahkan Data Mitigasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 22:58:03', '0000-00-00 00:00:00'),
+(2221, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:29:53', '0000-00-00 00:00:00'),
+(2222, 'Mengubah Data Strategi Komunikasi Unggulan #6510c67148134 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:32:51', '0000-00-00 00:00:00'),
+(2223, 'Mengubah Data Strategi Komunikasi Unggulan #6510ba9d74b72 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:33:34', '0000-00-00 00:00:00'),
+(2224, 'Mengubah Data Strategi Komunikasi Unggulan #6510ba9d74b72 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:34:04', '0000-00-00 00:00:00'),
+(2225, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:34:54', '0000-00-00 00:00:00'),
+(2226, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:35:42', '0000-00-00 00:00:00'),
+(2227, 'Mengubah Data Editorial Plan #6510c79e25f12 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:35:54', '0000-00-00 00:00:00'),
+(2228, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:36:35', '0000-00-00 00:00:00'),
+(2229, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:37:07', '0000-00-00 00:00:00'),
+(2230, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:37:40', '0000-00-00 00:00:00'),
+(2231, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:38:21', '0000-00-00 00:00:00'),
+(2232, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:39:00', '0000-00-00 00:00:00'),
+(2233, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:39:31', '0000-00-00 00:00:00'),
+(2234, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:40:22', '0000-00-00 00:00:00'),
+(2235, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:41:07', '0000-00-00 00:00:00'),
+(2236, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.101.229.90', '2023-09-24 23:41:50', '0000-00-00 00:00:00'),
+(2237, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 00:58:38', '0000-00-00 00:00:00'),
+(2238, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 00:59:27', '0000-00-00 00:00:00'),
+(2239, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:00:08', '0000-00-00 00:00:00'),
+(2240, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:01:00', '0000-00-00 00:00:00'),
+(2241, 'Menambahkan Data Mitigasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:02:28', '0000-00-00 00:00:00'),
+(2242, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:02:45', '0000-00-00 00:00:00'),
+(2243, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:03:02', '0000-00-00 00:00:00'),
+(2244, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:03:08', '0000-00-00 00:00:00'),
+(2245, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Kurang Tepat, coba di perbaiki kembali oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:03:37', '0000-00-00 00:00:00'),
+(2246, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:03:48', '0000-00-00 00:00:00'),
+(2247, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:03:51', '0000-00-00 00:00:00'),
+(2248, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:03:55', '0000-00-00 00:00:00'),
+(2249, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Kurang tepat coba diperbaiki kebali oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:04:22', '0000-00-00 00:00:00'),
+(2250, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:04:32', '0000-00-00 00:00:00'),
+(2251, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:04:38', '0000-00-00 00:00:00'),
+(2252, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:04:47', '0000-00-00 00:00:00'),
+(2253, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:05:51', '0000-00-00 00:00:00'),
+(2254, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:06:02', '0000-00-00 00:00:00'),
+(2255, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:07:04', '0000-00-00 00:00:00'),
+(2256, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:07:10', '0000-00-00 00:00:00'),
+(2257, 'Mengubah Data Editorial Plan #6510c8032494d oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:07:43', '0000-00-00 00:00:00'),
+(2258, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:07:54', '0000-00-00 00:00:00'),
+(2259, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:09:04', '0000-00-00 00:00:00'),
+(2260, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Ditolak dengan alasan Perbaiki dibagian analisis situasi nya oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:09:43', '0000-00-00 00:00:00'),
+(2261, 'Mengubah Status Editorial Plan menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:10:08', '0000-00-00 00:00:00'),
+(2262, 'Mengubah Status Editorial Plan menjadi Ditolak dengan alasan Kurang tepat coba cek kembali oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:10:28', '0000-00-00 00:00:00'),
+(2263, 'Mengubah Status Uraian Mitigasi Krisis menjadi Disetujui oleh User: #Administrator Bidang 1', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:10:38', '0000-00-00 00:00:00'),
+(2264, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:22:34', '0000-00-00 00:00:00'),
+(2265, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:41:14', '0000-00-00 00:00:00'),
+(2266, 'User: Administrator Bidang 1 Logged Out', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:53:47', '0000-00-00 00:00:00'),
+(2267, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:54:06', '0000-00-00 00:00:00'),
+(2268, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:55:30', '0000-00-00 00:00:00'),
+(2269, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '36.80.106.121', '2023-09-25 01:55:36', '0000-00-00 00:00:00'),
+(2270, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-25 01:55:42', '0000-00-00 00:00:00'),
+(2271, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 01:58:26', '0000-00-00 00:00:00'),
+(2272, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.164.12.220', '2023-09-25 02:24:07', '0000-00-00 00:00:00'),
+(2273, 'Menambahkan Data Editorial Plan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.164.12.220', '2023-09-25 02:34:51', '0000-00-00 00:00:00'),
+(2274, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '103.164.12.220', '2023-09-25 02:35:09', '0000-00-00 00:00:00'),
+(2275, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '139.255.164.37', '2023-09-25 02:36:47', '0000-00-00 00:00:00'),
+(2276, 'Mengubah Data Editorial Plan #6510c79e25f12 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 02:40:13', '0000-00-00 00:00:00'),
+(2277, 'Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-25 02:40:34', '0000-00-00 00:00:00'),
+(2278, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-26 06:01:23', '0000-00-00 00:00:00'),
+(2279, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-26 07:08:30', '0000-00-00 00:00:00'),
+(2280, 'Mengubah Data Realisasi #6512836ee57c4 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-26 07:25:09', '0000-00-00 00:00:00'),
+(2281, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-26 08:03:12', '0000-00-00 00:00:00'),
+(2282, 'Administrator Bidang 1 (administratorbidang1) Logged in', '2eda4778d357fac2e91b6575bd506fef', '202.180.29.59', '2023-09-26 08:03:17', '0000-00-00 00:00:00'),
+(2283, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-27 01:31:09', '0000-00-00 00:00:00'),
+(2284, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-27 01:45:17', '0000-00-00 00:00:00'),
+(2285, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-09-27 01:45:24', '0000-00-00 00:00:00'),
+(2286, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-09-27 05:54:38', '0000-00-00 00:00:00'),
+(2287, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.1', '2023-09-29 00:40:34', '0000-00-00 00:00:00'),
+(2288, 'Mengubah Data Realisasi #6512836ee57c4 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.1', '2023-09-29 00:42:22', '0000-00-00 00:00:00'),
+(2289, 'Mengubah Data Realisasi #6512836ee57c4 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.17', '2023-09-29 01:17:09', '0000-00-00 00:00:00'),
+(2290, 'Mengubah Data Realisasi #6512836ee57c4 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.17', '2023-09-29 01:18:06', '0000-00-00 00:00:00'),
+(2291, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.17', '2023-09-29 01:29:36', '0000-00-00 00:00:00'),
+(2292, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.17', '2023-09-29 01:29:39', '0000-00-00 00:00:00'),
+(2293, 'Mengubah Data Realisasi #6512836ee57c4 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.17', '2023-09-29 01:31:12', '0000-00-00 00:00:00'),
+(2294, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.15.12', '2023-10-02 01:08:49', '0000-00-00 00:00:00'),
+(2295, 'Data Nota Dinas #650bc303e7161 Dihapus oleh:Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.15.12', '2023-10-02 01:09:30', '0000-00-00 00:00:00'),
+(2296, 'Menambahkan Data Nota Dinas #650bc303e7161 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.15.12', '2023-10-02 01:10:58', '0000-00-00 00:00:00'),
+(2297, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.15.12', '2023-10-02 01:12:20', '0000-00-00 00:00:00'),
+(2298, 'Menambahkan Data Realisasi #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '116.206.15.12', '2023-10-02 01:13:18', '0000-00-00 00:00:00'),
+(2299, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '114.142.173.40', '2023-10-02 02:08:47', '0000-00-00 00:00:00'),
+(2300, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.173.40', '2023-10-02 02:08:52', '0000-00-00 00:00:00'),
+(2301, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.173.40', '2023-10-02 02:10:41', '0000-00-00 00:00:00'),
+(2302, 'Asisten Pemerintahan (asistenpemerintahan) Logged in', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.173.40', '2023-10-02 02:10:47', '0000-00-00 00:00:00'),
+(2303, 'User: Asisten Pemerintahan Logged Out', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', '114.142.173.40', '2023-10-02 02:13:29', '0000-00-00 00:00:00'),
+(2304, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.173.40', '2023-10-02 02:13:38', '0000-00-00 00:00:00'),
+(2305, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '114.142.173.40', '2023-10-02 02:26:01', '0000-00-00 00:00:00'),
+(2306, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '116.206.14.18', '2023-10-02 06:06:55', '0000-00-00 00:00:00'),
+(2307, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '116.206.14.18', '2023-10-02 06:10:12', '0000-00-00 00:00:00'),
+(2308, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '182.253.194.11', '2023-10-02 09:41:55', '0000-00-00 00:00:00'),
+(2309, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '182.253.194.11', '2023-10-02 09:42:00', '0000-00-00 00:00:00'),
+(2310, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '182.253.194.11', '2023-10-02 09:43:00', '0000-00-00 00:00:00'),
+(2311, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '182.253.194.11', '2023-10-02 09:43:03', '0000-00-00 00:00:00'),
+(2312, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-10-03 01:20:14', '0000-00-00 00:00:00'),
+(2313, 'JaKita (strakom_jakita) Logged in', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-10-04 06:19:32', '0000-00-00 00:00:00'),
+(2314, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-10-04 06:48:52', '0000-00-00 00:00:00'),
+(2315, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-10-04 06:50:38', '0000-00-00 00:00:00'),
+(2316, 'Kabupaten Kepulauan Seribu (strakom_pulauseribu) Logged in', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-10-04 06:50:53', '0000-00-00 00:00:00'),
+(2317, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Kabupaten Kepulauan Seribu', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-10-04 06:53:16', '0000-00-00 00:00:00'),
+(2318, 'User: Kabupaten Kepulauan Seribu Logged Out', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', '202.180.29.59', '2023-10-04 06:55:06', '0000-00-00 00:00:00'),
+(2319, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-10-04 06:55:16', '0000-00-00 00:00:00'),
+(2320, 'Menambahkan Data Periode #12 oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-10-04 06:58:25', '0000-00-00 00:00:00'),
+(2321, 'User: Biro Hukum Setda Logged Out', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-10-04 06:58:51', '0000-00-00 00:00:00'),
+(2322, 'Biro Hukum Setda (strakom_birohukum) Logged in', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-10-04 06:59:02', '0000-00-00 00:00:00'),
+(2323, 'Mengubah Data Periode # oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-10-04 07:11:48', '0000-00-00 00:00:00'),
+(2324, 'Mengubah Data Periode # oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-10-04 07:14:38', '0000-00-00 00:00:00'),
+(2325, 'Menambahkan Data Strategi Komunikasi Unggulan #0 oleh User: #Biro Hukum Setda', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', '202.180.29.59', '2023-10-04 07:15:30', '0000-00-00 00:00:00'),
+(2326, 'Mengubah Data Periode # oleh User: #JaKita', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-10-04 07:16:23', '0000-00-00 00:00:00'),
+(2327, 'User: JaKita Logged Out', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '202.180.29.59', '2023-10-04 08:05:35', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `email_templates`
+-- Table structure for table `email_templates`
 --
 
 CREATE TABLE `email_templates` (
@@ -1592,7 +2394,7 @@ CREATE TABLE `email_templates` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `email_templates`
+-- Dumping data for table `email_templates`
 --
 
 INSERT INTO `email_templates` (`id`, `name`, `code`, `data`, `created_at`) VALUES
@@ -1601,7 +2403,7 @@ INSERT INTO `email_templates` (`id`, `name`, `code`, `data`, `created_at`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `opd_upd`
+-- Table structure for table `opd_upd`
 --
 
 CREATE TABLE `opd_upd` (
@@ -1615,7 +2417,7 @@ CREATE TABLE `opd_upd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `opd_upd`
+-- Dumping data for table `opd_upd`
 --
 
 INSERT INTO `opd_upd` (`id`, `opd_upd_name`, `status`, `created_at`, `created_by`, `update_at`, `update_by`) VALUES
@@ -1692,7 +2494,7 @@ INSERT INTO `opd_upd` (`id`, `opd_upd_name`, `status`, `created_at`, `created_by
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `organisasi`
+-- Table structure for table `organisasi`
 --
 
 CREATE TABLE `organisasi` (
@@ -1703,7 +2505,7 @@ CREATE TABLE `organisasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `organisasi`
+-- Dumping data for table `organisasi`
 --
 
 INSERT INTO `organisasi` (`idorganisasi`, `name`, `tipe`, `kode_pengolah`) VALUES
@@ -1763,7 +2565,7 @@ INSERT INTO `organisasi` (`idorganisasi`, `name`, `tipe`, `kode_pengolah`) VALUE
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `permissions`
+-- Table structure for table `permissions`
 --
 
 CREATE TABLE `permissions` (
@@ -1773,7 +2575,7 @@ CREATE TABLE `permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `permissions`
+-- Dumping data for table `permissions`
 --
 
 INSERT INTO `permissions` (`id`, `title`, `code`) VALUES
@@ -1797,7 +2599,7 @@ INSERT INTO `permissions` (`id`, `title`, `code`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role`
+-- Table structure for table `role`
 --
 
 CREATE TABLE `role` (
@@ -1807,7 +2609,7 @@ CREATE TABLE `role` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `role`
+-- Dumping data for table `role`
 --
 
 INSERT INTO `role` (`role_id`, `role_name`, `status`) VALUES
@@ -1819,7 +2621,7 @@ INSERT INTO `role` (`role_id`, `role_name`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `roles`
+-- Table structure for table `roles`
 --
 
 CREATE TABLE `roles` (
@@ -1828,7 +2630,7 @@ CREATE TABLE `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `roles`
+-- Dumping data for table `roles`
 --
 
 INSERT INTO `roles` (`id`, `title`) VALUES
@@ -1838,7 +2640,7 @@ INSERT INTO `roles` (`id`, `title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `role_permissions`
+-- Table structure for table `role_permissions`
 --
 
 CREATE TABLE `role_permissions` (
@@ -1848,7 +2650,7 @@ CREATE TABLE `role_permissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `role_permissions`
+-- Dumping data for table `role_permissions`
 --
 
 INSERT INTO `role_permissions` (`id`, `role`, `permission`) VALUES
@@ -1922,7 +2724,7 @@ INSERT INTO `role_permissions` (`id`, `role`, `permission`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `settings`
+-- Table structure for table `settings`
 --
 
 CREATE TABLE `settings` (
@@ -1933,7 +2735,7 @@ CREATE TABLE `settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `settings`
+-- Dumping data for table `settings`
 --
 
 INSERT INTO `settings` (`id`, `key`, `value`, `created_at`) VALUES
@@ -1949,7 +2751,7 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`) VALUES
 (10, 'bg_img_type', 'jpeg', '2020-01-06 11:23:33'),
 (11, 'default_lang', '0', '2021-04-12 03:23:06'),
 (12, 'url_video_pd', 'https://youtu.be/JY60NDO0PXM', '2023-07-19 01:34:14'),
-(13, 'url_panduan_pd', '0', '2023-07-19 01:34:14'),
+(13, 'url_panduan_pd', 'https://drive.google.com/file/d/18n1MXTOT-PUgWeFw3Ef5XwAFYfjSJv4H/view?usp=sharing', '2023-07-19 01:34:14'),
 (14, 'url_video_asisten', 'https://youtu.be/58VJXKEnu2c', '2023-07-19 01:34:40'),
 (15, 'url_panduan_asisten', '0', '2023-07-19 01:34:40'),
 (16, 'url_video_super', 'https://www.youtube.com/watch?v=zSweFZcol_M&feature=youtu.be', '2023-07-19 01:34:55'),
@@ -1958,7 +2760,7 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `strategi_komunikasi`
+-- Table structure for table `strategi_komunikasi`
 --
 
 CREATE TABLE `strategi_komunikasi` (
@@ -1990,7 +2792,7 @@ CREATE TABLE `strategi_komunikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `strategi_komunikasi`
+-- Dumping data for table `strategi_komunikasi`
 --
 
 INSERT INTO `strategi_komunikasi` (`id_renkin`, `id_strakom`, `nama_kegiatan`, `kategori_kegiatan`, `ket_kategori_kegiatan`, `deskripsi_kegiatan`, `plain_deskripsi_kegiatan`, `pagu_kegiatan`, `isu_utama`, `plain_isu_utama`, `narasi_utama`, `plain_narasi_utama`, `poin_poin_utama`, `target_audiens`, `tahapan_kegiatan`, `ket_tahapan_kegiatan`, `rencana_media_komunikasi`, `ket_rencana_media_komunikasi`, `file_upload`, `urutan`, `d_created_by`, `d_created_date`, `d_modified_by`, `d_modified_date`, `d_status`) VALUES
@@ -2179,7 +2981,7 @@ INSERT INTO `strategi_komunikasi` (`id_renkin`, `id_strakom`, `nama_kegiatan`, `
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_data_realisasi`
+-- Table structure for table `tbl_data_realisasi`
 --
 
 CREATE TABLE `tbl_data_realisasi` (
@@ -2201,46 +3003,17 @@ CREATE TABLE `tbl_data_realisasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_data_realisasi`
+-- Dumping data for table `tbl_data_realisasi`
 --
 
 INSERT INTO `tbl_data_realisasi` (`id`, `strakom_id`, `tanggal_realisasi`, `judul_publikasi`, `kanal_publikasi`, `text_lainnya`, `link_tautan`, `file_dokumentasi`, `status`, `user_id`, `opd_id`, `periode_id`, `nota_id`, `created_date`, `update_date`) VALUES
-('648cb0aad8fd3', '644ca9449a7bb', '2023-06-05', 'asasasasssssssssssffff', 4, '', 'asasasasasasssssssfffff', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 18:57:46', NULL),
-('648cb2a203b85', '644ca9449a7bb', '2023-12-06', 'asasa', 1, '', '', 'pt kid.png', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:06:10', NULL),
-('648cb2d10c4fb', '644ca9449a7bb', '2023-12-06', 'sasasa', 2, '', '', 'J104_Presenter (1).jpg', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:06:57', NULL),
-('648cb2ed44194', '644ca9449a7bb', '2023-02-02', 'asasa', 3, '', '', 'pemberitahuan_banner.jpg', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:07:25', NULL),
-('648cb320953aa', '644ca9449a7bb', '2023-02-01', 'dasdsa', 5, '', 'asdsadsa', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:08:16', NULL),
-('648cb335c1324', '644ca9449a7bb', '2023-02-01', 'sdadasd', 6, '', 'dasdasdas', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:08:37', NULL),
-('648cb352569ea', '644ca9449a7bb', '2023-02-01', 'asdsadas', 7, '', '', 'Image Pasted at 2023-3-13 22-40.png', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:09:06', NULL),
-('648cb36628eda', '644ca9449a7bb', '2023-02-02', 'asdasdsa', 8, '', 'sdasdsadsa', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:09:26', NULL),
-('648cb3769fab5', '644ca9449a7bb', '2023-12-05', 'sadsadas', 9, '', 'asdsadsad', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:09:42', NULL),
-('648cb39d648f8', '644ca9449a7bb', '2023-02-01', 'sadsadsa', 11, '', 'sadsadsadsa', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-16 19:10:21', NULL),
-('648e7ddc30d00', '6479c596cfcea', '2023-06-05', 'testingsssss', 5, '', 'asdsdsadsa', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-18 03:45:32', NULL),
-('648e7eb5758c1', '644ca9449a7bb', '2023-06-05', 'kakakkakakaka', 4, '', 'akakkakakakka', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-18 03:49:09', NULL),
-('648e7ed09b8e0', '644ca9449a7bb', '2023-09-06', 'uauauuauau', 5, '', 'ahdjhajkdhkahda', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-18 03:49:36', NULL),
-('648e8777ada0e', '644ca9449a7bb', '2023-06-06', 'mantapp', 4, '', 'asasasasa', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-18 04:26:31', NULL),
-('64990f6b9e0b6', '6499132b309d5', '2023-06-27', 'Smart Society', 8, '', 'https://www.jakarta.go.id/', '', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-26 04:09:15', NULL),
-('6499337e1a84d', '649931537be71', '2023-06-27', 'smar city', 7, '', '', 'ttd IHA.png', 0, '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, NULL, '2023-06-26 06:43:10', NULL),
-('64a7c60e35d53', '64a3c312f27c1', '2023-04-10', 'Yuk Pake Jakwarta', 4, '', 'https://www.instagram.com/p/C q2TkTgP_hW/', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 08:00:14', NULL),
-('64a7c63c01a34', '64a3c312f27c1', '2023-06-26', 'Warga Kelurahan Pulau Panggang Manfaatkan Layanan JAKI', 8, '', 'https://pulauseribu.jakarta.go.id/post/2 023-06-26/wargakelurahan-pulaupanggangmanfaatkanlayanan-jak', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 08:01:00', NULL),
-('64a7c665e6619', '64a3c312f27c1', '2023-06-16', 'Jangan Ragu Lapor dengan JAKI', 10, '', 'https://twitter.com/kotajakpus/status/ 16696677507495 40352?s=46&t=lb nWuZ2bzdaIPgjc 4Z1ulQ', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 08:01:41', NULL),
-('64a7c6c4c558f', '64a3c312f27c1', '2023-06-23', 'Yuk berkontribusi dalam menjaga kualitas udara di Jakarta dengan melakukan uji emisi kendaraan bermotor yang kalian miliki.', 5, '', 'https://www.facebook.com/watch/ ?v=1482311445 839219', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 08:03:16', NULL),
-('64a7c71c56a12', '64a3c312f27c1', '2023-04-18', 'Tentang JakPangan', 4, '', 'https://www.instagram.com/p/Cr K4_45SduA/', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 08:04:44', NULL),
-('64a7cc0d9a4ba', '64a3c312f27c1', '2023-05-12', 'Cara Mudah Cek Kualitas Udara di JakISPU', 4, '', 'https://www.instagram.com/p/C sJGh0PpSvw/', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 08:25:49', NULL),
-('64a7d5b787a85', '64a3c312f27c1', '2023-05-15', 'Bedanya Bikin Laporan Publik dan Bikin Laporan Privat ', 4, '', 'https://www.instagram.com/p/Cs QlgNFSgVr/', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:07:03', NULL),
-('64a7d5d3ed626', '64a3c312f27c1', '2023-05-22', 'Mau Kasih Kontribusi Buat Jakarta? Pake JakSurvey', 4, '', 'https://www.instagram.com/p/C sin_kzSwdd/', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:07:31', NULL),
-('64a7d5f6bd0b1', '64a3c312f27c1', '2023-06-09', '3 Hal yang perlu kamu perhatikan sebelum kirim Laporan di JAKI', 4, '', 'https://www.instagram.com/p/C tRBF9WycH7/', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:08:06', NULL),
-('64a7d61a4f191', '64a3c312f27c1', '2023-06-16', 'Jangan Ragu Lapor dengan JAKI', 4, '', 'https://www.instagram.com/p/C tjKs8mvrEw/?ig shid=MzRlODB iNWFlZA==', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:08:42', NULL),
-('64a7d63a100be', '64a3c312f27c1', '2023-06-23', 'yuk berkontribusi dalam menjaga kualitas udara di Jakarta dengan melakukan uji emisi kendaraan bermotor yang kalian miliki.', 4, '', 'https://www.instagram.com/p/C t0a1zLuSNq/', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:09:14', NULL),
-('64a7d65dab3be', '64a3c312f27c1', '2023-06-26', 'JakSiaga by JAKI', 4, '', 'https://www.instagram.com/reel /Ct8iHFdJiLj/?i gshid=MzRlOD BiNWFlZA%3D %3D', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:09:49', NULL),
-('64a7d6879ef92', '64a3c312f27c1', '2023-06-23', 'yuk berkontribusi dalam menjaga kualitas udara di Jakarta dengan melakukan uji emisi kendaraan bermotor yang kalian miliki.', 10, '', 'https://twitter.com/kotajakut/status/1 67209652604124 3648?s=20', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:10:31', NULL),
-('64a7d6afafe7d', '64a3c312f27c1', '2023-06-26', 'Warga Kelurahan Pulau Panggang Manfaatkan Layanan JAKI', 10, '', 'https://twitter.com/KabupatenP 1000/status/16 732476807206 78912', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:11:11', NULL),
-('64a7d6ec90de8', '64a3c312f27c1', '2023-06-16', 'Jangan Ragu Lapor dengan JAKI', 10, '', 'https://rb.gy/chzt4', '', 5, '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, NULL, '2023-07-07 09:12:12', NULL);
+('651a18f4ee364', '650bc303e7161', '2023-10-02', 'Program Unggulan', 2, '', '', 'Asean.jpeg', 0, '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, NULL, '2023-10-02 01:12:20', NULL),
+('651a192e1bcf7', '650bc303e7161', '2023-10-03', 'Program Unggulan 2', 3, '', '', 'SUKSESJAKARTA.jpg', 0, '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, NULL, '2023-10-02 01:13:18', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_editorial_plan`
+-- Table structure for table `tbl_editorial_plan`
 --
 
 CREATE TABLE `tbl_editorial_plan` (
@@ -2264,168 +3037,92 @@ CREATE TABLE `tbl_editorial_plan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_editorial_plan`
+-- Dumping data for table `tbl_editorial_plan`
 --
 
 INSERT INTO `tbl_editorial_plan` (`id`, `strakom_id`, `tanggal_rencana`, `produk_komunikasi`, `txtLainProdukKomunikasi`, `kanal_komunikasi`, `txtLainKanalKomunikasi`, `pesan_utama`, `khalayak`, `user_id`, `opd_id`, `periode_id`, `created_date`, `update_date`, `status`, `review_user_id`, `alasan`) VALUES
-('645f38c17aa3d', '644ca9449a7bb', '2023-04-27', 11, 'testing', 9, 'testing', 'Lorem Ipsum adalah contoh teks atau dummy dalam industri percetakan dan penataan huruf atau typesetting. Lorem Ipsum telah menjadi standar contoh teks sejak tahun 1500an, saat seorang tukang cetak yang tidak dikenal mengambil sebuah kumpulan teks dan mengacaknya untuk menjadi sebuah buku contoh huruf. Ia tidak hanya bertahan selama 5 abad, tapi juga telah beralih ke penataan huruf elektronik, tanpa ada perubahan apapun. Ia mulai dipopulerkan pada tahun 1960 dengan diluncurkannya lembaran-lembaran Letraset yang menggunakan kalimat-kalimat dari Lorem Ipsum, dan seiring munculnya perangkat lunak Desktop Publishing seperti Aldus PageMaker juga memiliki versi Lorem Ipsum.', 'testingssssss', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-04-27 06:25:28', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64635e2793a2a', '644ca9863eeb0', '11/12/2023', 3, '', 3, '', 'asas', 'sasa', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-05-16 10:42:47', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('6486bc88988a5', '644ca9449a7bb', '12-06-2023', 1, '', 3, '', 'testing 120623', 'testing 120623', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-12 06:34:48', NULL, 1, '', ''),
-('6487daaf34ce3', '6487e252ee200', '12-08-2023', 2, '', 8, '', 'Test', 'Wargassssss', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 51, 2, '2023-06-13 02:55:43', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64892eb46b4a1', '644ca9449a7bb', '', 11, 'Test 1', 7, '', 'test KSD 130624sss', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 64892, 2, '2023-06-14 03:06:28', NULL, 0, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('648937a68ceb4', '6487e252ee200', '14-06-2023', 4, '', 2, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:44:38', NULL, 1, '', ''),
-('648938ebb3c0f', '6487e252ee200', '14-06-2023', 8, '', 2, '', 'test KSD 130624', 'test KSD 130624www', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:50:03', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('648938fb593bd', '6487e252ee200', '12-06-2023', 2, '', 2, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:50:19', NULL, 1, '', ''),
-('6489390dc31ef', '6487e252ee200', '12-06-23', 3, '', 10, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:50:37', NULL, 1, '', ''),
-('648939214d19b', '6487e252ee200', '12-06-23', 11, '222', 4, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:50:57', NULL, 1, '', ''),
-('64893935df48c', '6487e252ee200', '12-06-2023', 7, '', 11, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:51:17', NULL, 1, '', ''),
-('6489394c2e099', '6487e252ee200', '140-06-23', 10, '', 9, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:51:40', NULL, 1, '', ''),
-('64893964252d7', '6487e252ee200', '12-06-23', 8, '', 2, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:52:04', NULL, 1, '', ''),
-('6489397b85de7', '6487e252ee200', '12-06-2023', 4, '', 3, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:52:27', NULL, 1, '', ''),
-('6489398f35194', '644ca9449a7bb', '12-06-2023', 4, '', 3, '', 'test KSD 130624', 'test KSD 130624ss', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:52:47', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', 'kurang setuju'),
-('648939a557fea', '6487e252ee200', '14-06-2023', 4, '', 4, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:53:09', NULL, 1, '', ''),
-('648939b1e9793', '6487e252ee200', '12-06-2023', 4, '', 4, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:53:21', NULL, 1, '', ''),
-('648939c90f36b', '6487e252ee200', '12-06-2023', 4, '', 3, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:53:45', NULL, 1, '', ''),
-('648939d535056', '6487e252ee200', '14-06-2023', 4, '', 2, '', 'test KSD 130624', 'test KSD 130624', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:53:57', NULL, 1, '', ''),
-('648939d535079', '6487e252ee200', '14-06-2023', 4, '', 2, '', 'test KSD 1306245', 'test KSD 1306245', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-14 03:53:57', NULL, 1, '', ''),
-('648c3b449af38', '6479c596cfcea', '11-06-2023', 3, '', 1, '', 'sasa', 'sasassssss', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-16 10:36:52', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('6491280135e97', '64912725e1e9b', '27-06-2023', 8, '', 2, '', 'Bye Bye Stunting', 'Ibu-Ibu warga Jakarta pendengar radio', '28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 20, 2, '2023-06-20 04:16:01', NULL, 1, '', ''),
-('6491280758684', '6491565c526df', '30 Juni 2023', 1, '', 8, '', 'Menciptakan Sumber Daya Ahli Hukum yang profesional', 'Forum Hukum DKI Jakarta', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:16:07', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649128755e9ce', '6491273da1e8a', '19-06-2023', 1, '', 1, '', 'Apayaaaa', 'Kopitalk', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:17:57', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('6491288829a02', '6491565c526df', '29 Juni 2023', 3, '', 4, '', 'Paham Kebijakan Hukum', 'Forum Hukum DKI Jakarta', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:18:16', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('6491289673efb', '6491273da1e8a', '21-06-2023', 2, '', 3, '', 'Pohon toge 3', 'Dawis 3', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:18:30', NULL, 1, '', ''),
-('649128b99955e', '6491273da1e8a', '25-06-2023', 3, '', 4, '', 'Pohon toge 4 ', 'hmmmmmmmmm', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:19:05', NULL, 1, '', ''),
-('649128d78e1ec', '6491273da1e8a', '22-06-2023', 4, '', 6, '', 'Pohon toge 5', 'Dawis 5', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:19:35', NULL, 1, '', ''),
-('649128edc09fa', '6491565c526df', '28 Juni 2023', 6, '', 11, '', 'Paham Kebijakan dengan cara yang Asik', 'Forum Hukum DKI Jakarta', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:19:57', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649128fc84cc9', '6491273da1e8a', '23-06-2023', 4, '', 6, '', 'Pohon toge 6', 'Dawisss', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:20:12', NULL, 1, '', ''),
-('64912917f3cda', '64912725e1e9b', '27-06-2023', 11, 'Sosialisasi', 7, '', 'Jangan stunting lagi dong', 'Penjaga posyandu 1', '28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 20, 2, '2023-06-20 04:20:39', NULL, 1, '', ''),
-('6491292c6bbac', '6491273da1e8a', '24-06-2023', 5, '', 8, '', 'Dawiss 6 ', 'hhhhhhh', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:21:00', NULL, 1, '', ''),
-('649129407d09b', '6491273da1e8a', '25-06-2023', 9, '', 5, '', 'jjjjjj', 'dasadfafsdaf', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:21:20', NULL, 1, '', ''),
-('6491294f4852f', '6491273da1e8a', '26-06-2023', 7, '', 8, '', 'sdffsdgsgdg', 'sgfgsdfgds', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:21:35', NULL, 1, '', ''),
-('64912969d26c4', '6491273da1e8a', '27-06-2023', 9, '', 11, '', 'asfasfasf', 'fgsdgs', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:22:01', NULL, 1, '', ''),
-('6491297e4e685', '64912725e1e9b', '28-06-2023', 11, 'Sosialisasi', 7, '', 'Jangan stunting dong 2', 'Ibu posyandu 2', '28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 20, 2, '2023-06-20 04:22:22', NULL, 1, '', ''),
-('649129853bfdb', '6491273da1e8a', '27', 9, '', 1, '', 'eterw', 'erwterte', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 649129853, 2, '2023-06-20 04:22:29', NULL, 1, '', ''),
-('649129ac04f9b', '6491273da1e8a', '28-06-2023', 11, 'ok cakep', 9, 'hhhh', 'fdsfgdfg', 'sdfgsdgsdf', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 649129, 2, '2023-06-20 04:23:08', NULL, 1, '', ''),
-('649129c416f9b', '64912725e1e9b', '30-06-2023', 2, '', 4, '', 'Jangan stunting lagi 3', 'Pak RT', '28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 20, 2, '2023-06-20 04:23:32', NULL, 1, '', ''),
-('649129fe90dfb', '64912725e1e9b', '01-07-2023', 4, '', 4, '', 'Stunting lagi', 'Pak RW 01', '28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 20, 2, '2023-06-20 04:24:30', NULL, 1, '', ''),
-('64912a0f5e5c9', '6491273da1e8a', '29-06-2023', 8, '', 10, '', 'dfsdf', 'fgdsg', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:24:47', NULL, 1, '', ''),
-('64912a25d616f', '6491273da1e8a', '30-06-2023', 10, '', 4, '', 'fgdfg', 'gdhdgh', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:25:09', NULL, 1, '', ''),
-('64912a462f6e8', '6491273da1e8a', '30-06-2023', 4, '', 3, '', 'sfgsdfg', 'dgdfgds', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:25:42', NULL, 1, '', ''),
-('64912a8a6e2d5', '6491273da1e8a', '22-06-2023', 6, '', 2, '', 'sdfhsdihfia', 'fdfhdsfh', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, '2023-06-20 04:26:50', NULL, 1, '', ''),
-('64912ce274c84', '6491565c526df', '1 Juli 2023', 3, '', 1, '', 'Hukum 4', 'bocil', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:36:50', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912cf88316a', '6491565c526df', '2 Juli 2023', 1, '', 2, '', 'Huukum 5', 'adsa', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:37:12', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d0f4b1b8', '6491565c526df', 'dsds', 2, '', 3, '', 'dsds', 'dsds', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:37:35', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d21673ef', '6491565c526df', 'dsds', 3, '', 3, '', 'dsds', 'sdsds', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:37:53', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d306ead1', '6491565c526df', 'dsds', 4, '', 4, '', 'sds', 'sdsds', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:38:08', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d3c416c3', '6491565c526df', 'dsds', 1, '', 5, '', 'dsds', 'sdsd', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:38:20', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d4c33553', '6491565c526df', 'fdfd', 5, '', 6, '', 'fdfdfd', 'fdfdf', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:38:36', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d5d54e8a', '6491565c526df', '3434', 6, '', 6, '', 'fdfdf', 'ddfdf', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:38:53', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d702d41b', '6491565c526df', '44545', 7, '', 7, '', 'fgfgf', 'gfgf', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:39:12', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d847aa04', '6491565c526df', '45454', 8, '', 8, '', 'fdfdf', 'dfdf', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:39:32', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912d94b4306', '6491565c526df', '45677', 9, '', 9, '', 'dsdsds', 'dsdsd', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:39:48', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912da68a9f5', '6491565c526df', '676767', 10, '', 4, '', 'fdfdfdf', 'fdfdf', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-06-20 04:40:06', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('6499098e03bc8', '6499132b309d5', '2023-06-26', 3, '', 4, 'YOUTUBE.COM', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:44:14', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649909aadb573', '6499132b309d5', '2023-06-27', 6, '', 3, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, ', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:44:42', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649909dd22371', '6499132b309d5', '2023-06-26', 0, '', 7, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:45:33', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649909fd8e565', '6499132b309d5', '2023-06-30', 7, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:46:05', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990a16a759c', '6499132b309d5', '2023-06-28', 5, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:46:30', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990a17e9836', '6499132b309d5', '2023-06-28', 5, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:46:31', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990a1a2ccbb', '6499132b309d5', '2023-06-28', 5, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:46:34', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990a1aeb918', '6499132b309d5', '2023-06-28', 5, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:46:34', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990a1b2831d', '6499132b309d5', '2023-06-28', 5, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:46:35', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990a1b51bb5', '6499132b309d5', '2023-06-28', 5, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:46:35', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990ab697b56', '6499132b309d5', '2023-06-28', 10, '', 3, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan implementasi manajemen keamanan dan keselamatan.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 03:49:10', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990e34ea140', '6499132b309d5', '2023-06-20', 3, '', 3, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 04:04:04', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990e53a9023', '6499132b309d5', '2023-06-28', 5, '', 8, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi ', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 04:04:35', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990e7422895', '6499132b309d5', '2023-06-27', 4, '', 4, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, ', 'masyarakat yang cerdas bertujuan untuk mewujudkan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 04:05:08', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64990ea62fce6', '6499132b309d5', '2023-06-29', 6, '', 10, '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, ', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakimplementasi manajemen keamanan dan keselamatan.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 04:05:58', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64993183e42d7', '649931537be71', '2023-06-27', 6, '', 4, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:34:43', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649931aaa690c', '649931537be71', '2023-06-20', 6, '', 5, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:35:22', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649931c1296bf', '649931537be71', '2023-06-28', 2, '', 6, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:35:45', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649931dd9b948', '649931537be71', '2023-06-28', 8, '', 7, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek .', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:36:13', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649931f4af899', '649931537be71', '2023-07-04', 9, '', 10, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:36:36', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649932128f61f', '649931537be71', '2023-06-28', 10, '', 1, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:37:06', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649932262b17c', '649931537be71', '2023-06-29', 8, '', 6, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:37:26', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64993242c7d59', '649931537be71', '2023-06-13', 6, '', 6, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan ', 'Kota cerdas merupakan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:37:54', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('6499325f767cc', '649931537be71', '2023-06-27', 1, '', 11, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:38:23', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('6499327420f7b', '649931537be71', '2023-06-28', 10, '', 7, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:38:44', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('6499328cad296', '649931537be71', '2023-06-29', 8, '', 0, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:39:08', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649932a4ce754', '649931537be71', '2023-07-08', 5, '', 8, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:39:32', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649932c06d4f5', '649931537be71', '2023-06-28', 7, '', 9, 'koran', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:40:00', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649932d802760', '649931537be71', '2023-07-01', 7, '', 6, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:40:24', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('649932ec31692', '649931537be71', '2023-06-30', 6, '', 6, '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-06-26 06:40:44', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c502c3303', '64a3c312f27c1', '2023-04-18', 4, '', 5, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:06:42', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c537ba2b4', '64a3c312f27c1', '2023-04-28', 2, '', 10, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:07:35', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c56482ef6', '64a3c312f27c1', '2023-05-05', 4, '', 4, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:08:20', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c5a62d94c', '64a3c312f27c1', '2023-05-10', 2, '', 5, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 64, 2, '2023-07-04 07:09:26', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c5e136033', '64a3c312f27c1', '2023-05-15', 4, '', 10, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakt Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:10:25', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c63a3db43', '64a3c312f27c1', '2023-05-19', 2, '', 4, '', 'Cara pemanfaatan JakLingko pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:11:54', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c6604523b', '64a3c312f27c1', '2023-05-26', 4, '', 5, '', 'Cara pemanfaatan JakLingko pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:12:32', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c68f57f54', '64a3c312f27c1', '2023-05-31', 2, '', 10, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyakarat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:13:19', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c6b3b828a', '64a3c312f27c1', '2023-06-05', 4, '', 4, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:13:55', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c6dc7d95c', '64a3c312f27c1', '2023-06-09', 2, '', 5, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:14:36', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c71d32101', '64a3c312f27c1', '2023-06-16', 4, '', 10, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:15:41', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c757858d5', '64a3c312f27c1', '2023-06-19', 4, '', 4, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:16:39', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c781aea3d', '64a3c312f27c1', '2023-06-23', 4, '', 5, '', 'Cara pemanfaatan JakSiaga pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:17:21', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c79fe1988', '64a3c312f27c1', '2023-06-26', 2, '', 4, '', 'Cara pemanfaatan JakSiaga pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 64, 2, '2023-07-04 07:17:51', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3c829c6117', '64a3c312f27c1', '2023-04-04', 2, '', 4, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyakarat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 07:20:09', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a4171903a98', '64a3c312f27c1', '2023-04-14', 2, '', 4, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 12:56:57', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a45c82aa361', '64a45be4f2313', '2023-04-14', 2, '', 4, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 17:53:06', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a45cc42eb23', '64a45be4f2313', '2023-04-18', 4, '', 5, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 17:54:12', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a45d180a9ac', '64a45be4f2313', '2023-07-28', 2, '', 10, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 17:55:36', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a45d8992024', '64a45be4f2313', '2023-05-05', 4, '', 4, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 17:57:29', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a45e55536f5', '64a45be4f2313', '2023-05-10', 2, '', 5, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:00:53', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a45ed12ba6a', '64a45be4f2313', '2023-07-15', 2, '', 10, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyakarat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:02:57', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a45f58a5295', '64a45be4f2313', '2023-05-19', 4, '', 4, '', 'Cara pemanfaatan JakLingko pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:05:12', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a4601a06214', '64a45be4f2313', '2023-05-26', 4, '', 5, '', 'Cara pemanfaatan JakLingko pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:08:26', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a4604478ead', '64a45be4f2313', '2023-05-31', 4, '', 10, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:09:08', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a4606eee87a', '64a45be4f2313', '2023-06-05', 2, '', 10, '', 'Cara pemanfaatan JakRespons pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:09:50', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a460aed607b', '64a45be4f2313', '2023-06-09', 4, '', 4, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:10:54', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'Caption lebih kreatif'),
-('64a460cb8e0b5', '64a45be4f2313', '2023-06-16', 4, '', 5, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:11:23', NULL, 1, '', ''),
-('64a460ef05a27', '64a45be4f2313', '2023-06-19', 2, '', 10, '', 'Cara pemanfaatan JakPangan pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:11:59', NULL, 1, '', ''),
-('64a46111be705', '64a45be4f2313', '2023-06-23', 2, '', 5, '', 'Cara pemanfaatan JakSiaga pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:12:33', NULL, 1, '', ''),
-('64a46135457ec', '64a45be4f2313', '2023-06-26', 4, '', 10, '', 'Cara pemanfaatan JakSiaga pada aplikasi JAKI', 'Masyarakat Umum', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, '2023-07-04 18:13:09', NULL, 1, '', ''),
-('64dece45691d8', '64decc9380e48', '2023-08-31', 1, '', 3, '', 'Administrasi Perkantoran', 'Administrasi Perkantoran', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-18 01:49:57', NULL, 0, '', ''),
-('64e2eb0d91288', '644ca9449a7bb', '2023-08-21', 1, '', 4, '', 'testing Editorial Plan', 'Test', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-21 04:41:49', NULL, 0, '', ''),
-('64e413ecb2fab', '64e3264b29be5', '2023-08-31', 2, '', 1, '', 'Kegiatan Strategi Daerah 2', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2147483647, 2, '2023-08-22 01:48:28', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e414339077c', '64e3264b29be5', '2023-08-31', 8, '', 7, '', 'Kegiatan Strategi Daerah 3', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:49:39', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4148380810', '64e3264b29be5', '2023-08-31', 3, '', 5, '', 'Kegiatan Strategi Daerah 4', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:50:59', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e414dc487c3', '64e3264b29be5', '2023-08-31', 9, '', 1, '', 'Kegiatan Strategi Daerah 5', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:52:28', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4150e51200', '64e3264b29be5', '2023-08-31', 10, '', 4, '', 'Kegiatan Strategi Daerah 6', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:53:18', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4153310772', '64e3264b29be5', '2023-08-31', 1, '', 5, '', 'Kegiatan Strategi Daerah 7', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:53:55', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4157bb6599', '64e3264b29be5', '2023-08-31', 6, '', 4, '', 'Kegiatan Strategi Daerah 8', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:55:07', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e415d49fa06', '64e3264b29be5', '2023-08-31', 3, '', 10, '', 'Kegiatan Strategi Daerah 9', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:56:36', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e415edda546', '64e3264b29be5', '2023-08-31', 7, '', 8, '', 'Kegiatan Strategi Daerah 10', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:57:01', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4161097759', '64e3264b29be5', '2023-09-01', 10, '', 2, '', 'Kegiatan Strategi Daerah 11', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:57:36', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4162c293ff', '64e3264b29be5', '2023-09-01', 4, '', 3, '', 'Kegiatan Strategi Daerah 12', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:58:04', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4164ecd4b5', '64e3264b29be5', '2023-09-01', 2, '', 11, '', 'Kegiatan Strategi Daerah 13', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:58:38', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4166f5eea1', '64e3264b29be5', '2023-09-01', 1, '', 6, '', 'Kegiatan Strategi Daerah 14', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:59:11', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e4168917084', '64e3264b29be5', '2023-09-02', 8, '', 10, '', 'Kegiatan Strategi Daerah 15', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 01:59:37', NULL, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('64e435ec7d53c', '64e42ec8681be', '2023-08-26', 5, '', 1, '', 'Editorial Plan 1', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 04:13:32', NULL, 0, '', ''),
-('64e4362219b0c', '64e42ec8681be', '2023-08-25', 1, '', 2, '', 'Editorial Plan', 'Khusus ASN', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 04:14:26', NULL, 0, '', ''),
-('64e464359ebb1', '64e4639e086fa', '2023-09-09', 1, '', 4, '', 'Kegiatan Strategis Daerah Jakarta Utara 1', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:31:01', NULL, 0, '', ''),
-('64e4668dbbbc8', '64e4639e086fa', '2023-09-09', 2, '', 1, '', 'Kegiatan Strategis Daerah Jakarta Utara 2', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:41:01', NULL, 0, '', ''),
-('64e466c611e06', '64e4639e086fa', '2023-09-09', 3, '', 4, '', 'Kegiatan Strategis Daerah Jakarta Utara 3', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:41:58', NULL, 0, '', ''),
-('64e466f082cc0', '64e4639e086fa', '2023-09-09', 4, '', 5, '', 'Kegiatan Strategis Daerah Jakarta Utara 4', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:42:40', NULL, 0, '', ''),
-('64e4674501113', '64e4639e086fa', '2023-09-16', 8, '', 7, '', 'Kegiatan Strategis Daerah Jakarta Utara 5', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:44:05', NULL, 0, '', '');
-INSERT INTO `tbl_editorial_plan` (`id`, `strakom_id`, `tanggal_rencana`, `produk_komunikasi`, `txtLainProdukKomunikasi`, `kanal_komunikasi`, `txtLainKanalKomunikasi`, `pesan_utama`, `khalayak`, `user_id`, `opd_id`, `periode_id`, `created_date`, `update_date`, `status`, `review_user_id`, `alasan`) VALUES
-('64e46770db3a7', '64e4639e086fa', '2023-09-16', 9, '', 7, '', 'Kegiatan Strategis Daerah Jakarta Utara 6', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:44:48', NULL, 0, '', ''),
-('64e467b08511b', '64e4639e086fa', '2023-09-16', 10, '', 2, '', 'Kegiatan Strategis Daerah Jakarta Utara 7', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:45:52', NULL, 0, '', ''),
-('64e467d789059', '64e4639e086fa', '2023-09-30', 2, '', 11, '', 'Kegiatan Strategis Daerah Jakarta Utara 8', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:46:31', NULL, 0, '', ''),
-('64e4681de7a2d', '64e4639e086fa', '2023-08-26', 1, '', 3, '', 'Kegiatan Strategis Daerah Jakarta Utara 10', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:47:41', NULL, 0, '', ''),
-('64e46845cb9e8', '64e4639e086fa', '2023-08-31', 7, '', 7, '', 'Kegiatan Strategis Daerah Jakarta Utara 11', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:48:21', NULL, 0, '', ''),
-('64e46878f318c', '64e4639e086fa', '2023-09-02', 6, '', 10, '', 'Kegiatan Strategis Daerah Jakarta Utara 12', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:49:12', NULL, 0, '', ''),
-('64e46896aa599', '64e4639e086fa', '2023-09-06', 4, '', 5, '', 'Kegiatan Strategis Daerah Jakarta Utara 13', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:49:42', NULL, 0, '', ''),
-('64e468e2396d6', '64e4639e086fa', '2023-08-24', 2, '', 1, '', 'Kegiatan Strategis Daerah Jakarta Utara 14', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:50:58', NULL, 0, '', ''),
-('64e4691856a0e', '64e4639e086fa', '2023-09-13', 10, '', 2, '', 'Kegiatan Strategis Daerah Jakarta Utara 15', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 07:51:52', NULL, 0, '', ''),
-('64e46b1677655', '64e4639e086fa', '2023-09-07', 2, '', 6, '', 'Kegiatan Strategis Daerah Jakarta Utara 9', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-22 08:00:22', NULL, 0, '', ''),
-('64e824cd93edf', '6487e252ee200', '2023-11-02', 4, '', 2, '', 'asdsad', 'asdsad', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-25 03:49:33', NULL, 0, '', ''),
-('64eeb15598aad', '64e4639e086fa', '2023-08-30', 1, '', 0, '', 'Kegiatan Strategi Daerah Jakarta Utara', 'Kegiatan Strategi Daerah Jakarta Utara', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-08-30 03:02:45', NULL, 0, '', '');
+('65024b4b6db94', '65024ac78793e', '2023-09-14', 2, '', 1, '', 'Penanaman Pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-13 23:52:43', NULL, 0, '', ''),
+('650261b792673', '6502615ab0756', '2023-09-29', 2, '', 4, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:28:23', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650261dd8c77c', '6502615ab0756', '2023-09-22', 4, '', 5, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:29:01', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('65026252f1a9c', '6502615ab0756', '2023-09-22', 9, '', 10, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:30:58', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6502627503488', '6502615ab0756', '2023-09-29', 8, '', 4, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:31:33', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650262937b5e2', '6502615ab0756', '2023-09-29', 1, '', 11, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:32:03', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650262c559075', '6502615ab0756', '2023-09-29', 8, '', 4, '', 'Mari Menanam 1000 pohon', 'Masyarakat', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:32:53', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6502630166898', '6502615ab0756', '2023-09-29', 8, '', 8, '', 'Menanam 1000 pohon Bersama', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:33:53', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6502634331fdf', '6502615ab0756', '2023-09-29', 2, '', 1, '', 'Ramaikan Menanam 1000 pohon Bersama', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:34:59', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('65026392538a6', '6502615ab0756', '2023-09-29', 1, '', 4, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:36:18', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6502643d57aaf', '6502615ab0756', '2023-09-29', 4, '', 3, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:39:09', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6502648f04e1f', '6502615ab0756', '2023-09-29', 3, '', 5, '', 'Ayo Menanam 1000 pohon', 'Masyarakat', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:40:31', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650264d65767e', '6502615ab0756', '2023-09-29', 4, '', 10, '', 'Ayo Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:41:42', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6502650d3f434', '6502615ab0756', '2023-09-29', 6, '', 4, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:42:37', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('65026526abdcc', '6502615ab0756', '2023-09-29', 8, '', 2, '', 'Menanam 1000 pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 01:43:02', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('65026d49a5701', '6502615ab0756', '2023-09-30', 2, '', 7, '', 'Menanam 1000 Pohon', 'Masyarakat Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-14 02:17:45', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fcbb7a2ec', '6508fc87b8df0', '2023-09-29', 2, '', 1, '', 'Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:43:23', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fcf5d1cec', '6508fc87b8df0', '2023-09-29', 4, '', 3, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:44:21', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fd2668e31', '6508fc87b8df0', '2023-09-29', 3, '', 4, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:45:10', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fd47dff99', '6508fc87b8df0', '2023-09-29', 8, '', 5, '', 'Buanglah Sampah Pada Tempatnya', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:45:43', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fd769e7a3', '6508fc87b8df0', '2023-09-29', 10, '', 10, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:46:30', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fdb22296b', '6508fc87b8df0', '2023-09-29', 5, '', 5, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:47:30', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fdd1ac946', '6508fc87b8df0', '2023-09-29', 4, '', 4, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:48:01', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fdea1d883', '6508fc87b8df0', '2023-09-29', 2, '', 1, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:48:26', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fe079b04f', '6508fc87b8df0', '2023-09-29', 4, '', 8, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:48:55', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fe229b63b', '6508fc87b8df0', '2023-09-29', 1, '', 7, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:49:22', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fe41d2855', '6508fc87b8df0', '2023-09-29', 5, '', 3, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:49:53', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fe633fa67', '6508fc87b8df0', '2023-09-29', 10, '', 8, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:50:27', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fe89c1c03', '6508fc87b8df0', '2023-09-29', 6, '', 4, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:51:05', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508feab9872f', '6508fc87b8df0', '2023-09-29', 5, '', 4, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:51:39', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6508fed7beb20', '6508fc87b8df0', '2023-09-29', 9, '', 5, '', 'Ayo Tanggulangi Banjir Bersama', 'Umum', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, '2023-09-19 01:52:23', NULL, 6, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650bc52be8304', '650bc303e7161', '2023-09-30', 4, '', 5, '', 'Rapat Koordinasi Penyusunan LKPD Tahun 2022 - Fase Unreviu dengan SBPK 5 Wilayah Kota, BPAD, INSPEKTORAT, BAPENDA, DISDIK DAN DINKES', 'Internal \r\n- SKPD\r\n\r\nEksternal \r\n- Masyarakat\r\n- DPRD\r\n- Pemerintah Pusat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 04:23:07', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650bc57843dcf', '650bc303e7161', '2023-09-30', 4, '', 5, '', 'Entry meeting pemeriksaan BPK atas LKPD pemprov DKI Jakarta Tahun anggaran 2022', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 04:24:24', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650bc6564a99f', '650bc303e7161', '2023-09-30', 4, '', 4, '', 'Penyerahan LKPD Unreviu ke Inspektorat ', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 04:28:06', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650bdfca5ab53', '650bc303e7161', '2023-09-30', 4, '', 4, '', 'Pengemasan caption yang menarik di feed', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:16:42', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be0c11af7d', '650bc303e7161', '2023-09-30', 4, '', 4, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:20:49', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be0e73c526', '650bc303e7161', '2023-09-30', 3, '', 10, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:21:27', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be10f3d282', '650bc303e7161', '2023-09-30', 6, '', 5, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:22:07', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be13fa37f7', '650bc303e7161', '2023-09-30', 2, '', 11, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:22:55', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be16924efc', '650bc303e7161', '2023-09-30', 7, '', 8, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:23:37', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be199e4c40', '650bc303e7161', '2023-09-30', 7, '', 7, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:24:25', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be1d67e121', '650bc303e7161', '2023-09-30', 5, '', 3, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:25:26', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be21c95590', '650bc303e7161', '2023-09-30', 10, '', 3, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:26:36', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be33a38971', '650bc303e7161', '2023-09-30', 2, '', 11, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:31:22', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be355a5078', '650bc303e7161', '2023-09-30', 3, '', 5, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:31:49', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be36bc809c', '650bc303e7161', '2023-09-30', 8, '', 7, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:32:11', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be3927cac6', '650bc303e7161', '2023-09-30', 4, '', 4, '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Masyarakat', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-21 06:32:50', NULL, 2, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510bb2436aa1', '6510ba9d74b72', '2023-09-29', 2, '', 4, '', 'Bijak, share Produk Hukum DKI Jakarta', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:41:40', NULL, 1, '', ''),
+('6510bb67e542b', '6510ba9d74b72', '2023-09-29', 2, '', 5, '', 'Menginformasikan Propemperda DKI Jakarta Tahun 2023', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:42:47', NULL, 1, '', ''),
+('6510bba96fd4c', '6510ba9d74b72', '2023-09-29', 3, '', 4, '', 'Menginformasikan Propempergub DKI Jakarta Tahun 2023', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:43:53', NULL, 1, '', ''),
+('6510bbd471582', '6510ba9d74b72', '2023-09-29', 3, '', 4, '', 'Menginformasikan Propempergub DKI Jakarta Tahun 2023', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:44:36', NULL, 1, '', ''),
+('6510bbf8dd29e', '6510ba9d74b72', '2023-09-29', 4, '', 10, '', 'Menginformasikan Propempergub DKI Jakarta Tahun 2023', 'Mayarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:45:12', NULL, 1, '', ''),
+('6510bc4cbc3ea', '6510ba9d74b72', '2023-09-28', 1, '', 3, '', 'Keterbukaan informasi terkait dengan rencanan pembentukan peraturan gubernur DKI Jakarta Tahun 2023', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:46:36', NULL, 1, '', ''),
+('6510bc7fb5570', '6510ba9d74b72', '2023-09-28', 3, '', 8, '', 'Keterbukaan informasi terkait dengan rencanan pembentukan peraturan gubernur DKI Jakarta Tahun 2023', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:47:27', NULL, 1, '', ''),
+('6510bcd73af9c', '6510ba9d74b72', '2023-09-28', 7, '', 4, '', 'Mengedukasi masyarakat dalam pengendalian banjir melalui pembuatan sumur resapan', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:48:55', NULL, 1, '', ''),
+('6510bcfcbc56e', '6510ba9d74b72', '2023-09-29', 5, '', 5, '', 'Mengedukasi masyarakat dalam pengendalian banjir melalui pembuatan sumur resapan', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:49:32', NULL, 1, '', ''),
+('6510bd1fa6d54', '6510ba9d74b72', '2023-09-28', 6, '', 4, '', 'Mengedukasi masyarakat dalam pengendalian banjir melalui pembuatan sumur resapan', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:50:07', NULL, 1, '', ''),
+('6510bd6bee7c8', '6510ba9d74b72', '2023-09-28', 8, '', 7, '', '\"pakai transportasi umum, agar jakarta bebas macet\"\r\nMenginformasikan kebijakan besaran paket tarif layanan angkutan umum massal ', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:51:23', NULL, 1, '', ''),
+('6510bd8f41a1a', '6510ba9d74b72', '2023-09-29', 2, '', 11, '', '\"pakai transportasi umum, agar jakarta bebas macet\"\r\nMenginformasikan kebijakan besaran paket tarif layanan angkutan umum massal.', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:51:59', NULL, 1, '', ''),
+('6510bdb0c4705', '6510ba9d74b72', '2023-09-29', 3, '', 4, '', '\"pakai transportasi umum, agar jakarta bebas macet\"\r\nMenginformasikan kebijakan besaran paket tarif layanan angkutan umum massal ', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:52:32', NULL, 1, '', ''),
+('6510be3cb4f60', '6510ba9d74b72', '2023-09-28', 4, '', 5, '', 'Menginformasikan Kewajiban uji emisi bagi kendaraan yang sudah memiliki usia di atas 3 tahun', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 22:54:52', NULL, 1, '', ''),
+('6510c79e25f12', '6510c67148134', '2023-09-29', 3, '', 1, '', 'Materi 1 Data Komunikasi', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:34:54', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', 'Kurang tepat coba cek kembali'),
+('6510c7ce0015e', '6510c67148134', '2023-09-29', 1, '', 3, '', 'Materi 2', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:35:42', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c8032494d', '6510c67148134', '2023-09-29', 4, '', 5, '', 'Materi 3', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:36:35', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', 'Kurang tepat coba diperbaiki kebali'),
+('6510c823ec1f2', '6510c67148134', '2023-09-29', 6, '', 4, '', 'Materi 4', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:37:07', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c84460fb4', '6510c67148134', '2023-09-29', 8, '', 7, '', 'Materi 5', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:37:40', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c86def79d', '6510c67148134', '2023-09-29', 2, '', 11, '', 'Materi 6', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:38:21', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c8946beb1', '6510c67148134', '2023-09-28', 9, '', 7, '', 'Materi 7', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:39:00', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c8b3435cd', '6510c67148134', '2023-09-28', 3, '', 10, '', 'Materi 8', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:39:31', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c8e623055', '6510c67148134', '2023-09-29', 7, '', 3, '', 'Materi 9', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:40:22', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c913baca4', '6510c67148134', '2023-09-29', 4, '', 5, '', 'Materi 10', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:41:07', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510c93e95be1', '6510c67148134', '2023-10-06', 8, '', 7, '', 'Materi 11', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-24 23:41:50', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510db3eafdce', '6510c67148134', '2023-10-06', 10, '', 2, '', 'Materi 12', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-25 00:58:38', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510db6f92148', '6510c67148134', '2023-10-06', 9, '', 7, '', 'Materi 13', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-25 00:59:27', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510db98739c2', '6510c67148134', '2023-10-04', 5, '', 5, '', 'Materi 14', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-25 01:00:08', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510dbcc950a0', '6510c67148134', '2023-10-05', 2, '', 11, '', 'Materi 15', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-25 01:01:00', NULL, 1, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510f1cb75bab', '6510ba9d74b72', '2023-09-29', 2, '', 11, '', 'Materi 1', 'Masyarakat Umum', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, '2023-09-25 02:34:51', NULL, 1, '', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_jenis_kegiatan`
+-- Table structure for table `tbl_jenis_kegiatan`
 --
 
 CREATE TABLE `tbl_jenis_kegiatan` (
@@ -2436,7 +3133,7 @@ CREATE TABLE `tbl_jenis_kegiatan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_jenis_kegiatan`
+-- Dumping data for table `tbl_jenis_kegiatan`
 --
 
 INSERT INTO `tbl_jenis_kegiatan` (`id`, `nama`, `code`, `status`) VALUES
@@ -2448,7 +3145,7 @@ INSERT INTO `tbl_jenis_kegiatan` (`id`, `nama`, `code`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kanal_publikasi`
+-- Table structure for table `tbl_kanal_publikasi`
 --
 
 CREATE TABLE `tbl_kanal_publikasi` (
@@ -2459,7 +3156,7 @@ CREATE TABLE `tbl_kanal_publikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_kanal_publikasi`
+-- Dumping data for table `tbl_kanal_publikasi`
 --
 
 INSERT INTO `tbl_kanal_publikasi` (`id`, `nama`, `code`, `status`) VALUES
@@ -2478,7 +3175,7 @@ INSERT INTO `tbl_kanal_publikasi` (`id`, `nama`, `code`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_kategori_program`
+-- Table structure for table `tbl_kategori_program`
 --
 
 CREATE TABLE `tbl_kategori_program` (
@@ -2489,18 +3186,18 @@ CREATE TABLE `tbl_kategori_program` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_kategori_program`
+-- Dumping data for table `tbl_kategori_program`
 --
 
 INSERT INTO `tbl_kategori_program` (`id`, `nama`, `code`, `status`) VALUES
-(1, 'Isu Prioritas', 'K001', 0),
+(1, 'Isu Prioritas', 'K001', 1),
 (2, 'KSD', 'K002', 1),
 (3, 'Program Unggulan Perangkat Daerah', 'K003', 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_ksd`
+-- Table structure for table `tbl_ksd`
 --
 
 CREATE TABLE `tbl_ksd` (
@@ -2511,7 +3208,7 @@ CREATE TABLE `tbl_ksd` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_ksd`
+-- Dumping data for table `tbl_ksd`
 --
 
 INSERT INTO `tbl_ksd` (`id`, `nama`, `code`, `status`) VALUES
@@ -2559,7 +3256,7 @@ INSERT INTO `tbl_ksd` (`id`, `nama`, `code`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_mitigasi`
+-- Table structure for table `tbl_mitigasi`
 --
 
 CREATE TABLE `tbl_mitigasi` (
@@ -2584,30 +3281,20 @@ CREATE TABLE `tbl_mitigasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_mitigasi`
+-- Dumping data for table `tbl_mitigasi`
 --
 
 INSERT INTO `tbl_mitigasi` (`id`, `strakom_id`, `nama_kegiatan`, `uraian_potensi`, `juru_bicara`, `data_pendukung_text`, `data_pendukung_file`, `stakeholder_pro`, `stakeholder_kontra`, `pic_kegiatan`, `user_id`, `opd_id`, `periode_id`, `status`, `created_date`, `update_date`, `review_user_id`, `alasan`) VALUES
-('644e3c613b571', '644ca9449a7bb', '', 'tetsing', 'tetsing', 'tetsing', 'Testing.docx', 'tetsting', 'tetsing', 'tetsing', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-04-30 10:01:05', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
-('644e43891e085', '644ca9449a7bb', '', 'testingssss2222222222222', 'ssstetsing', 'tetsing', 'Notulen Rapat 29-5-2023.docx.pdf', 'tetsing', 'tetsing', 'tetsing', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-04-30 10:31:37', NULL, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('644e48d4a740f', '644ca9449a7bb', 'tetsing', 'tetsing', 'testing', '', 'Soal UTS Basdat Genap 2223.pdf', 'tetsing', 'tetsing', 'tetsing', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-04-30 10:54:12', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
-('644e4977cf916', '644ca9863eeb0', 'tetsing', 'tetsing', 'tetsing', 'tetsing', '11395-32755-2-PB.pdf', 'tetsing', 'tetsing', 'tetsing', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-04-30 10:56:55', NULL, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus '),
-('645ca7e8529e3', '644ca9449a7bb', '', 'tetsingss', 'tetsing', '', '', 'testingsssasasa', 'tetsingssasasa', 'sssss', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 3, '2023-04-30 09:27:28', NULL, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus'),
-('645cae145458b', '6487e252ee200', '', 'Testing Kegiatan Pengelolaan Sampah', 'Plt. Kepala Dinas Kominfotik Provinsi DKI Jakarta', 'ssssss', '137-Article Text-403-1-10-20211018.pdf', 'Masyarakat umum', '- Masyarakat yang belum dapat memanfaatkan jaringan internet gratis yang disediakan Pemprov DKI Jakarta\r\n- Masyarakat yang merasakan kualitas internet yang disediakan pemda tidak sesuai dengan harapan\r\n- Anggota legislatif yang melihat bahwa manfaat tidak sebanding dengan biaya yang dikeluarkan pemda\"', 'Aditya Prana (Kabid JKD) 08128748447 Dema (Kasie ) 08161431790 Service desk +62 852-1654-1900', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-05-01 04:07:57', NULL, '2eda4778d357fac2e91b6575bd506fef', 'kurang lengkap'),
-('64912a7932095', '64912725e1e9b', '', 'Pertengkaran produsen susu formula dengan pedagang telur', 'Plt Kadis Kesehatan', 'Standby Statement', '', 'Asosiasi Pedagang Telur', 'Asosiasi Susu Formula', 'Bu Ani 081212121212', '28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 20, 2, 0, '2023-06-20 04:26:33', NULL, '', ''),
-('64912b83dc1e7', '6491565c526df', '', 'Lemahnya kebijakan hukum di DKI Jakarta', 'Aldi Taher', 'Press Release', '3509.pdf', 'Pemprov DKI Jakarta', 'Swasta', 'Yamauli', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 2, '2023-06-20 04:30:59', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64912b8f14e8b', '6491273da1e8a', '', 'Toge kering', 'Ketua toge', 'https://www.instagram.com/p/CmI31r4r-9u/', '3460.pdf', 'Togeeeee', 'togeee', 'Jennie', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 47, 2, 1, '2023-06-20 04:31:11', NULL, '', ''),
-('64990f44d6afc', '6499132b309d5', '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'Dr John Doe', 'https://www.jakarta.go.id/', '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'Fulan 081220067274', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 2, '2023-06-26 04:08:36', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64993336de03b', '649931537be71', '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Dr John Doe ', 'www.jakarta.go.id', 'Redaksi Notifikasi - Pengelompokkan Notifikasi.pdf', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', 'Fulan 081220067274', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 2, '2023-06-26 06:41:58', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64a3cac493b35', '64a3c312f27c1', '', '1. Kurang updatenya data\r\n2. Respon time terhadap aduan masyarakat lama\r\n', 'Plt. Kepala Dinas Kominfotik Provinsi DKI Jakarta', 'Stand by statement untuk Pj Gubernur dan Plt Kadiskominfotik\r\n\r\n• Berdasarkan Surat Keputusan Kepala Dinas Komunikasi, Informatik, dan Statistik No 14 Tahun 2021 Sebagai Pedoman Pengintegrasian Aplikasi pada Platform Jakarta Kini (JAKI)\r\n• Berdasarkan data di tahun 2022, penyelesaian pengaduan masyarakat telah mampu melebihi target proporsi penyelesaian pengaduan masyarakat sebesar 95%\r\n• kondisi aktual penyelesaian aduan masyarakat mencapai 98,54%, dengan rata-rata waktu respon sebesar 2,44 jam\r\n• Keputusan Sekretaris Daerah Nomor 22 Tahun 2020 dan Perubahan atas Keputusan Sekretaris Daerah Nomor 99 Tahun 2022, tentang pedoman pengelolaan pengaduan pelayanan publik\r\n', 'Laporan Publikasi Strakom Diskominfotik 2023.pdf', 'Masyarakat umum', 'Masyarakat terlapor atas aduan pada JAKI', 'Yudhistira Nugraha (Kepala UP JSC) 081385858521 \r\nRahan Yama Gusta (Kasatpel) 08128627250', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, 6, '2023-07-04 07:31:16', NULL, '', ''),
-('64a4619b7aeaf', '64a45be4f2313', '', '1. Kurang updatenya data\r\n2. Respon time terhadap aduan masyarakat lama\r\n', 'Plt. Kepala Dinas Kominfotik Provinsi DKI Jakarta', 'Stand by statement untuk Pj Gubernur dan Plt Kadiskominfotik\r\n\r\n• Berdasarkan Surat Keputusan Kepala Dinas Komunikasi, Informatik, dan Statistik No 14 Tahun 2021 Sebagai Pedoman Pengintegrasian Aplikasi pada Platform Jakarta Kini (JAKI)\r\n• Berdasarkan data di tahun 2022, penyelesaian pengaduan masyarakat telah mampu melebihi target proporsi penyelesaian pengaduan masyarakat sebesar 95%\r\n• kondisi aktual penyelesaian aduan masyarakat mencapai 98,54%, dengan rata-rata waktu respon sebesar 2,44 jam\r\n• Keputusan Sekretaris Daerah Nomor 22 Tahun 2020 dan Perubahan atas Keputusan Sekretaris Daerah Nomor 99 Tahun 2022, tentang pedoman pengelolaan pengaduan pelayanan publik', 'Laporan Publikasi Strakom Diskominfotik 2023.pdf', 'Masyarakat umum', '\'Masyarakat terlapor atas aduan pada JAKI', 'Yudhistira Nugraha (Kepala UP JSC) 081385858521 \r\nRahan Yama Gusta (Kasatpel) 08128627250', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, 3, '2023-07-04 18:14:51', NULL, '2eda4778d357fac2e91b6575bd506fef', 'kurang sedikit lagi'),
-('64e417990bf67', '64e3264b29be5', '', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', 'Data Kegiatan', '', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 2, '2023-08-22 02:04:09', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
-('64e46b50c4758', '64e4639e086fa', '', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', 'google.com', 'Testing (1).doc', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-08-22 08:01:20', NULL, '', '');
+('6502659e50965', '6502615ab0756', '', 'Penanaman Pohon', 'Dr. Moh Yana', 'https://www.antaranews.com/berita/3594600/komite-sepeda-indonesia-tanam-seribu-pohon-di-jakarta-secara-bertahap', '', 'Masyarakat', 'Masyarakat', 'Nida', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 6, '2023-09-14 01:45:02', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
+('65090005cc4de', '6508fc87b8df0', '', 'Ayo Tanggulangi Banjir Bersama', 'Dr. Imran', 'Ayo Tanggulangi Banjir Bersama', 'Testing (1) (4).doc', 'Ayo Tanggulangi Banjir Bersama', 'Ayo Tanggulangi Banjir Bersama', 'Dr. Imran', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 6, '2023-09-19 01:57:25', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
+('650be67c9d3af', '650bc303e7161', '', 'Penyerahan LKPD Unaudit 2022 dari Pemprov DKI Jakarta kepada BPK RI Perwakilan  Provinsi DKI Jakarta', 'Nida Kusdian', 'Dokumen Pendukung', 'Nodin Penggantian Perangkat.pdf', 'Masyarakat', 'Masyarakat', 'Nida Kusdian', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 2, '2023-09-21 06:45:16', NULL, '2eda4778d357fac2e91b6575bd506fef', ''),
+('6510befb2f726', '6510ba9d74b72', '', '1. Adanya gugatan terhadap Produk Hukum DKI Jakarta yang telah diundangkan\r\n2. Pembentukan Produk Hukum dipandang belum mengikutsertakan partisipasi masyarakat \r\n3. Substansi Produk Hukum Daerah dinilai belum menjadi solusi pengaturan yang komprehensif', 'Kepala Biro Hukum Setda Provinsi DKI Jakarta', '', 'Manual Book.pdf', 'Masyarakat umum', 'Masyarakat yang melakukan gugatan untuk melakukan uji materiil terhadap materi muatan Perda/Pergub DKI Jakarta', 'Nida (0819288989)', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-24 22:58:03', NULL, '', ''),
+('6510dc24451e7', '6510c67148134', '', 'Uraian Potensi Krisis', 'Rini', '', 'Manual Book Aplikasi Renkin.pdf', 'Masyarakat', 'Masyarakat terdampak', 'Nida(08938892883)', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:02:28', NULL, '2eda4778d357fac2e91b6575bd506fef', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_notifikasi`
+-- Table structure for table `tbl_notifikasi`
 --
 
 CREATE TABLE `tbl_notifikasi` (
@@ -2621,7 +3308,7 @@ CREATE TABLE `tbl_notifikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_notifikasi`
+-- Dumping data for table `tbl_notifikasi`
 --
 
 INSERT INTO `tbl_notifikasi` (`notifikasi_id`, `judul_notifikasi`, `user_id`, `opd_id`, `periode_id`, `status_read`, `created_date`) VALUES
@@ -2790,12 +3477,126 @@ INSERT INTO `tbl_notifikasi` (`notifikasi_id`, `judul_notifikasi`, `user_id`, `o
 ('64eea81a25a80', 'Strategi Komunikasi Unggulan dengan nama Pengembangan Smart City Melalui JAKI milik SKPD Badan Kesatuan Bangsa Dan Politik telah dinilai oleh Asisten Pemerintahan', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, 1, '2023-08-30 02:23:22'),
 ('64eef465613a8', 'Strategi Komunikasi Unggulan dengan nama Pengembangan Smart City Melalui JAKI milik SKPD Badan Kesatuan Bangsa Dan Politik telah dinilai oleh Asisten Pemerintahan', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, 1, '2023-08-30 07:48:53'),
 ('64eef46b9b9d0', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Pengembangan Smart City Melalui JAKI milik SKPD Badan Kesatuan Bangsa Dan Politik telah dinilai oleh Asisten Pemerintahan', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, 1, '2023-08-30 07:48:59'),
-('64eef47958856', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Pengembangan Smart City Melalui JAKI milik SKPD Badan Kesatuan Bangsa Dan Politik telah dinilai oleh Asisten Pemerintahan', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, 1, '2023-08-30 07:49:13');
+('64eef47958856', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Pengembangan Smart City Melalui JAKI milik SKPD Badan Kesatuan Bangsa Dan Politik telah dinilai oleh Asisten Pemerintahan', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 10, 2, 1, '2023-08-30 07:49:13'),
+('64f7f45eae5b6', 'Strategi Komunikasi Unggulan dengan Judul Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-06 03:39:10'),
+('64f822e53bdf0', 'Editorial Plan dengan Id 64f7e5fe3c775 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-06 06:57:41'),
+('64f822fcd0254', 'Uraian Mitigasi Krisis dengan Id 64f7f43f32caa milik SKPD Administrator Bidang 1 Ditolak dengan alasan kurang jelas oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-06 06:58:04'),
+('64f8239378349', 'Strategi Komunikasi Unggulan dengan Judul Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-06 07:00:35');
+INSERT INTO `tbl_notifikasi` (`notifikasi_id`, `judul_notifikasi`, `user_id`, `opd_id`, `periode_id`, `status_read`, `created_date`) VALUES
+('64f823b059cc1', 'Editorial Plan dengan Id 64f7f3d12a052 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Kurang Jelas oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-06 07:01:04'),
+('64f823b1ccfef', 'Editorial Plan dengan Id 64f7f3d12a052 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Kurang Jelas oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-06 07:01:05'),
+('64f823ce195bf', 'Uraian Mitigasi Krisis dengan Id 64f7f43f32caa milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-06 07:01:34'),
+('64f9412fe0777', 'Uraian Mitigasi Krisis dengan Id 64f7f43f32caa milik SKPD Administrator Bidang 1 Ditolak dengan alasan Kurang jelas oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-07 03:19:11'),
+('64f946fb8a35d', 'Strategi Komunikasi Unggulan dengan Judul Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-07 03:43:55'),
+('64f947123e21c', 'Editorial Plan dengan Id 64f7e5fe3c775 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-07 03:44:18'),
+('64f9474f94ac8', 'Uraian Mitigasi Krisis dengan Id 64f946beb00da milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perjelas lagi maksud nya apa oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-07 03:45:19'),
+('64f9493a05024', 'Uraian Mitigasi Krisis dengan Id 64f7f43f32caa milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-07 03:53:30'),
+('64fac33a99a60', 'Strategi Komunikasi Unggulan dengan Judul Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 06:46:18'),
+('64fac5f67e44d', 'Strategi Komunikasi Unggulan dengan Judul Kegiatan Strategis Daerah Jakarta Utara milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 06:57:58'),
+('64fac77fcd630', 'Strategi Komunikasi Unggulan dengan Judul Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:04:31'),
+('64fac78c8a98d', 'Editorial Plan dengan Id 64f7e66c99fba milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:04:44'),
+('64fac78f4605d', 'Editorial Plan dengan Id 64f7e707b21ec milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:04:47'),
+('64fac79266d47', 'Editorial Plan dengan Id 64f7ec83e32f3 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:04:50'),
+('64fac7962ddca', 'Editorial Plan dengan Id 64f7e5fe3c775 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:04:54'),
+('64fac7a1b3399', 'Editorial Plan dengan Id 64fa7a830bd28 milik SKPD Administrator Bidang 1 Ditolak dengan alasan kurang jelas oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:05:05'),
+('64fac7ae4eb52', 'Uraian Mitigasi Krisis dengan Id 64f7f43f32caa milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:05:18'),
+('64fac7b1782b7', 'Uraian Mitigasi Krisis dengan Id 64f946beb00da milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:05:21'),
+('64fac85b22926', 'Editorial Plan dengan Id 64e4639e086fa milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:08:11'),
+('64fac865e608c', 'Editorial Plan dengan Id 64eeb15598aad milik SKPD Administrator Bidang 1 Ditolak dengan alasan kurang jelas oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:08:21'),
+('64fac874804a4', 'Uraian Mitigasi Krisis dengan Id 64e46b50c4758 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:08:36'),
+('64fac881996e6', 'Uraian Mitigasi Krisis dengan Id 64e46b50c4758 milik SKPD Administrator Bidang 1 Ditolak dengan alasan kurang jelas oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:08:49'),
+('64fac9543f3ef', 'Strategi Komunikasi Unggulan dengan Judul Kegiatan Strategis Daerah Jakarta Utara milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:12:20'),
+('64fad3fdd892b', 'Strategi Komunikasi Unggulan dengan nama Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:57:49'),
+('64fad4082972d', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:58:00'),
+('64fad40f62e3e', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:58:07'),
+('64fad4145275d', 'Realisasi dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 07:58:12'),
+('64fad86001c44', 'Strategi Komunikasi Unggulan dengan nama Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:16:32'),
+('64fad86f71655', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:16:47'),
+('64fad87995a53', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:16:57'),
+('64fad8810f065', 'Realisasi dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:17:05'),
+('64fadadd935a4', 'Strategi Komunikasi Unggulan dengan nama Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:27:09'),
+('64fadb410bcfe', 'Strategi Komunikasi Unggulan dengan nama Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:28:49'),
+('64fadb99054f6', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:30:17'),
+('64fadbf02ba91', 'Realisasi dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:31:44'),
+('64fadbf69cd0d', 'Strategi Komunikasi Unggulan dengan nama Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:31:50'),
+('64fadbfe79752', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:31:58'),
+('64fadc04ca153', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Program Ungulan Perangkat Daerah Jakarta Barat milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-08 08:32:04'),
+('64fe6c93e1215', 'Strategi Komunikasi Unggulan dengan Judul Kegiatan Strategis Daerah Jakarta Utara milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:25:39'),
+('64fe6c9a6ac43', 'Editorial Plan dengan Id 64e4639e086fa milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:25:46'),
+('64fe6cacdb6e7', 'Editorial Plan dengan Id 64e464359ebb1 milik SKPD Administrator Bidang 1 Ditolak dengan alasan di perjelas lagi oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:26:04'),
+('64fe6cd03ac42', 'Editorial Plan dengan Id 64e466f082cc0 milik SKPD Administrator Bidang 1 Ditolak dengan alasan kanal komukasi tidak sesuai seharus nya facebook\r\n oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:26:40'),
+('64fe6cdcc98a0', 'Uraian Mitigasi Krisis dengan Id 64e46b50c4758 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:26:52'),
+('64fe6e296c733', 'Strategi Komunikasi Unggulan dengan Judul Kegiatan Strategis Daerah Jakarta Utara milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:32:25'),
+('64fe6ea7d7604', 'Editorial Plan dengan Id 64e4639e086fa milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:34:31'),
+('64fe6eb424f26', 'Uraian Mitigasi Krisis dengan Id 64e46b50c4758 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:34:44'),
+('64fe6eb89c9d0', 'Strategi Komunikasi Unggulan dengan Judul Kegiatan Strategis Daerah Jakarta Utara milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 01:34:48'),
+('64fe938d21e24', 'Strategi Komunikasi Unggulan dengan Judul Meningkatkan Pengetahuan Hukum Masyarakat milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:11:57'),
+('64fe93cddf93d', 'Strategi Komunikasi Unggulan dengan Judul Meningkatkan Pengetahuan Hukum Masyarakat milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki Bagian Analisis Situasi oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:13:01'),
+('64fe93d31c742', 'Editorial Plan dengan Id 64fe865f15c57 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:13:07'),
+('64fe93e3b04c0', 'Editorial Plan dengan Id 64fe8d4301759 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki Kembali\r\n oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:13:23'),
+('64fe93ec24050', 'Uraian Mitigasi Krisis dengan Id 64fe8dd399e68 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:13:32'),
+('64fe93f0b4125', 'Uraian Mitigasi Krisis dengan Id 64fe8dd399e68 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:13:36'),
+('64fe9458d939d', 'Strategi Komunikasi Unggulan dengan Judul Meningkatkan Pengetahuan Hukum Masyarakat milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:15:20'),
+('64fe9469b23f7', 'Strategi Komunikasi Unggulan dengan Judul Meningkatkan Pengetahuan Hukum Masyarakat milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:15:37'),
+('64fe946de89ce', 'Editorial Plan dengan Id 64fe865f15c57 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:15:41'),
+('64fe947c7944e', 'Editorial Plan dengan Id 64fe8734341f5 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:15:56'),
+('64fe95700c84f', 'Strategi Komunikasi Unggulan dengan Judul Meningkatkan Pengetahuan Hukum Masyarakat milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 04:20:00'),
+('64feaf144c563', 'Editorial Plan dengan Id 64eeb15598aad milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 06:09:24'),
+('64feaf395f158', 'Editorial Plan dengan Id 64e468e2396d6 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 06:10:01'),
+('64feafb5743d8', 'Editorial Plan dengan Id 64fe8d4301759 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:12:05'),
+('64feafc0f15ed', 'Editorial Plan dengan Id 64fe865f15c57 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:12:16'),
+('64feafc9b3a62', 'Editorial Plan dengan Id 64fe8ce0b0488 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:12:25'),
+('64feafd3a5dfc', 'Uraian Mitigasi Krisis dengan Id 64fe8dd399e68 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:12:35'),
+('64feb02c652c7', 'Strategi Komunikasi Unggulan dengan Judul Meningkatkan Pengetahuan Hukum Masyarakat milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:14:04'),
+('64feb04380015', 'Strategi Komunikasi Unggulan dengan Judul Meningkatkan Pengetahuan Hukum Masyarakat milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:14:27'),
+('64feb047cf748', 'Editorial Plan dengan Id 64fe865f15c57 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:14:31'),
+('64feb0547fde7', 'Editorial Plan dengan Id 64fe8bff1f8fe milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-11 06:14:44'),
+('64feb205bffe5', 'Strategi Komunikasi Unggulan dengan Judul Kegiatan Strategis Daerah Jakarta Utara milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 06:21:57'),
+('64feb21d4be9d', 'Strategi Komunikasi Unggulan dengan Judul Kegiatan Strategis Daerah Jakarta Utara milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 06:22:21'),
+('64feb22244a73', 'Editorial Plan dengan Id 64e4639e086fa milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 06:22:26'),
+('64feb228f3dc7', 'Uraian Mitigasi Krisis dengan Id 64e46b50c4758 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 1, '2023-09-11 06:22:32'),
+('650125e555c91', 'Strategi Komunikasi Unggulan dengan nama Meningkatkan Pemahaman Hukum milik SKPD Biro Hukum Setda telah dinilai oleh Nori', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-13 03:00:53'),
+('650125f3203cd', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Meningkatkan Pemahaman Hukum milik SKPD Biro Hukum Setda telah dinilai oleh Nori', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-13 03:01:07'),
+('650125fbc60ec', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Meningkatkan Pemahaman Hukum milik SKPD Biro Hukum Setda telah dinilai oleh Nori', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-13 03:01:15'),
+('6501260e9a56b', 'Realisasi dengan nama Strategi Komunikasi Unggulan Meningkatkan Pemahaman Hukum milik SKPD Biro Hukum Setda telah dinilai oleh Nori', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-13 03:01:34'),
+('650276d356bc7', 'Strategi Komunikasi Unggulan dengan Judul Program Penanaman 1000 Pohon milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-14 02:58:27'),
+('65027789b19c3', 'Editorial Plan dengan Id 6502615ab0756 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-14 03:01:29'),
+('650277ad5b5a8', 'Strategi Komunikasi Unggulan dengan Judul Program Penanaman 1000 Pohon milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-14 03:02:05'),
+('650277b40a664', 'Uraian Mitigasi Krisis dengan Id 6502659e50965 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-14 03:02:12'),
+('650278d4239af', 'Strategi Komunikasi Unggulan dengan nama Program Penanaman 1000 Pohon milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-14 03:07:00'),
+('650278e94888f', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Program Penanaman 1000 Pohon milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-14 03:07:21'),
+('650278f5766f6', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Program Penanaman 1000 Pohon milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-14 03:07:33'),
+('6509001bf408d', 'Strategi Komunikasi Unggulan dengan Judul Program Penanggulangan Banjir milik SKPD Kabupaten Kepulauan Seribu sudah dilakukan Finalisasi', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-19 01:57:47'),
+('6509005094ca6', 'Strategi Komunikasi Unggulan dengan Judul Program Penanggulangan Banjir milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-19 01:58:40'),
+('650900571d9f0', 'Editorial Plan dengan Id 6508fc87b8df0 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-19 01:58:47'),
+('6509006080cbf', 'Uraian Mitigasi Krisis dengan Id 65090005cc4de milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-19 01:58:56'),
+('650a690c2ff53', 'Strategi Komunikasi Unggulan dengan nama Program Penanggulangan Banjir milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-20 03:37:48'),
+('650a691486e59', 'Editorial Plan dengan nama Strategi Komunikasi Unggulan Program Penanggulangan Banjir milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-20 03:37:56'),
+('650a691dc2ac4', 'Uraian Mitigasi dengan nama Strategi Komunikasi Unggulan Program Penanggulangan Banjir milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-20 03:38:05'),
+('650a6922bd4b5', 'Realisasi dengan nama Strategi Komunikasi Unggulan Program Penanggulangan Banjir milik SKPD Kabupaten Kepulauan Seribu telah dinilai oleh Asisten Pemerintahan', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 42, 2, 0, '2023-09-20 03:38:10'),
+('650be7505a0f7', 'Strategi Komunikasi Unggulan dengan Judul PROGRAM UNGGULAN BADAN PENGELOLAAN KEUANGAN DAERAH milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-21 06:48:48'),
+('650be82252a96', 'Strategi Komunikasi Unggulan dengan Judul PROGRAM UNGGULAN BADAN PENGELOLAAN KEUANGAN DAERAH milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-21 06:52:18'),
+('650be82a4a307', 'Editorial Plan dengan Id 650bc303e7161 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-21 06:52:26'),
+('650be833b5005', 'Uraian Mitigasi Krisis dengan Id 650be67c9d3af milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-21 06:52:35'),
+('6510dc35c18c9', 'Strategi Komunikasi Unggulan dengan Judul Publikasi Peraturan DKI Jakarta terkait Transportasi, Pajak, Pendidikan dan Seputar Jakarta dalam Ra milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:02:45'),
+('6510dc698e746', 'Editorial Plan dengan Id 6510c8032494d milik SKPD Administrator Bidang 1 Ditolak dengan alasan Kurang Tepat, coba di perbaiki kembali oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:03:37'),
+('6510dc741a797', 'Editorial Plan dengan Id 6510c79e25f12 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:03:48'),
+('6510dc7728bc8', 'Editorial Plan dengan Id 6510c7ce0015e milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:03:51'),
+('6510dc7bb7692', 'Editorial Plan dengan Id 6510c67148134 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:03:55'),
+('6510dc96001af', 'Editorial Plan dengan Id 6510c8032494d milik SKPD Administrator Bidang 1 Ditolak dengan alasan Kurang tepat coba diperbaiki kebali oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:04:22'),
+('6510dca08fe73', 'Uraian Mitigasi Krisis dengan Id 6510dc24451e7 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:04:32'),
+('6510dd6a1c425', 'Strategi Komunikasi Unggulan dengan Judul Publikasi Peraturan DKI Jakarta terkait Transportasi, Pajak, Pendidikan dan Seputar Jakarta dalam Ra milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:07:54'),
+('6510ddd79ba2c', 'Strategi Komunikasi Unggulan dengan Judul Publikasi Peraturan DKI Jakarta terkait Transportasi, Pajak, Pendidikan dan Seputar Jakarta dalam Ra milik SKPD Administrator Bidang 1 Ditolak dengan alasan Perbaiki dibagian analisis situasi nya oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:09:43'),
+('6510ddf0c617a', 'Editorial Plan dengan Id 6510c67148134 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:10:08'),
+('6510de04ca495', 'Editorial Plan dengan Id 6510c79e25f12 milik SKPD Administrator Bidang 1 Ditolak dengan alasan Kurang tepat coba cek kembali oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:10:28'),
+('6510de0e2b8eb', 'Uraian Mitigasi Krisis dengan Id 6510dc24451e7 milik SKPD Administrator Bidang 1 Disetujui oleh Administrator Bidang 1', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 01:10:38'),
+('6510f1dda95a3', 'Strategi Komunikasi Unggulan dengan Judul Publikasi Peraturan terkait Pengendalian Banjir dan Penanganan Kemacetan di DKI Jakarta milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 02:35:09'),
+('6510f32232261', 'Strategi Komunikasi Unggulan dengan Judul Publikasi Peraturan DKI Jakarta terkait Transportasi, Pajak, Pendidikan dan Seputar Jakarta dalam Ra milik SKPD Biro Hukum Setda sudah dilakukan Finalisasi', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 51, 2, 1, '2023-09-25 02:40:34');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_pemberitahuan`
+-- Table structure for table `tbl_pemberitahuan`
 --
 
 CREATE TABLE `tbl_pemberitahuan` (
@@ -2807,17 +3608,17 @@ CREATE TABLE `tbl_pemberitahuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_pemberitahuan`
+-- Dumping data for table `tbl_pemberitahuan`
 --
 
 INSERT INTO `tbl_pemberitahuan` (`id`, `nama_pemberitahuan`, `lokasi_file`, `url`, `status`) VALUES
 (1, 'Pemberitahuan 12222', 'pemberitahuan_banner.jpg', 'https://jakarta.go.id/', 0),
-(2, 'Pemberitahuan 2', 'page-pemberitahuan-konsultasi-publik-ulang-rencana-pembangunan-pelebaran-jalan-lebak-bulus-ii-20220809023242.jpg', 'https://jakarta.go.id/', 1);
+(2, 'Pemberitahuan 2', 'page-pemberitahuan-konsultasi-publik-ulang-rencana-pembangunan-pelebaran-jalan-lebak-bulus-ii-20220809023242.jpg', 'https://jakarta.go.id/', 0);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_penilaian`
+-- Table structure for table `tbl_penilaian`
 --
 
 CREATE TABLE `tbl_penilaian` (
@@ -2839,20 +3640,17 @@ CREATE TABLE `tbl_penilaian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_penilaian`
+-- Dumping data for table `tbl_penilaian`
 --
 
 INSERT INTO `tbl_penilaian` (`id`, `strakom_id`, `nilai_strakom`, `nilai_editorial`, `nilai_mitigasi`, `nilai_realisasi`, `administrator_id`, `asisten_id`, `status`, `catatan`, `catatan_editorial`, `catatan_mitigasi`, `catatan_realisasi`, `periode_id`, `created_at`) VALUES
-('6486c26ace5c4', '644ca9449a7bb', 20, 2.67, 28.75, 0, '', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 1, 'ok', '300', '', '', 2, '2023-06-12 06:59:54'),
-('6491621c298c0', '6491273da1e8a', 20, 20, 30, 0, '2eda4778d357fac2e91b6575bd506fef', '', 1, 'mayan laah', 'oke laah', 'xoxo', '', 2, '2023-06-20 08:23:56'),
-('649918bd538eb', '6499132b309d5', 20, 20, 30, 20, '', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 2, 'baik', 'baik', 'baik', 'baik', 2, '2023-06-26 04:49:01'),
-('649934419fcfb', '649931537be71', 20, 19, 30, 20, '', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 2, 'Baik', 'sangat baik', 'Baik', 'baik', 2, '2023-06-26 06:46:25'),
-('64a93731012ae', '64a3c312f27c1', 100, 30, 50, 50, '', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 2, 'Sudah sangat bagus.', 'Sangat Bagus.', 'Sangat bagus', '', 2, '2023-07-08 10:15:13');
+('65027804866b1', '6502615ab0756', 80, 100, 100, 0, '', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 2, 'baik', 'Sangat Baik', 'Sangat Baik', '', 2, '2023-09-14 03:03:32'),
+('650a6894b9f5b', '6508fc87b8df0', 80, 100, 100, 100, '', '6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 2, 'Baik', 'baik', 'baik', 'baik', 2, '2023-09-20 03:35:48');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_periode`
+-- Table structure for table `tbl_periode`
 --
 
 CREATE TABLE `tbl_periode` (
@@ -2869,16 +3667,17 @@ CREATE TABLE `tbl_periode` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_periode`
+-- Dumping data for table `tbl_periode`
 --
 
 INSERT INTO `tbl_periode` (`id`, `periode_aktif`, `tahun`, `status_periode`, `status_verifikasi`, `status_penilaian`, `status_realisasi`, `status_input_data`, `created_date`, `update_date`) VALUES
-(2, 'Triwulan III', '2023', 1, 0, 1, 1, 1, '2023-04-17 16:40:58', NULL);
+(2, 'Triwulan III', '2023', 0, 0, 0, 0, 0, '2023-04-17 16:40:58', NULL),
+(12, 'Triwulan IV', '2023', 1, 0, 0, 0, 1, '2023-10-04 06:58:25', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_produk_komunikasi`
+-- Table structure for table `tbl_produk_komunikasi`
 --
 
 CREATE TABLE `tbl_produk_komunikasi` (
@@ -2889,7 +3688,7 @@ CREATE TABLE `tbl_produk_komunikasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_produk_komunikasi`
+-- Dumping data for table `tbl_produk_komunikasi`
 --
 
 INSERT INTO `tbl_produk_komunikasi` (`id`, `nama`, `code`, `status`) VALUES
@@ -2908,7 +3707,7 @@ INSERT INTO `tbl_produk_komunikasi` (`id`, `nama`, `code`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_realisasi`
+-- Table structure for table `tbl_realisasi`
 --
 
 CREATE TABLE `tbl_realisasi` (
@@ -2929,7 +3728,7 @@ CREATE TABLE `tbl_realisasi` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_strakom_unggulan`
+-- Table structure for table `tbl_strakom_unggulan`
 --
 
 CREATE TABLE `tbl_strakom_unggulan` (
@@ -2963,31 +3762,23 @@ CREATE TABLE `tbl_strakom_unggulan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data untuk tabel `tbl_strakom_unggulan`
+-- Dumping data for table `tbl_strakom_unggulan`
 --
 
 INSERT INTO `tbl_strakom_unggulan` (`id`, `kategori_program`, `nama_program`, `ksd_id`, `jenis_kegiatan`, `deskripsi`, `analisis_situasi`, `identifikasi_masalah`, `narasi_utama`, `target_pro`, `target_kontra`, `kanal_publikasi`, `kanal_publikasi_lainnya`, `user_id`, `periode_id`, `tahun_periode`, `triwulan_periode`, `created_date`, `update_date`, `opd_id`, `status`, `review_user_id`, `alasan`, `no_nota_dinas`, `url_nota_dinas`, `perihal_nota`, `tanggal_nota`) VALUES
-('644ca9449a7bb', 1, 'testingss', '0', '1', 'testingss', 'testingsss', 'testingss', 'testingsss', 'testingss', 'testingss xxxx hhhhhh', '2, 4', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-04-21 17:41:36', NULL, 42, 2, '2eda4778d357fac2e91b6575bd506fef', '', 'aaaa', 'loker diskominfotik 5.pdf', 'sasasa', '2023-05-07'),
-('646bd7c0369eb', 3, 'ASasaS', 'ASasaS', '', 'ASDFSAD', 'SADSA', 'SDSAD', 'ADSAD', 'SADSAD', 'ADAD', '3', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-05-22 20:59:44', NULL, 41, 3, '2eda4778d357fac2e91b6575bd506fef', 'kurang bagus', '', '', '', ''),
-('6479c596cfcea', 2, 'ssssss', 'ssssss', '', 'testingss', 'testingss', 'testingss', 'testingsss', 'testingssss', 'testingss cccccc bbbbbb uuuuuu', '4, 5', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-04-24 14:35:34', NULL, 42, 1, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
-('6486bd5717a52', 3, 'testing program unggulan daerah 120623', 'testing program unggulan daerah 120623', '', 'testing program unggulan daerah 120623', 'testing program unggulan daerah 120623', 'testing program unggulan daerah 120623', 'testing program unggulan daerah 120623', 'testing program unggulan daerah 120623', 'testing program unggulan daerah 120623', '1', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-06-12 06:38:15', NULL, 42, 1, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
-('6487e252ee200', 2, 'test KSD 130624', 'test KSD 130624', '', 'test KSD 130623', 'test KSD 130623', 'test KSD 130623', 'test KSD 130623', 'test KSD 130623', 'test KSD 130623', '8', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-06-13 03:27:12', NULL, 42, 0, '', '', '', '', '', ''),
-('64912725e1e9b', 2, 'Penanganan Stunting', 'Penanganan Stunting', '', 'Kebijakan penanganan stunting di Jakarta', 'Angka stunting meningkat', 'masyarakat kurang mendapat akses informasi mengenai stunting', 'Cegah Stunting Dengan Makan Telur', 'Ibu-ibu rumah tangga', 'Tukang susu formula', '2, 4', '', '28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 2, '2023', 'Triwulan I', '2023-06-20 04:12:21', NULL, 20, 0, '', '', '', '', '', ''),
-('6491273da1e8a', 3, 'Penanaman Pohon Toge', 'Penanaman Pohon Toge', '', 'Penanaman Pohon Toge', 'Syuliddd', 'Minimnya pohon toge', 'Ayo tanam pohon toge', 'Ibu-ibu dawis Jakbarian', 'Bapak-bapak Jakbarian', '1, 8', '', '6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 2, '2023', 'Triwulan I', '2023-06-20 04:12:45', NULL, 47, 2, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
-('6491565c526df', 2, 'Meningkatkan Pemahaman Hukum', 'Meningkatkan Pemahaman Hukum', '', 'Peningkatan mutu SDM Hukum', 'Kurangnya ketelitian', 'Adanya penambahan kebijakan hukum di DKI Jakarta', 'SDM Hukum yang Unggul', 'Pelaku Hukum ', 'Masyarakat ', '4, 5', '', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 2, '2023', 'Triwulan I', '2023-06-20 04:12:51', NULL, 51, 2, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
-('6499132b309d5', 3, 'Smart Society', 'Smart Society', '', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'Smart society ', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', 'masyarakat yang cerdas bertujuan untuk mewujudkan partisipasi Masyarakat melalui pemberdayaan interaksi Masyarakat, pembangunan sistem pembelajaran, dan implementasi manajemen keamanan dan keselamatan.', '4, 5', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-06-26 03:41:16', NULL, 42, 2, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
-('649931537be71', 3, 'Smart City', 'Smart City', '', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan kota yang saling berkaitan dalam semua aspek kehidupan untuk mendukung masyarakat yang cerdas, berpendidikan, memiliki moral serta peningkatan kualitas hidup warga negaranya.', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', 'Kota cerdas merupakan suatu konsep perencanaan, penataan dan pengelolaan ', '4, 5, 9, 10', 'Koran', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-06-26 06:33:55', NULL, 42, 2, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
-('64a2ee794dbb4', 2, 'Strakom', 'Strakom', '', 'Strakom', 'Strakom', 'Strakom', 'Strakom', 'Strakom', 'Strakom', '1', '', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 2, '2023', 'Triwulan I', '2023-07-03 15:51:21', NULL, 10, 0, '', '', '', '', '', ''),
-('64a3c312f27c1', 3, 'Pengembangan Smart City Melalui JAKI', 'Pengembangan Smart City Melalui JAKI', '', 'Jakarta Kini (JAKI)\r\nKegiatan ini berjalan selama satu tahun anggaran, terus menerus dengan tujuan memberikan informasi dan layanan bagi warga Jakarta. JAKI menyediakan fitur-fitur yang merefleksikan citizen-design services dengan memadukan fitur layanan yang dibuat oleh pemerintah maupun masyarakat.', 'Kecepatan update data SKPD terkait', '- Updating data real time untuk menunjang kebutuhan informasi kepada masyarakat\r\n- Kecepatan tindak lanjut aduan masyarakat melalui JAKI\r\n- Isu-isu politis', 'JAKI sebagai super apps DKI Jakarta\r\nMudahnya pengaduan masyarakat melalui JAKI\r\n', '1. Masyarakat\r\n2. Legistatif', '1. Masyarakat terlapor', '4, 5, 7, 8, 10', '', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 2, '2023', 'Triwulan I', '2023-07-04 06:58:26', NULL, 10, 6, '2eda4778d357fac2e91b6575bd506fef', '', 'e-0042/KI.02', 'Laporan Publikasi Strakom Diskominfotik 2023 (1).pdf', 'Laporan Materi Publikasi Strategi Komunikasi Triwulan II Tahun 2023', '2023-06-27'),
-('64a45be4f2313', 3, 'Pengembangan Smart City Melalui JAKI 1', 'Pengembangan Smart City Melalui JAKI 1', '', 'Jakarta Kini (JAKI)\r\nKegiatan ini berjalan selama satu tahun anggaran, terus menerus dengan tujuan memberikan informasi dan layanan bagi warga Jakarta. JAKI menyediakan fitur-fitur yang merefleksikan citizen-design services dengan memadukan fitur layanan yang dibuat oleh pemerintah maupun masyarakat.', 'Kecepatan update data SKPD terkait', '- Updating data real time untuk menunjang kebutuhan informasi kepada masyarakat\r\n- Kecepatan tindak lanjut aduan masyarakat melalui JAKI\r\n- Isu-isu politis', 'JAKI sebagai super apps DKI Jakarta\r\nMudahnya pengaduan masyarakat melalui JAKI\r\n', '1. Masyarakat\r\n2. Legistatif\r\n', '1. Masyarakat terlapor', '4, 5, 8, 10', '', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 2, '2023', 'Triwulan I', '2023-07-04 17:50:28', NULL, 10, 1, '', '', '', '', '', ''),
-('64e3264b29be5', 2, 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', '', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', 'Kegiatan Strategi Daerah', '1, 2, 3, 4, 10', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-08-21 08:54:35', NULL, 42, 2, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
-('64e42da7a7354', 3, '', '', '', 'Program Unggulan Perangkat Daerah', 'Program Unggulan Perangkat Daerah', 'Program Unggulan Perangkat Daerah', 'Program Unggulan Perangkat Daerah', 'Program Unggulan Perangkat Daerah', 'Program Unggulan Perangkat Daerah', '3', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-08-22 03:38:15', NULL, 42, 0, '', '', '', '', '', ''),
-('64e4639e086fa', 2, 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', '', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', 'Kegiatan Strategis Daerah Jakarta Utara', '4, 5, 8, 10, 11', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-08-22 07:28:30', NULL, 42, 0, '', '', '', '', '', '');
+('6502615ab0756', 3, 'Program Penanaman 1000 Pohon', 'Program Penanaman 1000 Pohon', '', 'Penanaman 1000 Pohon', 'Guna untuk penghijawan', 'Memperbaiki kwalitas udara', 'Penanaman 1000 Pohon', 'Masyarakat', 'Masyarakat', '3, 4, 8', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-09-14 01:26:50', NULL, 42, 6, '2eda4778d357fac2e91b6575bd506fef', '', '', '', '', ''),
+('6508fc87b8df0', 1, 'Program Penanggulangan Banjir', 'Program Penanggulangan Banjir', '1', 'Penanggulangan Banjir', 'Penanggulangan Banjir', 'Banjir', 'Banjir', 'Masyarakat', 'Masyarakat', '1, 2, 3, 4', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-09-19 01:42:31', NULL, 42, 6, '2eda4778d357fac2e91b6575bd506fef', '', '35667', 'Nodin Penggantian Perangkat.pdf', 'Penanggulangan Banjir', '2023-09-30'),
+('650bc303e7161', 3, 'PROGRAM UNGGULAN BADAN PENGELOLAAN KEUANGAN DAERAH', 'PROGRAM UNGGULAN BADAN PENGELOLAAN KEUANGAN DAERAH', '', 'Mempertahankan predikat opini WTP atas LKPD Tahun 2022 yang diaudit oleh BPK pada tahun 2023', 'Opini Wajar Tanpa Pengecualian (WTP) atas Laporan Keuangan Pemerintah Provinsi DKI Jakarta telah mampu diperoleh secara berturut-turut dari tahun 2017 - 2021, sehingga perlu upaya untuk mempertahankan Opini Wajar Tanpa Pengecualian (WTP) sebagai wujud akuntabilitas Keuangan Pemerintah Provinsi DKI Jakarta', 'Setelah 5 tahun berturut-turut mendapatkan opini WTP, maka proses audit atas laporan keuangan akan menjadi lebih dalam dan detail terutama pada bagian-bagian di luar ruang lingkup audit sebelumnya\r\n- Akuntabilitas Persediaan\r\n- Akuntabilitas Investasi  \r\n- Akuntabilitas Aset Tetap', 'Opini Wajar Tanpa Pengecualian (WTP) atas Laporan Keuangan Pemerintah Provinsi DKI Jakarta merupakan wujud akuntabilitas Pemerintah Provinsi  DKI Jakarta atas pengelolaan keuangan dan barang daerah.', 'SKPD', '- Masyarakat\r\n- DPRD\r\n- Pemerintah Pusat', '3, 4, 5, 7', '', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 2, '2023', 'Triwulan I', '2023-09-21 04:13:55', NULL, 51, 2, '2eda4778d357fac2e91b6575bd506fef', '', '565536', 'Nodin Penggantian Perangkat.pdf', 'Program Unggulan', '2023-10-06'),
+('6510ba9d74b72', 3, 'Publikasi Peraturan terkait Pengendalian Banjir dan Penanganan Kemacetan di DKI Jakarta', 'Publikasi Peraturan terkait Pengendalian Banjir dan Penanganan Kemacetan di DKI Jakarta', '', 'Memberikan informasi kepada masyarakat tentang Peraturan yang ada di Pemprov DKI Jakarta terkait dengan Pengendalian Banjir dan Penanganan Kemacetan', '1. Masih ditemukannya pelanggaran yang dilakukan masyarakat dalam pengelolaan sampah \r\n2. Masih ditemukannya masyarakat yang belum mengetahui dan memahami peraturan di DKI Jakarta terkait  pengelolaan sampah\r\n3. Sebagai upaya mendorong masyarakat untuk beralih ke transportasi umum untuk mengurangi kemacetan \r\n4. Perlunya peningkatan kesadaran hukum masyarakat dan peran aktif masyarakat dalam menjaga lingkungan sebagai mitigasi dalam krisis (banjir, macet)', '1. Banjir menjadi persoalan yang belum terselesaikan\r\n2. Produksi sampah di DKI Jakarta sekitar 7.000 Ton / hari', 'Memunculkan kesadaran hukum dan peran aktif masyarakat untuk mendukung program prioritas dalam pengendalian banjir dan kemacetan di DKI Jakarta', '1. Masyarakat\r\n2. Komunitas Peduli Lingkungan', 'Masyarakat terdampak', '4, 5, 10', '', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 2, '2023', 'Triwulan I', '2023-09-24 22:39:25', NULL, 51, 1, '', '', '', '', '', ''),
+('6510c67148134', 3, 'Publikasi Peraturan DKI Jakarta terkait Transportasi, Pajak, Pendidikan dan Seputar Jakarta dalam Ra', 'Publikasi Peraturan DKI Jakarta terkait Transportasi, Pajak, Pendidikan dan Seputar Jakarta dalam Ra', '', 'Memberikan informasi kepada masyarakat tentang Peraturan yang ada di Pemprov DKI Jakarta sehingga masyarakat DKI Jakarta dapat memahami hak dan kewajibannya, serta terciptanya masyarakat yang sadar dan berbudaya hukum dalam perilaku sehari-hari.', '1. Dalam rangka memperingati hari pendidikan nasional yang diperingati pada bulan mei\r\n2. Dalam rangka memperingati hari ulang tahun DKI Jakarta yang diperingati pada bulan Juni', '1. Ulang tahun DKI Jakarta Tahun 2023 akan menjadi ulang tahun yang terakhir dengan status sebagai Ibukota sebelum Ibukota dipindahkan ke IKN pada tahun 2024', 'Memunculkan kesadaran hukum masyarakat', '1. Masyarakat\r\n2. Komunitas Peduli Lingkungan', 'Masyarakat terdampak', '4, 5, 10', '', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 2, '2023', 'Triwulan I', '2023-09-24 23:29:53', NULL, 51, 1, '2eda4778d357fac2e91b6575bd506fef', 'Perbaiki dibagian analisis situasi nya', '', '', '', ''),
+('6510f23fcc1e4', 3, 'Program Unggulan Daerah', 'Program Unggulan Daerah', '', 'Program Unggulan Daerah', 'Program Unggulan Daerah', 'Program Unggulan Daerah', 'Program Unggulan Daerah', 'Masyarakat', 'Masyarakat Terdampak', '4, 5, 10, 11', '', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 2, '2023', 'Triwulan I', '2023-09-25 02:36:47', NULL, 51, 0, '', '', '', '', '', ''),
+('651d0bdc3a574', 2, 'Program Penanganan Abrasi', 'Program Penanganan Abrasi', '', 'Program Penanganan Abrasi', 'Program Penanganan Abrasi', 'Program Penanganan Abrasi', 'Program Penanganan Abrasi', 'Program Penanganan Abrasi', 'Program Penanganan Abrasi', '2, 3, 4', '', '-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 2, '2023', 'Triwulan I', '2023-10-04 06:53:16', NULL, 42, 0, '', '', '', '', '', ''),
+('651d1112a5647', 2, 'KSD', 'KSD', '', 'KSD', 'KSD', 'KSD', 'KSD', 'KSD', 'KSD', '2', '', '2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 12, '2023', 'Triwulan I', '2023-10-04 07:15:30', NULL, 51, 0, '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tbl_users`
+-- Table structure for table `tbl_users`
 --
 
 CREATE TABLE `tbl_users` (
@@ -3013,23 +3804,25 @@ CREATE TABLE `tbl_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `tbl_users`
+-- Dumping data for table `tbl_users`
 --
 
 INSERT INTO `tbl_users` (`id`, `name`, `jabatan`, `email`, `username`, `password`, `status`, `created_by`, `created_date`, `modified_by`, `modified_date`, `hak_akses`, `opd_upd`, `skpd_renkin`, `role`, `last_login`, `phone`, `address`, `img_type`) VALUES
-('-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 'Kabupaten Kepulauan Seribu', 'skpd', 'datin@jakarta.go.id', 'strakom_pulauseribu', 'ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270', '1', 'rpihL', '2020-08-18 21:00:59', 'G1VTdUlxKSHfq0I8h1wknXEXWX6DqzLK1kc3e7IGTfo8akwvaXROVbMs_LAJkdRZlvQhFgavSpgVFg-ozyCC6g~~', '2021-07-03 08:16:52', NULL, '42', NULL, 1, '2023-08-30 07:08:28', '0', 'jakartasss', 'png'),
-('0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', 'Asisten Pembangunan dan Lingkungan Hidup', 'asisten', 'datin@jakarta.go.id', 'asistenpembangunan', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-24 15:02:46', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:52:15', NULL, '', '11,21,19,25,23,35,33', 1, '2023-05-04 21:05:59', '', '', 'png'),
+('-ndlkv3jjMk4-7NRQCxt0C9VVWH62nQlF0Sk8CWiRwI79NsmqEUSykkk3ovxup9LhyirQOxA2ceCVAbNkXK4dW9TDNKdL9Y7vxpuO2kJftbcRWyFxEWS4lTXLS_WMIxs', 'Kabupaten Kepulauan Seribu', 'skpd', 'datin@jakarta.go.id', 'strakom_pulauseribu', 'ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270', '1', 'rpihL', '2020-08-18 21:00:59', 'G1VTdUlxKSHfq0I8h1wknXEXWX6DqzLK1kc3e7IGTfo8akwvaXROVbMs_LAJkdRZlvQhFgavSpgVFg-ozyCC6g~~', '2021-07-03 08:16:52', NULL, '42', NULL, 1, '2023-10-04 06:10:50', '081261762121', 'jakartasss', 'png'),
+('0edNhqcVcQ-8fXzOHbcViNvDngYvYxO-KpNvoUgKdq-2Q-wyILstG2542gkoWbjiSSDj8kFfKI8fGwmAEeTOIA~~', 'Asisten Pembangunan dan Lingkungan Hidup', 'asisten', 'datin@jakarta.go.id', 'asistenpembangunan', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-24 15:02:46', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:52:15', NULL, '', '11,21,19,25,23,35,33', 2, '2023-09-21 08:09:35', '0', '0', 'png'),
 ('28Eqmn6r9yuUc7SgKKtea2I1f_89DJaehRY0UOfr26RSBSNCi32ZzaFuI3EMJMakiaEDWji4MfXYbnuWJQ5TLg~~', 'Dinas Kesehatan', 'skpd', 'datin@jakarta.go.id', 'strakom_dinkes', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 20:22:17', 'G1VTdUlxKSHfq0I8h1wknXEXWX6DqzLK1kc3e7IGTfo8akwvaXROVbMs_LAJkdRZlvQhFgavSpgVFg-ozyCC6g~~', '2021-03-19 14:29:20', NULL, '20', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
-('2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 'Biro Hukum Setda', 'skpd', 'datin@jakarta.go.id', 'strakom_birohukum', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 19:32:42', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-03-08 11:05:49', NULL, '51', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
-('2eda4778d357fac2e91b6575bd506fef', 'Administrator Bidang 1', '', 'administratorbidang@jakarta.go.id', 'administratorbidang1', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-22 07:32:47', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:44:05', NULL, '', '46,10,48,50,27,51,53,17,49,30,41,8,24,55,42,47,38,44,39,40,26,66,43', 4, '2023-08-30 07:08:46', '', '', 'png'),
+('2CreawEjX-GagoWrPLYphHRudwckEVaQMHdDxltj-yd9IL5t1TgZ8rt29Wk-3XR5Ci1G8XM4cOgwWfdZ0ZMDbw~~', 'Biro Hukum Setda', 'skpd', 'datin@jakarta.go.id', 'strakom_birohukum', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 19:32:42', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-03-08 11:05:49', NULL, '51', NULL, 1, '2023-10-04 06:10:59', '', '', 'png'),
+('2eda4778d357fac2e91b6575bd506fef', 'Administrator Bidang 1', '', 'administratorbidang@jakarta.go.id', 'administratorbidang1', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-22 07:32:47', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:44:05', NULL, '', '46,10,48,50,27,51,53,17,49,30,41,8,24,55,42,47,38,44,39,40,26,66,43', 4, '2023-09-26 08:09:03', '', '', 'png'),
 ('3cS9A7ROhMy5Km_9glHiHXAQnJXz7UP05hwgZuXgCNkb_pi_Yks5gDXi-wsE7Iiinr8akI-IYfZXuGU30Oz5w1g71-7OrJ8ZWcTdmh3d0DTynUVODQVbpw0itGBkLso8', 'Dinas Penanggulangan Kebakaran dan Penyelamatan', 'skpd', 'datin@jakarta.go.id', 'strakom_disgulkarmat', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 20:29:47', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-03-10 17:22:38', NULL, '24', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('4RQKSTP7LqffJsimR1dbTNFQ6Qf7h0vT6vLegYudZqVSdq3Z8k35EZEUuFs0l99Pka-nlr2qAdT6uvmQwQMXbA~~', 'Asisten JaKita', 'asisten', 'tratas.technology@gmail.com', 'asistenjakita', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-04-26 10:19:08', NULL, NULL, NULL, '74', '74', 1, '2023-04-15 11:44:27', '', '', 'png'),
 ('4ShOHGntZlEGEuko2EQLsGnZ3TCJSaA8KAGxFUmJtf582bO-8jYp-AXXjCeqrPogXO9BpSv6NVNM0tCN7l9_g9ajGmAc8ro8tLaIVmqEVKooAtBIVV3ATdv8nsp2r10t', 'Rumah Sakit Umum Daerah Duren Sawit', 'skpd', 'datin@jakarta.go.id', 'strakom_rsuddurensawit', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-10-06 03:37:30', NULL, NULL, NULL, '73', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
-('5LvxHnhI4BTwVabvZgWlt9eM_6D3gcoUb8aD35lx1Gok-hS37rcLs-quHestfcrcKn3z1H7ksXTSQR3qLQV5Wj9RFUYski7wLXlVr6IiGO_sr_qpNIQ9Fsh1YG21zwhC', 'Asisten Perekonomian dan Keuangan', 'asisten', 'datin@jakarta.go.id', 'asistenperekonomian', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-24 15:00:42', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:48:12', NULL, NULL, '14,54,16,9,15,58,13,22,18,32,36,29,57', 1, '2023-04-15 11:44:27', '', '', 'png'),
+('5LvxHnhI4BTwVabvZgWlt9eM_6D3gcoUb8aD35lx1Gok-hS37rcLs-quHestfcrcKn3z1H7ksXTSQR3qLQV5Wj9RFUYski7wLXlVr6IiGO_sr_qpNIQ9Fsh1YG21zwhC', 'Asisten Perekonomian dan Keuangan', 'asisten', 'datin@jakarta.go.id', 'asistenperekonomian', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-24 15:00:42', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:48:12', NULL, NULL, '14,54,16,9,15,58,13,22,18,32,36,29,57', 2, '2023-09-19 03:09:16', '0', '0', 'png'),
 ('5_SFJcWevBOZbdpJ4DUezc1NEWXsKNN84Fm3FjhuInyzHjxCPL0-DkpFEt1fZK5dLkuwQb3yv5KpuT8Q25Uayg~~', 'Satuan Polisi Pamong Praja', 'skpd', 'datin@jakarta.go.id', 'strakom_satpolpp', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 21:01:38', NULL, NULL, NULL, '26', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('61gVXYGfgH8uvO9Xn8zvRAfgZwHFaj7yVErTPv2UvYIXcxSyTy7iL7EaFhRn-lXfDzODF5Gv_SX8H3ON9rKGIQ~~', 'Rumah Sakit Umum Daerah Koja', 'skpd', 'datin@jakarta.go.id', 'strakom_rsudkoja', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-10-06 03:32:09', NULL, NULL, NULL, '69', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
+('64ff2c7e33200', 'Khaerul Umam', 'skpd', 'khaerulumam@gmail.com', 'khaerul_umam', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '2023-09-11 10:04:30', NULL, NULL, NULL, '8', NULL, 2, '2023-09-11 15:09:04', '0856921012121', '0', 'png'),
+('6501173cadc47', 'Nori', 'asisten', 'noricahyana01@gmail.com', 'nori', 'ac9689e2272427085e35b9d3e3e8bed88cb3434828b43b86fc0596cad4c6e270', '1', 'aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', '2023-09-13 08:58:20', NULL, NULL, NULL, '7', '47, 51', 2, '2023-09-13 08:09:02', '0', '0', 'png'),
 ('6InC1s49eznayE-o2cZwMouHKTopXNB1BMxLFhahbN-IgCdpjEuoKqeOzpP1u2a43gwhhNyYLu8COGuju0AdeaBoH5iPgMStrb71SwAlyVHLRfYgGSTdOYEMac0DSzd3', 'Rumah Sakit Umum Daerah Pasar Rebo', 'skpd', 'datin@jakarta.go.id', 'strakom_rsudpasarrebo', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-10-06 03:33:52', NULL, NULL, NULL, '70', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
-('6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 'Asisten Pemerintahan', 'asisten', 'datin@jakarta.go.id', 'asistenpemerintahan', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-22 07:32:47', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:44:05', NULL, '', '46,10,48,50,27,51,53,17,49,30,41,8,24,55,42,47,38,44,39,40,26,66,43', 2, '2023-08-31 05:08:02', '', '', 'png'),
+('6QQoUKklsgrXHeJJ-xivyRid2TNmxdf4rRpcS0ebkTg1b4g6aqyy-rkVc5-BZmyGPWSDZpxfpXvf5L2KMSvnsg~~', 'Asisten Pemerintahan', 'asisten', 'datin@jakarta.go.id', 'asistenpemerintahan', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-22 07:32:47', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-01-05 13:44:05', NULL, '', '46,10,48,50,27,51,53,17,49,30,41,8,24,55,42,47,38,44,39,40,26,66,43', 2, '2023-10-02 02:10:10', '', '', 'png'),
 ('6WuNShoUSjPjNftGLX0esrOn2_4HYwuFj3ZO-bdjmS1LdSCfMYcX78CinHpwn6Oz2ulzVc77A9y_pgQeyTwiow~~', 'Walikota Kota Administrasi Jakarta Barat', 'skpd', 'datin@jakarta.go.id', 'strakom_kotajakbar', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 21:06:45', 'G1VTdUlxKSHfq0I8h1wknXEXWX6DqzLK1kc3e7IGTfo8akwvaXROVbMs_LAJkdRZlvQhFgavSpgVFg-ozyCC6g~~', '2021-07-02 22:15:14', NULL, '47', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('7K7EBCgDVCwa8iDQ7NMAM3SkhFx0O7dKwHl4bLZQbZc7GLyn70EKHS-PPCh_xJ5jziy1XO7b3kkWb2yzGMwKDw~~', 'Walikota Kota Administrasi Jakarta Selatan', 'skpd', 'datin@jakarta.go.id', 'strakom_kotajaksel', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 21:05:28', '7K7EBCgDVCwa8iDQ7NMAM3SkhFx0O7dKwHl4bLZQbZc7GLyn70EKHS-PPCh_xJ5jziy1XO7b3kkWb2yzGMwKDw~~', '2020-09-26 12:32:51', NULL, '44', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', 'Badan Kesatuan Bangsa Dan Politik', 'skpd', 'datin@jakarta.go.id', 'strakom_bakesbangpol', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 19:01:36', '99cej-rWKcUJnpDhnardB1oJoCUVxR2JDGbeaRvu8yxZtsn2fHIvQUbMorEv4kfK9bdcRHsH88PtlNE-KSpHje6mQSzxHxMcVrGue1RDwAiFfr1EXYR79DISHqXoNewc', '2022-03-31 11:05:44', NULL, '10', NULL, 1, '2023-07-11 20:07:45', '', '', 'png'),
@@ -3038,7 +3831,7 @@ INSERT INTO `tbl_users` (`id`, `name`, `jabatan`, `email`, `username`, `password
 ('9Yz_d2qAC1Pg1BIQh4NG5fuOJBLyVTs7UtDSWSlDsAlWgPuhUXeWf9okW-sSuTcI2xAbZZ2z78thUqxV9T9iuPIr7qvYYvYCNILxVhez4MTNtGRJgLjRmuqvDPwQlwT1', 'Dinas Tenaga Kerja, Transmigrasi dan Energi', 'skpd', 'datin@jakarta.go.id', 'strakom_disnakertrans', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 20:58:17', NULL, NULL, NULL, '57', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('aa5mIsBpNKsxOH-3h8rzwPoR7jzrrFPEJZVEjzT3dbhTrd1dmnPX00fvUU57UG8hx0BUyH3LUTPrEnnYKApuKwq_p4VIogae4xfvJc7AmGv-aMofSBN-zzJdq4bVLja_', 'Dinas Kependudukan dan Pencatatan Sipil', 'skpd', 'datin@jakarta.go.id', 'strakom_disdukcapil', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 20:21:28', 'G1VTdUlxKSHfq0I8h1wknXEXWX6DqzLK1kc3e7IGTfo8akwvaXROVbMs_LAJkdRZlvQhFgavSpgVFg-ozyCC6g~~', '2021-12-29 14:28:50', NULL, '41', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('AqfnU4O8lJUJryhjoLQzYHEuhj-HdEYB9Q_GaJn18mV1Abj_tn9DiBzRFa3dU5-3vw2bKXRMexNXimRKpgp9wA~~', 'Dinas Pertamanan dan Hutan Kota', 'skpd', 'datin@jakarta.go.id', 'strakom_dishut', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 20:54:39', NULL, NULL, NULL, '23', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
-('aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'JaKita', 'skpd', 'tratas.technology@gmail.com', 'strakom_jakita', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-04-26 10:20:06', NULL, NULL, NULL, '74', NULL, 3, '2023-08-30 07:08:38', '', '', 'png'),
+('aruywNGCXjtzPGKqMs1ffkwVf7fA7OU1CdRFxKrhBKnciRG-JSdjeI6oZYoUCGvH6DfVmHhCaQY-m-s2b-xIeg~~', 'JaKita', 'skpd', 'tratas.technology@gmail.com', 'strakom_jakita', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'CKMPuKuDJsUC6bvb2oPTYNJxuFtBSkPxW3sA4QOhwIkumTr-p9Qs6xDyxeJKaLRKhWvXEOHlFzzvfSeo7UvqxQ~~', '2021-04-26 10:20:06', NULL, NULL, NULL, '74', NULL, 3, '2023-10-04 06:10:19', '', '', 'png'),
 ('b9JyVTuf8EgoOXOTT3xExAUo-AUBwGbCKMjK4JqUAv3koNXIMUmoG0tPvqy95TpWWFTJLM4dJHaWdizxIDGv3A~~', 'Dinas Ketahanan Pangan, Kelautan dan Pertanian', 'skpd', 'datin@jakarta.go.id', 'strakom_dkpkp', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 20:22:56', 'b9JyVTuf8EgoOXOTT3xExAUo-AUBwGbCKMjK4JqUAv3koNXIMUmoG0tPvqy95TpWWFTJLM4dJHaWdizxIDGv3A~~', '2021-03-10 15:59:23', NULL, '22', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('bAOjMGCtCDHiU20ohN-kCXmBDoi_bMW57h2F7LLCdtzCqwzRYWDOB8teIvlWWGTrw_DLrzfmC3w_xXUGUuL6E8t4IE0Tzv4BgYLSKw2woM7WLvXVOSzd0Gks-kfZCB7h', 'Dinas Pariwisata Dan Ekonomi Kreatif', 'skpd', 'datin@jakarta.go.id', 'strakom_disparekraf', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-08-18 20:24:21', NULL, NULL, NULL, '18', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
 ('BhZwcw07uoWDkU30BCCNePNvbAn_db2AQsRkRzPwNIesuVqVzeNWIYqck8Tiah7CK3sUDPnE5fu1ZfJPRmgwGBFLdwelaWe5682eCP84c1dS028fvno3f7t--vaeCPMm', 'Rumah Sakit Umum Daerah Budhi Asih', 'skpd', 'datin@jakarta.go.id', 'strakom_rsudbudiasih', '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9', '1', 'rpihL', '2020-10-06 03:28:39', NULL, NULL, NULL, '67', NULL, 1, '2023-07-04 08:35:01', '', '', 'png'),
@@ -3092,7 +3885,7 @@ INSERT INTO `tbl_users` (`id`, `name`, `jabatan`, `email`, `username`, `password
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -3113,7 +3906,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `phone`, `address`, `last_login`, `role`, `reset_token`, `status`, `img_type`, `created_at`, `updated_at`) VALUES
@@ -3124,251 +3917,251 @@ INSERT INTO `users` (`id`, `name`, `username`, `email`, `password`, `phone`, `ad
 --
 
 --
--- Indeks untuk tabel `activity_logs`
+-- Indexes for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `email_templates`
+-- Indexes for table `email_templates`
 --
 ALTER TABLE `email_templates`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `opd_upd`
+-- Indexes for table `opd_upd`
 --
 ALTER TABLE `opd_upd`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `organisasi`
+-- Indexes for table `organisasi`
 --
 ALTER TABLE `organisasi`
   ADD PRIMARY KEY (`idorganisasi`);
 
 --
--- Indeks untuk tabel `permissions`
+-- Indexes for table `permissions`
 --
 ALTER TABLE `permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `role`
+-- Indexes for table `role`
 --
 ALTER TABLE `role`
   ADD PRIMARY KEY (`role_id`);
 
 --
--- Indeks untuk tabel `roles`
+-- Indexes for table `roles`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `role_permissions`
+-- Indexes for table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `settings`
+-- Indexes for table `settings`
 --
 ALTER TABLE `settings`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_data_realisasi`
+-- Indexes for table `tbl_data_realisasi`
 --
 ALTER TABLE `tbl_data_realisasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_editorial_plan`
+-- Indexes for table `tbl_editorial_plan`
 --
 ALTER TABLE `tbl_editorial_plan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_jenis_kegiatan`
+-- Indexes for table `tbl_jenis_kegiatan`
 --
 ALTER TABLE `tbl_jenis_kegiatan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_kanal_publikasi`
+-- Indexes for table `tbl_kanal_publikasi`
 --
 ALTER TABLE `tbl_kanal_publikasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_kategori_program`
+-- Indexes for table `tbl_kategori_program`
 --
 ALTER TABLE `tbl_kategori_program`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_ksd`
+-- Indexes for table `tbl_ksd`
 --
 ALTER TABLE `tbl_ksd`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_mitigasi`
+-- Indexes for table `tbl_mitigasi`
 --
 ALTER TABLE `tbl_mitigasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_notifikasi`
+-- Indexes for table `tbl_notifikasi`
 --
 ALTER TABLE `tbl_notifikasi`
   ADD PRIMARY KEY (`notifikasi_id`);
 
 --
--- Indeks untuk tabel `tbl_pemberitahuan`
+-- Indexes for table `tbl_pemberitahuan`
 --
 ALTER TABLE `tbl_pemberitahuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_penilaian`
+-- Indexes for table `tbl_penilaian`
 --
 ALTER TABLE `tbl_penilaian`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_periode`
+-- Indexes for table `tbl_periode`
 --
 ALTER TABLE `tbl_periode`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_produk_komunikasi`
+-- Indexes for table `tbl_produk_komunikasi`
 --
 ALTER TABLE `tbl_produk_komunikasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_realisasi`
+-- Indexes for table `tbl_realisasi`
 --
 ALTER TABLE `tbl_realisasi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_strakom_unggulan`
+-- Indexes for table `tbl_strakom_unggulan`
 --
 ALTER TABLE `tbl_strakom_unggulan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `tbl_users`
+-- Indexes for table `tbl_users`
 --
 ALTER TABLE `tbl_users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `activity_logs`
+-- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1529;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2328;
 
 --
--- AUTO_INCREMENT untuk tabel `email_templates`
+-- AUTO_INCREMENT for table `email_templates`
 --
 ALTER TABLE `email_templates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT untuk tabel `opd_upd`
+-- AUTO_INCREMENT for table `opd_upd`
 --
 ALTER TABLE `opd_upd`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
--- AUTO_INCREMENT untuk tabel `permissions`
+-- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT untuk tabel `role`
+-- AUTO_INCREMENT for table `role`
 --
 ALTER TABLE `role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT untuk tabel `roles`
+-- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `role_permissions`
+-- AUTO_INCREMENT for table `role_permissions`
 --
 ALTER TABLE `role_permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
--- AUTO_INCREMENT untuk tabel `settings`
+-- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_jenis_kegiatan`
+-- AUTO_INCREMENT for table `tbl_jenis_kegiatan`
 --
 ALTER TABLE `tbl_jenis_kegiatan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kanal_publikasi`
+-- AUTO_INCREMENT for table `tbl_kanal_publikasi`
 --
 ALTER TABLE `tbl_kanal_publikasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_kategori_program`
+-- AUTO_INCREMENT for table `tbl_kategori_program`
 --
 ALTER TABLE `tbl_kategori_program`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_ksd`
+-- AUTO_INCREMENT for table `tbl_ksd`
 --
 ALTER TABLE `tbl_ksd`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_pemberitahuan`
+-- AUTO_INCREMENT for table `tbl_pemberitahuan`
 --
 ALTER TABLE `tbl_pemberitahuan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_periode`
+-- AUTO_INCREMENT for table `tbl_periode`
 --
 ALTER TABLE `tbl_periode`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT untuk tabel `tbl_produk_komunikasi`
+-- AUTO_INCREMENT for table `tbl_produk_komunikasi`
 --
 ALTER TABLE `tbl_produk_komunikasi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
