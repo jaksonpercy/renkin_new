@@ -141,7 +141,7 @@ vertical-align: center;
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-8 connectedSortable">
+          <section class="col-lg-6 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
               <div class="card-header">
@@ -150,7 +150,7 @@ vertical-align: center;
                   Rencana Kinerja Terbaru
                 </h3>
               </div><!-- /.card-header -->
-                <?php if ($roles->role->role_id==1 || $roles->role->role_id==3 ){ ?>
+                <?php if ($roles->role->role_id==1 ){ ?>
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
@@ -200,6 +200,7 @@ vertical-align: center;
                 <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
+                    <th>No</th>
                     <th>SKPD/UKPD</th>
                     <th>Nama Program/Kegiatan Unggulan</th>
                     <th>Tahapan Pelaksanaan Kegiatan</th>
@@ -210,7 +211,12 @@ vertical-align: center;
                   </thead>
                   <tbody>
                     <tr>
-                      <?php foreach ($listrakom as $row): ?>
+                      <?php 
+                      $no=0;
+                      foreach ($listrakom as $row): 
+                      $no++;
+                      ?>
+                      <td><?php echo $no; ?></td>
                       <td><?php echo $row->name ?></td>
                       <td><b><?php echo $row->nama_program ?></b></td>
                       <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
@@ -300,6 +306,51 @@ vertical-align: center;
                     <tr>
                       <td><?php echo $no;?></td>
                       <td><?php echo $row->name;?></td>
+                    </tr>
+                  <?php endforeach ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <!-- /.card -->
+
+            <!-- solid sales graph -->
+
+
+            <!-- Calendar -->
+
+            <!-- /.card -->
+          </section>
+            <?php endif ?>
+
+
+            <?php if ($roles->role->role_id==4): ?>
+          <section class="col-lg-6 connectedSortable">
+
+            <!-- Map card -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">
+                  Daftar OPD Belum Input
+                </h3>
+              </div><!-- /.card-header -->
+              <div class="card-body">
+                <table id="example2" class="table table-bordered table-hover table-striped">
+                  <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>SKPD/UKPD</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <?php
+                    $no =0;
+                    foreach ($listopdnotinput as $row):
+                      $no++;
+                    ?>
+                    <tr>
+                      <td><?php echo $no;?></td>
+                      <td><?php echo $row->opd_upd_name;?></td>
                     </tr>
                   <?php endforeach ?>
                   </tbody>

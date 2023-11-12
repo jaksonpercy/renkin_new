@@ -125,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                              endforeach;
                             ?>
                           </td>
-                          <td><?php echo $row->link_tautan ?></td>
+                          <td> <a href="<?php echo $row->link_tautan ?>" target="_blank" rel="noopener noreferrer"><?php echo $row->link_tautan ?></a></td>
                          <td>
                            <?php if(!empty($row->file_dokumentasi)){ ?>
                           <a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
@@ -290,7 +290,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             endforeach;
                            ?>
                          </td>
-                         <td><?php echo $row->link_tautan ?></td>
+                         <td> <a href="<?php echo $row->link_tautan ?>" target="_blank" rel="noopener noreferrer"><?php echo $row->link_tautan ?></a></td>
                         <td>
                           <?php if(!empty($row->file_dokumentasi)){ ?>
                          <a href="<?php echo url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>

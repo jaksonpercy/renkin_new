@@ -330,7 +330,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                         foreach ($my_array1 as $rowss){
                           foreach ($rencanamedia as $rows){
                             if ($rows->id == $rowss ) {
-                              array_push($namaRencana,$rows->nama);
+                              if($rowss == 9){
+                                array_push($namaRencana,$rows->nama." ( ".$row->kanal_publikasi_lainnya." )");
+                              
+                              } else {
+                                array_push($namaRencana,$rows->nama);
+                              }
                             }
                          }
                       }

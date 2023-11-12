@@ -415,7 +415,7 @@ return $query;
 
 	public function getCountStrakomByListOpd($id)
 	{
-		$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE opd_id IN ".$id."")->result()	;
+		$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE status in (1,2) AND opd_id IN ".$id."")->result()	;
 		return $query;
 	}
 

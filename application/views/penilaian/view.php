@@ -285,7 +285,7 @@ $nilaiRealisasi =0;
               $nilaiStrakom = ($countStrakom/8)*20;
               ?>
 
-              <?php if($periode->status_penilaian > 0 || $strakom->status == 2 || $strakom->status == 5 || $strakom->status == 6){ ?>
+              <?php if($periode->status_penilaian > 0 && ($strakom->status == 2 || $strakom->status == 5 || $strakom->status == 6)){ ?>
               <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-strakom">Nilai</button>
             <?php } ?>
             </div>
@@ -312,8 +312,9 @@ $nilaiRealisasi =0;
                         <?php
                         $no=0;
                         foreach ($editorialplan as $row):
-
+                        if($row->status == 2){
                         $no++;
+                        }
                         ?>
                         <tr>
                           <td><?php echo $no ?></td>
@@ -352,7 +353,7 @@ $nilaiRealisasi =0;
                         ?>
                       </tbody>
                     </table>
-                      <?php if($periode->status_penilaian > 0 || $no >=15){ ?>
+                      <?php if($periode->status_penilaian > 0&& $no >=15){ ?>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-editorial">Nilai</button>
         <?php } ?>
                   </div>
@@ -457,7 +458,7 @@ $nilaiRealisasi =0;
                          ?>
                         </tbody>
                     </table>
-  <?php if($periode->status_penilaian > 0 || $no > 0){ ?>
+  <?php if($periode->status_penilaian > 0 && $no > 0){ ?>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-mitigasi">Nilai</button>
 <?php } ?>
                   </div>
@@ -528,7 +529,7 @@ $nilaiRealisasi =0;
                              endforeach;
                             ?>
                           </td>
-                          <td><?php echo $row->link_tautan ?></td>
+                          <td> <a href="<?php echo $row->link_tautan ?>" target="_blank" rel="noopener noreferrer"><?php echo $row->link_tautan ?></a></td>
                          <td>
                            <?php if(!empty($row->file_dokumentasi)){ ?>
                           <a href="<?php echo url('Penilaian/downloadFileRealisasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
@@ -544,7 +545,7 @@ $nilaiRealisasi =0;
                         </tbody>
 
                  </table>
-                    <?php if($periode->status_penilaian > 0 || $nilaiRealisasi > 0){ ?>
+                    <?php if($periode->status_penilaian > 0 && $nilaiRealisasi > 0){ ?>
                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-nilai-realisasi">Nilai</button>
 
 

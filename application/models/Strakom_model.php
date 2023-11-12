@@ -10,9 +10,21 @@ class Strakom_model extends MY_Model {
 		parent::__construct();
 	}
 
-	public function getListStrakomByStatus($status,$opd)
+	public function getListStrakomByStatus($tahun, $triwulan, $userId,$status,$opd)
 	{
 		$filter = "";
+
+		if (!empty($tahun)) {
+			$filter .= " AND tbl_periode.tahun = '".$tahun."' ";
+		}
+
+		if (!empty($triwulan)) {
+			$filter .= " AND tbl_periode.periode_aktif = '".$triwulan."' ";
+		}
+
+		if (!empty($userId)) {
+			$filter .= " AND user_id = '".$userId."' ";
+		}
 		$filter .= " AND tbl_strakom_unggulan.status in $status";
 		if (!empty($opd)) {
 			$filter .= " AND tbl_strakom_unggulan.opd_id in $opd ";
@@ -54,7 +66,7 @@ class Strakom_model extends MY_Model {
 
 	public function getListStrakomOrderByLimit()
 	{
-		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id from tbl_strakom_unggulan join tbl_periode on tbl_periode.id = tbl_strakom_unggulan.periode_id where tbl_periode.status_periode = 1 ORDER BY `tbl_strakom_unggulan`.`created_date` DESC LIMIT 5")->result()	;
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id,tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.status, tbl_periode.periode_aktif, tbl_periode.tahun, tbl_strakom_unggulan.created_date, tbl_users.name from tbl_strakom_unggulan join tbl_periode on tbl_periode.id = tbl_strakom_unggulan.periode_id join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id where tbl_periode.status_periode = 1 ORDER BY `tbl_strakom_unggulan`.`created_date` DESC LIMIT 5")->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}
@@ -62,6 +74,13 @@ class Strakom_model extends MY_Model {
 	public function getListStrakomByLimitAndUserId($id)
 	{
 		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id from tbl_strakom_unggulan join tbl_periode on tbl_periode.id = tbl_strakom_unggulan.periode_id where tbl_periode.status_periode = 1 AND tbl_strakom_unggulan.user_id = '".$id."' ORDER BY tbl_strakom_unggulan.created_date DESC LIMIT 5")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
+	public function getListOPDNotInputStrakom($idOpd)
+	{
+		$query = $this->db->query("SELECT opd_upd_name, id from opd_upd where not exists ( select 1 from tbl_strakom_unggulan join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id where tbl_strakom_unggulan.opd_id = opd_upd.id and tbl_periode.status_periode = 1) and opd_upd.id IN $idOpd ")->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}

@@ -13,7 +13,17 @@ class Penilaian extends MY_Controller {
 
   public function index(){
     // load view
+    $this->strakom();
+
+  }
+
+  public function strakom(){
     $filtered_get = array_filter($_POST);
+    $tahun = $this->input->get('tahun_periode');
+    // $skpd = $this->input->post('user_id');
+    $triwulan = $this->input->get('triwulan_periode');
+
+    $userId = $this->input->get('user_id');
     $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $this->page_data['roles']->role = $this->roles_model->getByWhere([
       'role_id'=> $this->page_data['roles']->role
@@ -31,7 +41,7 @@ class Penilaian extends MY_Controller {
         $this->page_data['strakom'] = $this->Strakom_model->getDataByUserId($this->session->userdata('logged')['id']);
     } else {
 
-      $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByStatus("(2,5,6)","(".$this->page_data['roles']->skpd_renkin.")");
+      $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByStatus($tahun,$triwulan,$userId,"(2,5,6)","(".$this->page_data['roles']->skpd_renkin.")");
 
     }
 
@@ -42,7 +52,6 @@ class Penilaian extends MY_Controller {
 		$this->page_data['page']->submenu = 'reviewstrakom';
 
     $this->load->view('penilaian/list', $this->page_data);
-
   }
 
 
