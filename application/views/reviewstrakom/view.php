@@ -782,10 +782,10 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 <?php 
 									if($counteditorialbr > 0 || $countmitigasibr > 0){
 									if($countData >= 7){
-										if(($counteditorialplan) >= 15 || ($countmitigasi) >= 0){
+										if(($counteditorialplan) >= 15 && ($countmitigasi) >= 0){
 											
 								 	?>
-                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button>
+                <!-- <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-finalisasi">Kirim</button> -->
               <?php }}} ?>
               </div>
               <div class="modal-footer justify-content-between">

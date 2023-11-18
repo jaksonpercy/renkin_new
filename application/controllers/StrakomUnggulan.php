@@ -49,7 +49,7 @@ class StrakomUnggulan extends MY_Controller {
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
     $this->page_data['countstrakomApproved'] = $this->Strakom_model->countAllByStatus(2);
     $this->page_data['countstrakomRejected'] = $this->Strakom_model->countAllByStatus(3);
-    $this->page_data['countstrakombyid'] = $this->Strakom_model->countAllByUserId($this->session->userdata('logged')['id']);
+    $this->page_data['countstrakombyid'] = count($this->Strakom_model->getListStrakomForReview($tahun,$triwulan,$this->session->userdata('logged')['id']));
     $this->page_data['countstrakombyidApproved'] = $this->Strakom_model->countAllByUserIdAndStatus($this->session->userdata('logged')['id'],2);
     $this->page_data['countstrakombyidRejected'] = $this->Strakom_model->countAllByUserIdAndStatus($this->session->userdata('logged')['id'],3);
 

@@ -189,7 +189,7 @@ class MY_Model extends CI_Model {
 
 	public function countAllByUserIdAndStatus($id,$status)
 	{
-		$query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."' AND status = '".$status."'")->result()	;
+	    $query = $this->db->query("SELECT * FROM tbl_strakom_unggulan join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = '1' AND user_id =  '".$id."' AND status = '".$status."'")->result()	;
 		return count($query);
 	}
 
@@ -415,7 +415,7 @@ return $query;
 
 	public function getCountStrakomByListOpd($id)
 	{
-		$query = $this->db->query("SELECT DISTINCT opd_id FROM $this->table WHERE status in (1,2) AND opd_id IN ".$id."")->result()	;
+		$query = $this->db->query("SELECT DISTINCT opd_id FROM tbl_strakom_unggulan join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_strakom_unggulan.status in (1,2) AND tbl_periode.status_periode = '1' AND opd_id IN ".$id."")->result()	;
 		return $query;
 	}
 

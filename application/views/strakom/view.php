@@ -144,7 +144,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   foreach ($my_array1 as $row){
                     foreach ($rencanamedia as $rows){
                       if ($rows->id == $row ) {
-                        array_push($namaRencana,$rows->nama);
+                        if($row == 9){
+                          array_push($namaRencana,$rows->nama." ( ".$strakom->kanal_publikasi_lainnya." )");
+                        
+                        } else {
+                          array_push($namaRencana,$rows->nama);
+                        }
                       }
                    }
                 }
@@ -254,7 +259,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     foreach ($my_array1 as $row){
                       foreach ($rencanamedia as $rows){
                         if ($rows->id == $row ) {
-                          array_push($namaRencana,$rows->nama);
+                          if($row == 9){
+                            array_push($namaRencana,$rows->nama." ( ".$strakom->kanal_publikasi_lainnya." )");
+                          
+                          } else {
+                            array_push($namaRencana,$rows->nama);
+                          }
                         }
                      }
                   }
