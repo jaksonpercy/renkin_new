@@ -602,10 +602,15 @@ class ReviewStrakomUnggulan extends MY_Controller {
     ])[0];
     $status = "";
     $statusstrakom = $this->input->post('status_strakom');
+    $alasan = $this->input->post('alasan');
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $namaOpd = $this->page_data['user']->name;
-
+    if($statusstrakom == 2){
     $this->Editorial_model->updateByStrakomId($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id']]);
+    } else {
+     $this->Editorial_model->updateByStrakomId($id, ['status' => $statusstrakom,'alasan' => $alasan, 'review_user_id' =>$this->session->userdata('logged')['id']]);
+    
+    }
     if ($statusstrakom == 1) {
       $status = "Final";
     } else if ($statusstrakom == 2) {
@@ -619,13 +624,52 @@ class ReviewStrakomUnggulan extends MY_Controller {
     $uuid = uniqid();
     $periode = $this->Notifikasi_model->create([
       'notifikasi_id' => $uuid,
-      'judul_notifikasi' => "Editorial Plan dengan Id $id milik SKPD $namaOpd $status oleh ".logged('name'),
+      'judul_notifikasi' => "Editorial Plan dengan Id Strakom $id milik SKPD $namaOpd $status oleh ".logged('name'),
       'user_id' => $this->input->post('user_id'),
       'periode_id' =>  $this->input->post('periode_id'),
       'opd_id' =>   $this->input->post('opd_id'),
     ]);
 
     redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakom_id').'#tab_2');
+  }
+
+
+  public function change_all_status_mitigasi($id)
+  {
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $status = "";
+    $statusstrakom = $this->input->post('status_strakom');
+    $alasan = $this->input->post('alasan');
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $namaOpd = $this->page_data['user']->name;
+    if($statusstrakom == 2){
+    $this->Mitigasi_model->updateByStrakomId($id, ['status' => $statusstrakom, 'review_user_id' =>$this->session->userdata('logged')['id']]);
+    } else {
+     $this->Mitigasi_model->updateByStrakomId($id, ['status' => $statusstrakom,'alasan' => $alasan, 'review_user_id' =>$this->session->userdata('logged')['id']]);
+    
+    }
+    if ($statusstrakom == 1) {
+      $status = "Final";
+    } else if ($statusstrakom == 2) {
+      $status = "Disetujui";
+    } else if ($statusstrakom == 3) {
+      $status = "Ditolak dengan alasan ".$this->input->post('alasan');
+    } else {
+      $status = "Menunggu Finalisasi";
+    }
+    $this->activity_model->add("Mengubah Status Uraian Mitigasi menjadi $status oleh User: #".logged('name'));
+    $uuid = uniqid();
+    $periode = $this->Notifikasi_model->create([
+      'notifikasi_id' => $uuid,
+      'judul_notifikasi' => "Uraian Mitigasi dengan Id Strakom $id milik SKPD $namaOpd $status oleh ".logged('name'),
+      'user_id' => $this->input->post('user_id'),
+      'periode_id' =>  $this->input->post('periode_id'),
+      'opd_id' =>   $this->input->post('opd_id'),
+    ]);
+
+    redirect('ReviewStrakomUnggulan/view/'.$this->input->post('strakom_id').'#tab_3');
   }
 
   public function view_editorial($id){

@@ -93,7 +93,8 @@ class ReviewStrakom extends MY_Controller {
     $namaStrakom = $this->input->post('nama_strakom');
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $namaOpd = $this->page_data['user']->name;
-    $this->Strakom_model->update($id, ['status' => 1 ]);
+    $dateNow = date("Y-m-d H:i:s");
+    $this->Strakom_model->update($id, ['status' => 1, 'send_date' => $dateNow ]);
     $this->Editorial_model->updateByStrakomId($id, ['status' => 1 ]);
     $this->Mitigasi_model->updateByStrakomId($id, ['status' => 1 ]);
     $this->activity_model->add("Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #".logged('name'));
@@ -117,7 +118,8 @@ class ReviewStrakom extends MY_Controller {
     $namaStrakom = $this->input->post('nama_strakom');
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
     $namaOpd = $this->page_data['user']->name;
-    $this->Strakom_model->update($id, ['status' => 1 ]);
+    $dateNow = date("Y-m-d H:i:s");
+    $this->Strakom_model->update($id, ['status' => 1, 'send_date' => $dateNow ]);
     $this->Editorial_model->updateByStrakomId($id, ['status' => 1 ]);
     $this->Mitigasi_model->updateByStrakomId($id, ['status' => 1 ]);
     $this->activity_model->add("Mengubah Status Strategi Komunikasi Unggulan menjadi Final oleh User: #".logged('name'));

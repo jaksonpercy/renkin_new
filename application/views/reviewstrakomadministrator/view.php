@@ -674,19 +674,15 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       </tbody>
                     </table>
                 <?php } ?>
-								<?php if($no > 0){ ?>
-								<div class="" style="margin-top:2%; margin-bottom:2%">
-									<?php echo form_open_multipart('ReviewStrakomUnggulan/change_all_status_editorial/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?>
-									<input type="hidden" name="strakom_id" value="<?php echo $strakom->id ?>">
-									<input type="hidden" name="status_strakom" value="2">
-										<input type="hidden" name="user_id" value="<?php echo $strakom->user_id ?>">
-											<input type="hidden" name="periode_id" value="<?php echo $strakom->periode_id ?>">
-												<input type="hidden" name="opd_id" value="<?php echo $strakom->opd_id ?>">
-									<input type="submit" class="btn btn-success" value="Setujui Semua"></button>
-									<?php echo form_close(); ?>
-
-								</div>
-							<?php }?>
+								<?php 
+                if($strakom->status == 1){
+                if($no > 0){ ?>
+              
+									<button class="btn btn-success" data-toggle="modal" data-target="#modal-approve-ed-all" style ="margin-top: 1%;">Setujui Semua</button>
+						
+									<button class="btn btn-danger" data-toggle="modal" data-target="#modal-reject-ed-all" style ="margin-top: 1%;">Tolak Semua</button>
+								
+							<?php }}?>
 								<button type="button" class="btn btn-danger" style="display:none" data-toggle="modal" data-target="#modal-reject">Tolak</button>
 
                   </div>
@@ -920,8 +916,19 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 											<button type="button" class="btn btn-success" style="display:none" data-toggle="modal" data-target="#modal-approve">Setujui</button>
 											<button type="button" class="btn btn-danger" style="display:none" data-toggle="modal" data-target="#modal-reject">Tolak</button>
 										<?php }}}} ?>
+                    <?php 
+                    if($strakom->status == 1){
+                    if($no > 0){ 
+                      ?>
+              
+              <button class="btn btn-success" data-toggle="modal" data-target="#modal-approve-mitigasi-all" style ="margin-top: 1%;">Setujui Semua</button>
+        
+              <button class="btn btn-danger" data-toggle="modal" data-target="#modal-reject-mitigasi-all" style ="margin-top: 1%;">Tolak Semua</button>
+            
+          <?php }}?>
 
                 </div>
+               
                 <!-- /.tab-content -->
               </div><!-- /.card-body -->
               <div class="modal-footer justify-content-between">
@@ -967,6 +974,143 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 						<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
 					</div>
 					<p>Apakah anda yakin untuk menyetujui Strategi Komunikasi <b><?php echo $strakom->nama_program ?> </b> ini ?</p>
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+					<button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+			<?php echo form_close(); ?>
+	</div>
+
+
+  <div class="modal fade" id="modal-approve-ed-all">
+	<?php echo form_open_multipart('ReviewStrakomUnggulan/change_all_status_editorial/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?> -->
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Setujui Semua Editorial Plan</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+        <input type="hidden" name="strakom_id" value="<?php echo $strakom->id ?>">
+									<input type="hidden" name="status_strakom" value="2">
+										<input type="hidden" name="user_id" value="<?php echo $strakom->user_id ?>">
+											<input type="hidden" name="periode_id" value="<?php echo $strakom->periode_id ?>">
+												<input type="hidden" name="opd_id" value="<?php echo $strakom->opd_id ?>"> 
+                        <div class="form-group" style="display:none">
+						<label for="formClient-Name">Alasan</label>
+						<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+					</div>
+					<p>Apakah anda yakin untuk menyetujui semua Editorial Plan ini ?</p>
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+					<button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+			<?php echo form_close(); ?>
+	</div>
+
+  <div class="modal fade" id="modal-reject-ed-all">
+	<?php echo form_open_multipart('ReviewStrakomUnggulan/change_all_status_editorial/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?> -->
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Tolak Semua Editorial Plan</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+        <input type="hidden" name="strakom_id" value="<?php echo $strakom->id ?>">
+									<input type="hidden" name="status_strakom" value="3">
+										<input type="hidden" name="user_id" value="<?php echo $strakom->user_id ?>">
+											<input type="hidden" name="periode_id" value="<?php echo $strakom->periode_id ?>">
+												<input type="hidden" name="opd_id" value="<?php echo $strakom->opd_id ?>"> 
+                        <div class="form-group">
+						<label for="formClient-Name">Alasan</label>
+						<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+					</div>
+					<p>Apakah anda yakin untuk menolak semua Editorial Plan ini ?</p>
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+					<button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+			<?php echo form_close(); ?>
+	</div>
+
+  <div class="modal fade" id="modal-approve-mitigasi-all">
+	<?php echo form_open_multipart('ReviewStrakomUnggulan/change_all_status_mitigasi/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?> -->
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Setujui Semua Uraian Mitigasi</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+        <input type="hidden" name="strakom_id" value="<?php echo $strakom->id ?>">
+									<input type="hidden" name="status_strakom" value="2">
+										<input type="hidden" name="user_id" value="<?php echo $strakom->user_id ?>">
+											<input type="hidden" name="periode_id" value="<?php echo $strakom->periode_id ?>">
+												<input type="hidden" name="opd_id" value="<?php echo $strakom->opd_id ?>"> 
+                        <div class="form-group" style="display:none">
+						<label for="formClient-Name">Alasan</label>
+						<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+					</div>
+					<p>Apakah anda yakin untuk menyetujui semua Uraian Mitigasi ini ?</p>
+				</div>
+				<div class="modal-footer justify-content-between">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>
+					<button type="submit" class="btn btn-primary">Ya, Saya Yakin</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+			<?php echo form_close(); ?>
+	</div>
+
+  <div class="modal fade" id="modal-reject-mitigasi-all">
+	<?php echo form_open_multipart('ReviewStrakomUnggulan/change_all_status_mitigasi/'.$strakom->id, [ 'class' => 'form-validate', 'autocomplete' => 'off' ]); ?> -->
+
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4 class="modal-title">Tolak Semua Uraian Mitigasi</h4>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+        <input type="hidden" name="strakom_id" value="<?php echo $strakom->id ?>">
+									<input type="hidden" name="status_strakom" value="3">
+										<input type="hidden" name="user_id" value="<?php echo $strakom->user_id ?>">
+											<input type="hidden" name="periode_id" value="<?php echo $strakom->periode_id ?>">
+												<input type="hidden" name="opd_id" value="<?php echo $strakom->opd_id ?>"> 
+                        <div class="form-group">
+						<label for="formClient-Name">Alasan</label>
+						<textarea type="text" class="form-control" name="alasan" id="formClient-Alasan" placeholder="Alasan" rows="5"></textarea>
+					</div>
+					<p>Apakah anda yakin untuk menolak semua Uraian Mitigasi ini ?</p>
 				</div>
 				<div class="modal-footer justify-content-between">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Tidak</button>

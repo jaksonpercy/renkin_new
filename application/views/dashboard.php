@@ -204,7 +204,7 @@ vertical-align: center;
                     <th>SKPD/UKPD</th>
                     <th>Nama Program/Kegiatan Unggulan</th>
                     <th>Tahapan Pelaksanaan Kegiatan</th>
-                    <th>Tanggal Buat</th>
+                    <th>Tanggal Kirim</th>
                     <th>Status</th>
                     <th><?php echo lang('action') ?></th>
                   </tr>
@@ -220,7 +220,16 @@ vertical-align: center;
                       <td><?php echo $row->name ?></td>
                       <td><b><?php echo $row->nama_program ?></b></td>
                       <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
-                      <td><?php echo $row->created_date ?></td>
+                      <td>
+                        <?php 
+                        if($row->send_date == null){
+                          echo "-"; 
+                        } else {
+                          $newDate = date("d-m-Y H:i:s ", strtotime($row->send_date));
+
+                        echo $newDate; 
+                        }
+                        ?></td>
                       <td>  <?php if ($row->status == 0) {
                         echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                       } else if ($row->status == 1) {
