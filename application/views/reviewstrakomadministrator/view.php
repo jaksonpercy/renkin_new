@@ -675,14 +675,14 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                     </table>
                 <?php } ?>
 								<?php 
-                if($strakom->status == 1){
+                // if($strakom->status == 1){
                 if($no > 0){ ?>
               
 									<button class="btn btn-success" data-toggle="modal" data-target="#modal-approve-ed-all" style ="margin-top: 1%;">Setujui Semua</button>
 						
 									<button class="btn btn-danger" data-toggle="modal" data-target="#modal-reject-ed-all" style ="margin-top: 1%;">Tolak Semua</button>
 								
-							<?php }}?>
+							<?php }?>
 								<button type="button" class="btn btn-danger" style="display:none" data-toggle="modal" data-target="#modal-reject">Tolak</button>
 
                   </div>
@@ -917,7 +917,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 											<button type="button" class="btn btn-danger" style="display:none" data-toggle="modal" data-target="#modal-reject">Tolak</button>
 										<?php }}}} ?>
                     <?php 
-                    if($strakom->status == 1){
+                    // if($strakom->status == 1){
                     if($no > 0){ 
                       ?>
               
@@ -925,7 +925,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
         
               <button class="btn btn-danger" data-toggle="modal" data-target="#modal-reject-mitigasi-all" style ="margin-top: 1%;">Tolak Semua</button>
             
-          <?php }}?>
+          <?php }?>
 
                 </div>
                

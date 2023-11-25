@@ -262,11 +262,11 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 	                                      //  endforeach;
 	                                      // } else {
 	                                        $sel ="";
-	                                        if ($row->strakom_id == $rows->id) {
-	                                            echo '<option value="'.$rows->id.'" selected>'. $rows->nama_program .'</option>';
+	                                        if ($row->strakom_id == $rows->strakom_id) {
+	                                            echo '<option value="'.$rows->strakom_id.'" selected>'. $rows->nama_program .'</option>';
 	                                        }
 																					else {
-	                                          echo '<option value="'.$rows->id.'">'. $rows->nama_program .'</option>';
+	                                          echo '<option value="'.$rows->strakom_id.'">'. $rows->nama_program .'</option>';
 	                                        }
 
 	                                    // }
@@ -524,7 +524,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                             //     }
                             //  endforeach;
                             // } else {
-                                echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
+                                echo '<option value="'.$row->strakom_id.'">'. $row->nama_program .'</option>';
                             // }
                           ?>
 

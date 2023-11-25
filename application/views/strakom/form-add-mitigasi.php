@@ -53,7 +53,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 //     }
                 //  endforeach;
                 // } else {
-                    echo '<option value="'.$row->id.'">'. $row->nama_program .'</option>';
+                    echo '<option value="'.$row->strakom_id.'">'. $row->nama_program .'</option>';
                 // }
               ?>
 

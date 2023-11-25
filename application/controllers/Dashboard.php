@@ -21,17 +21,37 @@ class Dashboard extends MY_Controller {
     ]);
 		$this->page_data['countstrakombyid'] = $this->Strakom_model->countAllByUserId($this->session->userdata('logged')['id']);
 		$this->page_data['countrealisasi'] = $this->Data_Realisasi_model->countAllByUserId($this->session->userdata('logged')['id']);
+		
 		if($role_data->role == 1){
 			$this->page_data['listrakomopd'] = $this->Strakom_model->getListStrakomByLimitAndUserId($this->session->userdata('logged')['id']);
 		}
-		else if($role_data->role == 2 ||$role_data->role == 4 ){
+		else if($role_data->role == 4 ){
 		if(!empty($this->page_data['roles']->skpd_renkin)){
-		$this->page_data['listopdnotinput'] = $this->Strakom_model->getListOPDNotInputStrakom("(".	$this->page_data['roles']->skpd_renkin.")");
+		    $this->page_data['listopdnotinput'] = $this->Strakom_model->getListOPDNotInputStrakom("(".	$this->page_data['roles']->skpd_renkin.")");
+		
 		$this->page_data['listopdcount'] = count($this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['countstrakombylistopd'] = count($this->Strakom_model->getCountStrakomByListOpd("(".	$this->page_data['roles']->skpd_renkin.")"));
 		$this->page_data['listopd'] = $this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")");
-		$this->page_data['listrakom'] = $this->Strakom_model->getListStrakomByListOpdNew("(".	$this->page_data['roles']->skpd_renkin.")");
-		} else {
+	$this->page_data['listrakom'] = $this->Strakom_model->getListStrakomByListOpdNew("(".	$this->page_data['roles']->skpd_renkin.")");
+		
+		}
+		else {
+			$this->page_data['listopdcount'] = "0";
+		$this->page_data['countstrakombylistopd'] = "0";
+		$this->page_data['listopd'] = [];
+		$this->page_data['listrakom'] = [];
+		}
+	} else if($role_data->role == 2 ){
+			if(!empty($this->page_data['roles']->skpd_renkin)){
+				$this->page_data['listopdnotinput'] = $this->Strakom_model->getListOPDNotInputStrakom("(".	$this->page_data['roles']->skpd_renkin.")");
+			
+			$this->page_data['listopdcount'] = count($this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")"));
+			$this->page_data['countstrakombylistopd'] = count($this->Strakom_model->getCountStrakomByListOpd("(".	$this->page_data['roles']->skpd_renkin.")"));
+			$this->page_data['listopd'] = $this->users_model->getListUserByAsisten("(".	$this->page_data['roles']->skpd_renkin.")");
+			$this->page_data['listrakom'] = $this->Strakom_model->getListStrakomByListOpdNewAsisten("(".	$this->page_data['roles']->skpd_renkin.")");
+			
+		}
+		else {
 			$this->page_data['listopdcount'] = "0";
 		$this->page_data['countstrakombylistopd'] = "0";
 		$this->page_data['listopd'] = [];

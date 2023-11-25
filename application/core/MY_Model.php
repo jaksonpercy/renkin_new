@@ -45,7 +45,7 @@ class MY_Model extends CI_Model {
 
 	public function getListStrakomByUserId($id)
 	{
-		$query = $this->db->query("SELECT * FROM tbl_strakom_unggulan join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = '1' AND user_id =  '".$id."' ORDER BY tbl_strakom_unggulan.created_date DESC")->result()	;
+		$query = $this->db->query("SELECT *, tbl_strakom_unggulan.id as strakom_id FROM tbl_strakom_unggulan join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_periode.status_periode = '1' AND user_id =  '".$id."' ORDER BY tbl_strakom_unggulan.created_date DESC")->result()	;
 		return $query;
 	}
 
@@ -428,7 +428,13 @@ return $query;
 
 	public function getListStrakomByListOpdNew($id)
 	{
-		$query = $this->db->query("SELECT tbl_strakom_unggulan.id, tbl_strakom_unggulan.nama_program,tbl_strakom_unggulan.created_date,tbl_strakom_unggulan.send_date, tbl_strakom_unggulan.status, tbl_users.name, tbl_periode.periode_aktif, tbl_periode.tahun FROM `tbl_strakom_unggulan` join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_strakom_unggulan.status IN (1,2) AND opd_id IN ".$id."")->result()	;
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id, tbl_strakom_unggulan.nama_program,tbl_strakom_unggulan.created_date,tbl_strakom_unggulan.send_date, tbl_strakom_unggulan.status, tbl_strakom_unggulan.alasan, tbl_users.name, tbl_periode.periode_aktif, tbl_periode.tahun,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 3) EditorialCountRejected,(select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 3) MitigasiCountRejected FROM `tbl_strakom_unggulan` join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_strakom_unggulan.status IN (1,2) AND opd_id IN ".$id."")->result()	;
+		return $query;
+	}
+
+	public function getListStrakomByListOpdNewAsisten($id)
+	{
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id, tbl_strakom_unggulan.nama_program,tbl_strakom_unggulan.created_date,tbl_strakom_unggulan.send_date, tbl_strakom_unggulan.status, tbl_strakom_unggulan.alasan,tbl_users.name, tbl_periode.periode_aktif, tbl_periode.tahun,(select COUNT(tbl_editorial_plan.id) from tbl_editorial_plan where tbl_editorial_plan.strakom_id=tbl_strakom_unggulan.id AND tbl_editorial_plan.status = 3) EditorialCountRejected,(select COUNT(tbl_mitigasi.id) from tbl_mitigasi where tbl_mitigasi.strakom_id=tbl_strakom_unggulan.id AND tbl_mitigasi.status = 3) MitigasiCountRejected FROM `tbl_strakom_unggulan` join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id WHERE tbl_strakom_unggulan.status IN (2,5,6) AND opd_id IN ".$id."")->result()	;
 		return $query;
 	}
 

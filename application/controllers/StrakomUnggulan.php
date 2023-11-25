@@ -619,7 +619,7 @@ class StrakomUnggulan extends MY_Controller {
     ])[0];
 
     $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
-    $this->page_data['strakom'] = $this->Strakom_model->get();
+    $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByUserId($this->session->userdata('logged')['id']);
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getById($id);
     $this->load->view('strakom/form-edit-mitigasi', $this->page_data);
 

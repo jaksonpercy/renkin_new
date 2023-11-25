@@ -141,7 +141,7 @@ vertical-align: center;
         <!-- Main row -->
         <div class="row">
           <!-- Left col -->
-          <section class="col-lg-6 connectedSortable">
+          <section class="col-lg-8 connectedSortable">
             <!-- Custom tabs (Charts with tabs)-->
             <div class="card">
               <div class="card-header">
@@ -204,6 +204,7 @@ vertical-align: center;
                     <th>SKPD/UKPD</th>
                     <th>Nama Program/Kegiatan Unggulan</th>
                     <th>Tahapan Pelaksanaan Kegiatan</th>
+                    <th>Tanggal Buat</th>
                     <th>Tanggal Kirim</th>
                     <th>Status</th>
                     <th><?php echo lang('action') ?></th>
@@ -220,7 +221,8 @@ vertical-align: center;
                       <td><?php echo $row->name ?></td>
                       <td><b><?php echo $row->nama_program ?></b></td>
                       <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
-                      <td>
+                      <td><?php echo $row->created_date ?></td>
+                        <td>
                         <?php 
                         if($row->send_date == null){
                           echo "-"; 
@@ -230,17 +232,35 @@ vertical-align: center;
                         echo $newDate; 
                         }
                         ?></td>
-                      <td>  <?php if ($row->status == 0) {
-                        echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
-                      } else if ($row->status == 1) {
-                        echo '<p class="text-primary"><strong>Dikirim</strong></p>';
-                      } else if ($row->status == 2) {
-                        echo '<p class="text-success"><strong>Disetujui</strong></p>';
-                      } else if ($row->status == 5 || $row->status == 6) {
-                        echo '<p class="text-success"><strong>Dinilai</strong></p>';
-                      } else {
-                        echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
-                      } ?></td>
+                      <td>  
+                      <?php if ($row->status == 0) {
+                          echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
+                        } else if ($row->status == 1) {
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                            echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                          } else {
+                          echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                          }
+                        } else if ($row->status == 2) {
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                            if($row->EditorialCountRejected > 0 && $row->MitigasiCountRejected > 0){
+                              echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->EditorialCountRejected Editorial Plan & $row->MitigasiCountRejected Uraian Mitigasi ) </strong></p>";
+                            } else if ($row->EditorialCountRejected > 0){
+                            echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->EditorialCountRejected Editorial Plan) </strong></p>";
+                            } else {
+                              echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->MitigasiCountRejected Uraian Mitigasi) </strong></p>";
+                            }
+                          } else {
+                            echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          }
+                          
+                        } else if ($row->status == 5 || $row->status == 6) {
+                          echo '<p class="text-success"><strong>Dinilai</strong></p>';
+                        } else {
+                          echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                        } ?>
+                      
+                    </td>
                       <td>
                         <?php if($row->status == 1){ ?>
                         <a href="<?php echo url('ReviewStrakomUnggulan/view/'.$row->id) ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
@@ -299,7 +319,7 @@ vertical-align: center;
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover table-striped">
+              <table id="example1" class="table table-bordered table-hover table-striped">
                   <thead>
                   <tr>
                     <th>No</th>
@@ -314,7 +334,7 @@ vertical-align: center;
                     ?>
                     <tr>
                       <td><?php echo $no;?></td>
-                      <td><?php echo $row->name;?></td>
+                      <td ><?php echo $row->name;?></td>
                     </tr>
                   <?php endforeach ?>
                   </tbody>
@@ -334,7 +354,7 @@ vertical-align: center;
 
 
             <?php if ($roles->role->role_id==4): ?>
-          <section class="col-lg-6 connectedSortable">
+          <section class="col-lg-4 connectedSortable">
 
             <!-- Map card -->
             <div class="card">
@@ -344,7 +364,7 @@ vertical-align: center;
                 </h3>
               </div><!-- /.card-header -->
               <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover table-striped">
+                <table id="example2" class="table table-bordered table-hover table-striped" style="overflow-x: scroll;max-width:fit-content">
                   <thead>
                   <tr>
                     <th>No</th>
