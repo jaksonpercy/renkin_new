@@ -175,17 +175,33 @@ vertical-align: center;
                       <td><?php echo $row->periode_aktif . " ". $row->tahun ?></td>
                       <td><?php echo $row->created_date ?></td>
                       <td>
-                        <?php if ($row->status == 0) {
+                      <?php if ($row->status == 0) {
                           echo '<p class="text-warning"><strong>Belum Dikirim</strong></p>';
                         } else if ($row->status == 1) {
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                            echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                          } else {
                           echo '<p class="text-primary"><strong>Dikirim</strong></p>';
+                          }
                         } else if ($row->status == 2) {
-                          echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          if($row->EditorialCountRejected > 0 || $row->MitigasiCountRejected > 0){
+                            if($row->EditorialCountRejected > 0 && $row->MitigasiCountRejected > 0){
+                              echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->EditorialCountRejected Editorial Plan & $row->MitigasiCountRejected Uraian Mitigasi ) </strong></p>";
+                            } else if ($row->EditorialCountRejected > 0){
+                            echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->EditorialCountRejected Editorial Plan) </strong></p>";
+                            } else {
+                              echo  "<p class='text-danger'><strong>Perlu Diperbaiki ($row->MitigasiCountRejected Uraian Mitigasi) </strong></p>";
+                            }
+                          } else {
+                            echo '<p class="text-success"><strong>Disetujui</strong></p>';
+                          }
+                          
                         } else if ($row->status == 5 || $row->status == 6) {
                           echo '<p class="text-success"><strong>Dinilai</strong></p>';
                         } else {
-                          echo '<p class="text-danger"><strong>Perlu Diperbaiki</strong></p>';
-                        } ?></td>
+                          echo "<p class='text-danger'><strong>Perlu Diperbaiki ($row->alasan) </strong></p>";
+                        } ?>
+                    </td>
                       <td>
                         <a href="<?php echo url('StrakomUnggulan/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-primary" title="Lihat" data-toggle="tooltip">Lihat</a>
                       </td>

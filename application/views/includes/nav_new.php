@@ -219,7 +219,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   </li>
 <?php endif ?>
 
-<?php if (hasRoles('roles_list') == 3): ?>
+<!-- <?php if (hasRoles('roles_list') == 3): ?>
   <li class="nav-item">
     <a href="<?php echo url('Roles') ?>" class="nav-link <?php echo ($page->menu=='roles')?'active':'' ?>">
       <i class="nav-icon fas fa-lock"></i>
@@ -228,7 +228,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </p>
     </a>
   </li>
-<?php endif ?>
+<?php endif ?> -->
 
 <?php if (hasRoles('roles_list') == 3): ?>
   <li class="nav-item">

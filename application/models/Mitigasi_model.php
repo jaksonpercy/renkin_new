@@ -24,6 +24,13 @@ class Mitigasi_model extends MY_Model {
 		return $query;
 	}
 
+	public function getDataMitigasiByStrakomIdDownload($userid)
+	{
+		$query = $this->db->query("SELECT * from tbl_mitigasi join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id where tbl_mitigasi.strakom_id = '".$userid."'")->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 }
 
 /* End of file Permissions_model.php */

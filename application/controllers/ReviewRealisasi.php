@@ -26,15 +26,14 @@ class ReviewRealisasi extends MY_Controller {
         $userId = $this->input->get('user_id');
 
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+
     if(!empty($this->page_data['user']->skpd_renkin)){
-    $this->page_data['userall'] = $this->users_model->getListUserByAsisten("(".$this->page_data['user']->skpd_renkin.")");
-    $this->page_data['countrealisasi'] = count($this->Data_Realisasi_model->getListDataRealisasiByOpd("(".$this->page_data['user']->skpd_renkin.")",$tahun,$triwulan,$userId));
-    $this->page_data['listrealisasi'] = $this->Data_Realisasi_model->getListDataRealisasiByOpd("(".$this->page_data['user']->skpd_renkin.")",$tahun,$triwulan,$userId);
-    } else {
-      $this->page_data['userall'] = [];
-      $this->page_data['countrealisasi'] = [];
-      $this->page_data['listrealisasi'] = [];
-    }
+      $this->page_data['userall'] = $this->users_model->getListUserByAsisten("(".$this->page_data['user']->skpd_renkin.")");
+     } else {
+        $this->page_data['userall'] = [];
+        $this->page_data['countrealisasi'] = [];
+        $this->page_data['listrealisasi'] = [];
+      }
 
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
@@ -89,6 +88,27 @@ header('Pragma: public');
 
     $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->get();
     $this->load->view('realisasi/form-add', $this->page_data);
+
+  }
+
+  public function view($id){
+    // load view
+		$this->page_data['page']->submenu = 'realisasi';
+    $this->page_data['rencanamedia'] = $this->KanalPublikasi_model->getByStatusActive(1);
+    $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['periode'] = $this->Periode_model->getByWhere([
+      'status_periode'=> 1
+    ])[0];
+    $this->page_data['roles'] = $this->users_model->getById($this->session->userdata('logged')['id']);
+    $this->page_data['roles']->role = $this->roles_model->getByWhere([
+      'role_id'=> $this->page_data['roles']->role
+    ])[0];
+    $this->page_data['ksd'] = $this->KSD_model->getByStatusActive(1);
+    $this->page_data['strakom'] = $this->Strakom_model->getById($id);
+
+    $this->page_data['datarealisasi'] = $this->Data_Realisasi_model->getListDataRealisasiByStrakomId($id);
+
+    $this->load->view('realisasi/view', $this->page_data);
 
   }
 

@@ -121,18 +121,16 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                     <tr>
-                      <th style="vertical-align:middle;text-align:center;">No</th>
-                      <th style="vertical-align:middle;text-align:center;">Tanggal Realisasi</th>
-                      <th style="vertical-align:middle;text-align:center;">Nama SKPD/UKPD</th>
-                      <th style="vertical-align:middle;text-align:center;">Nama Strategi Komunikasi Unggulan</th>
-                      <th style="vertical-align:middle;text-align:center;">Judul</th>
-                      <th style="vertical-align:middle;text-align:center;">Kanal Publikasi</th>
-                      <th style="vertical-align:middle;text-align:center;">Link Tautan</th>
-                      <th style="vertical-align:middle;text-align:center;">Dokumentasi</th>
-
-                      <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
-
-                    </tr>
+                    <tr>
+                        <th style="vertical-align:middle;text-align:center;">No</th>
+                        <th style="vertical-align:middle;text-align:center;">Nama SKPD</th>
+                        <th style="vertical-align:middle;text-align:center;">Nama Program/Kegiatan Strategi Komunikasi Unggulan</th>
+                        <th style="vertical-align:middle;text-align:center;">No Nota Dinas / Surat</th>
+                        <th style="vertical-align:middle;text-align:center;">Perihal Nota Dinas /Surat</th>
+                        <th style="vertical-align:middle;text-align:center;">Tanggal Nota Dinas /Surat</th>
+                        <th style="vertical-align:middle;text-align:center;">Lampiran Nota Dinas</th>
+                        <th style="vertical-align:middle;text-align:center;"><?php echo lang('action') ?></th>
+                      </tr>
                     </thead>
                     <tbody>
                       <?php
@@ -143,27 +141,24 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       ?>
                       <tr>
                         <td><?php echo $no ?></td>
-                        <td><?php echo $row->tanggal_realisasi ?></td>
                           <td><?php echo $row->name ?></td>
                         <td><?php echo $row->nama_program ?></td>
-                        <td><?php echo $row->judul_publikasi ?></td>
                         <td>
                           <?php
-                            foreach ($rencanamedia as $rows):
-                              if ($rows->id == $row->kanal_publikasi ) {
-                                echo $rows->nama;
-                              }
-                           endforeach;
+                          echo $row->no_nota_dinas
                           ?>
                         </td>
-                        <td> <a href="<?php echo $row->link_tautan ?>" target="_blank" rel="noopener noreferrer"><?php echo $row->link_tautan ?></a></td>
+                        <td><?php echo $row->perihal_nota ?></td>
+                        <td><?php echo $row->tanggal_nota ?></td>
                        <td>
-                         <?php if(!empty($row->file_dokumentasi)){ ?>
-                        <a href="<?php echo base_url('/uploads/datarealiasi/'.$row->file_dokumentasi); ?>" target="_blank">Lihat Dokumen</a>
+                         <?php if(!empty($row->url_nota_dinas)){ ?>
+                        <a href="<?php echo base_url('/uploads/datanotadinas/'.$row->url_nota_dinas); ?>" target="_blank">Lihat Dokumen</a>
                       <?php } ?>
                         </td>
                         <td>
-                          <a href="<?php echo url('Realisasi/export/'.$row->id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                          <a href="<?php echo url('ReviewRealisasi/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
+                          
+                          <a href="<?php echo url('Realisasi/export/'.$row->strakom_id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                         </td>
                       </tr>
@@ -197,6 +192,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php include viewPath('includes/footer'); ?>
 
 <script>
+
+$(document).ready(function() {
+  // Initialize Select2 Elements
+$('.select2').select2()
+
+})
 
 window.updateUserStatus = (id, status) => {
   $.get( '<?php echo url('users/change_status') ?>/'+id, {

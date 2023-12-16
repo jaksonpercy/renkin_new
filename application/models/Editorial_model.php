@@ -65,7 +65,7 @@ class Editorial_model extends MY_Model {
 		return $query;
 	}
 
-	public function getDataJoinStrakomIdAllAdmin($id, $userid=null, $tahun = null, $triwulan = null)
+	public function getDataJoinStrakomIdAllAdmin($userid=null, $tahun = null, $triwulan = null)
 	{
 		$filter = "";
 		if (!empty($tahun)) {

@@ -59,26 +59,13 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <select name="user_id" id="user_id" class="form-control select2">
                         <option value="">Pilih SKPD/UKPD</option>
                         <?php foreach ($userall as $row): ?>
-                          <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
-                        <?php endforeach ?>
+                          <option  <?php if(!empty($_GET['user_id']) && $_GET['user_id'] == $row->id){echo "selected";} ?> value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
+											  <?php endforeach ?>
                       </select>
                     </div>
                   </div>
                 </div>
                 <?php } ?>
-                <div class="col-3" style="display:none">
-                  <div class="card-body">
-                  <div class="form-group">
-                    <label for="formClient-Contact">Pilih SKPD/UKPD</label>
-                    <select name="user_id" id="user_id"  class="form-control select2">
-                      <option value="">Pilih SKPD/UKPD</option>
-                      <?php foreach ($userall as $row): ?>
-                        <option value="<?php echo $row->id ?>"><?php echo $row->name ?></option>
-                      <?php endforeach ?>
-                    </select>
-                  </div>
-                </div>
-              </div>
                   <div class="col-3">
                     <div class="card-body">
                     <div class="form-group">
@@ -318,7 +305,12 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php include viewPath('includes/footer'); ?>
 
 <script>
+    $(document).ready(function() {
 
+  // Initialize Select2 Elements
+$('.select2').select2()
+
+})
 window.updateUserStatus = (id, status) => {
   $.get( '<?php echo url('users/change_status') ?>/'+id, {
     status: status

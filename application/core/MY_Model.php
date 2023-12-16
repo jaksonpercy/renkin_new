@@ -218,6 +218,28 @@ class MY_Model extends CI_Model {
 		return $query;
 	}
 
+	public function getDataJoinThreeTableAdmin($id=null, $tahun = null, $triwulan = null)
+	{
+
+		$filter = "";
+		if (!empty($id)) {
+			$filter .= " AND tbl_mitigasi.user_id = '".$id."' ";
+		}
+
+		if (!empty($tahun)) {
+			$filter .= " AND tbl_periode.tahun = '".$tahun."' ";
+		}
+
+		if (!empty($triwulan)) {
+			$filter .= " AND tbl_periode.periode_aktif = '".$triwulan."' ";
+		}
+
+		$filter .= " ORDER BY tbl_mitigasi.created_date DESC";
+		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from tbl_mitigasi join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id join tbl_periode on tbl_mitigasi.periode_id = tbl_periode.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id where tbl_periode.status_periode = '1'".$filter)->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 	public function getDataJoinThreeTable()
 	{
 		$query = $this->db->query("SELECT tbl_mitigasi.id, tbl_mitigasi.strakom_id, tbl_mitigasi.uraian_potensi, tbl_mitigasi.juru_bicara, tbl_mitigasi.data_pendukung_text, tbl_mitigasi.data_pendukung_file, tbl_mitigasi.stakeholder_pro, tbl_mitigasi.stakeholder_kontra, tbl_mitigasi.pic_kegiatan, tbl_mitigasi.user_id, tbl_mitigasi.opd_id, tbl_mitigasi.periode_id,tbl_mitigasi.status,tbl_mitigasi.alasan, tbl_strakom_unggulan.nama_program, tbl_ksd.nama from $this->table join tbl_strakom_unggulan on tbl_mitigasi.strakom_id = tbl_strakom_unggulan.id left outer join tbl_ksd on tbl_strakom_unggulan.ksd_id = tbl_ksd.id ORDER BY tbl_mitigasi.created_date DESC")->result()	;

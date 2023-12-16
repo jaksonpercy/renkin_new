@@ -727,9 +727,9 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 											<div class="d-flex p-0">
 											<div class="ml-auto p-2">
 
-												<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-tambah-realisasi"> <span class="pr-1"><i class="fa fa-plus"></i></span>
+												<!-- <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modal-tambah-realisasi"> <span class="pr-1"><i class="fa fa-plus"></i></span>
 											Tambah Data
-										</button>
+										</button> -->
 											</div>
 											</div>
 										<?php }}} ?>

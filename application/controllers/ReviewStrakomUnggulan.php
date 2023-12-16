@@ -116,7 +116,7 @@ class ReviewStrakomUnggulan extends MY_Controller {
 
     $this->page_data['strakomList'] = $this->Strakom_model->get();
     $this->page_data['editorialplan'] = $this->Editorial_model->getDataByStrakomId($id);
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable($this->session->userdata('logged')['id'],$id);
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataMitigasiByStrakomIdDownload($id);
 
     $this->page_data['produkkomunikasi'] = $this->ProdukKomunikasi_model->getByStatusActive(1);
     $this->page_data['page']->submenu = 'strakom';

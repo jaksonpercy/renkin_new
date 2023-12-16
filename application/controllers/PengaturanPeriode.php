@@ -49,7 +49,7 @@ class PengaturanPeriode extends MY_Controller {
 		$periode = $this->Periode_model->create([
 			'periode_aktif' => $this->input->post('periode_aktif'),
 			'tahun' => $this->input->post('tahun_periode'),
-			'status_periode' => $this->input->post('status'),
+			'status_periode' => 0,
 			'status_penilaian' => $this->input->post('periode_penilaian'),
 			'status_realisasi' => $this->input->post('periode_realisasi'),
 			'status_input_data' => $this->input->post('periode_input_data'),

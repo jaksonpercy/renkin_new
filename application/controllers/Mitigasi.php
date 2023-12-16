@@ -20,6 +20,7 @@ class Mitigasi extends MY_Controller {
   public function mitigasi()
   {
 	$tahun = $this->input->get('tahun_periode');
+  $userId = $this->input->get('user_id');
     $triwulan = $this->input->get('triwulan_periode');
     $this->page_data['page']->submenu = 'mitigasi';
     $this->page_data['user'] = $this->users_model->getById($this->session->userdata('logged')['id']);
@@ -41,7 +42,7 @@ class Mitigasi extends MY_Controller {
     if ($this->page_data['roles']->role->role_id == 1) {
     $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableByUserId($this->session->userdata('logged')['id'],$tahun,$triwulan);
     } else {
-    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTable();
+    $this->page_data['mitigasi'] = $this->Mitigasi_model->getDataJoinThreeTableAdmin($userId,$tahun,$triwulan);
     }
     $this->load->view('mitigasi/list', $this->page_data);
   }

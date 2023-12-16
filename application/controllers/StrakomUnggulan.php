@@ -355,6 +355,7 @@ class StrakomUnggulan extends MY_Controller {
       'kanal_publikasi_lainnya' => $this->input->post('textlainnya'),
 			'user_id' => $this->input->post('idUser'),
 			'periode_id' => $this->input->post('idPeriode'),
+      'triwulan_periode' => $this->page_data['periode']->periode_aktif,
 			'opd_id' => $this->input->post('idOPD'),
 		]);
 
