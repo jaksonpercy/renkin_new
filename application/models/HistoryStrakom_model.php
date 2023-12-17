@@ -31,6 +31,21 @@ class HistoryStrakom_model extends MY_Model {
 		return $query;
 	}
 
+
+	public function getListStrakomNowByCreatedBy($id,$tahun, $triwulan)
+	{
+		$filter = "";
+		if (!empty($tahun)) {
+			$filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$tahun."' ";
+		}
+		if (!empty($triwulan)) {
+			$filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$triwulan."' ";
+		}
+		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id from tbl_strakom_unggulan join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id where tbl_periode.status_periode != '1' and user_id ='".$id."'".$filter)->result()	;
+		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
+		return $query;
+	}
+
 	public function getListStrakomFilterByCreatedBy($id,$tahun, $triwulan)
 	{
 		$filter = "";

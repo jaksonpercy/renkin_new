@@ -179,6 +179,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </a>
     </li>
 <?php endif ?>
+
+<?php if (hasRoles('users_list') == 1 ): ?>
+
+  <li class="nav-item has-treeview <?php echo ($page->menu=='historystrakom')?'menu-open':'' ?>">
+  <a href="#" class="nav-link  <?php echo ($page->menu=='historystrakom')?'active':'' ?>">
+
+  <p>
+  History Strakom 
+    <i class="right fas fa-angle-left"></i>
+  </p>
+</a>
+<ul class="nav nav-treeview">
+<li class="nav-item">
+  <a href="<?php echo url('HistoryStrakomNow') ?>" class="nav-link <?php echo ($page->submenu=='historystrakomnow')?'active':'' ?>">
+    <i class="nav-icon"></i>
+    <p>
+      Sistem Saat Ini
+    </p>
+  </a>
+</li>
+<li class="nav-item">
+  <a href="<?php echo url('HistoryStrakom') ?>" class="nav-link <?php echo ($page->submenu=='historystrakompast')?'active':'' ?>">
+    <i class="nav-icon"></i>
+    <p>
+     Sistem Lama
+    </p>
+  </a>
+</li>
+</ul>
+</li>
+<?php else : ?> 
   <li class="nav-item">
       <a href="<?php echo url('HistoryStrakom') ?>" class="nav-link <?php echo ($page->menu=='historystrakom')?'active':'' ?>">
         <p>
@@ -186,7 +217,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </p>
       </a>
     </li>
-
+<?php endif ?> 
 <?php if (hasRoles('users_list') == 3): ?>
 <li class="nav-item has-treeview <?php echo ($page->menu=='rencanakinerja')?'menu-open':'' ?>">
   <a href="#" class="nav-link  <?php echo ($page->menu=='rencanakinerja')?'active':'' ?>">
