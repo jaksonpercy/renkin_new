@@ -271,7 +271,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <td>
 
                         <a href="<?php echo url('Penilaian/view/'.$row->strakom_id) ?>" class="btn btn-sm btn-info" title="Lihat" data-toggle="tooltip"><i class="fa fa-eye"></i></a>
-                        <a href="<?php echo url('Penilaian/download/'.$row->strakom_id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
+                        <a href="<?php echo url('Penilaian/downloadByIdStrakom/'.$row->strakom_id) ?>" target="_blank" class="btn btn-sm btn-secondary" title="Download" data-toggle="tooltip"><i class="fa fa-download"></i></a>
 
                       </td>
 

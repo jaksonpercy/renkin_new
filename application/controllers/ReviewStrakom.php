@@ -28,6 +28,7 @@ class ReviewStrakom extends MY_Controller {
     $this->page_data['periode'] = $this->Periode_model->getByWhere([
       'status_periode'=> 1
     ])[0];
+    
     $this->page_data['user'] = $this->users_model->get();
     if ($this->page_data['roles']->role->role_id == 1) {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomForReview($tahun,$triwulan,$this->session->userdata('logged')['id']);

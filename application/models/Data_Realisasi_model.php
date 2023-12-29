@@ -34,7 +34,7 @@ class Data_Realisasi_model extends MY_Model {
 
 		$filter .= " ORDER BY tbl_strakom_unggulan.created_date DESC";
 
-		$query = $this->db->query("SELECT tbl_strakom_unggulan.id as strakom_id, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.no_nota_dinas, tbl_strakom_unggulan.url_nota_dinas, tbl_strakom_unggulan.perihal_nota, tbl_strakom_unggulan.tanggal_nota, tbl_users.name from tbl_strakom_unggulan join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id where tbl_periode.status_periode = '1' and tbl_strakom_unggulan.opd_id in ".$id."".$filter)->result()	;
+		$query = $this->db->query("SELECT tbl_strakom_unggulan.id as strakom_id, tbl_strakom_unggulan.nama_program, tbl_strakom_unggulan.no_nota_dinas, tbl_strakom_unggulan.url_nota_dinas, tbl_strakom_unggulan.perihal_nota, tbl_strakom_unggulan.tanggal_nota, tbl_users.name, (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id) as countData from tbl_strakom_unggulan join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id where tbl_periode.status_periode = '0' and (no_nota_dinas != '' OR url_nota_dinas != '' OR perihal_nota != '' OR tanggal_nota != '' OR (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id)) and tbl_strakom_unggulan.opd_id in ".$id."".$filter)->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}

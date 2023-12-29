@@ -153,6 +153,69 @@ class Penilaian extends MY_Controller {
 
   }
 
+  public function downloadByIdStrakom($id){
+    // load view
+    $this->page_data['asisten'] = $this->db->query("select * from tbl_users where skpd_renkin is not null")->result();
+
+    ////////////////////////////////////////////////////////////
+
+    require_once(APPPATH.'libraries/xlsxwriter.class.php');
+	  $fname='uploads/penilaian_strakom.xlsx';
+
+    $penilaian = array(
+      array("REKAP PENILAIAN STRATEGI KOMUNIKASI RENCANA KINERJA BIDANG PEMERINTAHAN"),
+      array(""),
+      array(""),
+      array("NO.","SKPD/UKPD","Nama Program/Kegiatan Unggulan","Nilai Strakom Unggulan (20%)","Nilai Editorial Plan (20%)","Nilai Uraian Materi Mitigasi Krisis (30%)","Nilai Realisasi (30%)","Total(%)","Keterangan/Catatan")
+    );
+
+    foreach ($this->page_data['asisten'] as $row){
+      if($row->id == $this->session->userdata('logged')['id']){
+      // $cekpenilaian = $this->db->query("SELECT * FROM tbl_penilaian inner join tbl_strakom_unggulan on tbl_penilaian.strakom_id=tbl_strakom_unggulan.id inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id WHERE tbl_penilaian.asisten_id='".$row->id."';")->result();
+      if(!empty($id)){
+        $cekpenilaian = $this->db->query("SELECT * FROM tbl_penilaian inner join tbl_strakom_unggulan on tbl_penilaian.strakom_id=tbl_strakom_unggulan.id inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id WHERE tbl_strakom_unggulan.id='".$id."';")->result();
+      }
+      if(count($cekpenilaian)>0){
+        array_push($penilaian,
+        array($row->name)
+        );
+        $no=1;
+        foreach($cekpenilaian as $nilai){
+          $nilaiakhirStrakom = ($nilai->nilai_strakom/100) * 20;
+          $nilaiakhirEditorial = ($nilai->nilai_editorial/100) * 20;
+          $nilaiakhirMitigasi = ($nilai->nilai_mitigasi/100) * 30;
+          $nilaiakhirRealisasi = ($nilai->nilai_realisasi/100) * 30;
+          array_push(
+            $penilaian,
+            array($no,
+            $nilai->opd_upd_name,
+            $nilai->nama_program,
+            $nilaiakhirStrakom,
+            $nilaiakhirEditorial,
+            $nilaiakhirMitigasi,
+            $nilaiakhirRealisasi,
+            $nilaiakhirStrakom+$nilaiakhirEditorial+$nilaiakhirMitigasi+$nilaiakhirRealisasi,
+            $nilai->catatan)
+          );
+          $no++;
+        }
+      }
+    }
+  }
+
+    $writer = new XLSXWriter();
+    $styles7 = array( 'border'=>'left,right,top,bottom');
+
+    foreach($penilaian as $row)
+	    $writer->writeSheetRow('Rekap Penilaian', $row, $styles7);
+
+      $writer->writeToFile($fname);   // creates XLSX file (in current folder)
+      redirect($fname.'?date='.date('Ymdis'));
+
+  }
+
+  
+
   public function detaileditorial(){
     // load view
     $this->load->view('penilaian/detail-editorial-plan', $this->page_data);
