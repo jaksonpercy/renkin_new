@@ -3,11 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class StrakomUnggulan extends MY_Controller {
 
+  
   public function __construct() {
 
     parent::__construct();
     $this->page_data['page']->title = 'Strategi Komunikasi Unggulan';
     $this->page_data['page']->menu = 'rencanakinerja';
+
     // load base_url
   }
 
@@ -314,6 +316,78 @@ class StrakomUnggulan extends MY_Controller {
     $this->session->set_flashdata('alert', 'Strategi Komunikasi Unggulan Berhasil Di Hapus');
 
     redirect('StrakomUnggulan');
+
+  }
+
+  public function downloadAllStrakom(){
+    $this->strakom();
+    // load view
+    $this->page_data['asisten'] = $this->db->query("select * from tbl_users where skpd_renkin is not null")->result();
+
+    ////////////////////////////////////////////////////////////
+
+    $periodeTitle = "";
+    $periodeTahun = "";
+
+    if($this->input->get('periode_aktif') != null || $this->input->get('periode_aktif') != ''){
+       $periodeTitle = $this->input->get('periode_aktif');
+    }
+
+    if($this->input->get('tahun_aktif') ||$this->input->get('tahun_aktif') != ''){
+      $periodeTahun = "TAHUN ".$this->input->get('tahun_aktif');
+   }
+
+    require_once(APPPATH.'libraries/xlsxwriter.class.php');
+	  $fname='uploads/strakom_all_opd.xlsx';
+
+    $penilaian = array(
+      array("REKAP RENCANA KINERJA PENYUSUNAN STRATEGI KOMUNIKASI PERANGKAT DAERAH"),
+      array(strtoupper($periodeTitle) . " ".$periodeTahun),
+      array(""),
+      array(""),
+      array("NO.","SKPD/UKPD","Nama Program/Kegiatan Unggulan","Kelengkapan")
+    );
+
+    foreach ($this->page_data['asisten'] as $row){
+      // $cekpenilaian = $this->db->query("SELECT * FROM tbl_penilaian inner join tbl_strakom_unggulan on tbl_penilaian.strakom_id=tbl_strakom_unggulan.id inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id WHERE tbl_penilaian.asisten_id='".$row->id."';")->result();
+      // if(!empty($id)){
+        $filter = "";
+		if (!empty($this->input->get('tahun_aktif'))) {
+			$filter .= " AND tbl_periode.tahun = '".$this->input->get('tahun_aktif')."' ";
+		}
+
+		if (!empty($this->input->get('periode_aktif'))) {
+			$filter .= " AND tbl_periode.periode_aktif = '".$this->input->get('periode_aktif')."' ";
+		}
+
+        $cekpenilaian = $this->db->query("SELECT * FROM tbl_strakom_unggulan inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id inner join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id where tbl_strakom_unggulan.created_date is not null".$filter)->result();
+      // }
+      if(count($cekpenilaian)>0){
+        array_push($penilaian,
+        array($row->name)
+        );
+        $no=1;
+        foreach($cekpenilaian as $strakom){
+          array_push(
+            $penilaian,
+            array($no,
+            $strakom->opd_upd_name,
+            $strakom->nama_program,
+            "",)
+          );
+          $no++;
+        }
+      }
+  }
+
+    $writer = new XLSXWriter();
+    $styles7 = array( 'border'=>'left,right,top,bottom','auto_size'=> true);
+
+    foreach($penilaian as $row)
+	    $writer->writeSheetRow('Rekap Strategi Komunikasi Unggulan', $row, $styles7);
+
+      $writer->writeToFile($fname);   // creates XLSX file (in current folder)
+      redirect($fname.'?date='.date('Ymdis'));
 
   }
 

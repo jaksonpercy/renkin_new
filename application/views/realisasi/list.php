@@ -127,7 +127,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                   ?>
                 <a href="<?php echo url('Realisasi/add') ?>" class="btn btn-primary btn-sm"><span class="pr-1"><i class="fa fa-plus"></i></span> Tambah Realisasi Strategi Komunikasi</a>
               <?php }
-              } ?>
+              } else if ($roles->role->role_id == 3){
+                $periodeAktif = null;
+                $tahun = null;
+                if(!empty($_GET['triwulan_periode'])){
+                  $periodeAktif = $_GET['triwulan_periode'];
+                }
+    
+                if(!empty($_GET['tahun_periode'])){
+                  $tahun = $_GET['tahun_periode'];
+                }
+              ?>
+    <div class="ml-auto p-2">
+    
+    <a href="<?php echo url('Realisasi/downloadAllStrakom?triwulan_aktif='.$periodeAktif.'&tahun_aktif='.$tahun) ?>" class="btn btn-success btn-sm"><span class="pr-1"><i class="fa fa-download"></i></span> Download Realisasi</a>
+    
+    </div>
+               <?php } ?>
                 </div>
               </div>
               <?php if ($roles->role->role_id==1):?>

@@ -207,7 +207,23 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                 </div>
               <?php }
             }
-              } ?>
+           } else if ($roles->role->role_id == 3){
+            $periodeAktif = null;
+            $tahun = null;
+            if(!empty($_GET['triwulan_periode'])){
+              $periodeAktif = $_GET['triwulan_periode'];
+            }
+
+            if(!empty($_GET['tahun_periode'])){
+              $tahun = $_GET['tahun_periode'];
+            }
+          ?>
+<div class="ml-auto p-2">
+
+<a href="<?php echo url('StrakomUnggulan/downloadAllStrakom?triwulan_aktif='.$periodeAktif.'&tahun_aktif='.$tahun) ?>" class="btn btn-success btn-sm"><span class="pr-1"><i class="fa fa-download"></i></span> Download Strakom Unggulan</a>
+
+</div>
+           <?php } ?>
               </div>
 
               <?php if ($roles->role->role_id==1):?>
