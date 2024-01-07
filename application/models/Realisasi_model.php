@@ -20,6 +20,15 @@ class Realisasi_model extends MY_Model {
 	public function getListStrakomByRealisasi($tahun = null, $triwulan = null)
 	{
 		$filter = "";
+		if($tahun == null && $triwulan == null){
+			$periode = $this->Periode_model->getByWhere([
+				'status_periode'=> 1
+			  ]);
+			  $tahun = $periode[0]->tahun;
+			  $triwulan = $periode[0]->periode_aktif;
+			  $filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$tahun."' ";
+			  $filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$triwulan."' ";
+		} else {
 		if (!empty($tahun)) {
 			$filter .= " AND tahun_periode = '".$tahun."' ";
 		}
@@ -27,10 +36,11 @@ class Realisasi_model extends MY_Model {
 		if (!empty($triwulan)) {
 			$filter .= " AND triwulan_periode = '".$triwulan."' ";
 		}
+	}
 
 		$filter .= " ORDER BY tbl_strakom_unggulan.created_date DESC";
 
-		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id from tbl_strakom_unggulan join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id where (no_nota_dinas != '' OR url_nota_dinas != '' OR perihal_nota != '' OR tanggal_nota != '') $filter ")->result()	;
+		$query = $this->db->query("SELECT *,tbl_strakom_unggulan.id as strakom_id, (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id) as countData from tbl_strakom_unggulan join tbl_users on tbl_strakom_unggulan.user_id = tbl_users.id where (no_nota_dinas != '' OR url_nota_dinas != '' OR perihal_nota != '' OR tanggal_nota != '') $filter ")->result()	;
 		// $query = $this->db->query("SELECT * FROM $this->table WHERE user_id =  '".$id."'")->result()	;
 		return $query;
 	}

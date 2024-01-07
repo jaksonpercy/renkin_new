@@ -80,13 +80,23 @@ class Realisasi extends MY_Controller {
       // $cekpenilaian = $this->db->query("SELECT * FROM tbl_penilaian inner join tbl_strakom_unggulan on tbl_penilaian.strakom_id=tbl_strakom_unggulan.id inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id WHERE tbl_penilaian.asisten_id='".$row->id."';")->result();
       // if(!empty($id)){
         $filter = "";
+        if($this->input->get('tahun_aktif') == null && $this->input->get('periode_aktif') == null){
+          $periode = $this->Periode_model->getByWhere([
+            'status_periode'=> 1
+            ]);
+            $tahun = $periode[0]->tahun;
+            $triwulan = $periode[0]->periode_aktif;
+            $filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$tahun."' ";
+            $filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$triwulan."' ";
+        } else {
 		if (!empty($this->input->get('tahun_aktif'))) {
-			$filter .= " AND tbl_periode.tahun = '".$this->input->get('tahun_aktif')."' ";
+			$filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$this->input->get('tahun_aktif')."' ";
 		}
 
 		if (!empty($this->input->get('periode_aktif'))) {
-			$filter .= " AND tbl_periode.periode_aktif = '".$this->input->get('periode_aktif')."' ";
+			$filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$this->input->get('periode_aktif')."' ";
 		}
+  }
 
         $cekpenilaian = $this->db->query("SELECT *, (select count(*) from tbl_data_realisasi where tbl_strakom_unggulan.id = tbl_data_realisasi.strakom_id) as countData FROM tbl_strakom_unggulan inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id inner join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id where tbl_strakom_unggulan.created_date is not null".$filter)->result();
       // }

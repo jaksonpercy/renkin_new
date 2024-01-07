@@ -46,6 +46,8 @@ class StrakomUnggulan extends MY_Controller {
     } else if ($this->page_data['roles']->role->role_id == 2) {
         $this->page_data['strakom'] = $this->Strakom_model->getListStrakomByOpd("(".$this->page_data['userbyid']->skpd_renkin.")");
     } else  {
+      $tahun = $this->page_data['periodeCount'][0]->tahun;
+      $triwulan = $this->page_data['periodeCount'][0]->periode_aktif; 
       $this->page_data['strakom'] = $this->Strakom_model->getListDataByFilter($tahun,$triwulan,$userId);
     }
     $this->page_data['countstrakom'] = $this->Strakom_model->countAll();
@@ -352,13 +354,24 @@ class StrakomUnggulan extends MY_Controller {
       // $cekpenilaian = $this->db->query("SELECT * FROM tbl_penilaian inner join tbl_strakom_unggulan on tbl_penilaian.strakom_id=tbl_strakom_unggulan.id inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id WHERE tbl_penilaian.asisten_id='".$row->id."';")->result();
       // if(!empty($id)){
         $filter = "";
+
+    if(empty($this->input->get('tahun_aktif')) && empty($this->input->get('periode_aktif'))){
+      $this->page_data['periodeCount'] = $this->Periode_model->getByWhere([
+        'status_periode'=> 1
+      ]);
+      $tahun = $this->page_data['periodeCount'][0]->tahun;
+      $triwulan = $this->page_data['periodeCount'][0]->periode_aktif;
+      $filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$tahun."' ";
+      $filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$triwulan."' ";
+    } else {
 		if (!empty($this->input->get('tahun_aktif'))) {
-			$filter .= " AND tbl_periode.tahun = '".$this->input->get('tahun_aktif')."' ";
+			$filter .= " AND tbl_strakom_unggulan.tahun_periode = '".$this->input->get('tahun_aktif')."' ";
 		}
 
 		if (!empty($this->input->get('periode_aktif'))) {
-			$filter .= " AND tbl_periode.periode_aktif = '".$this->input->get('periode_aktif')."' ";
+			$filter .= " AND tbl_strakom_unggulan.triwulan_periode = '".$this->input->get('periode_aktif')."' ";
 		}
+  }
 
         $cekpenilaian = $this->db->query("SELECT * FROM tbl_strakom_unggulan inner join opd_upd on tbl_strakom_unggulan.opd_id=opd_upd.id inner join tbl_periode on tbl_strakom_unggulan.periode_id = tbl_periode.id where tbl_strakom_unggulan.created_date is not null".$filter)->result();
       // }

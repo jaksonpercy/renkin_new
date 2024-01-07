@@ -210,6 +210,7 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
                       <?php
                       $no =0;
                       foreach ($listrealisasi as $row):
+                        if($row->countData > 0){
                         $no++; ?>
                       <tr>
                         <td><?php echo $no ?></td>
@@ -231,7 +232,8 @@ defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
                         </td>
                       </tr>
-                    <?php endforeach; ?>
+                    <?php }
+                  endforeach; ?>
                     </tbody>
                   </table>
                 </div>
